@@ -3,8 +3,8 @@ on:
   push:
     paths-ignore:
       - 'docs/**'
-    branches:
-      - main
+#    branches:
+#      - main
 permissions:
   contents: write
 jobs:
