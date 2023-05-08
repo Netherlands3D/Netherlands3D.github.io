@@ -1,0 +1,6 @@
+site_name: My Docs
+remote_branch: main
+docs_dir: docs-src
+site_dir: docs
+theme:
+  name: material
