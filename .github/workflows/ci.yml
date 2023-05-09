@@ -21,9 +21,18 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: mkdocs build --clean
-      # And commit it
-      - run: git add docs
-      - run: git commit -m "Updated docs using build"
-      - run: git push origin main
+      - name: Install mkdocs with plugins
+        run: pip install mkdocs-material
+      # usually you use gh-deploy, but we want this in a subfolder instead of the whole github page
+      # thus we manually build and then deploy that
+      - name: build documentation
+        run: mkdocs build --clean
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - name: commit
+        run: |
+          git add docs
+          git commit -m "Updated docs using build"
+          git push origin main
