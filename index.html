@@ -3,7 +3,11 @@
 <head>
     <meta charSet="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FFFFFF"/>
     <meta property="og:url" content="https://netherlands3d.eu"/>
     <title>Netherlands3D</title>
     <meta name="next-head-count" content="29"/>
@@ -21,9 +25,14 @@
 <div data-reactroot="">
     <nav class="fixed z-50 w-full bg-white top-0 flex flex-wrap items-center justify-between px-2 py-3 shadow-lg">
         <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-            <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"><a
-                    class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-slate-700"
-                    href="/">Netherlands3D</a>
+            <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+                <a
+                    class="text-lg font-bold leading-relaxed inline-block mr-4 whitespace-nowrap text-slate-700 font-title"
+                    href="/"
+                >
+                    <img src="/images/netherlands3d-logo.svg" alt="Logo" class="inline-block h-6 -mt-2 mr-1">
+                    Netherlands3D
+                </a>
                 <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                         type="button"><i class="fas fa-bars"></i></button>
             </div>
@@ -74,7 +83,11 @@
     <section class="header relative pt-16 items-center flex h-screen" style="max-height:480px">
         <div class="container mx-auto items-center flex flex-wrap">
             <div class="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
-                <div class="pt-32 sm:pt-0"><h2 class="font-semibold text-5xl text-slate-600">Netherlands3D</h2>
+                <div class="pt-32 sm:pt-0">
+                    <h2 class="font-semibold text-5xl text-slate-600">
+                        <img src="/images/netherlands3d-logo.svg" alt="Logo" class="inline-block h-12 -mt-3">
+                        Netherlands3D
+                    </h2>
                     <p class="mt-4 text-lg leading-relaxed text-slate-500">
                       Netherlands3D, the open-source Digital Twin framework designed for the Netherlands. Through data visualization, Netherlands3D empowers you to create detailed, data-driven models.
                     </p>
@@ -406,7 +419,10 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap">
                 <div class="w-full md:w-6/12 px-4">
-                    <h4 class="text-3xl font-semibold font-title pb-1">Netherlands3D</h4>
+                    <h4 class="text-3xl font-semibold font-title pb-1">
+                        <img src="/images/netherlands3d-logo.svg" alt="Logo" class="inline-block h-8 -mt-2">
+                        Netherlands3D
+                    </h4>
                     <h5 class="text-lg mt-0 mb-2 text-slate-600">A Digital Twin framework for urban planning in the Netherlands</h5>
                     <p class="text-sm mt-6 text-slate-500 font-semibold">
                         Code
