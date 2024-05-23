@@ -1,0 +1,93 @@
+site_name: ""
+theme:
+  name: material
+  logo: images/logo.png
+  favicon: images/favicon.ico
+  language: nl
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.instant
+    - navigation.expand
+    - navigation.path
+    - navigation.footer
+    - navigation.tracking
+plugins:
+  - search:
+  - blog:
+      blog_dir: articles
+      categories_url_format: "{slug}"
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+nav:
+  - 'index.md'
+#  - 'Eindgebruikers':
+  - 'Voor organisaties':
+    - 'organisations/index.md'
+    - 'organisations/beginnen-in-vijf-minuten.md'
+    - 'organisations/hosting.md'
+    - 'organisations/personalisering.md'
+  - 'Voor ontwikkelaars':
+    - 'developers/basis-in-een-uur.md'
+    - 'Beginnen.md'
+    - 'TileSystemGebruiken.md'
+    - 'DataKlaarzetten.md'
+    - 'DataKoppelen.md'
+    - 'Features':
+        - 'Embedding.md'
+        - 'BAG.md'
+        - 'Camera.md'
+        - 'Layers.md'
+    - 'Packages':
+        - 'developers/packages/creating-and-managing-packages.md'
+    - 'User interface':
+      - 'developers/ui/introduction.md'
+      - 'developers/ui/keeping-our-documentation-current.md'
+      - 'developers/ui/understanding-blocks.md'
+      - 'developers/ui/understanding-components.md'
+      - 'Blocks':
+        - 'developers/ui/blocks/property-panel-and-sections.md'
+      - 'Components':
+        - 'developers/ui/components/accordion.md'
+        - 'developers/ui/components/cards.md'
+        - 'developers/ui/components/sliders.md'
+        - 'developers/ui/components/double-sliders.md'
+        - 'developers/ui/components/text-fields.md'
+    - 'Contributing':
+        - 'developers/contributing/documentation.md'
+#  - 'Artikelen':
+#      - 'articles/index.md'
+#  - 'Over ons':
+#      - 'about-us/index.md'
