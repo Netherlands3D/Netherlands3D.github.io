@@ -13,7 +13,7 @@ You can also use it as a shareable link, making it easy to share the digital twi
 
 _Target Audience_: Webmasters, organisations without their own infrastructure, one-off showcases or demonstrations.
 
-- [Learn how to embed Netherlands3D using an iframe](../Embedding.md)
+- [Learn how to embed Netherlands3D using an iframe](../developers/features/embedding.md)
 - [Get a Shareable Link]()
 
 ## Self-Host Netherlands3D

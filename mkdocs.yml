@@ -60,16 +60,17 @@ nav:
     - 'organisations/hosting.md'
     - 'organisations/personalisering.md'
   - 'Voor ontwikkelaars':
-    - 'developers/basis-in-een-uur.md'
-    - 'Beginnen.md'
-    - 'TileSystemGebruiken.md'
-    - 'DataKlaarzetten.md'
-    - 'DataKoppelen.md'
+#    - 'developers/basis-in-een-uur.md'
+#    - 'Beginnen.md'
+#    - 'TileSystemGebruiken.md'
+#    - 'DataKlaarzetten.md'
+#    - 'DataKoppelen.md'
     - 'Features':
-        - 'Embedding.md'
-        - 'BAG.md'
-        - 'Camera.md'
-        - 'Layers.md'
+        - 'developers/features/embedding.md'
+        - 'developers/features/floating-origin.md'
+#        - 'BAG.md'
+#        - 'Camera.md'
+        - 'developers/features/layers.md'
     - 'Packages':
         - 'developers/packages/creating-and-managing-packages.md'
     - 'User interface':
