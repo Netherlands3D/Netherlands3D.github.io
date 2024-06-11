@@ -71,6 +71,7 @@ nav:
 #        - 'docs/BAG.md'
 #        - 'docs/Camera.md'
         - 'docs/developers/features/layers.md'
+        - 'docs/developers/features/geojson.md'
     - 'Packages':
         - 'docs/developers/packages/creating-and-managing-packages.md'
     - 'User interface':
