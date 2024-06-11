@@ -16,6 +16,7 @@ Netherlands3D offers limited support for importing GeoJSON data. The functionali
 ## Limitations
 
 The GeoJSON support currently has the following limitations:
+
 - A LinkedCRS object is parsed correctly in the GeoJSONLayer, however it is currently not interpreted to provide a valid input for the visualization through the [`eu.netherlands3d.coordinates`](https://openupm.com/packages/eu.netherlands3d.coordinates/) package.
 - All features of the Type Polygon and MultiPolygon are combined to form 1 layer in the application
 - All features of the Type LineString and MultiLinstring are combined to form 1 layer in the application
