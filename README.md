@@ -27,3 +27,12 @@ on every change, mkdocs is watching the docs folder and will rebuild automatical
 
 The location where you can preview the docs is at: http://localhost:8000.
 
+What if I get a 404 after deploying?
+------------------------------------
+
+When using a custom domain in GitHub Pages, there needs to be a file named CNAME in the gh-pages branch. The deploy
+step of mkdocs does a clean release of this branch and if you add this file through GitHub's settings, it may become 
+lost and GitHub forgets the connection between the custom domain and github pages.
+
+For this purpose a CNAME file is present in the `docs` folder, this should automatically be copied by mkdocs. If there
+are issues with a custom domain, check the presence of this file and whether the correct custom domain is present in it.
