@@ -75,7 +75,7 @@ nav:
         - 'docs/developers/features/layers.md'
         - 'docs/developers/features/geojson.md'
     - 'Packages':
-        - 'docs/developers/packages/creating-and-managing-packages.md'
+        - 'docs/developers/packages/index.md'
     - 'User interface':
       - 'docs/developers/ui/introduction.md'
       - 'docs/developers/ui/keeping-our-documentation-current.md'
