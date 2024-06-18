@@ -65,7 +65,9 @@ nav:
 #    - 'docs/TileSystemGebruiken.md'
 #    - 'docs/DataKlaarzetten.md'
 #    - 'docs/DataKoppelen.md'
-    - 'Features':
+    - 'docs/developers/configuration.md'
+    - 'Functionalities':
+        - 'docs/developers/features/index.md'
         - 'docs/developers/features/embedding.md'
         - 'docs/developers/features/floating-origin.md'
 #        - 'docs/BAG.md'

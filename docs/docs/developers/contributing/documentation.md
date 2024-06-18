@@ -8,7 +8,8 @@ our GitHub repository and is automatically built using MkDocs whenever a pull re
 
 First, you'll need to set up your environment for making contributions:
 
-1. **Fork the Repository**: Go to https://github.com/Netherlands3D/docs and fork the repository to your GitHub account.
+1. **Fork the Repository**: Go to https://github.com/Netherlands3D/netherlands3D.github.io/ and fork the repository to 
+   your GitHub account.
 2. **Clone the Fork**: Clone your forked repository to your local machine to make changes.
 3. **Install MkDocs (Optional)**: If you wish to preview your changes locally, you'll need to install MkDocs. Follow the
    installation guide on their website.
