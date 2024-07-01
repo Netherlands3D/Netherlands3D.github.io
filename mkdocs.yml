@@ -65,6 +65,7 @@ nav:
 #    - 'docs/TileSystemGebruiken.md'
 #    - 'docs/DataKlaarzetten.md'
 #    - 'docs/DataKoppelen.md'
+    - 'docs/developers/quickstart.md'
     - 'docs/developers/configuration.md'
     - 'Functionalities':
         - 'docs/developers/features/index.md'
