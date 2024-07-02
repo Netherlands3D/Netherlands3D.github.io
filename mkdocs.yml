@@ -60,19 +60,13 @@ nav:
 #    - 'docs/organisations/hosting.md'
 #    - 'docs/organisations/personalisering.md'
   - 'Voor ontwikkelaars':
-#    - 'docs/developers/basis-in-een-uur.md'
-#    - 'docs/Beginnen.md'
-#    - 'docs/TileSystemGebruiken.md'
-#    - 'docs/DataKlaarzetten.md'
-#    - 'docs/DataKoppelen.md'
     - 'docs/developers/quickstart.md'
+#    - 'docs/developers/architecture.md'
     - 'docs/developers/configuration.md'
     - 'Functionalities':
         - 'docs/developers/features/index.md'
         - 'docs/developers/features/embedding.md'
         - 'docs/developers/features/floating-origin.md'
-#        - 'docs/BAG.md'
-#        - 'docs/Camera.md'
         - 'docs/developers/features/layers.md'
         - 'docs/developers/features/geojson.md'
     - 'Packages':
@@ -96,3 +90,12 @@ nav:
 #      - 'articles/index.md'
 #  - 'Over ons':
 #      - 'about-us/index.md'
+##### Not in nav contains includes -that should begin with an underscore- or draft files that
+##### should render, but not be shown for the moment.
+not_in_nav: |
+  _*.md
+  about-us/index.md
+  docs/developers/architecture.md
+  docs/organisations/getting-started.md
+  docs/organisations/hosting.md
+  docs/organisations/personalisering.md
