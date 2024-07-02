@@ -1,4 +1,59 @@
-site_name: ""
+nav:
+  - 'index.md'
+  #  - 'Eindgebruikers':
+  - 'Voor organisaties':
+      - 'docs/organisations/index.md'
+      - 'docs/organisations/getting-started.md'
+      - 'docs/organisations/hosting.md'
+      - 'docs/organisations/personalisering.md'
+  - 'Voor ontwikkelaars':
+      - 'docs/developers/quickstart.md'
+      - 'docs/developers/architecture.md'
+      - 'docs/developers/configuration.md'
+      - 'Functionalities':
+          - 'docs/developers/features/index.md'
+          - 'docs/developers/features/embedding.md'
+          - 'docs/developers/features/floating-origin.md'
+          - 'docs/developers/features/layers.md'
+          - 'docs/developers/features/geojson.md'
+      - 'Packages':
+          - 'docs/developers/packages/index.md'
+      - 'User interface':
+          - 'docs/developers/ui/introduction.md'
+          - 'docs/developers/ui/keeping-our-documentation-current.md'
+          - 'docs/developers/ui/understanding-blocks.md'
+          - 'docs/developers/ui/understanding-components.md'
+          - 'Blocks':
+              - 'docs/developers/ui/blocks/property-panel-and-sections.md'
+          - 'Components':
+              - 'docs/developers/ui/components/accordion.md'
+              - 'docs/developers/ui/components/cards.md'
+              - 'docs/developers/ui/components/sliders.md'
+              - 'docs/developers/ui/components/double-sliders.md'
+              - 'docs/developers/ui/components/text-fields.md'
+      - 'Contributing':
+          - 'docs/developers/contributing/documentation.md'
+#  - 'Artikelen':
+#      - 'articles/index.md'
+#  - 'Over ons':
+#      - 'about-us/index.md'
+
+# Draft articles that should be visible when locally building and to have a nav entry, but unavailable in the
+# build
+# https://www.mkdocs.org/user-guide/configuration/#draft_docs
+draft_docs: |
+  about-us/index.md
+  docs/developers/architecture.md
+  docs/developers/ui/locating-components-in-unity.md
+  docs/organisations/getting-started.md
+  docs/organisations/hosting.md
+  docs/organisations/personalisering.md
+
+# Includes, starting with an underscore - https://www.mkdocs.org/user-guide/configuration/#not_in_nav
+not_in_nav: |
+  _*.md
+
+site_name: "" # Empty on purpose for style purposes
 theme:
   name: material
   logo: images/logo.png
@@ -27,13 +82,16 @@ theme:
     - navigation.path
     - navigation.footer
     - navigation.tracking
+
+extra_css:
+  - stylesheets/extra.css
+
 plugins:
   - search:
   - blog:
       blog_dir: articles
       categories_url_format: "{slug}"
-extra_css:
-  - stylesheets/extra.css
+
 markdown_extensions:
   - admonition
   - attr_list
@@ -51,51 +109,3 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-nav:
-  - 'index.md'
-#  - 'Eindgebruikers':
-  - 'Voor organisaties':
-    - 'docs/organisations/index.md'
-#    - 'docs/organisations/beginnen-in-vijf-minuten.md'
-#    - 'docs/organisations/hosting.md'
-#    - 'docs/organisations/personalisering.md'
-  - 'Voor ontwikkelaars':
-    - 'docs/developers/quickstart.md'
-#    - 'docs/developers/architecture.md'
-    - 'docs/developers/configuration.md'
-    - 'Functionalities':
-        - 'docs/developers/features/index.md'
-        - 'docs/developers/features/embedding.md'
-        - 'docs/developers/features/floating-origin.md'
-        - 'docs/developers/features/layers.md'
-        - 'docs/developers/features/geojson.md'
-    - 'Packages':
-        - 'docs/developers/packages/index.md'
-    - 'User interface':
-      - 'docs/developers/ui/introduction.md'
-      - 'docs/developers/ui/keeping-our-documentation-current.md'
-      - 'docs/developers/ui/understanding-blocks.md'
-      - 'docs/developers/ui/understanding-components.md'
-      - 'Blocks':
-        - 'docs/developers/ui/blocks/property-panel-and-sections.md'
-      - 'Components':
-        - 'docs/developers/ui/components/accordion.md'
-        - 'docs/developers/ui/components/cards.md'
-        - 'docs/developers/ui/components/sliders.md'
-        - 'docs/developers/ui/components/double-sliders.md'
-        - 'docs/developers/ui/components/text-fields.md'
-    - 'Contributing':
-        - 'docs/developers/contributing/documentation.md'
-#  - 'Artikelen':
-#      - 'articles/index.md'
-#  - 'Over ons':
-#      - 'about-us/index.md'
-##### Not in nav contains includes -that should begin with an underscore- or draft files that
-##### should render, but not be shown for the moment.
-not_in_nav: |
-  _*.md
-  about-us/index.md
-  docs/developers/architecture.md
-  docs/organisations/getting-started.md
-  docs/organisations/hosting.md
-  docs/organisations/personalisering.md
