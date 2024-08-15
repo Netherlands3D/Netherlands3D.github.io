@@ -52,6 +52,7 @@ draft_docs: |
 # Includes, starting with an underscore - https://www.mkdocs.org/user-guide/configuration/#not_in_nav
 not_in_nav: |
   _*.md
+  docs/developers/core-concepts.md
 
 site_name: "" # Empty on purpose for style purposes
 theme:
