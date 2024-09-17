@@ -32,6 +32,7 @@ nav:
               - 'docs/developers/ui/components/double-sliders.md'
               - 'docs/developers/ui/components/text-fields.md'
       - 'Contributing':
+          - 'docs/developers/contributing/coding-standards.md'
           - 'docs/developers/contributing/documentation.md'
 #  - 'Artikelen':
 #      - 'articles/index.md'
