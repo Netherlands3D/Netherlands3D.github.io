@@ -18,8 +18,8 @@ include:
 We also emphasize clarity and meaningful names over brevity, ensuring that variable and function names communicate their
 intent effectively.
 
-It is important to read the full guide at https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity for a 
-more complete picture of the coding guidelines followed in this project.
+It is important to read the full guide at [https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity) 
+for a more complete picture of the coding guidelines followed in this project.
 
 ## 2. Bracing Style
 
