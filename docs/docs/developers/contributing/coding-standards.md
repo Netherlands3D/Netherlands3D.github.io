@@ -6,8 +6,9 @@ C# scripting practices and incorporate additional guidelines specific to our pro
 
 ## 1. Naming and Code Style
 
-We follow the naming and code style tips provided by Unity to ensure consistency and familiarity for all developers
-working in our Unity project. Key aspects of this style include:
+We follow the [naming and code style tips provided by Unity](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity) 
+to ensure consistency and familiarity for all developers working in our Unity project. Key aspects of this style 
+include:
 
 - PascalCasing for public properties, class names, and methods.
 - camelCasing for private fields and local variables.
@@ -16,6 +17,9 @@ working in our Unity project. Key aspects of this style include:
 
 We also emphasize clarity and meaningful names over brevity, ensuring that variable and function names communicate their
 intent effectively.
+
+It is important to read the full guide at https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity for a 
+more complete picture of the coding guidelines followed in this project.
 
 ## 2. Bracing Style
 
