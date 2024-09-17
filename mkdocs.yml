@@ -55,6 +55,7 @@ not_in_nav: |
   _*.md
   docs/developers/core-concepts.md
   docs/developers/projects.md
+  docs/developers/features/layers-with-authentication.md
 
 site_name: "" # Empty on purpose for style purposes
 theme:

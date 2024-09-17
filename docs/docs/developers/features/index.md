@@ -29,6 +29,7 @@ satisfy specific demands.
 ### Key Components
 
 #### ScriptableObjects
+
 The ScriptableObjects for the functionalities can be located in the `Scriptables/Functionalities` folder. Each
 ScriptableObject represents a distinct functionality in the application, and can be configured to define its behavior
 and properties within the application.
