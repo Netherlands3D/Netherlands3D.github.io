@@ -7,6 +7,7 @@ nav:
 #      - 'docs/organisations/hosting.md'
 #      - 'docs/organisations/personalisering.md'
   - 'Voor ontwikkelaars':
+      - 'docs/developers/index.md'
       - 'docs/developers/quickstart.md'
       - 'docs/developers/core-concepts.md'
       - 'docs/developers/configuration.md'
