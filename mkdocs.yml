@@ -8,17 +8,19 @@ nav:
 #      - 'docs/organisations/personalisering.md'
   - 'Voor ontwikkelaars':
       - 'docs/developers/quickstart.md'
-#      - 'docs/developers/architecture.md'
+      - 'docs/developers/core-concepts.md'
       - 'docs/developers/configuration.md'
-      - 'Functionalities':
-          - 'docs/developers/features/index.md'
+      - 'Structure':
+          - 'docs/developers/projects.md'
+          - 'docs/developers/functionalities.md'
+          - 'docs/developers/layers.md'
+          - 'docs/developers/layers-with-authentication.md'
+      - 'Features':
           - 'docs/developers/features/embedding.md'
           - 'docs/developers/features/floating-origin.md'
-          - 'docs/developers/features/layers.md'
-          - 'docs/developers/features/layers-with-authentication.md'
           - 'docs/developers/features/geojson.md'
       - 'Packages':
-          - 'docs/developers/packages/index.md'
+          - 'docs/developers/packages/creating-and-managing.md'
       - 'User interface':
           - 'docs/developers/ui/introduction.md'
           - 'docs/developers/ui/keeping-our-documentation-current.md'
@@ -45,7 +47,6 @@ nav:
 # https://www.mkdocs.org/user-guide/configuration/#draft_docs
 draft_docs: |
   about-us/index.md
-  docs/developers/architecture.md
   docs/developers/ui/locating-components-in-unity.md
   docs/organisations/getting-started.md
   docs/organisations/hosting.md
@@ -54,8 +55,6 @@ draft_docs: |
 # Includes, starting with an underscore - https://www.mkdocs.org/user-guide/configuration/#not_in_nav
 not_in_nav: |
   _*.md
-  docs/developers/core-concepts.md
-  docs/developers/projects.md
 
 site_name: "" # Empty on purpose for style purposes
 theme:

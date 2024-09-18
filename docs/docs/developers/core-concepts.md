@@ -82,7 +82,7 @@ infrastructure.
 
 ### Features in Rasterlayers: The Hybrid Approach
 
-Traditionally, Rasterlayers—such as overlay images or heatmaps—do not contain discrete features. They represent
+Traditionally, Rasterlayers —such as overlay images or heatmaps— do not contain discrete features. They represent
 continuous data spread across a grid, where each cell or pixel has a value but is not individually distinguished as a
 feature. However, with advances in 3D mapping technology, a new hybrid approach has emerged.
 

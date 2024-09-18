@@ -72,7 +72,7 @@ needs to be made- and follows the following sequence of steps:
 3. Check and adjust, at least, the URL's for the LICENSE, README and CHANGELOG in the `package.json`.
 
 4. Release and publish the promoted package, see the chapters on [releasing](#releasing-a-package) and 
-   [publishing](#publishing-a-package) for the involved steps.
+   [publishing](#publishing-a-package-on-openupm) for the involved steps.
 
 5. In the Twin project, add a reference to `{PACKAGE_NAME}` to the package.json or install the package through
    the package manager.

@@ -11,7 +11,7 @@ your project.
 ## Configuring Functionalities
 
 Furthermore, each functionality can be individually configured according to specific project requirements. Read more
-about this in detail in the chapter about [configuration](../configuration.md).
+about this in detail in the chapter about [configuration](configuration.md).
 
 Through additional configuration settings, you have the flexibility to adjust the functionality's behavior and
 characteristics to match your project's needs. You'll have access to a broad range of settings allowing you to refine

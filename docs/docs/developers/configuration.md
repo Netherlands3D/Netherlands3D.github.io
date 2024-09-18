@@ -1,4 +1,4 @@
-The Netherlands3D platform has a modular configuration system in which [functionalities](features/index.md) in the 
+The Netherlands3D platform has a modular configuration system in which [functionalities](functionalities.md) in the 
 application can register their own per-deployment defaults and settings. This can be used to -for example- pre-package 
 API Keys and server URLs when deploying the application.
 
@@ -86,7 +86,7 @@ Functionalities always follow this format:
 ```
 
 In the snippet above, `[CODE]` can be substituted with the functionality code string as defined in the application -more
-on how to find this in the documentation on [functionalities](features/index.md). 
+on how to find this in the documentation on [functionalities](functionalities.md). 
 
 `enabled` represents a boolean whether the functionality is enabled in the application or not and the `configuration`
 json object represents the means to provide additional configuration for that functionality. If there is no additional

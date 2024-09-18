@@ -59,6 +59,11 @@ residual configurations from previous projects.
 
 ## How Layers Work
 
+!!! tip inline end "Self-registering layers"
+    
+    A variant of the described flow exists where by adding the visualisation of a layer it self-registers the layer's
+    data onto the current project. This flow will be described in a separate chapter for clarity.
+
 ![how layers work](../imgs/how-layers-work-in-a-project.png)
 
 The diagram provided illustrates the lifecycle of layers within a project, detailing how they are acquired,
