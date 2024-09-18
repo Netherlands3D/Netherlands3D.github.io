@@ -111,20 +111,5 @@ This structured approach to handling layers ensures that all data is properly ma
 the project framework, offering a powerful tool for spatial analysis and geographic data management in the Netherlands3D
 platform.
 
-## Frequently Asked Questions (FAQ)
-
-### Why don't I see the changes to the empty project?
-
-The asset for the empty project[^1] is added to the `.gitignore` file to prevent unintentional changes while working on 
-the project. This asset is a ScriptableObject in Unity, which is particularly susceptible to unintentional modifications
-during in-editor work. ScriptableObjects often contain configuration data that should remain stable across different
-environments and users. To avoid accidental changes being committed to the repository, the empty project file is
-ignored by Git.
-
-However, if you need to make deliberate changes to the empty project file, you can explicitly add the modified file to
-your Git repository using the --force argument with the `git add` command. This ensures that only intentional changes 
-are tracked and pushed to the repository, preserving the integrity of the default project across different deployments 
-and environments.
-
 [^1]: https://github.com/Netherlands3D/twin/blob/main/Assets/Scriptables/CurrentProject.asset
 [^2]: https://github.com/Netherlands3D/twin/tree/main/Assets/Scriptables
