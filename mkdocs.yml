@@ -15,6 +15,7 @@ nav:
           - 'docs/developers/features/embedding.md'
           - 'docs/developers/features/floating-origin.md'
           - 'docs/developers/features/layers.md'
+          - 'docs/developers/features/layers-with-authentication.md'
           - 'docs/developers/features/geojson.md'
       - 'Packages':
           - 'docs/developers/packages/index.md'
@@ -55,7 +56,6 @@ not_in_nav: |
   _*.md
   docs/developers/core-concepts.md
   docs/developers/projects.md
-  docs/developers/features/layers-with-authentication.md
 
 site_name: "" # Empty on purpose for style purposes
 theme:

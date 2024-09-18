@@ -76,7 +76,17 @@ file. This is because authentication status is a **temporary state** that should
 a project is loaded, the authentication process must be reinitiated for protected layers, ensuring that credentials are
 entered securely and as needed.
 
-## 7. Warnings and User Flow
+## 7. Need to re-authenticate reopening the application
+
+A key implication of this design is that users will need to re-authenticate any protected layers every time they reopen
+the application or load a saved project file. Since credentials are never stored in the project file for security
+reasons, the system requires users to provide valid credentials again when the project is reloaded.
+
+This approach ensures that sensitive credentials are handled securely, but it also means that re-authentication is
+necessary whenever a protected layer is accessed in a new session. Users should be aware that any protected layers will
+initially be in a non-visible state until the required credentials are provided.
+
+## 8. Warnings and User Flow
 
 The current user flow for managing layer authentication includes:
 
