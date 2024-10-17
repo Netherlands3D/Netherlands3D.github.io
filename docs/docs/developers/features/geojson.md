@@ -1,7 +1,7 @@
-GeoJSON Support
-===============
+GeoJSON
+=======
 
-Netherlands3D offers limited support for importing GeoJSON data. The functionality is still being expanded.
+Netherlands3D offers support for importing GeoJSON data.
 
 ## Features
 
@@ -18,6 +18,9 @@ Netherlands3D offers limited support for importing GeoJSON data. The functionali
   CRS object of type `Linked CRS` is currently not supported
 - A material can be assigned to the GeoJSONLayer that determines the appearance of the visualization.
 - An event is invoked when parsing fails, to allow for display of error messages on screen.
+- GeoJSON files can be uploaded and embedded in the NL3D Project as assets
+- URLs pointing to GeoJSON files -such as https://raw.githubusercontent.com/blackmad/neighborhoods/refs/heads/master/utrecht.geojson-
+  will be added as a remote url so that they are reloaded every time a project opens
 
 ## Limitations
 
