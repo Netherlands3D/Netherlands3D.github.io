@@ -35,6 +35,9 @@ nav:
               - 'docs/developers/ui/components/sliders.md'
               - 'docs/developers/ui/components/double-sliders.md'
               - 'docs/developers/ui/components/text-fields.md'
+      - 'Architectural Decisions':
+          - 'docs/developers/decisions/index.md'
+          - 'docs/developers/decisions/20241009-styling-of-layers.md'
       - 'Contributing':
           - 'docs/developers/contributing/coding-standards.md'
           - 'docs/developers/contributing/documentation.md'
