@@ -44,7 +44,8 @@ is.
 
 ## Codeorganisatie
 
-De implementatie van het systeem wordt ondergebracht in een aparte **OpenUPM-package**. De code voor de verschillende 
+De implementatie van het systeem wordt initieel ondergebracht als *Building Block* in de *Twin* applicatie en zodra de 
+structuur uitontwikkeld is, verhuist naar een aparte **OpenUPM-package**. De code voor de verschillende 
 **Symbolizer-extensies** wordt georganiseerd in mappen, waarbij iedere extensie een **Requirement Class** uit de
 OGC-specificatie volgt. Dit maakt het beheer van verschillende extensies overzichtelijk en zorgt voor een heldere
 scheiding tussen kernfunctionaliteit en uitbreidingen.
