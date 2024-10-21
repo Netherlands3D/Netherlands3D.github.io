@@ -21,6 +21,64 @@ intent effectively.
 It is important to read the full guide at [https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity](https://unity.com/how-to/naming-and-code-style-tips-c-scripting-unity) 
 for a more complete picture of the coding guidelines followed in this project.
 
+### General Principles
+
+* Call a thing what it is. A bird should be called Bird.
+* Choose names that can be pronounced and remembered.
+* Be consistent. When you choose a name, stick to it.
+* Use Pascal case, like this: ComplicatedVerySpecificObject. Do not use spaces, underscores, or hyphens.
+* Do not use version numbers, or words to indicate their progress (WIP, final).
+* Do not use abbreviations: DVamp@W should be DarkVampire@Walk.
+* Keep the most specific descriptor on the left: PauseButton, not ButtonPaused. It is, for instance, easier to find 
+  the pause button in the inspector if not all buttons start with the word Button.
+* Some names form a sequence. Use numbers in these names, for example, PathNode0, PathNode1. Always start with 0, not 1.
+* Do not use numbers for things that don’t form a sequence. For example, Bird0, Bird1, Bird2 should be Flamingo, Eagle, Swallow.
+
+## Structure
+
+The organisation of your project folder should follow a similar pattern.
+
+!!! warning
+
+    We are in the process of moving project files to the structure below, until that process is complete you can expect
+    to find asset folders directly in the root of the Assets folder.
+
+    For new components it is recommended to follow this structure.
+
+We differentiate between architectural folders and asset folders. Architectural folders are meant to organize the 
+project in such a way that we have a modular -or composable- architecture with independent layers; asset folders can be 
+found inside each architectural folder and is similar to the regular folder structure that is normal with Unity.
+
+### Architectural folders
+
+In the `Assets` folder there are four special folders:
+
+1. _Application - assets needed for the application itself, such as
+    - Rendering pipelines, 
+    - Inputsystem, 
+    - Overall ui, 
+    - Bootstrapping
+    - etc.
+2. _BuildingBlocks - contains a series of folders for each building block that can be consumed by a functionality
+3. _Functionalities
+4. _UIKit
+
+### Unity Folder Structure
+
+- Animations
+- Editor
+- Fonts
+- Materials
+- Models
+- Resources
+- Prefabs
+- Scenes
+- ScriptableObjects
+- Scripts
+- Shaders
+- Sprites
+- Textures
+
 ## 2. Bracing Style
 
 We use the **Allman** style for braces, which is standard in most C# coding conventions. This style places opening 
