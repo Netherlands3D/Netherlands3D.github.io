@@ -9,10 +9,16 @@ nav:
   - 'Voor ontwikkelaars':
       - 'docs/developers/introduction.md'
       - 'docs/developers/quickstart.md'
+      - 'Platform Architecture':
+        - 'Platform Overview': 'docs/developers/platform-architecture.md'
+        - 'docs/developers/functionalities.md'
+#      - 'Getting Started':
+#        - 'docs/developers/getting-started/using-the-twin.md'
+#        - 'docs/developers/getting-started/from-scratch.md'
+#        - 'docs/developers/getting-started/your-own-functionality.md'
       - 'Core Concepts':
           - 'Overview': 'docs/developers/core-concepts.md'
           - 'docs/developers/projects.md'
-          - 'docs/developers/functionalities.md'
           - 'docs/developers/layers.md'
           - 'docs/developers/layers-with-authentication.md'
       - 'Features':
