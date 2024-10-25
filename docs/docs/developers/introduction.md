@@ -1,7 +1,3 @@
----
-title: Introduction
----
-
 Welcome to the technical documentation for Netherlands3D, an advanced Digital Twin platform designed to visualize and
 analyze geospatial data in a 3D environment. This documentation is intended for developers who want to understand how
 the platform works, explore its architecture, and contribute new modules or functionalities.

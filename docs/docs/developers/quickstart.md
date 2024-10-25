@@ -40,12 +40,6 @@ To copy a scene in Unity:
 * Select the 'Main' scene in the Project window.
 * Press Ctrl+D or right-click and select 'Duplicate' from the context menu.
 
-### Inspect the Configuration and ConfigurationStarter Scriptable Objects
-
-Check the 'Configuration' and 'ConfigurationStarter' scriptable objects for initial settings of the project. This
-includes the starting position of your digital twin. These configurable parameters allow you to customize initial
-settings as per your requirements.
-
 ## Next Steps
 
 With just these steps, you can immediately build and release your own customized Digital Twin; next up you can read up 

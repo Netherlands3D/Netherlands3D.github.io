@@ -7,10 +7,10 @@ nav:
 #      - 'docs/organisations/hosting.md'
 #      - 'docs/organisations/personalisering.md'
   - 'Voor ontwikkelaars':
-      - 'docs/developers/index.md'
+      - 'docs/developers/introduction.md'
       - 'docs/developers/quickstart.md'
-      - 'docs/developers/core-concepts.md'
-      - 'Structure':
+      - 'Core Concepts':
+          - 'Overview': 'docs/developers/core-concepts.md'
           - 'docs/developers/projects.md'
           - 'docs/developers/functionalities.md'
           - 'docs/developers/layers.md'
