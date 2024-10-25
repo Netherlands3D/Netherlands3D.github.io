@@ -10,7 +10,6 @@ nav:
       - 'docs/developers/index.md'
       - 'docs/developers/quickstart.md'
       - 'docs/developers/core-concepts.md'
-      - 'docs/developers/configuration.md'
       - 'Structure':
           - 'docs/developers/projects.md'
           - 'docs/developers/functionalities.md'

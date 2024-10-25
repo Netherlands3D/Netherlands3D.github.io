@@ -8,18 +8,6 @@ the needs of a particular project.
 This ability to toggle functionalities on and off ensures that you have control over the features you want to deploy in
 your project.
 
-## Configuring Functionalities
-
-Furthermore, each functionality can be individually configured according to specific project requirements. Read more
-about this in detail in the chapter about [configuration](configuration.md).
-
-Through additional configuration settings, you have the flexibility to adjust the functionality's behavior and
-characteristics to match your project's needs. You'll have access to a broad range of settings allowing you to refine
-each element of your project in detail.
-
-To give some context to the above: examples of additional configuration options are API keys, URLs of services,
-default values for new projects and more.
-
 ## How does it work
 
 In Unity's context for the Netherlands3D platform, each functionality is encapsulated in a ScriptableObject. Exploring
