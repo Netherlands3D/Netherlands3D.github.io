@@ -8,7 +8,6 @@ nav:
 #      - 'docs/organisations/personalisering.md'
   - 'Voor ontwikkelaars':
       - 'docs/developers/introduction.md'
-      - 'docs/developers/quickstart.md'
       - 'Platform Architecture':
         - 'Platform Overview': 'docs/developers/platform-architecture.md'
         - 'docs/developers/functionalities.md'
@@ -16,33 +15,39 @@ nav:
 #        - 'docs/developers/getting-started/using-the-twin.md'
 #        - 'docs/developers/getting-started/from-scratch.md'
 #        - 'docs/developers/getting-started/your-own-functionality.md'
-      - 'Core Concepts':
-          - 'Overview': 'docs/developers/core-concepts.md'
-          - 'docs/developers/projects.md'
-          - 'docs/developers/layers.md'
-          - 'docs/developers/layers-with-authentication.md'
-      - 'Features':
-          - 'docs/developers/features/embedding.md'
-          - 'docs/developers/features/floating-origin.md'
-          - 'docs/developers/features/geojson.md'
-      - 'Packages':
-          - 'docs/developers/packages/creating-and-managing.md'
-      - 'User interface':
-          - 'docs/developers/ui/introduction.md'
-          - 'docs/developers/ui/keeping-our-documentation-current.md'
-          - 'docs/developers/ui/understanding-blocks.md'
-          - 'docs/developers/ui/understanding-components.md'
-          - 'Blocks':
-              - 'docs/developers/ui/blocks/property-panel-and-sections.md'
-          - 'Components':
-              - 'docs/developers/ui/components/accordion.md'
-              - 'docs/developers/ui/components/cards.md'
-              - 'docs/developers/ui/components/sliders.md'
-              - 'docs/developers/ui/components/double-sliders.md'
-              - 'docs/developers/ui/components/text-fields.md'
-      - 'Architectural Decisions':
-          - 'docs/developers/decisions/index.md'
-          - 'docs/developers/decisions/20241009-styling-of-layers.md'
+      - 'Guides':
+          - 'docs/developers/quickstart.md'
+          - 'docs/developers/adding-a-simple-type-of-layer.md'
+      - 'Explanation':
+        - 'Core Concepts':
+            - 'Overview': 'docs/developers/core-concepts.md'
+            - 'docs/developers/projects.md'
+            - 'docs/developers/layers.md'
+            - 'docs/developers/layers-with-authentication.md'
+        - 'Features':
+            - 'docs/developers/features/embedding.md'
+            - 'docs/developers/features/floating-origin.md'
+            - 'docs/developers/features/geojson.md'
+        - 'Packages':
+            - 'docs/developers/packages/creating-and-managing.md'
+        - 'User interface':
+            - 'docs/developers/ui/introduction.md'
+            - 'docs/developers/ui/keeping-our-documentation-current.md'
+            - 'docs/developers/ui/understanding-blocks.md'
+            - 'docs/developers/ui/understanding-components.md'
+      - 'Reference':
+        - 'Architectural Decisions':
+            - 'docs/developers/decisions/index.md'
+            - 'docs/developers/decisions/20241009-styling-of-layers.md'
+        - 'User interface':
+            - 'Blocks':
+                - 'docs/developers/ui/blocks/property-panel-and-sections.md'
+            - 'Components':
+                - 'docs/developers/ui/components/accordion.md'
+                - 'docs/developers/ui/components/cards.md'
+                - 'docs/developers/ui/components/sliders.md'
+                - 'docs/developers/ui/components/double-sliders.md'
+                - 'docs/developers/ui/components/text-fields.md'
       - 'Contributing':
           - 'docs/developers/contributing/coding-standards.md'
           - 'docs/developers/contributing/documentation.md'
@@ -90,7 +95,6 @@ theme:
     - navigation.sections
     - navigation.tabs
     - navigation.instant
-    - navigation.expand
     - navigation.path
     - navigation.footer
     - navigation.tracking
