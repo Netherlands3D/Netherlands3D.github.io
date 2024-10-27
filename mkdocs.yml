@@ -18,6 +18,7 @@ nav:
       - 'Guides':
           - 'docs/developers/quickstart.md'
           - 'docs/developers/adding-a-simple-type-of-layer.md'
+          - 'docs/developers/adding-behaviour-to-a-layer-with-data.md'
       - 'Explanation':
         - 'Core Concepts':
             - 'Overview': 'docs/developers/core-concepts.md'
