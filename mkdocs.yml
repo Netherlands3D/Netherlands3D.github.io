@@ -19,6 +19,7 @@ nav:
           - 'docs/developers/quickstart.md'
           - 'docs/developers/adding-a-simple-type-of-layer.md'
           - 'docs/developers/adding-behaviour-to-a-layer-with-data.md'
+          - 'docs/developers/guides/dealing-with-cors-issues.md'
       - 'Explanation':
         - 'Core Concepts':
             - 'Overview': 'docs/developers/core-concepts.md'
@@ -99,6 +100,7 @@ theme:
     - navigation.path
     - navigation.footer
     - navigation.tracking
+    - content.tabs.link
 
 extra_css:
   - stylesheets/extra.css
@@ -126,3 +128,5 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true

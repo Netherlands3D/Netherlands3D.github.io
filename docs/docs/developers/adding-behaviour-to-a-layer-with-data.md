@@ -16,6 +16,7 @@ within the layer’s data but without displaying them in the properties panel UI
     for users to change the colour randomly by clicking on a cube, and where that colour is persisted between sessions.
     It is expected that for your own use-case you can adapt these examples to suit your situation.
 
+---
 
 ### Step 1: Create a Controller Script with `ILayerWithPropertyData`
 
@@ -51,6 +52,8 @@ public class TwoCubesColorChangingBehaviour : MonoBehaviour, ILayerWithPropertyD
 
 In subsequent code samples some parts will be omitted for brevity -such as the import statements-.
 
+---
+
 ### Step 2: Define a Property Data Class
 
 Next, create a dedicated class to represent the data fields you want to persist. This class should extend the
@@ -74,6 +77,8 @@ public class TwoCubesColorPropertyData : LayerPropertyData
 }
 
 ```
+
+---
 
 ###  Step 3: Add Fields to the Property Data Class
 
@@ -124,6 +129,8 @@ public class TwoCubesColorPropertyData : LayerPropertyData
 }
 
 ```
+
+---
 
 ### Step 4: Wiring the Controller Script to the Property Data
 
@@ -192,6 +199,8 @@ public class TwoCubesColorChangingBehaviour : MonoBehaviour, ILayerWithPropertyD
     }
 }
 ```
+
+---
 
 ### Step 5: Add the New Behavior to the Layer Prefab
 
