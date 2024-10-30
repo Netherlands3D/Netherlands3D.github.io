@@ -6,6 +6,8 @@ nav:
 #      - 'docs/organisations/getting-started.md'
 #      - 'docs/organisations/hosting.md'
 #      - 'docs/organisations/personalisering.md'
+      - 'Ondersteuning':
+          - 'docs/organisations/cors.md'
   - 'Voor ontwikkelaars':
       - 'docs/developers/introduction.md'
       - 'Platform Architecture':
