@@ -1,5 +1,5 @@
 nav:
-  - 'index.md'
+#  - 'index.md'
   #  - 'Eindgebruikers':
   - 'Voor organisaties':
       - 'docs/organisations/index.md'
@@ -72,6 +72,7 @@ draft_docs: |
 
 # Includes, starting with an underscore - https://www.mkdocs.org/user-guide/configuration/#not_in_nav
 not_in_nav: |
+  index.md
   _*.md
 
 site_name: "" # Empty on purpose for style purposes

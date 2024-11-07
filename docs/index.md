@@ -1,5 +1,5 @@
 ---
-title: "Start"
+title: ""
 hide:
   - navigation
   - toc
@@ -18,7 +18,7 @@ Netherlands3D, het open-source Digital Twin-framework ontworpen voor Nederland.
 Door middel van datavisualisatie stelt Netherlands3D u in staat om gedetailleerde, op data gebaseerde modellen weer te 
 geven.
 
-[Start](https://netherlands3d.eu/twin/){ .md-button .md-button--primary }
+[Bekijk de viewer](https://netherlands3d.eu/twin/){ .md-button .md-button--primary }
 [Wat is het?](#wat-is-netherlands3d){ .md-button }
 </div>
 
