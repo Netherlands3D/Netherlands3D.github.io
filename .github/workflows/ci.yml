@@ -1,8 +1,6 @@
 name: ci
 on:
   push:
-    branches:
-      - main
 permissions:
   contents: write
 jobs:
@@ -21,5 +19,19 @@ jobs:
             mkdocs-material-
       - name: Install mkdocs with plugins
         run: pip install mkdocs-material
+      # Only on feature branches
       - name: build documentation
+        if: ${{ github.ref != 'refs/heads/main' }}
+        run: mkdocs build --clean
+      - name: Store build artefact
+        if: ${{ github.ref != 'refs/heads/main' }}
+        uses: actions/upload-artifact@v4
+        with:
+          retention-days: 3
+          name: site
+          path: |
+            site
+      # Only on main
+      - name: deploy documentation
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: mkdocs gh-deploy --clean --force
