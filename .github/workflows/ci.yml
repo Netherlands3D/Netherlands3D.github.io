@@ -22,7 +22,7 @@ jobs:
       # Only on feature branches
       - name: build documentation
         if: ${{ github.ref != 'refs/heads/main' }}
-        run: mkdocs build --clean --force
+        run: mkdocs build --clean
       - name: Store build artefact
         if: ${{ github.ref != 'refs/heads/main' }}
         uses: actions/upload-artifact@v4
