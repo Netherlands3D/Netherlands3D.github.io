@@ -74,7 +74,6 @@ draft_docs: |
 not_in_nav: |
   index.md
   _*.md
-  docs/organisations/personalisering.md
 
 site_name: "" # Empty on purpose for style purposes
 theme:
