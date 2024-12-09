@@ -5,7 +5,7 @@
 ### Visualiseren van data
 
 <div markdown>
-Zoek je een mogelijkheid om data aantrekkelijk en in samenhang in 
+_Zoek je een mogelijkheid om data aantrekkelijk en in samenhang in 
 beeld te brengen in een 3D omgeving? Dat kan in Netherlands 3D!_
 
 Netherlands3D maakt het mogelijk datasets vanaf verschillende bronnen
