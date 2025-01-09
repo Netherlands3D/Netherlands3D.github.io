@@ -21,6 +21,7 @@ nav:
           - 'docs/developers/quickstart.md'
           - 'docs/developers/adding-a-simple-type-of-layer.md'
           - 'docs/developers/adding-behaviour-to-a-layer-with-data.md'
+          - 'docs/developers/guides/loading-a-custom-project-file.md'
           - 'docs/developers/guides/dealing-with-cors-issues.md'
       - 'Explanation':
         - 'Core Concepts':
