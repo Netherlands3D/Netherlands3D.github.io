@@ -1,4 +1,4 @@
-# Loading a Custom Project File
+# Loading your own customized default Project
 
 In the Netherlands3D application, a default file named **`ProjectTemplate.nl3d`** is used. This file is located in the 
 **`StreamingAssets`** folder and is loaded at application startup. It defines the default settings, such as the 
