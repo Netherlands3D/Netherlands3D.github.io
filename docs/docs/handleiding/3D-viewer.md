@@ -43,7 +43,7 @@ Met deze functie kun je de **locatie invoeren**. Dit kan op drie manieren;
 
 ### **Functionaliteiten (submenu)**
 
-![Building Blocks](../handleiding/functionaliteiten.png)
+![Building Blocks](../handleiding/imgs/functionaliteiten.png)
 _(Afbeelding) Functionaliteiten - submenu_  
 <br>
 Met het submenu `Functionaliteiten` krijgt de gebruiker toegang tot het **aan-/uitzetten van de standaard datalagen en (menu)functionaliteiten** die in de basis versie van Netherlands3d.eu wordt aangeboden.  
@@ -56,7 +56,7 @@ In het hoofdstuk Bijlagen van dit document staat een overzicht van de datalagen 
 
 ### **Instellingen (submenu)**
 
-![Building Blocks](../handleiding/instellingen.sub.png)
+![Building Blocks](../handleiding/imgs/instellingen.sub.png)
 _(Afbeelding) Instellingen - submenu_  
 <br>
 **(Beeld)kwaliteit**   
