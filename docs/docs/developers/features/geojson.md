@@ -1,34 +1,94 @@
-GeoJSON
-=======
+# GeoJSON Support
 
-Netherlands3D offers support for importing GeoJSON data.
+Netherlands3D enables users to import and work with GeoJSON data seamlessly. Below is a breakdown of how GeoJSON files
+are supported, including file handling, parsing, coordinate transformation, and more.
 
-## Features
+---
 
-- Currently only GeoJSON files are supported. The default file extensions are .json or .geojson. In case custom file
-  types should be supported, these can be added in the FileOpen script (to allow selection of other file types) and in
-  the FileTypeAdapter (to process the opened file).
-- The GeoJSON parsing is spread over multiple frames, (default is max 0.01s of parsing per frame) as to not freeze the
-  application when importing large files. This duration can be changed by changing the variable `maxParseDuration` in
-  GeoJSONLayer.cs
-- GeoJSON features of type Polygon, MultiPolygon, LineString, MultiLineString, Point, and MultiPoint are supported.
-- GeoJSON coordinates are passed to
-  the [`eu.netherlands3d.coordinates`](https://openupm.com/packages/eu.netherlands3d.coordinates/) package using the
-  parsed CRS in order to convert them to Unity coordinates (see also the section on limitations for CRS limitations). A
-  CRS object of type `Linked CRS` is currently not supported
-- A material can be assigned to the GeoJSONLayer that determines the appearance of the visualization.
-- An event is invoked when parsing fails, to allow for display of error messages on screen.
-- GeoJSON files can be uploaded and embedded in the NL3D Project as assets
-- URLs pointing to GeoJSON files -such as https://raw.githubusercontent.com/blackmad/neighborhoods/refs/heads/master/utrecht.geojson-
-  will be added as a remote url so that they are reloaded every time a project opens
+## Importing
 
-## Limitations
+Netherlands3D supports `.json` and `.geojson` file extensions by default. For custom file types, you can extend support
+by modifying:
 
-The GeoJSON support currently has the following limitations:
+- **FileOpen** script: Enables selection of additional file types.
+- **FileTypeAdapter**: Handles the processing of new file types.
 
-- A LinkedCRS object is parsed correctly in the GeoJSONLayer, however it is currently not interpreted to provide a valid
-  input for the visualization through
-  the [`eu.netherlands3d.coordinates`](https://openupm.com/packages/eu.netherlands3d.coordinates/) package.
-- All features of the Type Polygon and MultiPolygon are combined to form 1 layer in the application
-- All features of the Type LineString and MultiLineString are combined to form 1 layer in the application
-- All features of the Type Point and MultiPoint are combined to form 1 layer in the application
+GeoJSON files are uploaded and embedded as assets within the open NL3D project. When opened from a URL, pointing to
+GeoJSON files (
+e.g., [https://raw.githubusercontent.com/blackmad/neighborhoods/refs/heads/master/utrecht.geojson](https://raw.githubusercontent.com/blackmad/neighborhoods/refs/heads/master/utrecht.geojson)),
+these are added as remote assets, ensuring they reload every time a project is opened.
+
+---
+
+## Parsing and Performance
+
+To prevent application freezes when importing large files, GeoJSON parsing is spread across multiple frames. The default
+parsing time per frame is **0.01 seconds**, but this value can be adjusted by modifying the `maxParseDuration` variable
+in `GeoJSONLayer.cs`.
+
+---
+
+## Supported Feature Types
+
+Netherlands3D supports the following GeoJSON feature types:
+
+- Polygon
+- MultiPolygon
+- LineString
+- MultiLineString
+- Point
+- MultiPoint
+
+Features of the same type are combined into a single layer in the application:
+
+- **Polygon** and **MultiPolygon** → One layer.
+- **LineString** and **MultiLineString** → One layer.
+- **Point** and **MultiPoint** → One layer.
+
+---
+
+## Coordinate Transformation
+
+GeoJSON coordinates are converted to Unity coordinates using the [
+`eu.netherlands3d.coordinates`](https://openupm.com/packages/eu.netherlands3d.coordinates/) package. The transformation
+leverages the parsed CRS (Coordinate Reference System).
+
+### CRS Support
+
+- Netherlands3D supports the "Named CRS" feature described in the original pre-2018 GeoJSON
+  specification ([see details here](https://geojson.org/geojson-spec.html#named-crs)), enabling backwards compatibility
+  for older GeoJSON files that define their own CRS.
+- Support for the "Linked CRS" variant is not provided.
+- Custom CRS definitions are not supported in the current GeoJSON specification, but legacy files using "Named CRS" are
+  still supported.
+
+---
+
+## Visualization and Appearance
+
+A material can be assigned to a GeoJSONLayer to control the visualization's appearance. This allows for customization of
+how imported GeoJSON features are displayed in the 3D environment.
+
+---
+
+## Error Handling
+
+Netherlands3D includes error handling for GeoJSON imports. If parsing fails, an event is invoked to display error
+messages on-screen, ensuring users are informed of any issues during the import process.
+
+---
+
+## Troubleshooting
+
+If GeoJSON data does not display correctly in Netherlands3D, follow these steps to verify data correctness before
+debugging the code:
+
+1. **Open the file in QGIS**: Check if QGIS can successfully display the data. If QGIS cannot load the file, the data
+   may be incorrect.
+2. **Validate the GeoJSON structure and geometry**: Use
+   the [GeoJSON Validator](https://geojson-validator.streamlit.app/) to confirm the file’s structure and geometry are
+   valid.
+3. **Test the file in GeoJSON.io**: Try loading the file in [GeoJSON.io](https://geojson.io/) to verify if the data
+   renders correctly.
+
+These steps help ensure the GeoJSON file is correct and usable, minimizing unnecessary debugging in the code.
