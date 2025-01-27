@@ -25,6 +25,7 @@ nav:
           - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
           - 'docs/developers/guides/dealing-with-cors-issues.md'
       - 'Explanation':
+        - 'docs/developers/build-pipeline.md'
         - 'Core Concepts':
             - 'Overview': 'docs/developers/core-concepts.md'
             - 'docs/developers/projects.md'
