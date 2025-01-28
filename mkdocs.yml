@@ -22,6 +22,7 @@ nav:
           - 'docs/developers/adding-a-simple-type-of-layer.md'
           - 'docs/developers/adding-behaviour-to-a-layer-with-data.md'
           - 'docs/developers/guides/loading-a-custom-project-file.md'
+          - 'docs/developers/guides/asset-bundles.md'
           - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
           - 'docs/developers/guides/dealing-with-cors-issues.md'
       - 'Explanation':
