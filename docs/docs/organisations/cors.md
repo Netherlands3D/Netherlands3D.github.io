@@ -21,7 +21,7 @@ blokkeert de browser toegang om de privacy en veiligheid van de server te waarbo
 
 **Wat moet u doen?** Om CORS toe te staan, moet u specifieke HTTP-headers configureren in de webserver of 
 applicatieserver. De belangrijkste header is: `Access-Control-Allow-Origin: *` (of in plaats van `*` een specifieke 
-domeinnaam, zoals https://netherlands3d.nl). 
+domeinnaam, zoals https://netherlands3d.eu). 
 
 Afhankelijk van de technologie, zoals MapServer of ArcGIS Server, kunt u deze headers toevoegen in de 
 serverinstellingen of in configuratiebestanden.
