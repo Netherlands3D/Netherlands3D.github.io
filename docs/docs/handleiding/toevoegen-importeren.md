@@ -35,7 +35,7 @@ Klik op `Bestand via URL`. Het menu; Laag toevoegen via URL wordt geopend.
 Kopieër en plak de link van het bestand in het vakje [URL link].   
 In de nabije toekomst is hier een link naar veelgebruikte WFS/WMS-lagen te vinden.
 
-Na **Toevoegen** is de **link gekoppeld** en de **data zichtbaar** in de 3D-Viewer.  
+Na `Toevoegen` is de **link gekoppeld** en de **data zichtbaar** in de 3D-Viewer.  
 
 ---
 

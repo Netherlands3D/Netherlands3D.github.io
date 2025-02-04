@@ -28,7 +28,7 @@ _(Video) gebruik van Lagen_
 
 ### **Menu (linksboven)**
 Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
-Het menu klapt open de **basislagen worden zichtbaar**.
+Het menu klapt open en de **basislagen worden zichtbaar**.
 
 ![Building Blocks](../handleiding/imgs/lagen.main.png){ width="350px" }  
 _(Afbeelding) lagen-menu_
@@ -73,7 +73,7 @@ _(Afbeelding) Instellingen actief_
 
 ### **Menu (linksonder)**
 Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
-en het `toevoegen-menu` klapt open de functionaliteiten worden zichtbaar.
+en het `toevoegen-menu` klapt open en de functionaliteiten worden zichtbaar.
 
 ![Building Blocks](../handleiding/imgs/lagen.main.bottom.png){ width="350px" }  
 _(Afbeelding) toevoegen-menu_
