@@ -18,7 +18,7 @@ _(Video) toevoegen WMS/WFS-link_
 
 Ga naar [Netherlands3d.eu](https://netherlands3d.eu/) en klik op `Bekijk de viewer` op de homepage en de 3D-viewer functionaliteit wordt gestart.
 
-![Building Blocks](../handleiding/imgs/headliner.png)
+![LAgen](../handleiding/imgs/headliner.png)
 _(Afbeelding) Homepage_  
 <br>  
 Sluit het **Instellingen-menu** door op `x`(rechtsboven) te klikken.
@@ -30,18 +30,19 @@ _(Afbeelding) 3D-Viewer startscherm; instellingen-menu_
 
 ### **Stap 2. Ga naar het Lagen-menu**
 
-![Building Blocks](../handleiding/imgs/lagen.main.png){ width="350px" align=left }  
+<figure markdown="span">
+![Building Blocks](../handleiding/imgs/lagen.top.bottom.png){ width="350px" align=left }  
 
-* Klik vervolgens op `Lagen` in het hoofdmenu (3e icoon van boven) en activeer de tool.  
-Het menu klapt open en de **basislagen** (links boven) en functionaliteiten (links onder) de worden zichtbaar.  
-<br>
-<br>
-<br> 
-<br>  
+<ul>
+	<li>
+		<p style="text-align: left;">
+		Klik vervolgens op <code>Lagen</code> in het hoofdmenu (3e icoon van boven) en activeer de tool.  
+		Het menu klapt open en de <b>basislagen</b> (links boven) en functionaliteiten (links onder) de worden zichtbaar.
+		</p>
+	</li>  
+</ul>
 
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.png){ width="350px" align=left }  
-<br>
-<br>
+</figure>  
 _(Afbeelding) Basislagen & functionaliteiten_  
 <br>
 
