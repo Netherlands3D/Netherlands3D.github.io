@@ -30,7 +30,7 @@ _(Afbeelding) 3D-Viewer startscherm; instellingen-menu_
 
 ### **Stap 2. Ga naar het Lagen-menu**
 
-<figure markdown="span">
+<div class="grid" markdown>
 ![Building Blocks](../handleiding/imgs/lagen.top.bottom.png){ width="350px" align=left }  
 
 <ul>
@@ -42,7 +42,7 @@ _(Afbeelding) 3D-Viewer startscherm; instellingen-menu_
 	</li>  
 </ul>
 
-</figure>  
+</div>  
 _(Afbeelding) Basislagen & functionaliteiten_  
 <br>
 
