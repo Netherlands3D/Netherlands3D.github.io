@@ -32,82 +32,79 @@ _(Afbeelding) 3D-Viewer startscherm; instellingen-menu_
 
 <div class="grid" markdown>
 ![Building Blocks](../handleiding/imgs/lagen.top.bottom.png){ width="350px" align=left }  
-
 <ul>
 	<li>
 		<p style="text-align: left;">
 		Klik vervolgens op <code>Lagen</code> in het hoofdmenu (3e icoon van boven) en activeer de tool.  
-		Het menu klapt open en de <b>basislagen</b> (links boven) en functionaliteiten (links onder) de worden zichtbaar.
+		</p>
+	</li>  
+	<li>
+		<p style="text-align: left;">
+		Het menu klapt open en de <b>basislagen</b> (links boven) en functionaliteiten (links onder) de worden zichtbaar.<br>  
+		<br>
+		<i>(Afbeelding) Basislagen & functionaliteiten</i>
 		</p>
 	</li>  
 </ul>
-
-</div>  
-_(Afbeelding) Basislagen & functionaliteiten_  
-<br>
-
+</div>
 ---
 
 ### **Stap 3. Open het Toevoegen-menu**
 
+<div class="grid" markdown>
 ![Building Blocks](../handleiding/imgs/lagen.main.bottom.full.png){ width="350px" align=left }  
-
-* Klik op `+` icoon en het **Toevoegen-menu** en de verschillende **teken-, koppel- en importmogelijkheden** worden (gedeeltelijk) zichtbaar.
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>  
-_(Afbeelding) Toevoegen menu, volledig zichtbaar_  
-<br>
-
+<ul>
+	<li>
+		<p style="text-align: left;">
+		Klik op <code>+</code> icoon en het <b>Toevoegen-menu</b> en de verschillende <b>teken-, koppel- en importmogelijkheden</b> worden (gedeeltelijk) zichtbaar.<br><br>
+		<i>(Afbeelding) Toevoegen menu, volledig zichtbaar</i>
+		</p>
+	</li>  
+</ul>
+</div>
 ---
 
 ### **Stap 4. Bestand toevoegen met url**
 
+<div class="grid" markdown>
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.importeren.png){ width="350px" align=left }  
-
-* Klik op `Importeren`. Het menu; **Toevoegen Importeren** wordt geopend.  
+<ul>
+	<li>
+		<p style="text-align: left;">
+		Klik op <code>Importeren</code>. Het menu; <b>Toevoegen Importeren</b> wordt geopend.<br>  
+		<br>
+		<i>(Afbeelding) Toevoegen / Importeren</i>
+		</p>
+	</li>  
+</ul>
+</div>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-_(Afbeelding) Toevoegen / Importeren_  
-
-<br>  
+<div class="grid" markdown>
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png){ width="350px" align=left }  
-
-* Klik op `Bestand via URL`.  
-Het menu; **Laag toevoegen via URL** wordt geopend.  
+<ul>
+	<li>
+		<p style="text-align: left;">
+		Klik op <code>Bestand via URL</code>.  
+		Het menu; <b>Laag toevoegen via URL</b> wordt geopend.  
+		<br><br>
+		<i>(Afbeelding) Bestand via URL</i>
+		</p>
+	</li>  
+</ul>
+</div>
 <br>
-<br>
-_(Afbeelding) Bestand via URL_  
-
-<br>
-<br>
+<div class="grid" markdown>
 ![Building Blocks](../handleiding/imgs/lagen.import.url.menu.png){ width="350px" align=left }  
-
-
-* Kopieër en plak de link van het bestand in het vakje [URL link] en klik op `Toevoegen`.
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-_(Afbeelding) Kopieëren en plakkken van url_  
+<ul>
+	<li>
+		<p style="text-align: left;">
+		Kopieër en plak de link van het bestand in het vakje [URL link] en klik op <code>Toevoegen</code>.
+		<br><br>
+		<i>(Afbeelding) Kopieëren en plakkken van url</i>
+		</p>
+	</li>  
+</ul>
+</div>
 ---
 
 ###  **Stap 5. Navigeer naar de WMS/WFS-data**
