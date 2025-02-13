@@ -56,6 +56,8 @@ nav:
                 - 'docs/developers/ui/components/sliders.md'
                 - 'docs/developers/ui/components/double-sliders.md'
                 - 'docs/developers/ui/components/text-fields.md'
+      - 'Testing':
+          - 'docs/developers/testing/ogc-webservices.md'
       - 'Contributing':
           - 'docs/developers/contributing/coding-standards.md'
           - 'docs/developers/contributing/documentation.md'
