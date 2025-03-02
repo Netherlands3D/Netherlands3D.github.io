@@ -1,6 +1,8 @@
 # Overzicht van de functionaliteiten
-Op de homepage is **algemene informatie over het Netherlands 3D** project te vinden.  
-Naast de handleiding bieden we specifiek voor twee doelgroepen informatie aan: voor organisaties/gebruikers en ontwikkelaars. Op deze pagina vind je de belangrijkste functionaliteiten van de homepage en de gebruikersinterface.    
+Deze pagina geeft een overzicht van alle functionaliteiten in Netherlands3D.eu.
+
+Van elke afzonderlijke functionaliteit is een gedetailleerde beschrijving beschikbaar door op de bijbehorende link te klikken.
+Daaraast bevat het hoofdstuk **Handleidingen per functionaliteit** .....
 
 ---
 

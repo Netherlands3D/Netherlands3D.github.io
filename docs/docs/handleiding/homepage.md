@@ -1,12 +1,7 @@
-# Overzicht van de functionaliteiten
+# Homepage
 Op de homepage is **algemene informatie over het Netherlands 3D** project te vinden.  
-Naast de handleiding bieden we specifiek voor twee doelgroepen informatie aan: voor organisaties/gebruikers en ontwikkelaars. Op deze pagina vind je de belangrijkste functionaliteiten van de homepage en de gebruikersinterface.    
-
----
-
-## Overzicht van functionaliteiten
-
-De homepage van Netherlands3d.eu biedt toegang tot de verschillende **hoofdstukken en functionaliteiten**. 
+Naast de **functionaliteiten** bieden we specifiek voor twee doelgroepen informatie aan:  
+**voor organisaties/gebruikers** en **Voor ontwikkelaars**.
 
 ---
 
@@ -17,7 +12,7 @@ De homepage van Netherlands3d.eu biedt toegang tot de verschillende **hoofdstukk
 ![Building Blocks](../handleiding/imgs/hoofdmenubalk.png)
 _(Afbeelding) Hoofdmenubalk_
 
-### **Functionaliteiten**
+### **Hoofdstukken**
 
 * #### **Voor organisaties**   
 Dit hoofdstuk is onder ontwikkeling en bevat straks een uitgebreide bron van informatie.  
@@ -47,8 +42,8 @@ Deze zoekfunctie biedt de mogelijkheid om naar trefwoorden te zoeken binnen Neth
 _(Afbeelding) Headline_
 
 * #### **Bekijk de viewer**   
-Met de knop `Bekijk de viewer` in de headline wordt de 3D-viewer functionaliteit gestart.  
-(Zie [3D-viewer functionaliteit ](../handleiding/3D-viewer/) voor de beschrijving.)  
+Klik op `Bekijk de viewer` in de headline om de 3D-viewer functionaliteit te starten.  
+(Zie [3D-viewer functionaliteit ](/docs/handleiding/3D-viewer/) voor de beschrijving.)  
  
 * #### **Wat is het**   
 Met de knop `Wat is het?` wordt de tekst ’Wat is Netherlands3D?’ onder het overlay scherm naar boven gehaald.

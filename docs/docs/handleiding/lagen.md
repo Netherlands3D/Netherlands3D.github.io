@@ -52,8 +52,7 @@ _(Afbeelding) Rangschikken van lagen_
 	[zie Voorbeeld koppelen bestand met URL](../toevoegen-importeren/#bestand-bestand-via-url).
 
 * #### **Tonen/verbergen**   
-Door het `uit-/aanvinken` van datalagen worden deze verborgen of getoond. 
-Met behulp van links en/of het importeren van bestanden worden datalagen en objecten gekoppeld.
+Klik op het `oog` voor het verbergen of tonen van de inhoud van de datalagen in de 3D-Viewer.
 
 * #### **Transformatie tool**   
 De locatie, oriëntatie en schaal van toegevoegde objecten wordt met de transformatie tool aangepast.
