@@ -3,12 +3,12 @@
 Functionaliteit, hoofdmenu.  
 ![Building Blocks](../handleiding/imgs/zonnestand.menu.main.png){ style="height:230px;width:50px"  align=left }
 
-Zonnestand is een **zon- en schaduw-simulatie tool** die is ontwikkeld om gebruikers te helpen de impact van zonlicht en schaduwen in datalagen en ontwerpen op een specifieke locatie eenvoudig te visualiseren.  
+**Zonnestand** is een zon- en schaduw-simulatie tool die is ontwikkeld om gebruikers te helpen de impact van zonlicht en schaduwen in datalagen en ontwerpen op een specifieke locatie eenvoudig te visualiseren.  
 Door gebruikers in staat te stellen basisparameters in te voeren, zoals tijd en datum, genereert Zonnestand real-time schaduwprojecties, waardoor het toegankelijk is voor data-specialisten, ontwerpers, docenten en hobbyisten. 
 
 Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Zonnestand geeft uitleg over de interface en essentiële functies.
 
-Daarnaast is het mogelijk om een schaduwstudie te maken met de functie **schaduwstudie** 
+Daarnaast is het mogelijk om een schaduwstudie te maken met de functie **Schaduwstudie**. Hiermee is het mogelijk om van de standaard 12 momenten in het jaar een schermafbeelding te maken en deze te downloaden via een .zip bestand. Deze afbeelding zijn bijvoorbeeld te gebruiken in stedenbouwkundige rapporten.
 
 ---
 
@@ -89,6 +89,48 @@ In het geval het tijdstip zich tussen zonsondergang en –opgang bevindt, is er 
 
 De instellingen van de functie Zonnestand zijn onderdeel van het Netherlands 3D bestand en worden opgeslagen met de functie `Project Opslaan`.
 
-###  **Aanvullende technische details**
+
+
+###**Schaduwstudie**
+
+**Pull down**   
+Door op de `pijl` te klikken wordt het menu `schaduwstudie` ingeklapt. Door vervolgens weer op de `pijl` te klikken klapt het menu `schaduwstudie` uit.
+
+![Building Blocks](../handleiding/imgs/schaduwstudie_menu_ingeklapt.png){ width="350px" }
+
+
+
+**Download**   
+Door op de knop `download` te klikken wordt een serie van 12 afbeeldingen gegenereerd volgens onderstaande normen en vervolgens verzameld in een `.zip` bestand met als naam `snapshot-series-jaar-mnd-dagT15-42.zip` 
+
+![Building Blocks](../handleiding/imgs/schaduwstudie_menu.png){ width="350px" }
+
+*De functionaliteit maakt afbeeldingen van de actuele camerastandpunt, dus houdt er rekening mee dat de resultaten afhankelijk zijn van het kiezen van het camerastandpunt.*
+
+
+
+**Verantwoording**
+
+Hoewel voor de bezonningsuren overal de TNO-norm wordt aangehouden, is er voor de schaduwstudie geen officiële standaard. Wel wordt deze set data en tijden gebruikt door de meeste gemeenten en online tools:
+**21 maart en 23 september** (halverwege tussen kortste en langste dag)
+**21 juni** (dag met de meeste zonuren)
+**22 december** (dag met de minste zonuren)
+
+- 21-03 (en/of 23-09) om 09:00u
+- 21-03 (en/of 23-09) om 12:00u
+- 21-03 (en/of 23-09) om 15:00u
+- 21-03 (en/of 23-09) om 18:00u
+- 21-06 om 09:00u
+- 21-06 om 12:00u
+- 21-06 om 15:00u
+- 21-06 om 18:00u
+- 21-06 om 20:00u
+- 22-12 om 09:00u
+- 22-12 om 12:00u
+- 22-12 om 15:00u
+
+
+
+###  Aanvullende technische details**
 
 Zonnestand maakt gebruik van de engine ..... 
