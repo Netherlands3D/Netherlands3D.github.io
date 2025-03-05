@@ -105,7 +105,7 @@ Door op de knop `download` te klikken wordt een serie van 12 afbeeldingen gegene
 
 ![Building Blocks](../handleiding/imgs/schaduwstudie_menu.png){ width="350px" }
 
-*De functionaliteit maakt afbeeldingen van de actuele camerastandpunt, dus houdt er rekening mee dat de resultaten afhankelijk zijn van het kiezen van het camerastandpunt.*
+*De functionaliteit maakt afbeeldingen van de actuele camerastandpunt, dus hou er rekening mee dat de resultaten afhankelijk zijn van de keuze van het camerastandpunt.*
 
 
 
@@ -129,7 +129,7 @@ Hoewel voor de bezonningsuren overal de TNO-norm wordt aangehouden, is er voor d
 - 22-12 om 12:00u
 - 22-12 om 15:00u
 
-
+Voor meer informatie over schaduwstudies en bezonning, kijk op deze website https://iplo.nl/thema/licht/bezonning/
 
 ###  Aanvullende technische details**
 
