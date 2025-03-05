@@ -101,7 +101,7 @@ Door op de `pijl` te klikken wordt het menu `schaduwstudie` ingeklapt. Door verv
 
 
 **Download**   
-Door op de knop `download` te klikken wordt een serie van 12 afbeeldingen gegenereerd volgens onderstaande normen en vervolgens verzameld in een `.zip` bestand met als naam `snapshot-series-jaar-mnd-dagT15-42.zip` 
+Door op de knop `download` te klikken wordt een serie van 12 afbeeldingen gegenereerd volgens onderstaande normen en vervolgens verzameld in een `.zip` bestand met als naam `2025-03-05-T15-00-Schaduwstudie.zip` 
 
 ![Building Blocks](../handleiding/imgs/schaduwstudie_menu.png){ width="350px" }
 
