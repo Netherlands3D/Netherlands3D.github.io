@@ -109,7 +109,8 @@ Door op de knop `download` te klikken wordt een serie van 12 afbeeldingen gegene
 
 
 
-**Verantwoording**
+### **Verantwoording**
+**Data en tijdstippen**
 
 Hoewel voor de bezonningsuren overal de TNO-norm wordt aangehouden, is er voor de schaduwstudie geen officiële standaard. Wel wordt deze set data en tijden gebruikt door de meeste gemeenten en online tools:
 **21 maart en 23 september** (halverwege tussen kortste en langste dag)
@@ -130,3 +131,7 @@ Hoewel voor de bezonningsuren overal de TNO-norm wordt aangehouden, is er voor d
 - 22-12 om 15:00u
 
 Meer informatie over schaduwstudies en bezonning, staat op deze website https://iplo.nl/thema/licht/bezonning/
+
+**Bepaling Zonnestand**
+
+Voor het bepalen van de zonnestand maken we gebruik van het NOAA Solar Position Algorithm (SPA). Voor meer informatie kijk op https://gml.noaa.gov/grad/solcalc/azel.html 
