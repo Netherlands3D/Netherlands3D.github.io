@@ -8,50 +8,68 @@ nav:
       - 'docs/functionaliteiten/functionaliteiten-overzicht.md'
 
       - 'Handleidingen per functionaliteit':
-        - 'docs/handleiding/homepage.md'
+        - 'Homepage':
+            - 'Algemeen': 'docs/handleiding/homepage.md'
+            - 'Hoofdmenubalk': docs/handleiding/homepage/#hoofdmenubalk
+            - 'Hoofdstukken': docs/handleiding/homepage/#hoofdstukken
+            - 'Headline': docs/handleiding/homepage/#headline
+            - 'Content': docs/handleiding/homepage/#content
+            - 'Footer': docs/handleiding/homepage/#footer
+
         - '3D-viewer':
             - 'Algemeen': 'docs/handleiding/3D-viewer.md'
             - 'Startscherm': 'docs/handleiding/3D-viewer/#startscherm'
-            - 'Locatie-bepalen': 'docs/handleiding/3D-viewer/#locatie-bepalen'            
-            - 'Functionaliteiten-submenu': 'docs/handleiding/3D-viewer/#functionaliteiten-submenu'
-            - 'Functies': 'docs/handleiding/3D-viewer/#functies'             
-            - 'Instellingen-submenu': 'docs/handleiding/3D-viewer/#instellingen-submenu'
-            - '3d-viewer': 'docs/handleiding/3D-viewer/#3d-viewer'            
-            - 'Interface': 'docs/handleiding/3D-viewer/#interface'       
-            - 'Hoofdmenu': 'docs/handleiding/3D-viewer/#1-hoofdmenu'       
-            - 'Project-openen/opslaan': 'docs/handleiding/3D-viewer/#2-project-openen/opslaan'       
-            - 'Bovenbalk': 'docs/handleiding/3D-viewer/#3-bovenbalk'
-            - 'Orientatie en Mini-map': 'docs/handleiding/3D-viewer/#4-Orientatie en Mini-map'       
-            - 'Navigeren in 3D': 'docs/handleiding/3D-viewer/#5-navigeren-in-3d'       
-        - 'docs/handleiding/object-informatie.md'
-        - 'docs/handleiding/ondergrond-doorzicht.md'
-        - 'Lagen':
-            - 'Algemeen': 'docs/handleiding/lagen.md'
-            - 'Menu linksboven': 'docs/handleiding/lagen/#menu-linksboven'
-            - 'Functionaliteiten': 'docs/handleiding/lagen/#functionaliteiten'
-            - 'Standaardlagen': 'docs/handleiding/lagen/#standaardlagen'
-            - 'Laagvolgorde': 'docs/handleiding/lagen/#laagvolgorde'
-            - 'Tonen/verbergen': 'docs/handleiding/lagen/#tonenverbergen'
-            - 'Transformatie-tool': 'docs/handleiding/lagen/#transformatie-tool'
-            - 'Eigenschappen': 'docs/handleiding/lagen/#eigenschappen'
-            - 'Menu linksonder': 'docs/handleiding/lagen/#menu-linksonder'
-            - 'Functionaliteiten': 'docs/handleiding/lagen/#functionaliteiten_1'
-            - 'Organiseren': 'docs/handleiding/lagen/#organiseren'
-            - 'Verwijderen': 'docs/handleiding/lagen/#verwijderen'
-            - 'Toevoegen': 'docs/handleiding/lagen/#toevoegen'
-        - 'Lagen toevoegen':
-            - 'docs/handleiding/toevoegen-importeren.md'
-            - 'docs/handleiding/toevoegen-selectiegebied.md'        
-            - 'docs/handleiding/toevoegen-urban-releaf.md'
-            - 'docs/handleiding/toevoegen-basislagen.md'
-            - 'docs/handleiding/toevoegen-3d-tiles.md'
-            - 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
-            - 'docs/handleiding/toevoegen-objecten-biep.md'
 
-        - 'docs/handleiding/zonnestand.md'
-        - 'docs/handleiding/gebied-downloaden.md'
-        
-        - 'docs/handleiding/project-openen-opslaan.md'
+            - 'Instellingen':
+                - 'Locatie bepalen': 'docs/handleiding/3D-viewer-locatie-bepalen.md'            
+                - 'Functionaliteiten': 'docs/handleiding/3D-viewer-functionaliteiten.md'
+                - 'Instellingen-submenu': 'docs/handleiding/3D-viewer-instellingen-sub.md'
+
+            - 'Interface':      
+                - 'Hoofdmenu':      
+                    - 'Object informatie': 'docs/handleiding/object-informatie.md'
+                    - 'Ondergrond doorzicht': 'docs/handleiding/ondergrond-doorzicht.md'
+                    - 'Lagen':
+                        - 'Algemeen': 'docs/handleiding/lagen.md'
+                        - 'Menu linksboven': 'docs/handleiding/lagen/#menu-linksboven'
+                        - 'Standaardlagen': 'docs/handleiding/lagen/#standaardlagen'
+                        - 'Laagvolgorde': 'docs/handleiding/lagen/#laagvolgorde'
+                        - 'Tonen/verbergen': 'docs/handleiding/lagen/#tonenverbergen'
+                        - 'Transformatie-tool': 'docs/handleiding/lagen/#transformatie-tool'
+                        - 'Eigenschappen': 'docs/handleiding/lagen/#eigenschappen'
+
+                    - 'Lagen toevoegen':
+                        - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
+                        - 'Menu linksonder': 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                        - 'Organiseren': 'docs/handleiding/lagen-toevoegen/#organiseren'
+                        - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'
+                        - 'Toevoegen':
+                            - 'Importeren': 'docs/handleiding/toevoegen-importeren.md'
+                            - 'Selectiegebied': 'docs/handleiding/toevoegen-selectiegebied.md'        
+                            - 'Urban ReLeaf': 'docs/handleiding/toevoegen-urban-releaf.md'
+                            - 'Basislagen': 'docs/handleiding/toevoegen-basislagen.md'
+                            - '3D tiles': 'docs/handleiding/toevoegen-3d-tiles.md'
+                            - 'Fotorealistische wereld': 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
+                            - 'Objecten biep': 'docs/handleiding/toevoegen-objecten-biep.md'
+
+                    - 'Zonnestand': 'docs/handleiding/zonnestand.md'
+                    - 'Gebied downloaden': 'docs/handleiding/gebied-downloaden.md'
+                    - 'Project-openen/opslaan': 'docs/handleiding/project-openen-opslaan.md'      
+
+
+                - 'Bovenbalk':
+                    - 'Schermafbeelding maken': docs/handleiding/3D-viewer/#schermafbeelding-maken
+                    - 'Instellingen': 'docs/handleiding/3D-viewer-instellingen.md'    
+                    - 'Informatie': docs/handleiding/3D-viewer/#informatie
+ 
+                - 'Onderhoek (rechts)': 
+                    - 'Orientatie en Mini-map': 'docs/handleiding/3D-viewer/#orientatie-en-mini-map'       
+                    - 'Weergave naar noorden draaien': 'docs/handleiding/3D-viewer/#weergave-naar-noorden-draaien'  
+                    - 'Orthografisch/perspectief': 'docs/handleiding/3D-viewer/#orthografischperspectief'  
+                    - 'Mini-map': 'docs/handleiding/3D-viewer/#mini-map'  
+                    - 'Positie': 'docs/handleiding/3D-viewer/#mini-map'  
+
+            - 'Navigeren': 'docs/handleiding/3D-viewer/#navigeren'       
  
       - 'Voorbeelden voor eindgebruikers':
         - 'docs/voorbeelden/wms-wfs.md'
