@@ -6,37 +6,45 @@ Door op de functionaliteiten te klikken kom je bij de gedetailleerde beschrijvin
 
 ### **3D-Viewer**
 
-[Locatie bepalen ](/docs/handleiding/3D-viewer/#locatie-bepalen)  
-[Terrein - kadaster (instellingen)](/docs/handleiding/3D-viewer/#terrein-kadaster)  
-[Gebouwen - 3D BAG (instellingen)](/docs/handleiding/3D-viewer/#gebouwen-3dbag)  
-[Bomen en bospercelen (instellingen)](/docs/handleiding/3D-viewer/#bomen-en-bospercelen)  
-[Straatnamen (instellingen)](/docs/handleiding/3D-viewer/#straatnamen)  
-[Buurtnamen (instellingen)](/docs/handleiding/3D-viewer/#buurtnamen)  
-[Wijknamen (instellingen)](/docs/handleiding/3D-viewer/#wijknamen)
-[Indicatoren (instellingen)](/docs/handleiding/3D-viewer/#indicatoren-tygron)  
-[Gebouwen kleuren  (instellingen)](/docs/handleiding/3D-viewer/#gebouwen-kleuren-op-basis-van-bag-id)  
-[Kwaiteit (instellingen)](/docs/handleiding/3D-viewer/#beeldkwaliteit)  
-[Limiteer scroll gevoeligheid (instellingen)](/docs/handleiding/3D-viewer/#limiteer-scroll-gevoeligheid)  
-  
-[Gebouw informatie ](/docs/handleiding/object-informatie/)  
-[Downloaden 3D gebied ](/docs/handleiding/gebied-downloaden/)  
-[Maak screenshots ](/docs/handleiding/3D-viewer/#schermafbeelding-maken)  
-[Objectenbibliotheek ](/docs/handleiding/toevoegen-objecten-biep/)  
-[3D Tiles ](/docs/handleiding/toevoegen-3d-tiles/)  
-[Google Reality Mesh ](/docs/handleiding/toevoegen-fotorealistische-wereld/)  
-[Zonnestand simuleren ](/docs/handleiding/toevoegen-fotorealistische-wereld/)  
-[UrbanRealeaf Sensor Data ](/docs/handleiding/toevoegen-urban-releaf/)  
-
+**Algemeen**  
+[Object informatie](/docs/handleiding/object-informatie/)  
+[Gebied downloaden](/docs/handleiding/gebied-downloaden/)  
+[Locatie bepalen](/docs/handleiding/3D-viewer-locatie-bepalen/)    
 [Ondergrond doorzicht ](/docs/handleiding/ondergrond-doorzicht/)  
-[Importeren Eigen bestand ](/docs/handleiding/toevoegen-importeren/#importeren-eigen-bestand)  
-[Importeren bestand via URL ](/docs/handleiding/toevoegen-importeren/#importeren-bestand-via-url)  
-[Tekengebied Polygoon ](/docs/handleiding/toevoegen-selectiegebied/#polygoon)  
-[Verspreid objecten in tekengebied Polygoon ](/docs/handleiding/toevoegen-selectiegebied/#verspreid-objecten-in-gebied)  
-[Tekengebied Lijn ](/docs/handleiding/toevoegen-selectiegebied/#lijn)  
-
 [Project openen/opslaan ](/docs/handleiding/project-openen-opslaan/)  
+[Schermafbeelding maken](/docs/handleiding/3D-viewer/#schermafbeelding-maken)  
+[Transformatietool](/docs/handleiding/lagen/#transformatie-tool)  
+[Zonnestand simuleren](/docs/handleiding/zonnestand/)   
 
-[Minimap ](/docs/handleiding/3D-viewer/#mini-map)  
-[Weergave naar noorden draaien ](/docs/handleiding/3D-viewer/#weergave-naar-noorden-draaien)  
-[Orthografisch/perspectief ](/docs/handleiding/3D-viewer/#orthografischperspectief)  
-[Positie indicatie ](/docs/handleiding/3D-viewer/#positie-indicatie)
+**Navigeren**  
+[Minimap](/docs/handleiding/3D-viewer/#mini-map)  
+[Orthografisch/perspectief](/docs/handleiding/3D-viewer/#orthografischperspectief)  
+[Positie](/docs/handleiding/3D-viewer/#positie)  
+[Weergave naar noorden draaien](/docs/handleiding/3D-viewer/#weergave-naar-noorden-draaien)  
+
+**Toevoegen**  
+[3D Tiles](/docs/handleiding/toevoegen-3d-tiles/)  
+[Google Reality Mesh](/docs/handleiding/toevoegen-fotorealistische-wereld/)  
+[Importeren bestand via URL ](/docs/handleiding/toevoegen-importeren/#importeren-bestand-via-url)  
+[Importeren Eigen bestand ](/docs/handleiding/toevoegen-importeren/#importeren-eigen-bestand)  
+[Objecten bibliotheek](/docs/handleiding/toevoegen-objecten-biep/)  
+[Tekengebied Lijn ](/docs/handleiding/toevoegen-selectiegebied/#lijn)  
+[Tekengebied Polygoon ](/docs/handleiding/toevoegen-selectiegebied/#polygoon)  
+[UrbanRealeaf Sensor Data](/docs/handleiding/toevoegen-urban-releaf/)  
+[Verspreid objecten in tekengebied Polygoon ](/docs/handleiding/toevoegen-selectiegebied/#verspreid-objecten-in-gebied)  
+
+**Instellingen**  
+[Bomen en bospercelen](/docs/handleiding/3D-viewer-functionaliteiten/#bomen-en-bospercelen)  
+[Buurtnamen](/docs/handleiding/3D-viewer-functionaliteiten/#buurtnamen)  
+[Gebouwen - 3D BAG](/docs/handleiding/3D-viewer-functionaliteiten/#gebouwen-3dbag)  
+[Gebouwen kleuren](/docs/handleiding/3D-viewer-functionaliteiten/#gebouwen-kleuren-op-basis-van-bag-id)  
+[Indicatoren](/docs/handleiding/3D-viewer-functionaliteiten/#indicatoren-tygron)  
+[Kwaiteit](/docs/handleiding/3D-viewer-instellingen-sub/#beeldkwaliteit)  
+[Limiteer scroll gevoeligheid](/docs/handleiding/3D-viewer-instellingen-sub/#limiteer-scroll-gevoeligheid)  
+[Straatnamen](/docs/handleiding/3D-viewer-functionaliteiten/#straatnamen)  
+[Terrein - kadaster](/docs/handleiding/3D-viewer-functionaliteiten/#terrein-kadaster)  
+[Wijknamen](/docs/handleiding/3D-viewer-functionaliteiten/#wijknamen)
+
+
+
+
