@@ -85,9 +85,7 @@ In het geval het tijdstip zich tussen zonsondergang en –opgang bevindt, is er 
 
 ---
 
-###  **Opslaan instellingen**
-
-De instellingen van de functie Zonnestand zijn onderdeel van het Netherlands 3D bestand en worden opgeslagen met de functie `Project Opslaan`.
+**Opslaan instellingen** De instellingen van de functie Zonnestand zijn onderdeel van het Netherlands 3D bestand en worden opgeslagen met de functie `Project Opslaan`.
 
 
 
