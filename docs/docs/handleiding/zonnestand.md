@@ -91,7 +91,7 @@ De instellingen van de functie Zonnestand zijn onderdeel van het Netherlands 3D 
 
 
 
-###**Schaduwstudie**
+### **Schaduwstudie**
 
 **Pull down**   
 Door op de `pijl` te klikken wordt het menu `schaduwstudie` ingeklapt. Door vervolgens weer op de `pijl` te klikken klapt het menu `schaduwstudie` uit.
@@ -134,4 +134,4 @@ Meer informatie over schaduwstudies en bezonning, staat op deze website https://
 
 **Bepaling Zonnestand**
 
-Voor het bepalen van de zonnestand maken we gebruik van het NOAA Solar Position Algorithm (SPA). Voor meer informatie kijk op https://gml.noaa.gov/grad/solcalc/azel.html 
+Voor het bepalen van de zonnestand maken we gebruik van het NOAA Solar Position Algorithm (SPA). Voor meer informatie kijk op https://gml.noaa.gov/grad/solcalc/index.html  
