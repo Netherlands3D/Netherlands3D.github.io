@@ -40,7 +40,6 @@ geven.
 - ![](images/homepage/partners/gemeente-utrecht.png)
 - ![](images/homepage/partners/provincie-flevoland.png)
 - ![](images/homepage/partners/provincie-utrecht.png)
-- ![](images/homepage/partners/gemeente-rotterdam.png)
 
 </div>
 
