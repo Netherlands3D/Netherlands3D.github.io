@@ -19,8 +19,8 @@ Below is a list of example 3D models that can be used for testing. Each entry in
 metadata.
 
 !!! info "Please note"
-This is not an exhaustive list. It is recommended to test with as many variations as possible. If a new model highlights
-a different compatibility issue, please update this list accordingly.
+    This is not an exhaustive list. It is recommended to test with as many variations as possible. If a new model highlights
+    a different compatibility issue, please update this list accordingly.
 
 | Model Name                   | Format | Download Link                                                                       | Textures | Materials | Animation | Coordinate System | File Size |
 |------------------------------|--------|-------------------------------------------------------------------------------------|----------|-----------|-----------|-------------------|-----------|
