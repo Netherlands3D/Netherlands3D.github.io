@@ -131,6 +131,7 @@ nav:
                 - 'docs/developers/ui/components/text-fields.md'
       - 'Testing':
           - 'docs/developers/testing/ogc-webservices.md'
+          - 'docs/developers/testing/3d-models.md'
       - 'Contributing':
           - 'docs/developers/contributing/coding-standards.md'
           - 'docs/developers/contributing/documentation.md'
