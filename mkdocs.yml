@@ -81,6 +81,8 @@ nav:
 #      - 'docs/organisations/personalisering.md'
       - 'Ondersteuning':
           - 'docs/organisations/cors.md'
+      - 'Verantwoording':
+          - 'docs/organisations/solarstudy-calculation.md'
   - 'Voor ontwikkelaars':
       - 'docs/developers/introduction.md'
       - 'Platform Architecture':
