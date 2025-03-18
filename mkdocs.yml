@@ -1,8 +1,6 @@
 nav:
 #  - 'index.md'
   #  - 'Eindgebruikers':
-  - 'Home':
-      - ''
   - 'Functionaliteiten':
       - 'docs/functionaliteiten/wat-is-netherlands3d.md'
       - 'docs/functionaliteiten/functionaliteiten-overzicht.md'
