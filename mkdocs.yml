@@ -1,10 +1,8 @@
 nav:
 #  - 'index.md'
   #  - 'Eindgebruikers':
-  - 'Home':
-      - ''
   - 'Functionaliteiten':
-      - 'docs/functionaliteiten/wat-is-Netherlands3D.eu.md'
+      - 'docs/functionaliteiten/wat-is-netherlands3d.md'
       - 'docs/functionaliteiten/functionaliteiten-overzicht.md'
 
       - 'Handleidingen per functionaliteit':
@@ -133,6 +131,7 @@ nav:
                 - 'docs/developers/ui/components/text-fields.md'
       - 'Testing':
           - 'docs/developers/testing/ogc-webservices.md'
+          - 'docs/developers/testing/3d-models.md'
       - 'Contributing':
           - 'docs/developers/contributing/coding-standards.md'
           - 'docs/developers/contributing/documentation.md'

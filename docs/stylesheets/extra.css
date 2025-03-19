@@ -1,5 +1,25 @@
+.md-content .md-typeset h1 {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.md-content .md-typeset h1:after {
+    content: "";
+    background: #E57373;
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    height: 3px;
+    width: 50%;
+}
+
+
 .md-typeset h2 {
     margin-top: 2rem;
+}
+
+.md-tabs__item.md-tabs__item--active {
+    color: #E57373;
 }
 
 /*****************************************************************************/
@@ -23,6 +43,21 @@
 
 .md-header__button.md-logo img {
     height: 1.8rem;
+}
+
+/*****************************************************************************/
+/** NAV **********************************************************************/
+/*****************************************************************************/
+
+@media screen and (min-width: 768px) {
+    .md-header {
+        padding-top: .75rem;
+        padding-bottom: .25rem;
+    }
+    .md-header__inner {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
 }
 
 /*****************************************************************************/
