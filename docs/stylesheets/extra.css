@@ -1,7 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root, [data-md-color-scheme=default] {
     --md-default-fg-color: #323955;
+}
+:root {
+    --md-text-font: "Inter";
+    --md-code-font: "Roboto Mono";
+}
+
+.md-typeset {
+    line-height: 1.5;
+    letter-spacing: 0.015em;
 }
 
 .md-typeset h1,
