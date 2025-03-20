@@ -1,3 +1,7 @@
+---
+hide:
+  - toc
+---
 # Wat is Netherlands3D?
 
 Netherlands3D is een interactieve 3D-omgeving waarmee je de fysieke wereld digitaal kunt verkennen. Of je nu een stad,

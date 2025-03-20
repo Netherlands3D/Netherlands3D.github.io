@@ -1,7 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root, [data-md-color-scheme=default] {
-    --md-default-fg-color: #323955;
+    --nl3d-blue: #2982C9;
+    --nl3d-red: #E57373;
+    --nl3d-blue-50: #F3F7FB;
+    --nl3d-blue-100: #DFE8F2;
+    --nl3d-blue-900: #323955;
+    --md-default-fg-color: var(--nl3d-blue-900);
+    --md-typeset-a-color: var(--nl3d-blue);
 }
 :root {
     --md-text-font: "Inter";
@@ -27,7 +33,7 @@
 
 .md-content .md-typeset h1:after {
     content: "";
-    background: #E57373;
+    background: var(--nl3d-red);
     position: absolute;
     bottom: -.5rem;
     left: 0;
@@ -35,13 +41,18 @@
     width: 50%;
 }
 
-
 .md-typeset h2 {
     margin-top: 2rem;
 }
 
 .md-tabs__item.md-tabs__item--active {
-    color: #E57373;
+    color: var(--nl3d-red);
+}
+
+[data-md-color-primary=white] .md-search__form {
+    background-color: var(--nl3d-blue-50);
+    border: 1px solid var(--nl3d-blue-100);
+    border-radius: 0.25rem;
 }
 
 /*****************************************************************************/
@@ -52,16 +63,48 @@
     font-size: 0.7rem;
 }
 
+.md-nav__link {
+    margin-top: 0.7em;
+}
+/* Section header in "navigation" sidebar */
+.md-nav__item--section>.md-nav__link[for] {
+    font-family: 'Instrument Sans', sans-serif;
+    padding-top: .5em;
+}
+
 /* Section header in "navigation" sidebar */
 .md-nav--lifted>.md-nav__list>.md-nav__item>[for] {
     font-family: 'Instrument Sans', sans-serif;
     font-size: 0.8rem;
-    color: #E57373;
+    color: var(--nl3d-red);
+    padding-top: 0;
 }
 
-/* Section header in "navigation" sidebar */
-.md-nav__item--section>.md-nav__link[for] {
+.md-nav.md-nav--secondary {
+    border: 1px solid var(--nl3d-blue-100);
+    background: var(--nl3d-blue-50);
+    border-radius: 0.25rem;
+    padding: 0.8rem;
+    font-size: 0.7rem;
+}
+
+.md-nav.md-nav--secondary > ul {
+    padding-bottom: 0;
+}
+
+.md-nav--secondary .md-nav__title {
     font-family: 'Instrument Sans', sans-serif;
+    background: inherit;
+    box-shadow: none;
+    color: var(--nl3d-blue);
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-bottom: 1px solid #0B70C1;
+    padding-left: 0;
+}
+
+[dir=ltr] .md-nav--secondary .md-nav__list {
+    padding-left: 0;
 }
 
 /*****************************************************************************/
