@@ -204,6 +204,7 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.caret
   - pymdownx.mark
+  - pymdownx.blocks.html
   - pymdownx.snippets
   - pymdownx.tilde
   - pymdownx.emoji:

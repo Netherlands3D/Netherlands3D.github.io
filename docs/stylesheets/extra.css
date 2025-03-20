@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3
+{
+    font-family: 'Instrument Sans', sans-serif;
+}
+
 .md-content .md-typeset h1 {
     position: relative;
     margin-bottom: 1.5rem;
@@ -201,10 +210,20 @@
     padding-top: 1.5rem;
 }
 
+.two-column.minimal + .two-column {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+}
+
 @media screen and (min-width: 768px) {
     .two-column {
         gap: 2rem;
         flex-direction: row;
+    }
+
+    .two-column.minimal > * {
+        flex: 0 0 50%;
     }
 
     .two-column h2,

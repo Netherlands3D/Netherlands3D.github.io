@@ -3,6 +3,8 @@
 Deze pagina bevat het **overzicht van alle functionaliteiten** van de **3D-Viewer** van Netherlands3D. Door op de
 functionaliteiten te klikken kom je bij de gedetailleerde beschrijving en handleiding van de functionaliteiten.
 
+//// html | div.two-column.minimal
+/// html | div
 ## Algemeen
 
 [Gebied downloaden](/docs/handleiding/gebied-downloaden/)  
@@ -13,14 +15,19 @@ functionaliteiten te klikken kom je bij de gedetailleerde beschrijving en handle
 [Schermafbeelding maken](/docs/handleiding/3D-viewer/#schermafbeelding-maken)  
 [Transformatietool](/docs/handleiding/lagen/#transformatie-tool)  
 [Zonnestand simuleren](/docs/handleiding/zonnestand/)  
-
+///
+/// html | div
 ## Navigeren
 
 [Minimap](/docs/handleiding/3D-viewer/#mini-map)  
 [Orthografisch/perspectief](/docs/handleiding/3D-viewer/#orthografischperspectief)  
 [Positie](/docs/handleiding/3D-viewer/#positie)  
 [Weergave naar noorden draaien](/docs/handleiding/3D-viewer/#weergave-naar-noorden-draaien)  
+///
+////
 
+//// html | div.two-column.minimal
+/// html | div
 ## Toevoegen
 
 [3D Tiles](/docs/handleiding/toevoegen-3d-tiles/)  
@@ -32,7 +39,8 @@ functionaliteiten te klikken kom je bij de gedetailleerde beschrijving en handle
 [Tekengebied - Polygoon ](/docs/handleiding/toevoegen-selectiegebied/#polygoon)  
 [UrbanReLeaf Sensor Data](/docs/handleiding/toevoegen-urban-releaf/)  
 [Verspreid objecten in tekengebied Polygoon ](/docs/handleiding/toevoegen-selectiegebied/#verspreid-objecten-in-gebied)  
-
+///
+/// html | div
 ## Instellingen
 
 [Bomen en bospercelen](/docs/handleiding/3D-viewer-functionaliteiten/#bomen-en-bospercelen)  
@@ -45,3 +53,5 @@ functionaliteiten te klikken kom je bij de gedetailleerde beschrijving en handle
 [Straatnamen](/docs/handleiding/3D-viewer-functionaliteiten/#straatnamen)  
 [Terrein - kadaster](/docs/handleiding/3D-viewer-functionaliteiten/#terrein-kadaster)  
 [Wijknamen](/docs/handleiding/3D-viewer-functionaliteiten/#wijknamen)  
+///
+////
