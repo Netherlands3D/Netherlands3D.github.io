@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap');
 
+:root, [data-md-color-scheme=default] {
+    --md-default-fg-color: #323955;
+}
+
 .md-typeset h1,
 .md-typeset h2,
 .md-typeset h3
@@ -29,6 +33,26 @@
 
 .md-tabs__item.md-tabs__item--active {
     color: #E57373;
+}
+
+/*****************************************************************************/
+/** Navigation sidebar *******************************************************/
+/*****************************************************************************/
+
+.md-nav {
+    font-size: 0.7rem;
+}
+
+/* Section header in "navigation" sidebar */
+.md-nav--lifted>.md-nav__list>.md-nav__item>[for] {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.8rem;
+    color: #E57373;
+}
+
+/* Section header in "navigation" sidebar */
+.md-nav__item--section>.md-nav__link[for] {
+    font-family: 'Instrument Sans', sans-serif;
 }
 
 /*****************************************************************************/

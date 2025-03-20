@@ -5,7 +5,7 @@ nav:
       - 'docs/functionaliteiten/wat-is-netherlands3d.md'
       - 'docs/functionaliteiten/functionaliteiten-overzicht.md'
 
-      - 'Handleidingen per functionaliteit':
+      - 'Handleidingen':
         - 'Homepage':
             - 'Algemeen': 'docs/handleiding/homepage.md'
             - 'Hoofdmenubalk': docs/handleiding/homepage/#hoofdmenubalk
