@@ -73,10 +73,8 @@ nav:
         - 'docs/voorbeelden/wms-wfs.md'
             
   - 'Voor organisaties':
-      - 'docs/organisations/index.md'
-#      - 'docs/organisations/getting-started.md'
-#      - 'docs/organisations/hosting.md'
-#      - 'docs/organisations/personalisering.md'
+      - 'docs/organisations/netherlands3d-platform.md'
+      - 'Keuzehulp': 'docs/organisations/netherlands3d-platform#keuzehulp'
       - 'Ondersteuning':
           - 'docs/organisations/cors.md'
       - 'Verantwoording':
