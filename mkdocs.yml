@@ -8,20 +8,20 @@ nav:
       - 'Handleidingen':
         - 'Homepage':
             - 'Algemeen': 'docs/handleiding/homepage.md'
-            - 'Hoofdmenubalk': docs/handleiding/homepage/#hoofdmenubalk
-            - 'Hoofdstukken': docs/handleiding/homepage/#hoofdstukken
-            - 'Headline': docs/handleiding/homepage/#headline
-            - 'Content': docs/handleiding/homepage/#content
-            - 'Footer': docs/handleiding/homepage/#footer
+            - 'Hoofdmenubalk': 'docs/handleiding/homepage/#hoofdmenubalk'
+            - 'Hoofdstukken': 'docs/handleiding/homepage/#hoofdstukken'
+            - 'Headline': 'docs/handleiding/homepage/#headline'
+            - 'Content': 'docs/handleiding/homepage/#content'
+            - 'Footer': 'docs/handleiding/homepage/#footer'
 
         - '3D-viewer':
             - 'Algemeen': 'docs/handleiding/3D-viewer.md'
-            - 'Startscherm': 'docs/handleiding/3D-viewer/#startscherm'
+            - 'docs/handleiding/3D-viewer/#startscherm'
 
             - 'Instellingen':
-                - 'Locatie bepalen': 'docs/handleiding/3D-viewer-locatie-bepalen.md'            
-                - 'Functionaliteiten': 'docs/handleiding/3D-viewer-functionaliteiten.md'
-                - 'Instellingen-submenu': 'docs/handleiding/3D-viewer-instellingen-sub.md'
+                - 'docs/handleiding/3D-viewer-locatie-bepalen.md'
+                - 'docs/handleiding/3D-viewer-functionaliteiten.md'
+                - 'docs/handleiding/3D-viewer-instellingen-sub.md'
 
             - 'Interface':      
                 - 'Hoofdmenu':      
@@ -38,27 +38,26 @@ nav:
 
                     - 'Lagen toevoegen':
                         - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
-                        - 'Menu linksonder': 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                        - 'Menu (linksonder)': docs/handleiding/lagen-toevoegen/#menu-linksonder'
                         - 'Organiseren': 'docs/handleiding/lagen-toevoegen/#organiseren'
                         - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'
                         - 'Toevoegen':
-                            - 'Importeren': 'docs/handleiding/toevoegen-importeren.md'
-                            - 'Selectiegebied': 'docs/handleiding/toevoegen-selectiegebied.md'        
-                            - 'Urban ReLeaf': 'docs/handleiding/toevoegen-urban-releaf.md'
-                            - 'Basislagen': 'docs/handleiding/toevoegen-basislagen.md'
-                            - '3D tiles': 'docs/handleiding/toevoegen-3d-tiles.md'
-                            - 'Fotorealistische wereld': 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
-                            - 'Objecten biep': 'docs/handleiding/toevoegen-objecten-biep.md'
+                            - 'docs/handleiding/toevoegen-importeren.md'
+                            - 'docs/handleiding/toevoegen-selectiegebied.md'
+                            - 'docs/handleiding/toevoegen-urban-releaf.md'
+                            - 'docs/handleiding/toevoegen-basislagen.md'
+                            - 'docs/handleiding/toevoegen-3d-tiles.md'
+                            - 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
+                            - 'docs/handleiding/toevoegen-objecten-biep.md'
 
-                    - 'Zonnestand': 'docs/handleiding/zonnestand.md'
-                    - 'Gebied downloaden': 'docs/handleiding/gebied-downloaden.md'
-                    - 'Project-openen/opslaan': 'docs/handleiding/project-openen-opslaan.md'      
-
+                    - 'docs/handleiding/zonnestand.md'
+                    - 'docs/handleiding/gebied-downloaden.md'
+                    - 'docs/handleiding/project-openen-opslaan.md'
 
                 - 'Bovenbalk':
-                    - 'Schermafbeelding maken': docs/handleiding/3D-viewer/#schermafbeelding-maken
-                    - 'Instellingen': 'docs/handleiding/3D-viewer-instellingen.md'    
-                    - 'Informatie': docs/handleiding/3D-viewer/#informatie
+                    - 'Schermafbeelding maken': 'docs/handleiding/3D-viewer/#schermafbeelding-maken'
+                    - 'docs/handleiding/3D-viewer-instellingen.md'
+                    - 'Informatie': 'docs/handleiding/3D-viewer/#informatie'
  
                 - 'Onderhoek (rechts)': 
                     - 'Orientatie en Mini-map': 'docs/handleiding/3D-viewer/#orientatie-en-mini-map'       
@@ -144,9 +143,6 @@ nav:
 draft_docs: |
   about-us/index.md
   docs/developers/ui/locating-components-in-unity.md
-  docs/organisations/getting-started.md
-  docs/organisations/hosting.md
-  docs/organisations/personalisering.md
 
 # Includes, starting with an underscore - https://www.mkdocs.org/user-guide/configuration/#not_in_nav
 not_in_nav: |
@@ -205,6 +201,7 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.blocks.html
+  - pymdownx.blocks.caption
   - pymdownx.snippets
   - pymdownx.tilde
   - pymdownx.emoji:

@@ -103,7 +103,7 @@
     padding-left: 0;
 }
 
-[dir=ltr] .md-nav--secondary .md-nav__list {
+[dir=ltr] .md-nav--secondary > .md-nav__list {
     padding-left: 0;
 }
 
