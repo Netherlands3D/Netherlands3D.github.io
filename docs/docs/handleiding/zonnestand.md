@@ -132,8 +132,8 @@ Meer informatie over schaduwstudies en bezonning, staat op deze website https://
 
 **Bepaling Zonnestand**
 
-**Algemeen** Voor het bepalen van de zonnestand maken we gebruik van het NOAA Solar Position Algorithm (SPA). Voor meer informatie kijk op https://gml.noaa.gov/grad/solcalc/index.html  
+**Algemeen** Voor het bepalen van de zonnestand maken we gebruik van het NOAA Solar Position Algorithm (SPA). Voor meer informatie kijk op [https://gml.noaa.gov/grad/solcalc/index.html](https://gml.noaa.gov/grad/solcalc/index.html)
 
 **Beheer van tijdzones en zonnestand berekening**
 
-We maken gebruik van een eigen oplossing, omdat deze standaard niet in Unity beschikbaar is: voor meer informatie kijk op de tab [Voor organisaties] (https://netherlands3d.eu/docs/organisations/)
+We maken gebruik van een eigen oplossing, omdat deze standaard niet in Unity beschikbaar is: voor meer informatie kijk op de tab voor organisaties [https://netherlands3d.eu/docs/organisations/](https://netherlands3d.eu/docs/organisations/)
