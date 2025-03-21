@@ -136,4 +136,4 @@ Meer informatie over schaduwstudies en bezonning, staat op deze website https://
 
 **Beheer van tijdzones en zonnestand berekening**
 
-We maken gebruik van een eigen oplossing, omdat deze standaard niet in Unity beschikbaar is: voor meer informatie kijk op de tab voor organisaties [https://netherlands3d.eu/docs/organisations/](https://netherlands3d.eu/docs/organisations/)
+We maken gebruik van een eigen oplossing, omdat deze standaard niet in Unity beschikbaar is: voor meer informatie kijk op de tab voor organisaties [https://netherlands3d.eu/docs/organisations/netherlands3d-platform/](https://netherlands3d.eu/docs/organisations/netherlands3d-platform/)
