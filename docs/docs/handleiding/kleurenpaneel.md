@@ -1,0 +1,19 @@
+# Kleurenpaneel
+
+Functionaliteit, hoofdmenu.  
+
+## **Openen**
+
+![Building Blocks](../handleiding/imgs/kleurenpaneel.aanroepen.png){ style="height:230px;width:50px"  align=left }
+
+Door op het **instellingen** icoon te klikken open je het instellingenvenster waar, wanneer van toepassing, het kleurenpaneel zichtbaar wordt.
+
+![Building Blocks](../handleiding/imgs/kleurenpaneel.overzicht.png){ style="height:230px;width:50px"  align=left }
+
+Met het **kleurenpaneel** kan je kleuren en transparantie van basis en toegevoegde lagen aanpassen (deze kunnen materiaal kleuren uit een .mtl bestand overrulen). Door op het rondje in de kleurenwaaier te klikken kan je deze verplaatsen naar de door jouw gewenste kleur. De saturatie is dan nog aanpasbaar via de meest rechtse horizontale balk. Daarnaast kan de transparantie van de kleur worden aangepast. Ook kan je een Hexadecimale Kleurcode invullen in het onderste veld.
+
+De kleur van de geladen en geselecteerde laag zal nu wijzigen naar de gekozen kleur.
+
+---
+
+
