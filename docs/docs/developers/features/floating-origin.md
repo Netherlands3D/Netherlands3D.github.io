@@ -1,9 +1,21 @@
 Working with large distances (Floating Origin)
 ==============================================
 
-The Floating Origin System is a solution designed to manage 3D world coordinates in Unity3D. It operates on the idea of
-retaining the real-world coordinates of objects while the origin within the computer-generated world adjusts. The
-Floating Origin System achieves this through the integral use of the following components:
+The Floating Origin system allows you to navigate the entire world without encountering floating-point precision errors.
+Instead of letting the camera roam infinitely far from the unity origin (0, 0, 0), it keeps the camera near the center 
+by shifting the entire world when needed:
+
+* When the camera moves more than 5 kilometers away from (0, 0, 0), the system shifts all GameObjects so that the camera
+  is back near the origin.
+
+* This shift is invisible to the user—everything appears stable, while in reality, the whole scene has been 
+  repositioned.
+
+* Each object stores its real-world coordinates separately, and the Floating Origin itself also tracks its own 
+  real-world position, enabling accurate placement at all times.
+
+> Analogy: Imagine sliding the world underneath you in 5 km steps as you move, instead of moving the camera through the
+  world.
 
 ## Overview of the Floating Origin System
 
