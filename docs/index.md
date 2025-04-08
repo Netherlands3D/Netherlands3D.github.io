@@ -13,7 +13,7 @@ hide:
 
 # Netherlands3D
 
-Netherlands3D, het open-source Digital Twin-framework ontworpen voor Nederland. 
+Netherlands3D, het [open-source](https://github.com/Netherlands3D) Digital Twin-framework ontworpen voor Nederland. 
 
 Door middel van datavisualisatie stelt Netherlands3D u in staat om gedetailleerde, op data gebaseerde modellen weer te 
 geven.
