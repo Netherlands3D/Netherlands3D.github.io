@@ -38,7 +38,8 @@ nav:
 
                     - 'Lagen toevoegen':
                         - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
-                        - 'Menu (linksonder)': docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                          'Afgeschermde bronnen': 'docs/handleiding/afgeschermde-bronnen.md'                        
+                        - 'Menu (linksonder)': 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
                         - 'Organiseren': 'docs/handleiding/lagen-toevoegen/#organiseren'
                         - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'
                         - 'Toevoegen':
