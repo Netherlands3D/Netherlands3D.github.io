@@ -73,7 +73,7 @@ _(Afbeelding) Instellingen actief_
 #### Invullen gebruikersnaam en wachtwoord
 ![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.wachtw.png)
 
-Als er een laag van een afgeschermde bron wordt geladen (via het importeren menu), krijg je bovenstaande venster in beeld. Dit kunnen WMS/WFS/GeoJSON en 3D-Tiles lagen zijn, welke je via een bestand of url koppelt.
+Als er een laag van een afgeschermde bron wordt geladen (via het importeren menu), krijg je bovenstaande venster in beeld. Dit kunnen WMS/WFS/GeoJSON en 3D-Tiles lagen zijn, welke je via een bestand of url koppelt. In dit venster vul je gebruikersnaam en wachtwoord in.
 
 #### Switchen tussen gebruikersnaam/wachtwoord en code
 ![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.switch.png)
@@ -84,7 +84,7 @@ Wanneer je geen gebruikersnaam en wachtwoord hebt, maar alleen een code (bijvoor
 ![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.token.png)
 
 
-Als er een laag van een afgeschermde bron wordt geladen (via het importeren menu), krijg je bovenstaande venster in beeld. Dit kunnen WMS/WFS/GeoJSON en 3D-Tiles lagen zijn, welke je via een bestand of url koppelt.
+In dit venster vul je alleen de code in.
 
 Als je de gegevens hebt ingevuld, wordt de laag gemaakt en de gegevens uit bestand of bron geladen.
 
