@@ -35,7 +35,7 @@ nav:
                         - 'Tonen/verbergen': 'docs/handleiding/lagen/#tonenverbergen'
                         - 'Transformatie-tool': 'docs/handleiding/lagen/#transformatie-tool'
                         - 'Eigenschappen': 'docs/handleiding/lagen/#eigenschappen'
-                        - 'Afgeschermde bronnen': 'docs/handleiding/lagen/#invullen gegevens bij afgeschermde bron'
+                        - 'Afgeschermde bronnen': 'docs/handleiding/lagen/#afgeschermde bronnen'
 
                     - 'Lagen toevoegen':
                         - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'                   
