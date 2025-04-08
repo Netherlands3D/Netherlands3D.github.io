@@ -1,7 +1,7 @@
 # Lagen
 
 (Kern)functionaliteit, hoofdmenu.  
-![Building Blocks](../handleiding/imgs/lagen.menu.main.png){ style="height:230px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 
 Lagen is **dé kernfunctionaliteit van Netherlands3d.eu**. Deze functionaliteit biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
  
@@ -30,7 +30,7 @@ _(Video) gebruik van Lagen_
 Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
 Het menu klapt open en de **basislagen worden zichtbaar**.
 
-![Building Blocks](../handleiding/imgs/lagen.main.png){ width="350px" }  
+![Building Blocks](../handleiding/imgs/lagen.main.png)  
 _(Afbeelding) lagen-menu_
 
 ---
