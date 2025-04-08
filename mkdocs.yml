@@ -35,10 +35,11 @@ nav:
                         - 'Tonen/verbergen': 'docs/handleiding/lagen/#tonenverbergen'
                         - 'Transformatie-tool': 'docs/handleiding/lagen/#transformatie-tool'
                         - 'Eigenschappen': 'docs/handleiding/lagen/#eigenschappen'
+                        - 'Afgeschermde bronnen': 'docs/handleiding/lagen/#invullen gegevens bij afgeschermde bron'
 
                     - 'Lagen toevoegen':
-                        - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
-                        - 'Menu (linksonder)': docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                        - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'                   
+                        - 'Menu (linksonder)': 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
                         - 'Organiseren': 'docs/handleiding/lagen-toevoegen/#organiseren'
                         - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'
                         - 'Toevoegen':
