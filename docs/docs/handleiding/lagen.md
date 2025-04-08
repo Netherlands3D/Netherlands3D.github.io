@@ -68,21 +68,20 @@ Klik op het `Eigenschappen-icoon` om het eigenschappenmenu te openen.
 ![Building Blocks](../handleiding/imgs/lagen.instellingen.png)
 _(Afbeelding) Instellingen actief_
 
-*	#### **Toevoegen laag met afschermde bron**
+*	#### **invullen gegevens bij afgeschermde bron**
 
 #### Invullen gebruikersnaam en wachtwoord
-![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.wachtw.png){style="height:230px;width:50px" align=left }
-
+![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.wachtw.png)
 
 Als er een laag van een afgeschermde bron wordt geladen (via het importeren menu), krijg je bovenstaande venster in beeld. Dit kunnen WMS/WFS/GeoJSON en 3D-Tiles lagen zijn, welke je via een bestand of url koppelt.
 
 #### Switchen tussen gebruikersnaam/wachtwoord en code
-![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.switch.png){style="height:230px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.switch.png)
 
 Wanneer je geen gebruikersnaam en wachtwoord hebt, maar alleen een code (bijvoorbeeld een API-key) dan kan je via bovenstaande knop switchen tussen gebruikersnaam/wachtwoord en code.
 
 #### Invullen Code
-![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.token.png){style="height:230px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.token.png)
 
 
 Als er een laag van een afgeschermde bron wordt geladen (via het importeren menu), krijg je bovenstaande venster in beeld. Dit kunnen WMS/WFS/GeoJSON en 3D-Tiles lagen zijn, welke je via een bestand of url koppelt.
