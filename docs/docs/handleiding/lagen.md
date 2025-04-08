@@ -1,7 +1,7 @@
 # Lagen
 
 (Kern)functionaliteit, hoofdmenu.  
-![Building Blocks](../handleiding/imgs/lagen.menu.main.png){ style="height:230px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 
 Lagen is **dé kernfunctionaliteit van Netherlands3d.eu**. Deze functionaliteit biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
  
@@ -30,7 +30,7 @@ _(Video) gebruik van Lagen_
 Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
 Het menu klapt open en de **basislagen worden zichtbaar**.
 
-![Building Blocks](../handleiding/imgs/lagen.main.png){ width="350px" }  
+![Building Blocks](../handleiding/imgs/lagen.main.png)  
 _(Afbeelding) lagen-menu_
 
 ---
@@ -68,21 +68,20 @@ Klik op het `Eigenschappen-icoon` om het eigenschappenmenu te openen.
 ![Building Blocks](../handleiding/imgs/lagen.instellingen.png)
 _(Afbeelding) Instellingen actief_
 
-*	#### **Toevoegen laag met afschermde bron**
+*	#### **invullen gegevens bij afgeschermde bron**
 
 #### Invullen gebruikersnaam en wachtwoord
-![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.wachtw.png){style="height:230px;width:50px" align=left }
-
+![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.wachtw.png)
 
 Als er een laag van een afgeschermde bron wordt geladen (via het importeren menu), krijg je bovenstaande venster in beeld. Dit kunnen WMS/WFS/GeoJSON en 3D-Tiles lagen zijn, welke je via een bestand of url koppelt.
 
 #### Switchen tussen gebruikersnaam/wachtwoord en code
-![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.switch.png){style="height:230px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.switch.png)
 
 Wanneer je geen gebruikersnaam en wachtwoord hebt, maar alleen een code (bijvoorbeeld een API-key) dan kan je via bovenstaande knop switchen tussen gebruikersnaam/wachtwoord en code.
 
 #### Invullen Code
-![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.token.png){style="height:230px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.token.png)
 
 
 Als er een laag van een afgeschermde bron wordt geladen (via het importeren menu), krijg je bovenstaande venster in beeld. Dit kunnen WMS/WFS/GeoJSON en 3D-Tiles lagen zijn, welke je via een bestand of url koppelt.
