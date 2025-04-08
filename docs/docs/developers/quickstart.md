@@ -10,23 +10,28 @@
 
 Netherlands3D is developed in Unity, thus you'll need few prerequisites to start with the platform:
 
-1. Install Unity, the recommended version is Unity 2023 LTS, including the WebGL build options. Please check the Unity 
+1. Install Unity, the recommended version is Unity 2022.3.34f1, including the WebGL build options. Please check the Unity 
    Download Page -or Unity Hub- and the official Installation Guide for assistance.
 2. Basic understanding of Unity and C# programming language.
 
 ## Getting Started
 
-1. Firstly, clone the Netherlands3D/twin repository from GitHub:
+1. We use Git LFS for storing large files. For Windows users, this is included in Git for Windows, while Mac users need to do the following:
+    
+    ```bash
+    brew install git-lfs
+    git lfs install
+    ```
+    
+2. Clone the Netherlands3D/twin repository from GitHub:
 
     ```bash
     git clone https://github.com/Netherlands3D/twin.git
     ```
 
-2. Once cloned, open the project in Unity. After the project has loaded, you can start tweaking and modifying the
-   application as per your needs.
+3. Once cloned, open the project in Unity. 
 
-Do make sure that your build settings are set to build the project as a WebGL application, as several functionalities
-are tailored to that platform.
+4. Now, go to the File menu, then select Build Settings. In the Build Settings window, choose WebGL and click Switch Platform.
 
 ## Recommendations
 
