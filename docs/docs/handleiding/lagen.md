@@ -68,7 +68,7 @@ Klik op het `Eigenschappen-icoon` om het eigenschappenmenu te openen.
 ![Building Blocks](../handleiding/imgs/lagen.instellingen.png)
 _(Afbeelding) Instellingen actief_
 
-*	#### **invullen gegevens bij afgeschermde bron**
+* #### **Afgeschermde bronnen**
 
 #### Invullen gebruikersnaam en wachtwoord
 ![Building Blocks](../handleiding/imgs/afgeschermde.bronnen.wachtw.png)
