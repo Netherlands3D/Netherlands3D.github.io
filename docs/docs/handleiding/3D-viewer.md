@@ -20,21 +20,21 @@ Na het opstarten van de 3D viewer is het instellingen menu actief. Het instellin
 
 ---
 
-## Interface
+## Werkruimte
 
 ![Building Blocks](../handleiding/imgs/3d-viewer.interface.png)
 _(Afbeelding) 3D-Viewer interface_
 
-De interface is onderverdeeld in het 3D-scherm met daaromheen de knoppen van de interface gegroepeerd in vier menu's;
+De interface is onderverdeeld in het 3D-scherm met daaromheen de knoppen van de interface gegroepeerd in vier menu's:
 
-1. Hoofdmenu – linksboven  
+1. Werkbalk – linksboven  
 2. Project openen/opslaan - linksonder  
-3. Bovenbalk – rechtsboven  
-4. Navigeren - rechtsonder  
+3. Applicatiebalk – rechtsboven  
+4. Weergave en informatie - onder  
 
 ---
 
-### Hoofdmenu
+### Werkbalk
 
 ![Building Blocks](../handleiding/imgs/3d-viewer.menu.linksboven.png){ style="height:230px;width:50px"  align=left }
 
@@ -55,11 +55,12 @@ Het Project opslaan/openen-menu bevindt zich in de linker onder hoek en bevat de
 
 ---
 
-### Bovenbalk
+### Applicatiebalk
 
-![Building Blocks](../handleiding/imgs/3d-viewer.menu.rechtsboven.png){ width="150"  align=left }
+![Building Blocks](../handleiding/imgs/3d-viewer.menu.rechtsboven.png){ width="150" }
 
-De bovenbalk rechtsbovenin bevat de volgende functies (van links naar rechts); 
+De Applicatiebalk rechtsbovenin bevat de volgende functies (van links naar rechts):
+
 **Schermafbeelding maken, Instellingen en Informatie.**
 
 #### Schermafbeelding maken
@@ -77,7 +78,7 @@ De knop `Informatie` opent de Homepage in een apart browser-venster.
 
 ---
 
-### Orientatie en Mini-map
+### Weergave en informatie
 
 ![Building Blocks](../handleiding/imgs/3d-viewer.menu.rechtsonder.png){ width="360px" }
 
@@ -111,11 +112,10 @@ Met de knoppen `+/-` kan worden in-/uitgezoomd.
 In de blauwe onderbalk van de viewer staan (rechts) de coördinaten van de positie van de viewer.
 ![Building Blocks](../handleiding/imgs/3d-viewer.positie.png){ width="360px" }
 
-!!! tip "Waarom zie ik x,y,z-coördinaten en geen gps-coördinaten?"
+!!! question "Waarom zie ik x,y,z-coördinaten en geen gps-coördinaten?"
 
-	(*) Het coördinatenstelsel van Netherlands3d.eu is gebaseerd op het RD-coördinatenstelsel.  
-	Lees [hier](https://www.kadaster.nl/zakelijk/registraties/basisregistraties/rijksdriehoeksmeting/rijksdriehoeksstelsel) 
-    (externe link) meer over het RD-coördinatenstelsel.
+	Het coördinatenstelsel van Netherlands3D is gebaseerd op het rijksdriehoeksstelsel.  
+	[Lees hier meer over het rijksdriehoeksstelsel](https://www.kadaster.nl/zakelijk/registraties/basisregistraties/rijksdriehoeksmeting/rijksdriehoeksstelsel).
 
 ---
 

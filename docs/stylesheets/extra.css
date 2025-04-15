@@ -45,6 +45,11 @@
     margin-top: 2rem;
 }
 
+.md-typeset figure {
+    margin: 0;
+    text-align: left;
+}
+
 .md-tabs__item.md-tabs__item--active {
     color: var(--nl3d-red);
 }
