@@ -1,13 +1,7 @@
-# Importeren van een WMS/WFS-link 
+# Importeren van een 3D Tiles-link
 
-Deze documentatie helpt je **stap voor stap** bij het **koppelen van een WMS/WFS-link** in Netherlands3D.
+Deze documentatie helpt je **stap voor stap** bij het **importeren van 3D Tiles** in Netherlands3D.
 Houdt de link - dit is vaak een url - bij de hand.
-
-!!! info
-
-    De link bevat meestal de term `?service=WFS&request=GetCapabilities` of `?service=WMS&request=GetCapabilities`. Is 
-    dat niet het geval en je ontvangt een foutmelding bij het importeren? Probeer een van deze twee toe te voegen aan 
-    je link.  
 
 ---
 
@@ -98,9 +92,10 @@ Kopieër en plak de link van het bestand in het vakje [URL link] en klik op `Toe
 
 ---
 
-## Stap 5. Navigeer naar de WMS/WFS-data
+## Stap 5. Navigeer naar de 3D Tiles-data
 
-Na `Toevoegen` is de link gekoppeld en zijn de sublagen (in het geval van een WFS) in Lagen zichtbaar.
-Ga naar de locatie waar de WMS/WFS-link betrekking op heeft om de WMS/WFS-Laag in de 3D-Viewer te bekijken.
+Na `Toevoegen` is de link gekoppeld en is de laag zichtbaar in het `Lagen` paneel.
+
+Ga naar de locatie waar de 3D Tiles-link betrekking op heeft om de 3D Tiles laag in de 3D-Viewer te bekijken.
 
 Sla het project op met `Project Opslaan` (links onder) om de koppeling te bewaren.

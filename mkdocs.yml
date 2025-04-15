@@ -65,7 +65,8 @@ nav:
 
       - 'Voorbeelden voor eindgebruikers':
         - 'docs/voorbeelden/wms-wfs.md'
-            
+        - 'docs/voorbeelden/3d-tiles-importeren.md'
+
   - 'Voor organisaties':
       - 'docs/organisations/netherlands3d-platform.md'
       - 'Keuzehulp': 'docs/organisations/netherlands3d-platform#keuzehulp'
