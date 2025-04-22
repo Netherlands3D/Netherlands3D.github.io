@@ -6,7 +6,7 @@ Tilekit is een raamwerk om geospatiale datasets te visualiseren, inclusief de mo
 
 ## 2. Synopsis
 
-Een geospatiale dataset is een dataset zijn die getegeld aangeboden wordt -zoals 3D Tiles, Webmapper en WMTS-, of een
+Een geospatiale dataset is een dataset die getegeld aangeboden wordt -zoals 3D Tiles, Webmapper en WMTS-, of een
 verzameling van geospatiale features -zoals WFS, OGC API Features of GeoJSON-. Tilekit is ontworpen om deze datasets
 op een getegelde manier te visualiseren.
 
