@@ -64,87 +64,19 @@ geimplementeerd worden.
 
 ### 5.2. Waarom?
 
-- **Vertegeling is complex** - door opsplitsen in kleine verantwoordelijkheden is het makkelijk om van elk onderdeel te zien wat het moet doen
-- **Toekomstbestendig** - door een aantal functionaliteiten te maken met duidelijke boundaries kan ieder onderdeel individueel vervangen worden zonder grote refactorings
-- **Modulair** - functionaliteiten, zoals WMS en WFS, kunnen specifieke implementaties van functies bijdragen -zoals maken van de TileSet op basis van GetCapabilities- zonder dat het de rest hoeft te raken
-- **Minder uitzonderingen** - code doet maar een ding en heeft daarmee ook minder uitzonderingen; als een functionaliteit een bijzonderheid heeft die niet gevangen wordt in de bestaande implementaties, dan kan je een specifieke implementatie maken voor die functionaliteit.
+- **Vertegeling is complex** - door opsplitsen in kleine verantwoordelijkheden is het makkelijk om van elk onderdeel te
+  zien wat het moet doen
+- **Toekomstbestendig** - door een aantal functionaliteiten te maken met duidelijke boundaries kan ieder onderdeel
+  individueel vervangen worden zonder grote refactorings
+- **Modulair** - functionaliteiten, zoals WMS en WFS, kunnen specifieke implementaties van functies bijdragen -zoals
+  maken van de [TileSet](#tileset) op basis van GetCapabilities- zonder dat het de rest hoeft te raken
+- **Minder uitzonderingen** - code doet maar een ding en heeft daarmee ook minder uitzonderingen; als een
+  functionaliteit een bijzonderheid heeft die niet gevangen wordt in de bestaande implementaties, dan kan je een
+  specifieke implementatie maken voor die functionaliteit.
 
-## 6. Ophalen van data
+## 6. Tegelsysteem
 
-- Moet Asynchroon middels promises
-- Network requests moeten gethrottled kunnen worden opgehaald (per host)
-    - Is dit een verantwoordelijkheid van de ChangeScheduler?
-- Er moet er een retry mechanisme in komen
-    - Is dat iets voor Uxios? https://dev.to/scrapfly_dev/how-to-retry-in-axios-5e87
-    - Kijk naar https://cesium.com/learn/cesiumjs/ref-doc/Resource.html
-- Injecteren van een sjabloon-request (Uxios.Config) voor, bijv, authenticatie en custom headers.
-- Zowel remote als bestanden uit de persistent data storage kan worden opgehaald op een eenduidige manier
-    - middels de HTTP Client Uxios.
-    - Zie https://kind-men.github.io/uxios/guides/working-with-persistent-data/ voor bestanden in de Persistent Data Storage, en https://kind-men.github.io/uxios/guides/fetching-pokemon-using-get/ voor URLs.
-- Filesystem abstractie?
-    - Kunnen we hergebruiken wat er al is in het projectsysteem en daar een systeem van maken?
-    - Dit zijn nu verschillende manieren; ik doel vooral op de `project://` prefix en het inladen daarvan
-- Als we hier een aparte adapter van maken, dan kunnen we itereren op dit stuk en hoeft bovenstaande niet in een keer.
-    - Gaan we met `project://` werken, of met `unity+persistent://`? Die laatste is Uxios, die eerste is onze eigen manier. Met de laatste kunnen we ook bestanden openen die niet in het project zijn maar wel in de persistent storage; nadeel is dat je je bestandslokaties moet weten
-- Gaan we abstraheren, of juist op Uxios leunen? Dat eerste is flexibeler, dat tweede minder complex.
-- TileContentLoader moet aan begin meegegeven worden
-- Elke TileRenderer of de GameObject die geinstantieerd wordt wil toegang hebben tot de TileContentLoader? Of tot de TileContentData?
-
-## Flow
-
-Vraag: moeten we een TileRenderer en TileContentRenderer hebben? Of is een Tile een algemene prefab die als container gebruikt kan worden maar de TileRenderer eigenlijk een TileContentRenderer?
-
-1. Een Change voor het toevoegen van een tegel wordt gestart
-2. De change zoekt de juiste TileRenderer op en initieert het aanmaken van de tegel
-3. De TileRenderer bevraagt de TileContents (meervoud) en voor elke TileContent gebruikt de TileContentLoader om
-    1. een Request samen te stellen op basis van het Sjabloon request en de TileContent zijn URI, en
-    2. het bestand te downloaden, en
-    3. Zodra de download klaar is, de TileRenderer te informeren
-4. Zodra alle TileContentData ingeladen is, dan
-5. Gaat de TileRenderer de visualisatie aanmaken (PolygonVisualisation, Prefabs, etc)
-6. Gaat de visualisatie de gedownloadde informatie toepassen (voorbeeld: Texture aan de nieuw aangemaakte DecalProjector koppelen)
-7. Meld de TileRenderer de Change af als geslaagd
-
-## Services
-
-```mermaid
-classDiagram
-	class TileContentData {		
-		// which tile is connected to the data
-		+ Tile tile
-
-		// which content in the tile is this data for, we store an index number 
-		// but can return the value using a property
-		- TileContent tileContentIndex
-		+ TileContent TileContent
-
-		// where is the data on the filesystem
-		+ FileInfo fileInfo
-	}
-
-	class ITileContentLoader {
-		UsingAuthentication(StoredAuthorization authentication)
-		Load(Tile tile, int tileContentIndex) Promise~TileContentData~
-	}
-	class UxiosTileContentLoader {
-		UxiosTileContentLoader(Uxios.Config requestTemplate)
-	}
-
-	<<interface>> ITileContentLoader
-
-	ITileContentLoader <|-- UxiosTileContentLoader
-	TileContentData -- ITileContentLoader
-	StoredAuthorization -- ITileContentLoader
-	Tile -- ITileContentLoader
-	Tile -- TileContentData
-	TileContent -- TileContentData
-	FileInfo -- TileContentData
-	UxiosTileContentLoader -- Uxios.Config
-```
-
-## 7. Tegelsysteem
-
-### 7.1. Doelen
+### 6.1. Doelen
 
 - Progressive enhancement, laad eerst de goedkoopste delen en vervang dan ter verbetering
 - Prioritisatiemechanisme, tegels die dichtbij het zichtpunt zijn moeten eerst geladen worden, en dan steeds verder daarbuiten
@@ -176,9 +108,9 @@ classDiagram
 - **Foutafhandeling en Robuustheid**: Zorg voor een robuuste foutafhandeling, zodat het systeem stabiel blijft werken, zelfs bij problemen met externe databronnen of netwerkverbindingen.
 - Visuele debugging tools
 
-### 7.3. Flow
+### 6.3. Flow
 
-#### 7.3.1. Levenscyclus
+#### 6.3.1. Levenscyclus
 
 ![](tiling-flow.png)
 
@@ -205,7 +137,7 @@ volgorde afhandeld; maar Tilekit ondersteunt ook dat het stagen en mappen door a
     Deze ontwerpkeuze is fundamenteel om asynchrone handelingen te ondersteunen omdat de mapping fase alleen een change
     kan starten, maar de change zelf meerdere frames en cycli van staging zou kunnen duren.
 
-#### 7.3.2. Inladen van een TileSet
+#### 6.3.2. Inladen van een TileSet
 
 In hoofdstuk [7.4. Datamodel](#74-datamodel) is beschreven welke elementen de definitie van een TileSet heeft. Hiermee
 kan je flexibel een breed scala aan tegelsystemen mee weergeven, maar dit van begin af aan inrichten is een uitdaging
@@ -219,7 +151,7 @@ TileSet te kunnen configureren:
 2. **TileSetFactory**, een [Factory](https://refactoring.guru/design-patterns/factory-method) service waarmee je in een
    keer een gehele TileSet instantieert met een specifieke configuratie.
 
-##### 7.3.2.1. TileSetBuilder
+##### 6.3.2.1. TileSetBuilder
 
 De TileBuilder biedt een aantal gemaksfuncties waarmee een TileSet gemakkelijk opgebouwd kan worden. Aangezien een
 TileSet zelf bestaat uit een paar korte instructies en vervolgens een boomstructuur aan Tile objecten zal de TileBuilder
@@ -231,7 +163,7 @@ quadTreeTileBuilder = TileSetBuilder.QuadTree(bounds);
 
 ```
 
-#### 7.3.3. Staging
+#### 6.3.3. Staging
 
 De Staging fase in de [TileMapper](#tilemapper) is bedoeld om te bepalen welke tegels in- en
 uitgeladen moeten worden om in de [7.3.4. Mapping](#734-mapping) fase dit in gang te kunnen zetten. De staging fase, net
@@ -247,7 +179,7 @@ Het staging proces is verdeeld in 3 stappen:
 3. Welke wijzigingen moeten worden uitgevoerd om van de huidige naar de nieuwe situatie te komen -genaamd
    een [Transition](#transition) - middels een [TilesTransitionPlanner](#tilestransitionplanner).
 
-#### 7.3.4. Mapping
+#### 6.3.4. Mapping
 
 ![](tiling-flow-mapping.png)
 
@@ -260,7 +192,7 @@ Het staging proces is verdeeld in 3 stappen:
     - de Tegeldata - zoals de GeoJSON - die uit een WFS ingeladen is
     - een visualisatie - zoals een GameObject of PolygonVisualiser?
 
-### 7.4. Datamodel
+### 6.4. Datamodel
 
 !!!todo
     Kijk naar https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc#availability om na 
@@ -384,7 +316,7 @@ classDiagram
 
 - TileContent mag ook verwijzen naar een externe tileset: https://docs.ogc.org/cs/22-025r4/22-025r4.html#core-external-tilesets
 
-### 7.5. Services
+### 6.5. Services
 
 ```mermaid
 classDiagram
@@ -511,7 +443,7 @@ Projector has been omitted from the scheme above because I need to think about i
 
 Middlewares for styling need to be added
 
-## 8. Features
+## 7. Features
 
 !!!question
     Moeten we wel een systeem voor features introduceren, of is dit een gevolg? Dat een WFS bevraagd kan worden door 
@@ -562,13 +494,13 @@ Bronnen:
 
 ### Services
 
-## 9. Changes
+## 8. Changes
 
 !!!important
     Dit hoofdstuk is nog in ontwikkeling en moet gaan beschrijven hoe changes los staan van de tegels zelf of features, 
     en ook hoe we het Change subsysteem agnostisch houden van concrete implementaties
 
-### 9.1. Prioritering
+### 8.1. Prioritering
 
 In ons tegelsysteem willen we ervoor zorgen dat de belangrijkste informatie zo snel mogelijk zichtbaar is. Daarom
 gebruiken we een prioriteitssysteem dat bepaalt welke tegels het eerst worden ingeladen. Dit systeem werkt op basis van
@@ -602,7 +534,7 @@ bij elkaar qua gewicht, en de WMS laag niet.
 3. Zodra alle maaiveld- en gebouwen-tegels zijn ingeladen, begin dan met het inladen van de WMS-tegels, ook vanaf het
    midden van het scherm.
 
-## 10. Metadata
+## 9. Metadata
 
 !!!important
     Dit hoofdstuk is nog in ontwikkeling en moet gaan beschrijven wat de invloed van Metadata kan zijn, en hoe metadata 
@@ -610,6 +542,79 @@ bij elkaar qua gewicht, en de WMS laag niet.
     Daarbij moet uitgezocht worden welke rol metadata wel of niet gaat spelen in de selectie van het bestandstype voor 
     de Tegel inhoud; sommige bestanden hebben een mimetype die je hier zou kunnen opgeven als de bestandsextensie niet 
     afdoende is.
+
+## 10. Ophalen van data
+
+- Moet Asynchroon middels promises
+- Network requests moeten gethrottled kunnen worden opgehaald (per host)
+    - Is dit een verantwoordelijkheid van de ChangeScheduler?
+- Er moet er een retry mechanisme in komen
+    - Is dat iets voor Uxios? https://dev.to/scrapfly_dev/how-to-retry-in-axios-5e87
+    - Kijk naar https://cesium.com/learn/cesiumjs/ref-doc/Resource.html
+- Injecteren van een sjabloon-request (Uxios.Config) voor, bijv, authenticatie en custom headers.
+- Zowel remote als bestanden uit de persistent data storage kan worden opgehaald op een eenduidige manier
+    - middels de HTTP Client Uxios.
+    - Zie https://kind-men.github.io/uxios/guides/working-with-persistent-data/ voor bestanden in de Persistent Data Storage, en https://kind-men.github.io/uxios/guides/fetching-pokemon-using-get/ voor URLs.
+- Filesystem abstractie?
+    - Kunnen we hergebruiken wat er al is in het projectsysteem en daar een systeem van maken?
+    - Dit zijn nu verschillende manieren; ik doel vooral op de `project://` prefix en het inladen daarvan
+- Als we hier een aparte adapter van maken, dan kunnen we itereren op dit stuk en hoeft bovenstaande niet in een keer.
+    - Gaan we met `project://` werken, of met `unity+persistent://`? Die laatste is Uxios, die eerste is onze eigen manier. Met de laatste kunnen we ook bestanden openen die niet in het project zijn maar wel in de persistent storage; nadeel is dat je je bestandslokaties moet weten
+- Gaan we abstraheren, of juist op Uxios leunen? Dat eerste is flexibeler, dat tweede minder complex.
+- TileContentLoader moet aan begin meegegeven worden
+- Elke TileRenderer of de GameObject die geinstantieerd wordt wil toegang hebben tot de TileContentLoader? Of tot de TileContentData?
+
+## Flow
+
+Vraag: moeten we een TileRenderer en TileContentRenderer hebben? Of is een Tile een algemene prefab die als container gebruikt kan worden maar de TileRenderer eigenlijk een TileContentRenderer?
+
+1. Een Change voor het toevoegen van een tegel wordt gestart
+2. De change zoekt de juiste TileRenderer op en initieert het aanmaken van de tegel
+3. De TileRenderer bevraagt de TileContents (meervoud) en voor elke TileContent gebruikt de TileContentLoader om
+    1. een Request samen te stellen op basis van het Sjabloon request en de TileContent zijn URI, en
+    2. het bestand te downloaden, en
+    3. Zodra de download klaar is, de TileRenderer te informeren
+4. Zodra alle TileContentData ingeladen is, dan
+5. Gaat de TileRenderer de visualisatie aanmaken (PolygonVisualisation, Prefabs, etc)
+6. Gaat de visualisatie de gedownloadde informatie toepassen (voorbeeld: Texture aan de nieuw aangemaakte DecalProjector koppelen)
+7. Meld de TileRenderer de Change af als geslaagd
+
+## Services
+
+```mermaid
+classDiagram
+	class TileContentData {		
+		// which tile is connected to the data
+		+ Tile tile
+
+		// which content in the tile is this data for, we store an index number 
+		// but can return the value using a property
+		- TileContent tileContentIndex
+		+ TileContent TileContent
+
+		// where is the data on the filesystem
+		+ FileInfo fileInfo
+	}
+
+	class ITileContentLoader {
+		UsingAuthentication(StoredAuthorization authentication)
+		Load(Tile tile, int tileContentIndex) Promise~TileContentData~
+	}
+	class UxiosTileContentLoader {
+		UxiosTileContentLoader(Uxios.Config requestTemplate)
+	}
+
+	<<interface>> ITileContentLoader
+
+	ITileContentLoader <|-- UxiosTileContentLoader
+	TileContentData -- ITileContentLoader
+	StoredAuthorization -- ITileContentLoader
+	Tile -- ITileContentLoader
+	Tile -- TileContentData
+	TileContent -- TileContentData
+	FileInfo -- TileContentData
+	UxiosTileContentLoader -- Uxios.Config
+```
 
 ## Appendix A. Casussen
 
