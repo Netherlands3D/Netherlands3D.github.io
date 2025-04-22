@@ -30,18 +30,12 @@ bij GeoJSON-bestanden of WFS.
 Tilekit heeft ten doel om een raamwerk te bieden voor het visualiseren van alle geospatiale content, deze flexibiliteit
 vereist een ontwerp waar bij de volgende doelen gesteld zijn:
 
-- **Raamwerk** om geospatiale data te kunnen inladen en visualiseren
+- **Raamwerk** om, getegeld, geospatiale data in te laden en visualiseren.
 - **Makkelijk om onderdelen te vervangen** zonder het hele systeem aan te hoeven te passen, 
   zie [Pluggable Architectuur](#5-pluggable-architectuur).
 - **Asynchroon-first** middels Promises
-- **Ondersteunt authenticatie**
-
-!!!todo
-    Onderstaande punten moeten nog goed verwerkt worden; en andere doelen moeten nog goed opgenomen en beschreven worden.
-
-    - Optimaal gebruik van parallelisatie van requests - controleer de host en paralelliseer op basis van host (test this)
-    - Ondersteunt remote datasets middels URLs maar kan ook locale bestanden ondersteunen, zoals GeoJSON
-    - mogelijk via URLs die een lokaal bestandssysteem emuleert?
+- **Ondersteunt publieke en afgeschermde bronnen** middels authenticatie.
+- **Live linken (remote datasets) of importeren (lokale datasets)** van data moet mogelijk zijn 
 
 ## 4. Filosofie
 
@@ -51,18 +45,22 @@ geimplementeerd worden.
 
 ## 5. Pluggable Architectuur
 
+### 5.1. Kenmerken
+
+- Er is één MonoBehaviour dat als orchestrator,
+  of [context](https://unity.com/how-to/scriptableobjects-delegate-objects#pluggable-behavior), werkt - de 
+  [TileMapper](#tilemapper).
+- Een serie ScriptableObjects dat ieder 1 specifieke functie heeft, zoals de [TileSelector](#tileselector), ChangeScheduler,
+  TilesTransitionPlanner.
+- Elke van deze ScriptableObjects representeert een [Strategy](https://refactoring.guru/design-patterns/strategy).
+- Elke functie kan hiermee makkelijk vervangen worden door een andere implementatie
+
 *Voorbeeld*:
 ![](pluggable-architecture.png)
 
-> Zie https://unity.com/how-to/scriptableobjects-delegate-objects#pluggable-behavior voor een beschrijving van Unity,
-> en https://refactoring.guru/design-patterns/strategy voor meer informatie over het Strategy Design Pattern.
-
-### 5.1. Kenmerken
-
-- Er is één MonoBehaviour dat als orchestrator, of [context](https://unity.com/how-to/scriptableobjects-delegate-objects#pluggable-behavior), werkt - de TileMapper.
-- Een serie ScriptableObjects dat ieder 1 specifieke functie heeft, zoals de TilesSelector, ChangeScheduler, TilesTransitionPlanner
-- Elke van deze ScriptableObjects representeert een Strategy
-- Elke functie kan hiermee makkelijk vervangen worden door een andere implementatie
+> Zie [https://unity.com/how-to/scriptableobjects-delegate-objects#pluggable-behavior](https://unity.com/how-to/scriptableobjects-delegate-objects#pluggable-behavior) 
+> voor een beschrijving van Unity, en [https://refactoring.guru/design-patterns/strategy](https://refactoring.guru/design-patterns/strategy)
+> voor meer informatie over het Strategy Design Pattern.
 
 ### 5.2. Waarom?
 
@@ -691,6 +689,12 @@ Toevoegen altijd voor verwijderen, zodra verwijderen loopt mag niet meer geannul
 
 ### Databron
 
+### Design Pattern: Builder
+
+### Design Pattern: Factory
+
+### Design Pattern: Strategy
+
 ### Digitaal Terrein Model (DTM)
 
 **Aliassen**: Maaiveld, Grondoppervlak, Digital Terrain Model
@@ -756,6 +760,8 @@ Het midden van het scherm betekent concreet het punt in de viewport waar de came
 ### Orthometrische hoogte
 
 ![](Appendix C. Begrippen - hoogten uitgelegd.jpg)
+
+### Pluggable Architectuur
 
 ### Staging
 
