@@ -78,39 +78,130 @@ geimplementeerd worden.
 
 ### 6.1. Doelen
 
-- Progressive enhancement, laad eerst de goedkoopste delen en vervang dan ter verbetering
-- Prioritisatiemechanisme, tegels die dichtbij het zichtpunt zijn moeten eerst geladen worden, en dan steeds verder daarbuiten
-- Gemakkelijk uit te breiden met ondersteuning voor nieuwe GIS formaten
-- Gemakkelijk uit te breiden om extra bestandsformaten te tonen (PNG, Rasterdata, GLB, FBX, OBJ, etc)
-- TileSets kunnen 1 laag met een gedeelde datadata bron zijn - bijvoorbeeld WMS waarbij een selectie aan kaarten ieder zijn eigen laag is
-- Ondersteunt authenticatie
-- (H)LOD tegelsysteem om in de verte lagere resolutie en/of grotere tegels te renderen
-    - 2 varianten:
-        - varierende tegelgrootte over afstand (3D Tiles)
-        - varierende databron tbv LOD over afstand (Cartesian Tiles)
-        - Combinatie van de 2 (WMS, kleine hoge resolutie tegels dichtbij, grotere lage resolutie tegels ver af)
-- Op basis van instelbare Geometric error om ook kwaliteitsinstellingen te ondersteunen
-- Ondersteunt impliciete en expliciete tegelsets
-    - Impliciet ondersteunt QuadTree, OcTree _en_ Uniform Grid
-- Pathfinding? A*
-- Ondersteuning voor features
-    - Features kunnen in meerdere tegels voorkomen, ze moeten 1x gerendered worden maar wel meermaals getracked worden i.v.m. querying
-    - Is ReactiveProgramming interessant? Omdat de lijst met features een observable list kan worden?
-- Event systeem om invloed uit te oefenen op tegels, zoals styling toepassen na het aanmaken van een tegel
-    - Hoe gaan we om met runtime styling wijzigen, en dan de tegels verversen?
-- Coordinaten / posities in datamodel is in een Abstract Coordinate System - wat betekent dat Tilekit geen betekenis toewijst aan het coordinaten systeem maar een Projectie mechanisme gemaakt moet zijn waarin de gebruiker van Tilekit kan aangeven hoe databronnen te projecteren naar een eigen gekozen canonical CRS. Aangeraden is om EPSG:4978 (xyz in meters) aan te houden, net zoals 3D Tiles.
-    - Bounding Volumes zijn in EPSG:4979 (latlongheight) - onderzoek hoe dat moet werken met een agnostisch systeem
-- Werkt goed samen met het Floating Origin systeem - bij voorkeur zonder coupling
-- **Gebruiksvriendelijkheid**: Ontwikkel een intuïtieve monobehaviour en scriptable object structuur voor het beheer en de configuratie van tegelsets, zodat ontwikkelaars gemakkelijk hun eigen datasets kunnen toevoegen en beheren.
-- **Prestatieoptimalisatie**: Implementeer caching-mechanismen om de prestaties te verbeteren, vooral bij het laden van grote datasets of tegels op hoge resoluties.
-- Geoptimaliseerd voor geheugen, doordat de viewer in WebGL ontwikkeld is moet zo min mogelijk informatie in geheugen staan
-    - Opruimen van resources op letten, of mechanisme eromheen
-- **Foutafhandeling en Robuustheid**: Zorg voor een robuuste foutafhandeling, zodat het systeem stabiel blijft werken, zelfs bij problemen met externe databronnen of netwerkverbindingen.
-- Visuele debugging tools
+#### Functionaliteit
 
-### 6.3. Flow
+- **Uitbreidbaarheid**
+    - Ondersteuning voor nieuwe GIS-standaarden (WFS, OGC API Features, WMS)  
+    - Ondersteuning voor extra bestandsformaten (PNG, Raster, GLB, FBX, OBJ)
+- **Laagstructuur & Databronnen**  
+    - Eén TileSet kan meerdere lagen visualiseren vanuit gedeelde bron (bijv. WMS)
+    - Eén TileSet kan tegels uit andere TileSets bevatten als remote TileSet
+- **Authenticatie**  
+    - Ondersteuning voor beveiligde bronnen met authenticatie
+- **Featurebeheer**  
+    - Features kunnen in meerdere tegels voorkomen, maar worden slechts eenmaal gerenderd; zie [Features](#7-features).  
+    - Features moeten bevraagd kunnen worden middels querying.
+- **Styling & Events**  
+    - Event-systeem voor beïnvloeding van tegels (bijv. styling bij creatie)  
+    - Mechanisme voor verversen van tegels bij runtime-styling
 
-#### 6.3.1. Levenscyclus
+#### Tilingstructuur
+
+- **LOD-ondersteuning (HLOD)**  
+    - Variabele tegelgrootte (zoals 3D Tiles)  
+    - Variabele databron (zoals Cartesian Tiles)  
+    - Combinatie van beide (bijv. WMS op afstand/lokaal)
+- **Tilingmodellen**  
+    - *Impliciet tiling* voor wereld-dekkende datasets  
+    - *Expliciet tiling* voor vooraf gedefinieerde hiërarchieën
+- **Geometric Error Threshold**  
+    - Instelbare fouttolerantie voor LOD-keuze
+
+#### Architectuur & Techniek
+
+- **Coördinaten & Projectie**  
+    - Abstract Coordinate System; projectie door developers configureerbaar.  
+    - Aanbevolen: EPSG:4978 (XYZ)  
+    - Ondersteuning voor EPSG:4979 (lat/lon/height) in bounding volumes
+- **Floating Origin**  
+    - Compatibel zonder directe koppeling
+- **Unity-integratie**  
+    - Intuïtieve structuur met MonoBehaviours & ScriptableObjects voor configuratie
+
+#### Niet-functionele aspecten
+
+- **Performance**
+
+    - Caching van tegels en datasets  
+    - Minimaliseren van geheugenverbruik (WebGL-geschikt)  
+    - Actieve resource-opruiming vereist
+
+- **Robuustheid**  
+    - Fouttolerantie bij netwerkproblemen of externe fouten
+
+- **Gebruiksvriendelijkheid**  
+    - Eenvoudig beheer en uitbreiding van datasets
+
+- **Debugging**  
+    - Visuele tools voor tile-analyse en debugging
+
+- **Laadstrategie**  
+    - *Progressive enhancement*: eerst goedkope, daarna detail  
+    - *Prioritering*: nabijgelegen tegels eerst laden
+
+### 6.3. Expliciete en impliciete TileSets
+
+Bij het ontwerpen van een tegelsysteem maken we onderscheid tussen **expliciete** en **impliciete**
+tegelsystemen. Beide benaderingen beschrijven hoe tegels binnen een (hiërarchische) structuur worden georganiseerd en
+aangesproken, maar ze verschillen fundamenteel in hoe deze wordt gedefinieerd.
+
+#### Expliciet Tegelsysteem
+
+Een expliciet tegelsysteem beschrijft elke tegel individueel, inclusief zijn positie, relatie tot andere tegels en
+metadata. Hierbij maken we gebruik van een vooraf gedefinieerde lijst van tegels in de TileSet. Elke tegel kent zijn 
+kinderen expliciet, inclusief verwijzingen naar onderliggende tegels.
+
+**Kenmerken**
+
+- Structuur is volledig gespecificeerd.
+- Onderlinge relaties (ouder-kind) zijn expliciet gedefinieerd.
+- Geschikt voor complexe hiërarchieën of geoptimaliseerde datastructuren.
+- Maakt vaak gebruik van LOD's (Levels of Detail) per tegel.
+
+**Voordeel:** Volledige controle en flexibiliteit over de positie, hiërarchie en metadata per tegel.  
+**Nadeel:** Grotere initiële payload en ongeschikt voor grootschalige datasets.
+
+#### Impliciet Tegelsysteem
+
+Een impliciet tegelsysteem beschrijft geen individuele tegels, maar maakt gebruik van een algoritme om tegels
+af te leiden op basis van een vaste structuur. Dit systeem is schaalbaar en efficiënt, omdat de hiërarchie en locatie
+van een tegel volledig kunnen worden afgeleid uit de tegel-ID.
+
+Netherlands3D ondersteunt binnen het impliciete systeem drie hoofdstructuren:
+
+#### 1. **Quadtree**
+
+De quadtree-structuur deelt de ruimte op in vier gelijke kwadranten per niveau. Elke tegel heeft maximaal vier
+kinderen (NO, NW, ZO, ZW). Deze structuur is ideaal voor tweedimensionale datasets of geografische informatie.
+
+#### 2. **Octree**
+
+De octree is de driedimensionale tegenhanger van de quadtree. Elke tegel wordt opgesplitst in acht kinderen, waarbij de
+ruimte langs de x-, y- en z-as wordt gehalveerd. Deze structuur is geschikt voor volumetrische datasets of 3D-scènes met
+LOD.
+
+#### 3. **Uniform Grid**
+
+Bij een uniform grid worden tegels op een vlak verdeeld in een vast raster, zonder hiërarchie. Dit type wordt meestal
+gebruikt wanneer elke tegel gelijkwaardig is en er geen behoefte is aan dynamische detaillering of LOD.
+
+**Kenmerken van impliciete systemen:**
+
+- Hiërarchie wordt bepaald door een patroon (bijv. depth en tile indices).
+- Geen beschrijving van elke individuele tegel nodig: structuur is afleidbaar.
+- Lichtgewicht en geschikt voor grote datasets.
+- Relaties worden bepaald door index-berekening in plaats van expliciete verwijzingen.
+
+**Voordeel:** Hoge schaalbaarheid en lage overhead.  
+**Nadeel:** Minder flexibiliteit voor per-tegel metadata of uitzonderingen.
+
+Zie https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc voor details hoe de 3D Tiles
+specificatie omgaat met Impliciete Tiling, Tilekit zijn ontwerp is gebaseerd op deze principes met extra ondersteuning 
+voor uniforme grids.
+
+### 6.4. Flow
+
+#### 6.4.1. Levenscyclus
 
 ![](tiling-flow.png)
 
@@ -137,7 +228,7 @@ volgorde afhandeld; maar Tilekit ondersteunt ook dat het stagen en mappen door a
     Deze ontwerpkeuze is fundamenteel om asynchrone handelingen te ondersteunen omdat de mapping fase alleen een change
     kan starten, maar de change zelf meerdere frames en cycli van staging zou kunnen duren.
 
-#### 6.3.2. Inladen van een TileSet
+#### 6.4.2. Inladen van een TileSet
 
 In hoofdstuk [7.4. Datamodel](#74-datamodel) is beschreven welke elementen de definitie van een TileSet heeft. Hiermee
 kan je flexibel een breed scala aan tegelsystemen mee weergeven, maar dit van begin af aan inrichten is een uitdaging
@@ -151,7 +242,7 @@ TileSet te kunnen configureren:
 2. **TileSetFactory**, een [Factory](https://refactoring.guru/design-patterns/factory-method) service waarmee je in een
    keer een gehele TileSet instantieert met een specifieke configuratie.
 
-##### 6.3.2.1. TileSetBuilder
+##### 6.4.2.1. TileSetBuilder
 
 De TileBuilder biedt een aantal gemaksfuncties waarmee een TileSet gemakkelijk opgebouwd kan worden. Aangezien een
 TileSet zelf bestaat uit een paar korte instructies en vervolgens een boomstructuur aan Tile objecten zal de TileBuilder
@@ -163,7 +254,7 @@ quadTreeTileBuilder = TileSetBuilder.QuadTree(bounds);
 
 ```
 
-#### 6.3.3. Staging
+#### 6.4.3. Staging
 
 De Staging fase in de [TileMapper](#tilemapper) is bedoeld om te bepalen welke tegels in- en
 uitgeladen moeten worden om in de [7.3.4. Mapping](#734-mapping) fase dit in gang te kunnen zetten. De staging fase, net
@@ -179,7 +270,7 @@ Het staging proces is verdeeld in 3 stappen:
 3. Welke wijzigingen moeten worden uitgevoerd om van de huidige naar de nieuwe situatie te komen -genaamd
    een [Transition](#transition) - middels een [TilesTransitionPlanner](#tilestransitionplanner).
 
-#### 6.3.4. Mapping
+#### 6.4.4. Mapping
 
 ![](tiling-flow-mapping.png)
 
@@ -192,7 +283,7 @@ Het staging proces is verdeeld in 3 stappen:
     - de Tegeldata - zoals de GeoJSON - die uit een WFS ingeladen is
     - een visualisatie - zoals een GameObject of PolygonVisualiser?
 
-### 6.4. Datamodel
+### 6.5. Datamodel
 
 !!!todo
     Kijk naar https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc#availability om na 
@@ -316,7 +407,7 @@ classDiagram
 
 - TileContent mag ook verwijzen naar een externe tileset: https://docs.ogc.org/cs/22-025r4/22-025r4.html#core-external-tilesets
 
-### 6.5. Services
+### 6.6. Services
 
 ```mermaid
 classDiagram
