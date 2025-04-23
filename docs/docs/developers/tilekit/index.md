@@ -192,18 +192,18 @@ van een tegel volledig kunnen worden afgeleid uit de tegel-ID.
 
 Netherlands3D ondersteunt binnen het impliciete systeem drie hoofdstructuren:
 
-#### 1. **Quadtree**
+#### 1. Quadtree
 
 De quadtree-structuur deelt de ruimte op in vier gelijke kwadranten per niveau. Elke tegel heeft maximaal vier
 kinderen (NO, NW, ZO, ZW). Deze structuur is ideaal voor tweedimensionale datasets of geografische informatie.
 
-#### 2. **Octree**
+#### 2. Octree
 
 De octree is de driedimensionale tegenhanger van de quadtree. Elke tegel wordt opgesplitst in acht kinderen, waarbij de
 ruimte langs de x-, y- en z-as wordt gehalveerd. Deze structuur is geschikt voor volumetrische datasets of 3D-scènes met
 LOD.
 
-#### 3. **Uniform Grid**
+#### 3. Uniform Grid
 
 Bij een uniform grid worden tegels op een vlak verdeeld in een vast raster, zonder hiërarchie. Dit type wordt meestal
 gebruikt wanneer elke tegel gelijkwaardig is en er geen behoefte is aan dynamische detaillering of LOD.
@@ -228,7 +228,7 @@ voor uniforme grids.
 
 De levenscyclus van een kaartlaag bestaat uit de volgende stappen:
 
-1. **Inladen van een laag**: in dit stadium wordt de definitie van een tegelset opgehaald van de gekozen databron, en
+1. **Inladen van een laag**: in dit stadium worden de capabilities opgehaald van de gekozen databron, en
    omgezet in Tilekit zijn eigen tegelset definitie. Dit garandeert dat het klaarzetten van de tegels en het bijwerken
    van de weergave altijd dezelfde informatie hebben, ongeacht de bron.
 2. **Klaarzetten van tegels ([Staging](#staging))**: Bij het klaarzetten van tegels wordt bepaald welke tegels ingeladen
@@ -305,6 +305,33 @@ Het staging proces is verdeeld in 3 stappen:
 2. Welke tegels moeten er in beeld komen middels een `TileSelector` service
 3. Welke wijzigingen moeten worden uitgevoerd om van de huidige naar de nieuwe situatie te komen -genaamd
    een [Transition](#transition) - middels een [TilesTransitionPlanner](#tilestransitionplanner).
+
+##### Tegel selectie
+
+De TileSelector is een service die bepaald welke tegels er in beeld zouden moeten zijn. Van de TileSelector kunnen
+meerdere strategieen zijn, degene die standaard toegepast wordt is de "TilesInView" tile selector.
+
+De TilesInView tile selector zal middels een "Depth First Search" de TileSet definitie doorlopen. Depth First Search
+is een recursief zoek algoritme waarbij je begint met een enkele "root" tegel, en vervolgens de volgende vragen stelt:
+
+1. Is deze tegel in beeld? 
+   1. Als de tegel **niet** in beeld is, dan eindigt onze zoektocht. Deze tegel wordt niet geladen en we negeren zijn
+      kinderen, 
+   2. Anders:
+2. Is het type van refinement "Add" of "Replace"?
+    1. is het type "Replace", dan starten we een serie van geselecteerde tegels
+    2. is het type "Add", dan voegen we deze tegel toe aan de serie van geselecteerde tegels
+3. Is dit het juiste LOD voor deze tegel? 
+   1. Als de juiste LOD van een tegel gevonden dan onthouden we de serie aan geselecteerde tegels, 
+   2. Anders: herhaal deze stappen voor elke kind-tegel van deze tegel
+
+Aan het einde van deze handeling zouden we een lijst moeten hebben van tegels die in beeld moeten gaan zijn. In stap 2
+is dus van belang dat we niet altijd op zoek zijn naar 1 tegel in een aftakking van de R-tree. Het is ook mogelijk 
+een reeks aan kinderen te verkrijgen omdat bij een ADD de kind tegel niet de ouder tegel vervangt, maar juist in 
+combinatie met een ouder tegel wordt ingeladen.
+
+// TODO Update schema, en controleer de exacte werking als afwisselend ADD en REPLACE door elkaar gebruikt worden
+// TODO Wat is de "juiste LOD", beschrijf screenspace error en geometrische error
 
 #### 6.4.3. Mapping
 
@@ -637,6 +664,9 @@ Bronnen:
     - Hele URL, zoals Amsterdam Time Machine
     - https://docs.ogc.org/is/20-057/20-057.html#toc52
 - Zijn sensor metingen ook features? Check SensorThings
+- Wat te doen met overlappende features, zoals gebouwen die kort op elkaar zitten? die kunnen dubbel voor gaan komen
+  of we moeten bijhouden op welke tegels (meervoud) een feature kan voorkomen. Die moet dan ook pas opgeruimd worden 
+  zodra alle gerelateerde tegels uit beeld zijn. Maar hoe bepalen we of een feature dubbel is?
 
 ### Datamodel
 
@@ -647,6 +677,11 @@ Bronnen:
 !!!important
     Dit hoofdstuk is nog in ontwikkeling en moet gaan beschrijven hoe changes los staan van de tegels zelf of features, 
     en ook hoe we het Change subsysteem agnostisch houden van concrete implementaties
+
+Een [Change](#change) is het proces om een tegel toe te voegen of te verwijderen. Elke change gebeurd als _transactie_, 
+wat betekent dat de change als geheel moet slagen of falen, en dat deze geannuleerd kan worden. Deze handelswijze is 
+essentieel om bij het [mappen](#643-mapping) om te kunnen gaan met snelle bewegingen in de viewer, waarbij het laden
+van tegels onderbroken moet kunnen worden zonder dat er gaten in het vlak vallen
 
 ### 8.1. Prioritering
 
@@ -712,9 +747,39 @@ bij elkaar qua gewicht, en de WMS laag niet.
 - TileContentLoader moet aan begin meegegeven worden
 - Elke TileRenderer of de GameObject die geinstantieerd wordt wil toegang hebben tot de TileContentLoader? Of tot de TileContentData?
 
-## Flow
+### 10.1. Authenticatie en Autorisatie
 
-Vraag: moeten we een TileRenderer en TileContentRenderer hebben? Of is een Tile een algemene prefab die als container gebruikt kan worden maar de TileRenderer eigenlijk een TileContentRenderer?
+Het bepalen van de juiste credentials voor een databron gebeurt vóór het inladen van een laag met Tilekit. Tilekit 
+voorziet hierin geen interactief loginmechanisme of eigen authenticatieflow.
+
+In plaats daarvan gaat Tilekit ervan uit dat credentials reeds bekend zijn. Deze credentials worden vervolgens
+geïnjecteerd in het sjabloon van alle HTTP-verzoeken die de [TileContentLoader](#tilecontentloader) gebruikt om tegels 
+op te halen.
+
+Deze aanpak biedt de volgende voordelen:
+
+- **Scheidt verantwoordelijkheden**: authenticatie wordt volledig uitbesteed aan een bovenliggende laag of reeds 
+  bestaand authenticatiemechanisme zoals het `Netherlands3D.Credentials` systeem.
+
+- **Maakt Tilekit eenvoudiger en modulair**: er is geen noodzaak voor ingebouwde ondersteuning van verschillende
+  authenticatieprotocollen binnen Tilekit zelf.
+
+- **Ondersteunt variabele autorisatie-eisen per databron**: omdat elke TileContentLoader zijn eigen verzoek-sjabloon kan
+  krijgen, kunnen per laag of bron andere headers, tokens of endpoints gebruikt worden.
+
+Voorbeeld: een WFS-bron met een OAuth2-authenticatie kan door een aparte module een access token laten ophalen. Dit
+token wordt vervolgens in de Authorization-header geplaatst van het HTTP-sjabloon waarmee de TileContentLoader tegels
+ophaalt. Tilekit is hier volledig agnostisch in — zolang het sjabloon correct is ingevuld, zal de bron benaderd worden
+met de juiste credentials.
+
+In situaties waarin authenticatie moet worden hernieuwd (zoals bij vervallen tokens), ligt de verantwoordelijkheid bij
+de bovenliggende laag om het sjabloon te vernieuwen of de TileContentLoader opnieuw te initialiseren met bijgewerkte
+credentials.
+
+### 10.2. Flow
+
+Vraag: moeten we een TileRenderer en TileContentRenderer hebben? Of is een Tile een algemene prefab die als container
+gebruikt kan worden maar de TileRenderer eigenlijk een TileContentRenderer?
 
 1. Een Change voor het toevoegen van een tegel wordt gestart
 2. De change zoekt de juiste TileRenderer op en initieert het aanmaken van de tegel
@@ -727,7 +792,7 @@ Vraag: moeten we een TileRenderer en TileContentRenderer hebben? Of is een Tile 
 6. Gaat de visualisatie de gedownloadde informatie toepassen (voorbeeld: Texture aan de nieuw aangemaakte DecalProjector koppelen)
 7. Meld de TileRenderer de Change af als geslaagd
 
-## Services
+### 10.3. Services
 
 ```mermaid
 classDiagram
@@ -917,7 +982,7 @@ Meer informatie:
 
 ### Idempotent
 
-**Idempotentie** is de eigenschap van een object (of systeem) en/of een operatie daarop dat het object niet meer verandert als de operatie nogmaals wordt uitgevoerd.
+**Idempotentie** is de eigenschap van een object (of systeem) en/of een operatie daarop dat het object niet meer verandert als de operatie nogmaals wordt uitgevoerd.
 
 Bron: https://nl.wikipedia.org/wiki/Idempotentie
 
@@ -973,6 +1038,8 @@ Officiele OGC Definitie:
 > In de context van een geospatiale data-tegelset bevat een tegel gegevens voor een dergelijke ruimtelijke indeling als
 > onderdeel van een overkoepelende set tegels voor die betegelde geospatiale data.
 
+### TileContentLoader
+
 ### TileMapper
 
 ### TileSelector
@@ -994,3 +1061,31 @@ Officiele OGC Definitie:
 De lokatie in de wereld waar de camera naar kijkt; in tegenstelling tot de camerapositie is deze lokatie waarschijnlijk middenin de viewport en de lokatie met het hoogste detailniveau en prioriteit van inladen.
 
 Deze lokatie representeert datgeen waar de aandacht van de gebruiker naartoe gaat.
+
+## Appendix D. Frequently Asked Questions
+
+### D.1. Databronnen met meerdere lagen
+
+![](voorbeeld-flow-wms.png){width=300 align=right}
+
+Tilekit zelf biedt geen faciliteit om iets te doen met databronnen met meerdere lagen, in Tilekit wordt aangenomen dat
+dit in de functionaliteit zelf gebeurd. 
+
+In de afbeelding hiernaast kan je een voorbeeld flow zien waarbij de WMS functionaliteit de een TileSet definitie 
+opbouwt vanuit de capabilities van de WMS service zelf.
+
+In deze zelfde afbeelding is ook te zien hoe Tilekit omgaat met authenticatie, ook hierbij maken we gebruik van de 
+bestaande authenticatie systemen en kan je Tilekit een sjabloon request -inclusief credentials- aanmaken. 
+
+Door deze scheiding van verantwoordelijkheden kan Tilekit flexibel omgaan met allerlei vormen van services.
+
+## Appendix E. Notities en TODO
+
+- Screenspace error en Geometrische error beschrijven
+- Meer uitleg over wat we niet doen
+- Uitleg over datastructuur als structs/values en waarom
+- Postprocessing van tegels verder toelichten, mogelijk met clipping en masking als voorbeeld
+- Herzien of laden vanaf zichtpunt wel een goede beslissing is
+- Laadvolgorde tegels beter beschrijven
+- Beter beschrijven hoe het tegelsysteem een tussenlaag is en dat het 'werk' door monobehaviours gebeurd
+- Beschrijving hoe hoogte wisselingen te kunnen doen (FAQ?)
