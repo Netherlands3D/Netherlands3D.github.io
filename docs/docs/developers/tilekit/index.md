@@ -81,41 +81,60 @@ geimplementeerd worden.
 #### Functionaliteit
 
 - **Uitbreidbaarheid**
+
     - Ondersteuning voor nieuwe GIS-standaarden (WFS, OGC API Features, WMS)  
     - Ondersteuning voor extra bestandsformaten (PNG, Raster, GLB, FBX, OBJ)
+
 - **Laagstructuur & Databronnen**  
+
     - Eén TileSet kan meerdere lagen visualiseren vanuit gedeelde bron (bijv. WMS)
     - Eén TileSet kan tegels uit andere TileSets bevatten als remote TileSet
+
 - **Authenticatie**  
-    - Ondersteuning voor beveiligde bronnen met authenticatie
+
+    - Ondersteuning voor afgeschermde bronnen met authenticatie
+
 - **Featurebeheer**  
+ 
     - Features kunnen in meerdere tegels voorkomen, maar worden slechts eenmaal gerenderd; zie [Features](#7-features).  
     - Features moeten bevraagd kunnen worden middels querying.
+
 - **Styling & Events**  
+
     - Event-systeem voor beïnvloeding van tegels (bijv. styling bij creatie)  
     - Mechanisme voor verversen van tegels bij runtime-styling
 
 #### Tilingstructuur
 
 - **LOD-ondersteuning (HLOD)**  
+
     - Variabele tegelgrootte (zoals 3D Tiles)  
     - Variabele databron (zoals Cartesian Tiles)  
     - Combinatie van beide (bijv. WMS op afstand/lokaal)
+
 - **Tilingmodellen**  
+
     - *Impliciet tiling* voor wereld-dekkende datasets  
     - *Expliciet tiling* voor vooraf gedefinieerde hiërarchieën
+
 - **Geometric Error Threshold**  
+
     - Instelbare fouttolerantie voor LOD-keuze
 
 #### Architectuur & Techniek
 
 - **Coördinaten & Projectie**  
+
     - Abstract Coordinate System; projectie door developers configureerbaar.  
     - Aanbevolen: EPSG:4978 (XYZ)  
     - Ondersteuning voor EPSG:4979 (lat/lon/height) in bounding volumes
+
 - **Floating Origin**  
+
     - Compatibel zonder directe koppeling
-- **Unity-integratie**  
+
+- **Unity-integratie**
+
     - Intuïtieve structuur met MonoBehaviours & ScriptableObjects voor configuratie
 
 #### Niet-functionele aspecten
@@ -127,15 +146,19 @@ geimplementeerd worden.
     - Actieve resource-opruiming vereist
 
 - **Robuustheid**  
+
     - Fouttolerantie bij netwerkproblemen of externe fouten
 
 - **Gebruiksvriendelijkheid**  
+
     - Eenvoudig beheer en uitbreiding van datasets
 
 - **Debugging**  
+
     - Visuele tools voor tile-analyse en debugging
 
-- **Laadstrategie**  
+- **Laadstrategie**
+
     - *Progressive enhancement*: eerst goedkope, daarna detail  
     - *Prioritering*: nabijgelegen tegels eerst laden
 
@@ -199,9 +222,7 @@ Zie https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/
 specificatie omgaat met Impliciete Tiling, Tilekit zijn ontwerp is gebaseerd op deze principes met extra ondersteuning 
 voor uniforme grids.
 
-### 6.4. Flow
-
-#### 6.4.1. Levenscyclus
+### 6.4. Levenscyclus van een kaartlaag
 
 ![](tiling-flow.png)
 
@@ -220,7 +241,7 @@ Het klaarzetten van de tegels ([Staging](#staging)) en het bijwerken van de weer
 herhalend proces. De standaard aanname van Tilekit is dat een Timer klasse geimplementeerd is die beide stadia in
 volgorde afhandeld; maar Tilekit ondersteunt ook dat het stagen en mappen door andere processen worden uitgevoerd.
 
-!!!warning
+!!!tip "Staging en mapping zijn idempotent"
     Bovenstaande betekent staging en mapping geen afhankelijkheid mogen hebben en dat beide
     handelingen [Idempotent](#idempotent) zijn. Staging mag meermaals uitgevoerd kunnen worden voordat mapping wordt
     uitgevoerd en andersom.
@@ -228,7 +249,7 @@ volgorde afhandeld; maar Tilekit ondersteunt ook dat het stagen en mappen door a
     Deze ontwerpkeuze is fundamenteel om asynchrone handelingen te ondersteunen omdat de mapping fase alleen een change
     kan starten, maar de change zelf meerdere frames en cycli van staging zou kunnen duren.
 
-#### 6.4.2. Inladen van een TileSet
+#### 6.4.1. Inladen van een TileSet
 
 In hoofdstuk [7.4. Datamodel](#74-datamodel) is beschreven welke elementen de definitie van een TileSet heeft. Hiermee
 kan je flexibel een breed scala aan tegelsystemen mee weergeven, maar dit van begin af aan inrichten is een uitdaging
@@ -242,7 +263,19 @@ TileSet te kunnen configureren:
 2. **TileSetFactory**, een [Factory](https://refactoring.guru/design-patterns/factory-method) service waarmee je in een
    keer een gehele TileSet instantieert met een specifieke configuratie.
 
-##### 6.4.2.1. TileSetBuilder
+Middels dit proces kunnen willekeurige databronnen omgezet worden in TileSet definities, en uniform afgehandeld worden 
+in de rest van het systeem.
+
+Bij het omzetten van de data van een databron naar expliciete tegels is van belang dat de bounding volume van alle 
+tegels [Spatial Coherence](#spatial-coherence) hebben. Deze beperking zorgt ervoor dat tegels benaderd kunnen worden als
+een R-tree datastructuur en geeft optimalisatiemogelijkheden, zoals het volledig overslaan van een complete branch aan
+tegels als de applicatie niet eens in de buurt is.
+
+!!!info "Voorbeeld"
+    Als we ergens in Nederland naar een lokatie kijken dan kunnen we alle tegels -van elk LOD niveau- overslaan buiten 
+    Nederland, zoals Duitsland of geheel Afrika. Dit kan alleen als de tegels in Nederland Spatial Coherence hebben.
+
+##### 6.4.1.1. TileSetBuilder
 
 De TileBuilder biedt een aantal gemaksfuncties waarmee een TileSet gemakkelijk opgebouwd kan worden. Aangezien een
 TileSet zelf bestaat uit een paar korte instructies en vervolgens een boomstructuur aan Tile objecten zal de TileBuilder
@@ -254,7 +287,10 @@ quadTreeTileBuilder = TileSetBuilder.QuadTree(bounds);
 
 ```
 
-#### 6.4.3. Staging
+##### 6.4.1.2. TileSetFactory
+
+
+#### 6.4.2. Staging
 
 De Staging fase in de [TileMapper](#tilemapper) is bedoeld om te bepalen welke tegels in- en
 uitgeladen moeten worden om in de [7.3.4. Mapping](#734-mapping) fase dit in gang te kunnen zetten. De staging fase, net
@@ -270,7 +306,9 @@ Het staging proces is verdeeld in 3 stappen:
 3. Welke wijzigingen moeten worden uitgevoerd om van de huidige naar de nieuwe situatie te komen -genaamd
    een [Transition](#transition) - middels een [TilesTransitionPlanner](#tilestransitionplanner).
 
-#### 6.4.4. Mapping
+#### 6.4.3. Mapping
+
+!!! danger "Dit hoofdstuk is nog in ontwikkeling."
 
 ![](tiling-flow-mapping.png)
 
@@ -282,6 +320,25 @@ Het staging proces is verdeeld in 3 stappen:
     - de "Tile" definitie uit de TileSet
     - de Tegeldata - zoals de GeoJSON - die uit een WFS ingeladen is
     - een visualisatie - zoals een GameObject of PolygonVisualiser?
+
+### 6.5. Verversen van tegels
+
+Externe factoren, zoals styling of filtering, kunnen reeds ingeladen tegels beïnvloeden. Wanneer dit gebeurd is het 
+nodig om tegels te kunnen verversen.
+
+Om dit te kunnen doen, is het nodig dat een tegel gemarkeerd kan worden als 
+**[Dirty](https://gameprogrammingpatterns.com/dirty-flag.html)**. Dit geeft aan dat een tegel zijn staat moet 
+terugbrengen naar de "primaire staat" - zoals deze ontvangen was van de brondata - en dan opnieuw alle aanpassingen
+toepast, zoals Styling of Filtering.
+
+De volgende voorwaarden zijn hierbij van belang:
+
+* Dit gebeurt niet onmiddellijk, maar op zijn minst 1 frame later -of zelfs langer- zodat niet 
+  onnodig bewerkingen uitgevoerd worden.
+* Het verversen van een enkele tegel is een synchroon proces zodat er geen verstoring voor de gebruikersbeleving.
+
+Als een ingrijpendere wijziging nodig is, dan moet de tegel vervangen worden middels een [ChangeSet](#changeset) zodat
+de oude tegel in beeld blijft en een nieuwe tegel asynchroon wordt aangemaakt.
 
 ### 6.5. Datamodel
 
@@ -769,6 +826,27 @@ onnauwkeurige tegels.
 
 // TODO: https://github.com/CesiumGS/3d-tiles/blob/main/specification/README.adoc uitkammen en de begrippen hierin zetten, zoals refinement
 
+### Bounding Volume
+
+**Aliassen**: Begrenzingsvolume.
+
+Een begrenzingsvolume is een geometrisch volume dat wordt gebruikt om de ruimtelijke omvang van een object of een
+verzameling objecten te beschrijven. Het wordt vaak gebruikt voor optimalisaties zoals zichtbaarheid, selectie en
+hiërarchische structuren (zoals tile trees).
+
+Er zijn drie standaardtypen begrenzingsvolumes:
+
+- Box (doosvormig volume): een rechthoekige doos in 3D-ruimte (axis-aligned of georiënteerd).
+
+- Sphere (bolvormig volume): een bol met een middelpunt en straal.
+
+- Region (regiovormig volume): een complexere beschrijving die een geograﬁsch gebied aanduidt, vaak gedefinieerd door 
+  een rechthoekige uitsnede in lengte- en breedtegraden, met een minimale en maximale hoogte (bijvoorbeeld voor gebruik 
+  op een globe).
+
+Begrenzingsvolumes worden voornamelijk gebruikt om snel te kunnen bepalen of een object zichtbaar is of moet worden
+ingeladen, zonder alle details van het object zelf te hoeven analyseren.
+
 ### Capabilities
 
 ### Change
@@ -858,6 +936,20 @@ Het midden van het scherm betekent concreet het punt in de viewport waar de came
 ![](Appendix C. Begrippen - hoogten uitgelegd.jpg)
 
 ### Pluggable Architectuur
+
+### Spatial Coherence
+
+De gezamenlijke inhoud van alle kindtegels valt volledig binnen het begrenzingsvolume van de oudertegel.
+
+Dat betekent niet dat het hele begrenzingsvolume (zie [Bounding Volume](#bounding-volume)) van de oudertegel opgevuld 
+moet zijn, maar wel dat de kindtegels niet buiten de grenzen van hun ouder mogen uitsteken.
+
+Kindtegels mogen elkaar onderling wel overlappen, zoals te zien is in deze afbeelding:
+
+![Figure 22 — Building data from CyberCity3D. Imagery data from Bing Maps](img/cybercity3d.png)
+
+Zie [https://portal.ogc.org/files/102132#core-bounding-volume-spatial-coherence](https://portal.ogc.org/files/102132#core-bounding-volume-spatial-coherence)
+voor meer informatie.
 
 ### Staging
 
