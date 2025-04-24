@@ -123,14 +123,14 @@ geimplementeerd worden.
 
 #### 6.1.3. Architectuur & Techniek
 
-- **Op basis van field-tested concepten**
+- **Gebaseerd op field-tested standaarden en concepten**
 
     - 3D Tiles
     - GeoJSON
     - OGC API
-      - Tiles
-      - Maps
-      - Features
+        - Tiles
+        - Maps
+        - Features
     - OGC WMS
     - OGC WMS
     - OGC WFS
@@ -898,6 +898,109 @@ classDiagram
 	UxiosTileContentLoader -- Uxios.Config
 ```
 
+## 11. Geheugen en performance optimalisatie
+
+Netherlands3D is een WebGL applicatie met de bijbehorende beperkingen zoals een maximaal inzetbaar geheugenbereik van 
+2GB RAM en dat de applicatie zelf single-threaded is.
+
+De volgende richtlijnen zijn van toepassing om het tegelsysteem optimaal te laten functioneren:
+
+- **Caching**, informatie die infrequent opnieuw ingeladen moet worden moet niet in geheugen blijven, maar gecached 
+  worden naar `Application.temporaryCachePath`.
+- **Gebruik van Value Types**
+- **Jobs/Burst-systeem vermijden voor nu**
+
+!!!info "Unity WebGL is niet 100% single-threaded"
+
+    Een veelvoorkomend misverstand is dat Unity WebGL en JavaScript volledig single-threaded zijn. Hoewel beide één 
+    main loop (“player loop” of “event loop”) hebben, lopen sommige van de acties die ze starten wel degelijk op aparte 
+    threads:
+
+    - **Web Workers**: kun je expliciet in JavaScript aanmaken om reken-intensieve taken parallel uit te voeren, buiten 
+      de main loop om.
+    
+    - **Web Requests**: Unity gebruikt voor UnityWebRequest de JavaScript Fetch-API. Die delegeert netwerk-activiteiten 
+      aan de browser, die deze op achtergrond threads afhandelt. Hierdoor kun je meerdere requests tegelijk in 
+      behandeling hebben.
+    
+    Zodra een achtergrond taak (bijvoorbeeld een web request) gereed is, keert de callback terug naar JavaScript en dus 
+    weer naar de Unity-player loop. Pas dan wordt het resultaat in de hoofd-loop verwerkt.
+
+    [Meer informatie is hier te lezen.](https://medium.com/@farshad.development/unlocking-multi-threading-in-javascript-with-web-workers-13b6a1366c28)
+
+### 11.1. Caching
+
+Om in een Unity WebGL-applicatie binnen de strikte geheugen-limieten te blijven, hanteren we een meer-laagse
+cache-strategie voor tile-content. Elke tegel­content doorloopt vier mogelijke staten—van “helemaal niet aanwezig” tot
+“actief in geheugen”—zodat we alleen de écht benodigde data in RAM houden, en de rest elders opslaan.
+
+!!!todo
+
+    - Cache eviction beschrijven, bijv. bij memory pressure
+    - Kan dit ingezet worden voor alle soorten content in het project en niet alleen tiles? Denk aan MTL bestanden
+    - Beschrijf verschil tussen remote en local assets; local assets kunnen niet stale worden en hoeven niet naar Warm.
+      local assets leven altijd in cold storage, en om dan dat te dupliceren naar warm is zonde.
+    - Zouden we middels een strategy een van de niveaus kunnen 'aanpassen'? Bijvoorbeeld cold storage naar 
+      memcache/redis laten schrijven als de gebruiker dat heeft? 
+
+#### 11.1.1. Cache-niveaus
+
+_1. Hot_
+
+- **Definitie**: De content is geladen als een Unity-object (bijvoorbeeld een `Texture2D`) en staat in het actieve
+  geheugen.
+- **Gevolg**: Telt volledig mee voor de WebAssembly-heap (de Unity-Memory.buffer), dus draagt bij aan de limiet die je
+  instelt via **WebGL Memory Size**.
+
+_2. Warm_
+
+- **Definitie**: De content is geëxporteerd naar een bestand in `Application.temporaryCachePath` (Emscripten’s MEMFS).
+- **Gevolg**: Verdwijnt uit de WebAssembly-heap, maar leeft voort in de JavaScript-heap als TypedArray. Dat betekent dat
+  het niet meer onder Unity’s MAX_MEMORY valt, maar wél ruimt opeist van de browser-JS-heap (±4 GB in Chrome 64-bit).
+
+_3. Cold_
+
+- **Definitie**: De content is verplaatst naar IndexedDB, via Emscripten’s IDBFS of eigen JS-interop.
+- **Gevolg**: Telt niet mee voor de JS-heap, maar wel voor de browser-schijfruimte-quota (meestal tot ~6 % van de vrije
+  schijfruimte). Perfect voor grote bestanden die je langer wilt bewaren.
+
+_4. Stale_
+
+- **Definitie**: De content is niet aanwezig (nooit geladen of expliciet verwijderd/exired).
+- **Gevolg**: Bij next-request moet de data weer vanaf de bron (WMS, server, etc.) worden opgehaald.
+
+#### 11.1.2. Overgangs-mechanisme
+
+!!!quote
+
+    There are 2 hard problems in computer science: cache invalidation, naming things, and off-by-1 errors.
+
+    -- Leon Bambrick
+
+1. **Initialisatie** → alle tiles starten in **Stale**.
+2. **Gebruiker in zicht** → tile laadt, content wordt **Hot** (direct in geheugen).
+3. **Uit zicht maar binnenkort weer nodig** → verplaats Hot → Warm (MEMFS).
+4. **Lang uit zicht, low-priority** → verplaats Warm → Cold (IndexedDB).
+5. **Verwijderd of verlopen** → ruim Cold op → terug naar **Stale**.
+
+Op deze manier blijft alleen wat nú écht nodig is in het dure RAM staan, en gebruik je de goedkopere lagen (MEMFS of IndexedDB) voor de rest.
+
+#### 11.1.3. Voorbeeld: WMS-tegels
+
+1. **Stale**: bij opstart zijn alle WMS-tegels ongekend.
+2. **Hot**: als een tegel in view komt, vraagt `TileContentLoader` de afbeelding op en slaat deze als `Texture2D` in RAM op.
+3. **Warm**: zodra de gebruiker de tegel even niet meer ziet maar mogelijk snel terugkeert, schrijven we de data weg naar `temporaryCachePath`. De tegel zelf blijft verwijzen naar het bestand in MEMFS, maar geeft RAM vrij.
+4. **Cold**: bij zeer ver uit zicht of bij geheugendruk plaatsen we de tegeldata in IndexedDB.
+5. **Stale**: als de laag wordt verwijderd, of wanneer een cache-expiry is bereikt, wissen we de IndexedDB-versie; de volgende keer valt de tegel weer in **Stale** en moet hij opnieuw worden geladen.
+
+#### 11.1.4. Conclusie
+
+Met dit vier-stappenmodel:
+
+- **Maximaliseer** je performance door alleen actieve content in snelle RAM te houden.
+- **Beschik** je over een tweedelig back-up-systeem: MEMFS voor kortdurende, lage-latency caching en IndexedDB voor langdurige opslag.
+- **Blijf** je altijd onder zowel de WebAssembly-heap-limiet (via Unity’s MAX_MEMORY) als de browser-JS-heap-limiet en schijfquota.
+
 ## Appendix A. Casussen
 
 ### A.1. WMS
@@ -1202,7 +1305,6 @@ Door deze scheiding van verantwoordelijkheden kan Tilekit flexibel omgaan met al
 
 ## Appendix E. Notities en TODO
 
-- Screenspace error en Geometrische error beschrijven
 - Meer uitleg over wat we niet doen
 - Uitleg over datastructuur als structs/values en waarom
 - Postprocessing van tegels verder toelichten, mogelijk met clipping en masking als voorbeeld
