@@ -1,10 +1,14 @@
-﻿# Tilekit
+﻿/// html | div[class='numbered-page']
 
-## 1. Visie
+# Tilekit
+
+## Visie
 
 Tilekit is een raamwerk om geospatiale datasets te visualiseren, inclusief de mogelijkheid om deze data te bevragen.
 
-## 2. Synopsis
+---
+
+## Synopsis
 
 Een geospatiale dataset is een dataset die getegeld aangeboden wordt -zoals 3D Tiles, Webmapper en WMTS-, of een
 verzameling van geospatiale features -zoals WFS, OGC API Features of GeoJSON-. Tilekit is ontworpen om deze datasets
@@ -25,7 +29,9 @@ bij GeoJSON-bestanden of WFS.
     Hoewel je genegen zou zijn om bij raster of 3D Data gebaseerde datasets aan te nemen dat er geen features zijn, is 
     het praktisch om de verbeelding -raster of mesh data- van een tegel als één feature te beschouwen.
 
-## 3. Doelen
+---
+
+## Doelen
 
 Tilekit heeft ten doel om een raamwerk te bieden voor het visualiseren van alle geospatiale content, deze flexibiliteit
 vereist een ontwerp waar bij de volgende doelen gesteld zijn:
@@ -37,15 +43,19 @@ vereist een ontwerp waar bij de volgende doelen gesteld zijn:
 - **Ondersteunt publieke en afgeschermde bronnen** middels authenticatie.
 - **Live linken (remote datasets) of importeren (lokale datasets)** van data moet mogelijk zijn 
 
-## 4. Filosofie
+---
+
+## Filosofie
 
 Tilekit is gebouwd rondom het principe dat als een legoset een tegelsysteem in elkaar kan worden geprikt. Daarbij kunnen
 onderdelen vervangen worden als voortschrijdend inzicht dat vereist, of juist toegevoegd als er nieuwe databronnen
 geimplementeerd worden.
 
-## 5. Pluggable Architectuur
+---
 
-### 5.1. Kenmerken
+## Pluggable Architectuur
+
+### Kenmerken
 
 - Er is één MonoBehaviour dat als orchestrator,
   of [context](https://unity.com/how-to/scriptableobjects-delegate-objects#pluggable-behavior), werkt - de 
@@ -62,7 +72,7 @@ geimplementeerd worden.
 > voor een beschrijving van Unity, en [https://refactoring.guru/design-patterns/strategy](https://refactoring.guru/design-patterns/strategy)
 > voor meer informatie over het Strategy Design Pattern.
 
-### 5.2. Waarom?
+### Waarom?
 
 - **Vertegeling is complex** - door opsplitsen in kleine verantwoordelijkheden is het makkelijk om van elk onderdeel te
   zien wat het moet doen
@@ -74,11 +84,13 @@ geimplementeerd worden.
   functionaliteit een bijzonderheid heeft die niet gevangen wordt in de bestaande implementaties, dan kan je een
   specifieke implementatie maken voor die functionaliteit.
 
-## 6. Tegelsysteem
+---
 
-### 6.1. Doelen
+## Tegelsysteem
 
-#### 6.1.1. Functionaliteit
+### Doelen
+
+#### Functionaliteit
 
 - **Uitbreidbaarheid**
 
@@ -104,7 +116,7 @@ geimplementeerd worden.
     - Event-systeem voor beïnvloeding van tegels (bijv. styling bij creatie)  
     - Mechanisme voor verversen van tegels bij runtime-styling
 
-#### 6.1.2. Tilingstructuur
+#### Tilingstructuur
 
 - **LOD-ondersteuning (HLOD)**  
 
@@ -121,7 +133,7 @@ geimplementeerd worden.
 
     - Instelbare fouttolerantie voor LOD-keuze
 
-#### 6.1.3. Architectuur & Techniek
+#### Architectuur & Techniek
 
 - **Gebaseerd op field-tested standaarden en concepten**
 
@@ -174,13 +186,13 @@ geimplementeerd worden.
     - *Progressive enhancement*: eerst goedkope, daarna detail  
     - *Prioritering*: nabijgelegen tegels eerst laden
 
-### 6.3. Expliciete en impliciete TileSets
+### Expliciete en impliciete TileSets
 
 Bij het ontwerpen van een tegelsysteem maken we onderscheid tussen **expliciete** en **impliciete**
 tegelsystemen. Beide benaderingen beschrijven hoe tegels binnen een (hiërarchische) structuur worden georganiseerd en
 aangesproken, maar ze verschillen fundamenteel in hoe deze wordt gedefinieerd.
 
-#### 6.3.1. Expliciet Tegelsysteem
+#### Expliciet Tegelsysteem
 
 Een expliciet tegelsysteem beschrijft elke tegel individueel, inclusief zijn positie, relatie tot andere tegels en
 metadata. Hierbij maken we gebruik van een vooraf gedefinieerde lijst van tegels in de TileSet. Elke tegel kent zijn 
@@ -196,7 +208,7 @@ kinderen expliciet, inclusief verwijzingen naar onderliggende tegels.
 **Voordeel:** Volledige controle en flexibiliteit over de positie, hiërarchie en metadata per tegel.  
 **Nadeel:** Grotere initiële payload en ongeschikt voor grootschalige datasets.
 
-#### 6.3.2. Impliciet Tegelsysteem
+#### Impliciet Tegelsysteem
 
 Een impliciet tegelsysteem beschrijft geen individuele tegels, maar maakt gebruik van een algoritme om tegels
 af te leiden op basis van een vaste structuur. Dit systeem is schaalbaar en efficiënt, omdat de hiërarchie en locatie
@@ -230,7 +242,7 @@ Zie https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/
 specificatie omgaat met Impliciete Tiling, Tilekit zijn ontwerp is gebaseerd op deze principes met extra ondersteuning 
 voor uniforme grids.
 
-### 6.4. Levenscyclus van een kaartlaag
+### Levenscyclus van een kaartlaag
 
 ![](tiling-flow.png)
 
@@ -257,7 +269,7 @@ volgorde afhandeld; maar Tilekit ondersteunt ook dat het stagen en mappen door a
     Deze ontwerpkeuze is fundamenteel om asynchrone handelingen te ondersteunen omdat de mapping fase alleen een change
     kan starten, maar de change zelf meerdere frames en cycli van staging zou kunnen duren.
 
-#### 6.4.1. Inladen van een TileSet
+#### Inladen van een TileSet
 
 In hoofdstuk [7.4. Datamodel](#74-datamodel) is beschreven welke elementen de definitie van een TileSet heeft. Hiermee
 kan je flexibel een breed scala aan tegelsystemen mee weergeven, maar dit van begin af aan inrichten is een uitdaging
@@ -274,7 +286,7 @@ TileSet te kunnen configureren:
 Middels dit proces kunnen willekeurige databronnen omgezet worden in TileSet definities, en uniform afgehandeld worden 
 in de rest van het systeem.
 
-##### 6.4.1.1. Voorwaarden voor een valide TileSet
+##### Voorwaarden voor een valide TileSet
 
 **Spatial Coherence** 
 
@@ -302,7 +314,7 @@ Als deze relatie niet klopt, kan de applicatie verkeerde beslissingen nemen over
 visuele artefacten of onnauwkeurigheden als gevolg. Het afdwingen van deze regel zorgt ervoor dat LOD-logica zoals
 Screen Space Error correct werkt.
 
-##### 6.4.1.2. TileSetBuilder
+##### TileSetBuilder
 
 De TileBuilder biedt een aantal gemaksfuncties waarmee een TileSet gemakkelijk opgebouwd kan worden. Aangezien een
 TileSet zelf bestaat uit een paar korte instructies en vervolgens een boomstructuur aan Tile objecten zal de TileBuilder
@@ -314,10 +326,10 @@ quadTreeTileBuilder = TileSetBuilder.QuadTree(bounds);
 
 ```
 
-##### 6.4.1.3. TileSetFactory
+##### TileSetFactory
 
 
-#### 6.4.2. Staging
+#### Staging
 
 De Staging fase in de [TileMapper](#tilemapper) is bedoeld om te bepalen welke tegels in- en
 uitgeladen moeten worden om in de [7.3.4. Mapping](#734-mapping) fase dit in gang te kunnen zetten. De staging fase, net
@@ -402,7 +414,7 @@ De `TileSelector` gebruikt onderstaande logica om te bepalen of een tegel voldoe
 !!! warning "**Let op**: als `distanceToCamera` bijna nul is (bijvoorbeeld als de camera zich binnen de bounding volume van een tegel bevindt), dan wordt de SSE oneindig groot. In dat geval wordt de SSE behandeld als `float.MaxValue`."
 
 
-#### 6.4.3. Mapping
+#### Mapping
 
 !!! danger "Dit hoofdstuk is nog in ontwikkeling."
 
@@ -417,7 +429,7 @@ De `TileSelector` gebruikt onderstaande logica om te bepalen of een tegel voldoe
     - de Tegeldata - zoals de GeoJSON - die uit een WFS ingeladen is
     - een visualisatie - zoals een GameObject of PolygonVisualiser?
 
-### 6.5. Verversen van tegels
+### Verversen van tegels
 
 Externe factoren, zoals styling of filtering, kunnen reeds ingeladen tegels beïnvloeden. Wanneer dit gebeurd is het 
 nodig om tegels te kunnen verversen.
@@ -436,7 +448,7 @@ De volgende voorwaarden zijn hierbij van belang:
 Als een ingrijpendere wijziging nodig is, dan moet de tegel vervangen worden middels een [ChangeSet](#changeset) zodat
 de oude tegel in beeld blijft en een nieuwe tegel asynchroon wordt aangemaakt.
 
-### 6.5. Datamodel
+### Datamodel
 
 !!!todo
     Kijk naar https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc#availability om na 
@@ -560,7 +572,7 @@ classDiagram
 
 - TileContent mag ook verwijzen naar een externe tileset: https://docs.ogc.org/cs/22-025r4/22-025r4.html#core-external-tilesets
 
-### 6.6. Services
+### Services
 
 ```mermaid
 classDiagram
@@ -687,7 +699,7 @@ Projector has been omitted from the scheme above because I need to think about i
 
 Middlewares for styling need to be added
 
-## 7. Features
+## Features
 
 !!!question
     Moeten we wel een systeem voor features introduceren, of is dit een gevolg? Dat een WFS bevraagd kan worden door 
@@ -741,7 +753,9 @@ Bronnen:
 
 ### Services
 
-## 8. Changes
+---
+
+## Changes
 
 !!!important
     Dit hoofdstuk is nog in ontwikkeling en moet gaan beschrijven hoe changes los staan van de tegels zelf of features, 
@@ -752,7 +766,7 @@ wat betekent dat de change als geheel moet slagen of falen, en dat deze geannule
 essentieel om bij het [mappen](#643-mapping) om te kunnen gaan met snelle bewegingen in de viewer, waarbij het laden
 van tegels onderbroken moet kunnen worden zonder dat er gaten in het vlak vallen
 
-### 8.1. Prioritering
+### Prioritering
 
 In ons tegelsysteem willen we ervoor zorgen dat de belangrijkste informatie zo snel mogelijk zichtbaar is. Daarom
 gebruiken we een prioriteitssysteem dat bepaalt welke tegels het eerst worden ingeladen. Dit systeem werkt op basis van
@@ -786,7 +800,9 @@ bij elkaar qua gewicht, en de WMS laag niet.
 3. Zodra alle maaiveld- en gebouwen-tegels zijn ingeladen, begin dan met het inladen van de WMS-tegels, ook vanaf het
    midden van het scherm.
 
-## 9. Metadata
+---
+
+## Metadata
 
 !!!important
     Dit hoofdstuk is nog in ontwikkeling en moet gaan beschrijven wat de invloed van Metadata kan zijn, en hoe metadata 
@@ -795,7 +811,9 @@ bij elkaar qua gewicht, en de WMS laag niet.
     de Tegel inhoud; sommige bestanden hebben een mimetype die je hier zou kunnen opgeven als de bestandsextensie niet 
     afdoende is.
 
-## 10. Ophalen van data
+---
+
+## Ophalen van data
 
 - Moet Asynchroon middels promises
 - Network requests moeten gethrottled kunnen worden opgehaald (per host)
@@ -816,7 +834,7 @@ bij elkaar qua gewicht, en de WMS laag niet.
 - TileContentLoader moet aan begin meegegeven worden
 - Elke TileRenderer of de GameObject die geinstantieerd wordt wil toegang hebben tot de TileContentLoader? Of tot de TileContentData?
 
-### 10.1. Authenticatie en Autorisatie
+### Authenticatie en Autorisatie
 
 Het bepalen van de juiste credentials voor een databron gebeurt vóór het inladen van een laag met Tilekit. Tilekit 
 voorziet hierin geen interactief loginmechanisme of eigen authenticatieflow.
@@ -845,7 +863,7 @@ In situaties waarin authenticatie moet worden hernieuwd (zoals bij vervallen tok
 de bovenliggende laag om het sjabloon te vernieuwen of de TileContentLoader opnieuw te initialiseren met bijgewerkte
 credentials.
 
-### 10.2. Flow
+### Flow
 
 Vraag: moeten we een TileRenderer en TileContentRenderer hebben? Of is een Tile een algemene prefab die als container
 gebruikt kan worden maar de TileRenderer eigenlijk een TileContentRenderer?
@@ -861,7 +879,7 @@ gebruikt kan worden maar de TileRenderer eigenlijk een TileContentRenderer?
 6. Gaat de visualisatie de gedownloadde informatie toepassen (voorbeeld: Texture aan de nieuw aangemaakte DecalProjector koppelen)
 7. Meld de TileRenderer de Change af als geslaagd
 
-### 10.3. Services
+### Services
 
 ```mermaid
 classDiagram
@@ -898,7 +916,9 @@ classDiagram
 	UxiosTileContentLoader -- Uxios.Config
 ```
 
-## 11. Geheugen en performance optimalisatie
+---
+
+## Geheugen en performance optimalisatie
 
 Netherlands3D is een WebGL applicatie met de bijbehorende beperkingen zoals een maximaal inzetbaar geheugenbereik van 
 2GB RAM en dat de applicatie zelf single-threaded is.
@@ -907,8 +927,12 @@ De volgende richtlijnen zijn van toepassing om het tegelsysteem optimaal te late
 
 - **Caching**, informatie die infrequent opnieuw ingeladen moet worden moet niet in geheugen blijven, maar gecached 
   worden naar `Application.temporaryCachePath`.
-- **Gebruik van Value Types**
-- **Jobs/Burst-systeem vermijden voor nu**
+- **Gebruik van unmanaged en value types** ten behoeve van een optimale geheugenlayout en om CPU cache misses te 
+  beperken.
+- **Jobs/Burst-systeem vermijden**
+
+In de hoofdstukken hieronder staat beschreven waarom deze keuzes gemaakt worden en ook wat de impact is voor de 
+ontwikkelaar om rekening mee te houden. 
 
 !!!info "Unity WebGL is niet 100% single-threaded"
 
@@ -928,7 +952,7 @@ De volgende richtlijnen zijn van toepassing om het tegelsysteem optimaal te late
 
     [Meer informatie is hier te lezen.](https://medium.com/@farshad.development/unlocking-multi-threading-in-javascript-with-web-workers-13b6a1366c28)
 
-### 11.1. Caching
+### Caching
 
 Om in een Unity WebGL-applicatie binnen de strikte geheugen-limieten te blijven, hanteren we een meer-laagse
 cache-strategie voor tile-content. Elke tegel­content doorloopt vier mogelijke staten—van “helemaal niet aanwezig” tot
@@ -942,8 +966,9 @@ cache-strategie voor tile-content. Elke tegel­content doorloopt vier mogelijke 
       local assets leven altijd in cold storage, en om dan dat te dupliceren naar warm is zonde.
     - Zouden we middels een strategy een van de niveaus kunnen 'aanpassen'? Bijvoorbeeld cold storage naar 
       memcache/redis laten schrijven als de gebruiker dat heeft? 
+    - Moet het mogelijk zijn om per laag een retention policy te kunnen inregelen?
 
-#### 11.1.1. Cache-niveaus
+#### Cache-niveaus
 
 _1. Hot_
 
@@ -969,7 +994,7 @@ _4. Stale_
 - **Definitie**: De content is niet aanwezig (nooit geladen of expliciet verwijderd/exired).
 - **Gevolg**: Bij next-request moet de data weer vanaf de bron (WMS, server, etc.) worden opgehaald.
 
-#### 11.1.2. Overgangs-mechanisme
+#### Overgangs-mechanisme
 
 !!!quote
 
@@ -985,7 +1010,7 @@ _4. Stale_
 
 Op deze manier blijft alleen wat nú écht nodig is in het dure RAM staan, en gebruik je de goedkopere lagen (MEMFS of IndexedDB) voor de rest.
 
-#### 11.1.3. Voorbeeld: WMS-tegels
+#### Voorbeeld: WMS-tegels
 
 1. **Stale**: bij opstart zijn alle WMS-tegels ongekend.
 2. **Hot**: als een tegel in view komt, vraagt `TileContentLoader` de afbeelding op en slaat deze als `Texture2D` in RAM op.
@@ -993,13 +1018,114 @@ Op deze manier blijft alleen wat nú écht nodig is in het dure RAM staan, en ge
 4. **Cold**: bij zeer ver uit zicht of bij geheugendruk plaatsen we de tegeldata in IndexedDB.
 5. **Stale**: als de laag wordt verwijderd, of wanneer een cache-expiry is bereikt, wissen we de IndexedDB-versie; de volgende keer valt de tegel weer in **Stale** en moet hij opnieuw worden geladen.
 
-#### 11.1.4. Conclusie
+### Data Structuren en Geheugenlayout
 
-Met dit vier-stappenmodel:
+In WebGL-applicaties heb je te maken met strikte limieten op zowel CPU-tijd als geheugen (zowel WASM-heap als
+JavaScript-heap). Slecht ontworpen datastructuren leiden tot:
 
-- **Maximaliseer** je performance door alleen actieve content in snelle RAM te houden.
-- **Beschik** je over een tweedelig back-up-systeem: MEMFS voor kortdurende, lage-latency caching en IndexedDB voor langdurige opslag.
-- **Blijf** je altijd onder zowel de WebAssembly-heap-limiet (via Unity’s MAX_MEMORY) als de browser-JS-heap-limiet en schijfquota.
+- Onvoorspelbare GC-pauzes die zorgen voor framerate-hicks en mindere gebruikerservaring.
+- CPU-cache-misses die loops vertragen en de laadtijd van tiles opvoeren.
+- Geheugenlekken of overallocaties die tot uitval (out-of-memory) kunnen leiden, vooral op mobiele of low-end devices.
+
+Deze richtlijnen helpen om:
+
+1. Consistente performance te verkrijgen bij verschillende hardware en browsers.
+2. Voorspelbare geheugencapaciteit te behouden, binnen de limieten van Unity WebGL en de browser.
+3. Debuggen en onderhoud te vereenvoudigen door eenduidige patterns (value types, Native-collecties) toe te passen.
+
+!!!tip "Als het in Unity zijn Jobs systeem werkt, dan is het goed"
+
+    Hoewel we het Unity Jobs systeem niet gebruiken, is het aan te raden om data structuren zo te schrijven dat die
+    daarin toe te passen zijn. Unity Jobs is ontworpen met Data-Oriented Design in gedachten en op deze manier weet
+    je wanneer je datamodel klopt.
+
+#### Structuurkeuze
+
+**1. Gebruik altijd value types (`struct`)**
+
+- **Waarom**: Inline opslag, geen managed heap–allocaties, geen onvoorspelbare GC-pauzes.
+- **Hoe**: Definieer `TileSet`, `TilesInView`, en alle gerelateerde data als `struct`.
+
+**2. Vermijd reference types (`class`, `string`)**
+
+- **Waarom niet**: Leven op managed heap, leiden tot garbage-collectie en fragmentatie.
+- **Tekstdata**: Gebruik `NativeText` of `FixedString32Bytes`/`FixedString64Bytes` voor tekst.
+
+**3. Geen class-inheritance voor data**
+
+- **Beperkingen**: `struct` ondersteunt geen inheritance.
+- **Alternatief**: Pas **composition** toe:
+    - Maak kleinere, uniforme data-`structs` en combineer ze in grotere struct-velden.
+    - Voor polymorfische gedrag, gebruik **discriminated unions** (een enum + union-struct).
+
+#### Geheugenbeheer met Unity.Collections
+
+**1. Native-collecties**
+
+- **Gebruik**: `NativeArray<T>`, `NativeList<T>`, `NativeHashMap<K,V>`, `NativeQueue<T>`.
+- **Voordeel**: Contigüe, unmanaged geheugenblokken buiten de managed heap.
+
+**2. Lifecycle (“allocatie → gebruik → vrijgave”)**
+
+- **Allocatie**:
+
+  ```csharp
+  var buffer = new NativeArray<MyStruct>(count, Allocator.Persistent);
+  ```
+
+- **Gebruik**: lees/schrijf data direct.
+
+- **Vrijgave**:
+
+  ```csharp
+  buffer.Dispose();
+  ```
+
+- **Checklist**:
+
+    - Sluit alle `Allocator.Persistent`-allocaties af met `Dispose`.
+    - Controleer op dubbele `Dispose` (risico op ObjectDisposedException).
+
+#### Samenvatting: Do’s & Don’ts
+
+| Do’s                                           | Don’ts                            |
+|-------------------------------------------------|-----------------------------------|
+| Definieer data als `struct`                     | Gebruik geen `class` voor data    |
+| Gebruik `NativeArray<T>` en `NativeList<T>`      | Sla data niet op in managed heap  |
+| Breng data contigüe onder                       | Gebruik geen pointer-indexen      |
+| Beheer memory expliciet (`Dispose`)              | Verwaarloos geen `Dispose`-calls  |
+| Pas composition toe ipv inheritance voor structs | Gebruik geen polymorphe classes   |
+
+### Waarom géén Unity Jobs?
+
+Unity’s Job-systeem is ontworpen om data binnen meerdere threads gelijktijdig te verwerken. Echter, in de context van
+WebGL biedt het Jobs-systeem nauwelijks voordelen:
+
+1. **Beperkte WebGL-threading**
+
+    - Browsers ondersteunen WebAssembly threads alleen via experimentele Web Workers + SharedArrayBuffer, wat door veel
+      platformen (zoals iOS/Safari) niet of beperkt wordt aangeboden.
+    - Unity WebGL builds zijn standaard single-threaded, waardoor alle jobs alsnog op de hoofdthread worden geplant.
+
+2. **Extra complexiteit en overhead**
+
+    - Jobs vereisen opzet rond `JobHandle`, memory fences en (optioneel) Burst-compilatie.
+    - Omdat threads niet daadwerkelijk parallel werken in WebGL, ontstaan onnodige synchronisatiekosten en extra
+      API-overhead.
+
+3. **Onderhoud en foutgevoeligheid**
+
+    - De complexiteit van Jobs verhoogt de test- en debugging-load.
+    - De ontwikkeltijd neemt toe omdat er meer expertise nodig is om dit te bouwen en onderhouden.
+
+In WebGL-projecten voegen Unity Jobs meer overhead en complexiteit toe dan dat ze performance opleveren.
+We kiezen er daarom bewust voor om sequentiële loops en native collecties te gebruiken, zonder Job-dispatching.
+
+///
+
+
+
+
 
 ## Appendix A. Casussen
 
@@ -1312,3 +1438,4 @@ Door deze scheiding van verantwoordelijkheden kan Tilekit flexibel omgaan met al
 - Laadvolgorde tegels beter beschrijven
 - Beter beschrijven hoe het tegelsysteem een tussenlaag is en dat het 'werk' door monobehaviours gebeurd
 - Beschrijving hoe hoogte wisselingen te kunnen doen (FAQ?)
+
