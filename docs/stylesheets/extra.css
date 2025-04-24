@@ -60,6 +60,66 @@
     border-radius: 0.25rem;
 }
 
+
+
+/*****************************************************************************/
+/** Pages with numbered headings *********************************************/
+/*****************************************************************************/
+
+.numbered-page {
+    counter-reset : h2;
+}
+
+.numbered-page h2 {
+    counter-reset : h3;
+}
+
+.numbered-page h3 {
+    counter-reset : h4;
+}
+
+.numbered-page h4 {
+    counter-reset : h5;
+}
+
+.numbered-page h5 {
+    counter-reset : h6;
+}
+
+.numbered-page h2:before {
+    content : counter(h2,decimal) ". ";
+    counter-increment : h2;
+}
+
+.numbered-page h3:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) ". ";
+    counter-increment : h3;
+}
+
+.numbered-page h4:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) ". ";
+    counter-increment : h4;
+}
+
+.numbered-page h5:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) ". ";
+    counter-increment : h5;
+}
+
+.numbered-page h6:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) "." counter(h6,decimal) ". ";
+    counter-increment : h6;
+}
+
+.numbered-page h2.nocount:before,
+.numbered-page h3.nocount:before,
+.numbered-page h4.nocount:before,
+.numbered-page h5.nocount:before,
+.numbered-page h6.nocount:before {
+    content : "";
+    counter-increment : none;
+}
+
 /*****************************************************************************/
 /** Navigation sidebar *******************************************************/
 /*****************************************************************************/
