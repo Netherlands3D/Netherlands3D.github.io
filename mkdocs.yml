@@ -35,7 +35,6 @@ nav:
                         - 'Tonen/verbergen': 'docs/handleiding/lagen/#tonenverbergen'
                         - 'Transformatie-tool': 'docs/handleiding/lagen/#transformatie-tool'
                         - 'Eigenschappen': 'docs/handleiding/lagen/#eigenschappen'
-                        - 'Kleurenpaneel': 'docs/handleiding/lagen/#kleurenpaneel'
 
                     - 'Lagen toevoegen':
                         - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
