@@ -9,6 +9,15 @@ Houdt de link - dit is vaak een url - bij de hand.
     dat niet het geval en je ontvangt een foutmelding bij het importeren? Probeer een van deze twee toe te voegen aan 
     je link.  
 
+## **Instructie-video**
+
+In onderstaande video wordt stap voor stap het toevoegen van een WMS/WFS-link uitgelegd.
+
+<iframe width="1517" height="500" src="https://www.youtube.com/embed/FeUruvS2p1Q?si=ZLhhFdRZCGcpzEoO&amp;controls=0" title="YouTube video player" frameborder="0"  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+/// caption
+(Video) toevoegen WMS/WFS-link
+///
+
 ---
 
 ## Stap 1. Open de 3D-Viewer
