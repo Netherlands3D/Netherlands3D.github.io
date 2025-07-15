@@ -68,4 +68,4 @@ geimplementeerd worden.
 - Laadvolgorde tegels beter beschrijven
 - Beter beschrijven hoe het tegelsysteem een tussenlaag is en dat het 'werk' door monobehaviours gebeurd
 - Beschrijving hoe hoogte wisselingen te kunnen doen (FAQ?)
-
+- CRS is nog niet benoemd; dat stuk moet ook nog
