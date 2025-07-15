@@ -85,12 +85,16 @@ nav:
 #        - 'docs/developers/getting-started/your-own-functionality.md'
       - 'Guides':
           - 'docs/developers/quickstart.md'
-          - 'docs/developers/adding-a-simple-type-of-layer.md'
-          - 'docs/developers/adding-behaviour-to-a-layer-with-data.md'
           - 'docs/developers/guides/loading-a-custom-project-file.md'
-          - 'docs/developers/guides/asset-bundles.md'
-          - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
+          - 'Layers':
+              - 'docs/developers/adding-a-simple-type-of-layer.md'
+              - 'docs/developers/adding-behaviour-to-a-layer-with-data.md'
+              - 'docs/developers/guides/asset-bundles.md'
+          - 'Styling':
+              - 'docs/developers/guides/how-to-color-parts-of-the-terrain.md'
+              - 'docs/developers/guides/adding-styling-support-to-layers.md'
           - 'docs/developers/guides/dealing-with-cors-issues.md'
+          - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
       - 'Explanation':
         - 'docs/developers/build-pipeline.md'
         - 'Core Concepts':
