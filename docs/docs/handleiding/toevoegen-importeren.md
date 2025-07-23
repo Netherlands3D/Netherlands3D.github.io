@@ -11,15 +11,16 @@ _(Afbeelding) Toevoegen / Importeren_
 
 ### **Importeren Eigen bestand**   
 
-De functionaliteit `Importeren` biedt de mogelijkheid om **lagen en objecten** via het importeren van bestanden of **via weblinks te koppelen**.
+De functionaliteit `Importeren` biedt de mogelijkheid om **lagen en Objecten** via het importeren van bestanden of **via weblinks te koppelen**.
 <br>  
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png){ width="350px" }  
 _(Afbeelding) Importeren Eigen bestand_  
   
-Met `Eigen bestand` kunnen .obj, .csv en .js bestanden worden gekoppeld.  
+Met `Eigen bestand` kunnen .OBJ, .CSV, .JSON, .GEOJSON en .GLB bestanden worden gekoppeld.  
 Na klikken op `Eigen bestand` opent de Verkenner (Windows)/Finder (MacOs) en kan het bestand worden geladen.
 <br>   
 
+!!! Met klik en slepen van een bestand vanuit verkenner of Finder in het viewervenster, worden bovenstaande formaten ook ingeladen. LET OP: Dit kan niet met meerdere bestanden tegelijk.
 ---
 
 ### **Importeren bestand via URL**   
@@ -42,35 +43,35 @@ Na `Toevoegen` is de **link gekoppeld** en de **data zichtbaar** in de 3D-Viewer
 ## **Voorbeelden**   
 ### **Bestand Importeren met .OBJ**   
 
-Stap1. Klik op `Eigen bestand` en importeer het .obj-bestand.
+Stap1. Klik op `Eigen bestand` en importeer het .OBJ-bestand.
 <br>  
-![Building Blocks](../handleiding/imgs/lagen.import.obj.png)  
-_(Afbeelding) Gedetailleerde Domtoren middels .obj geïmporteerd._  
+![Building Blocks](../handleiding/imgs/lagen.import.OBJ.png)  
+_(Afbeelding) Gedetailleerde Domtoren middels .OBJ geïmporteerd._  
 
-Na het **importeren** wordt het **object in de 3D omgeving** en in de lijst onder Lagen **zichtbaar**.  
+Na het **importeren** wordt het **Object in de 3D omgeving** en in de lijst onder Lagen **zichtbaar**.  
 
-!!! tip "Waarom heeft het geimporteerde object niet de juiste afmetingen?"
-	De viewer neemt automatisch de oriëntatie en schaal van het object (3D-model) zoals het is gemaakt over. Met de transformatie-tools kunnen de schaal en/of oriëntatie van het object worden aangepast. Het is ook mogelijk om de schaal van het object en/of oriëntatie in een extern 3D-programma zoals Blender aan te passen en opnieuw te importeren.   
+!!! tip "Waarom heeft het geimporteerde Object niet de juiste afmetingen?"
+	De viewer neemt automatisch de oriëntatie en schaal van het Object (3D-model) zoals het is gemaakt over. Met de transformatie-tools kunnen de schaal en/of oriëntatie van het Object worden aangepast. Het is ook mogelijk om de schaal van het Object en/of oriëntatie in een extern 3D-programma zoals Blender aan te passen en opnieuw te importeren.   
 
 ---
   
-Stap 2a. Het geselecteerde object kan met de **transformatie-tools** op de **juiste locatie** of aangepaste **oriëntatie en schaal** worden gebracht. Klik op het gekoppelde `object` in Lagen en de transformatie-tool is geactiveerd.
+Stap 2a. Het geselecteerde Object kan met de **transformatie-tools** op de **juiste locatie** of aangepaste **oriëntatie en schaal** worden gebracht. Klik op het gekoppelde `Object` in Lagen en de transformatie-tool is geactiveerd.
 <br>   
-![Building Blocks](../handleiding/imgs/lagen.import.obj.trans.png){ width="248px" }
-![Building Blocks](../handleiding/imgs/lagen.import.obj.rot.png){ width="248px" }
-![Building Blocks](../handleiding/imgs/lagen.import.obj.scale.png){ width="248px" }  
+![Building Blocks](../handleiding/imgs/lagen.import.OBJ.trans.png){ width="248px" }
+![Building Blocks](../handleiding/imgs/lagen.import.OBJ.rot.png){ width="248px" }
+![Building Blocks](../handleiding/imgs/lagen.import.OBJ.scale.png){ width="248px" }  
 _(Afbeelding) Verplaatsen, roteren en verschalen met de transformatie-tool_
 
 ---
 
-Stap 2b. Met de `Eigenschappen` -functie kan de **locatie, oriëntatie en schaal** van het geimporteerde object **handmatig worden ingevoerd**.  
+Stap 2b. Met de `Eigenschappen` -functie kan de **locatie, oriëntatie en schaal** van het geimporteerde Object **handmatig worden ingevoerd**.  
 
-![Building Blocks](../handleiding/imgs/lagen.import.obj.example.png)
+![Building Blocks](../handleiding/imgs/lagen.import.OBJ.example.png)
 _(Afbeelding) Handmatig invoeren van locatie, oriëntatie en schaal._ 
  
 --- 
  
-Stap 3. Met **Bestand toevoegen** kan het **.mtl-bestand** dat bij het .obj-bestand behoord **aan het 3D-model gekoppeld**. Hiermee wordt kleur- en textuur-informatie meegeladen met het 3D-model.  
+Stap 3. Met **Bestand toevoegen** kan het **.mtl-bestand** dat bij het .OBJ-bestand behoord **aan het 3D-model gekoppeld**. Hiermee wordt kleur- en textuur-informatie meegeladen met het 3D-model.  
 Klik op `Bestand toevoegen` in het Eigenschappen-menu en selecteer het .mtl-bestand in de Verkenner/Finder.
 
 ---
@@ -84,4 +85,4 @@ _(Afbeelding) Voorbeeld 1;  Luchtfoto's van Nederland gekoppeld met WMS-link_
 ---
 
 ![Building Blocks](../handleiding/imgs/lagen.import.url.example2.png)
-_(Afbeelding) Voorbeeld 2;  Vakantie statistieken van het CBS gekoppeld met WMS-link_
+_(Afbeelding) Voorbeeld 2;  Landelijke BRT kaart gekoppeld met WMS-link_
