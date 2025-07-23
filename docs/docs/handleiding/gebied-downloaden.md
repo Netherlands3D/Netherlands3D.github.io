@@ -64,4 +64,4 @@ Je vindt de link onder;
 `Gebruiksvoorwaarden 3DBag`.
 
 * #### **Downloaden**   
-Klik op `download` om een .dea (Collada) bestand te downloaden. Het bestand kun je in een 3D modelleerprogramma zoals bijvoorbeeld Blender importeren.
+Klik op `download` om een .DAE (Collada) of .DXF (CAD) bestand te downloaden. Het bestand kun je in een 3D modelleerprogramma zoals bijvoorbeeld Blender, Sketchup of CAD software importeren en bewerken.
