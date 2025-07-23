@@ -3,7 +3,7 @@
 Functionaliteit, hoofdmenu.  
 ![Building Blocks](../handleiding/imgs/gebied.downloaden.menu.main.png){ style="height:230px;width:50px" align=left }
 <br>
-Met de functionaliteit Gebied Downloaden kunnen delen van een **gebied als bestand worden gedownload**. Deze functionaliteit bevordert de aansluiting en uitwisseling met andere Digital Twins. 
+Met de functionaliteit Gebied Downloaden kunnen delen van een **gebied als bestand worden gedownload** (in de formaten .DAE en .DXF). Deze functionaliteit bevordert de aansluiting en uitwisseling met andere visualisatie- en CAD programma's. 
 
 Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Gebied Downloaden en geeft uitleg over de interface en essentiële functies.  
 <br>
@@ -46,6 +46,10 @@ Door met de muis, in combinatie met de linkermuisknop en shift-toets te slepen k
 
 ![Building Blocks](../handleiding/imgs/gebied.downloaden.selectie.png)
 _(Afbeelding) Meerdere secties van 100x100 geselecteerd._
+
+* #### **Export format kiezen**
+![Building Blocks](../handleiding/imgs/gebied.downloaden.export.format.png)  
+_(Afbeelding) Keuze voor export format._
 
 !!! tip "Waarom kan ik het selectiegebied niet roteren?"
 	Het selectiegebied is altijd loodrecht op de horizontale-as/op het noorden georiënteerd.
