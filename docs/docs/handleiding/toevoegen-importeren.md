@@ -47,7 +47,7 @@ Na `Toevoegen` is de **link gekoppeld** en de **data zichtbaar** in de 3D-Viewer
 
 Stap1. Klik op `Eigen bestand` en importeer het .OBJ-bestand.
 <br>  
-![Building Blocks](../handleiding/imgs/lagen.import.OBJ.png)  
+![Building Blocks](../handleiding/imgs/lagen.import.obj.png)  
 _(Afbeelding) Gedetailleerde Domtoren middels .OBJ geïmporteerd._  
 
 Na het **importeren** wordt het **Object in de 3D omgeving** en in de lijst onder Lagen **zichtbaar**.  
@@ -59,16 +59,16 @@ Na het **importeren** wordt het **Object in de 3D omgeving** en in de lijst onde
   
 Stap 2a. Het geselecteerde Object kan met de **transformatie-tools** op de **juiste locatie** of aangepaste **oriëntatie en schaal** worden gebracht. Klik op het gekoppelde `Object` in Lagen en de transformatie-tool is geactiveerd.
 <br>   
-![Building Blocks](../handleiding/imgs/lagen.import.OBJ.trans.png){ width="248px" }
-![Building Blocks](../handleiding/imgs/lagen.import.OBJ.rot.png){ width="248px" }
-![Building Blocks](../handleiding/imgs/lagen.import.OBJ.scale.png){ width="248px" }  
+![Building Blocks](../handleiding/imgs/lagen.import.obj.trans.png){ width="248px" }
+![Building Blocks](../handleiding/imgs/lagen.import.obj.rot.png){ width="248px" }
+![Building Blocks](../handleiding/imgs/lagen.import.obj.scale.png){ width="248px" }  
 _(Afbeelding) Verplaatsen, roteren en verschalen met de transformatie-tool_
 
 ---
 
 Stap 2b. Met de `Eigenschappen` -functie kan de **locatie, oriëntatie en schaal** van het geimporteerde Object **handmatig worden ingevoerd**.  
 
-![Building Blocks](../handleiding/imgs/lagen.import.OBJ.example.png)
+![Building Blocks](../handleiding/imgs/lagen.import.obj.example.png)
 _(Afbeelding) Handmatig invoeren van locatie, oriëntatie en schaal._ 
  
 --- 
