@@ -20,7 +20,8 @@ Met `Eigen bestand` kunnen .OBJ, .CSV, .JSON, .GEOJSON en .GLB bestanden worden 
 Na klikken op `Eigen bestand` opent de Verkenner (Windows)/Finder (MacOs) en kan het bestand worden geladen.
 <br>   
 
-!!!	tip Met klik en slepen van een bestand vanuit verkenner of Finder in het 	viewervenster, worden bovenstaande formaten ook ingeladen. LET OP: Dit kan niet met meerdere bestanden tegelijk.
+!!!	tip "Drag and Drop"
+	Met klik en slepen van een bestand vanuit verkenner of Finder in het 	viewervenster, worden bovenstaande formaten ook ingeladen. LET OP: Dit kan niet met meerdere bestanden tegelijk.
 
 ---
 
