@@ -72,8 +72,6 @@ _(Afbeelding) Instellingen actief_
 
 Bij het laden van .OBJ, .GLB, WFS en GeoJSON lagen is er de mogelijkheid om de kleuren van de geladen data te  wijzigen. Dat geldt ook de standaard terreinlaag. De gebouwenlaag volgt later en ook de mogelijkheid om kleuren te herstellen volgt later. Hoe je de kleuren wijzigt, lees je hieronder.
 
-## **Openen**
-
 ![Building Blocks](../handleiding/imgs/kleurenpaneel.aanroepen.png)
 
 Door op het **instellingen** icoon te klikken open je het instellingenvenster waar, wanneer van toepassing, het kleurenpaneel zichtbaar wordt.
