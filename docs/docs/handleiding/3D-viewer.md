@@ -136,6 +136,12 @@ Dit kan op verschillende manieren;
 
 `Verdraai het muiswiel` om naar voren of naar achteren te bewegen in de kijkrichting.
 
+!!! tip "standaard of snel zoomen"
+
+	Standaard scrollen geeft een normale snelheid van in- uitzoomen. Met de SHIFT-knop ingedrukt kan je 2x zo snel in- uitzoomen. Wel zo handig!
+
+---
+
 <video controls>
 <source src="../video/scroll.mp4" type="video/mp4">
 </video>
