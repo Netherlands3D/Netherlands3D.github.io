@@ -1,7 +1,6 @@
-# Alle functionaliteiten
+# Overzicht functies
 
-Deze pagina bevat het **overzicht van alle functionaliteiten** van de **3D-Viewer** van Netherlands3D. Door op de
-functionaliteiten te klikken kom je bij de gedetailleerde beschrijving en handleiding van de functionaliteiten.
+Deze pagina bevat het **overzicht van alle functies** van de **3D-Viewer** van Netherlands3D. Door op de functies te klikken kom je bij de gedetailleerde beschrijving en handleiding.
 
 //// html | div.two-column.minimal
 /// html | div
