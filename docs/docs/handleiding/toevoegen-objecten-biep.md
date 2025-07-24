@@ -1,22 +1,24 @@
 # Objecten bibliotheek
 
-Functionaliteit, Lagen, submenu.  
+functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.ob.png){ width="350px" }  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.ob.png)
 /// caption
 (Afbeelding) Toevoegen / Objecten bibliotheek
 ///
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
-Met de functionaliteit Objecten biep kunnen verschillende **standaard objecten** worden **toegevoegd**.
+Met de functie Objecten bibliotheek kunnen verschillende **standaard objecten** worden **toegevoegd**.
 
 Je kunt kiezen uit:
 
 //// html | div.two-column
 
+* [Annotatie](#annotatie)
+* [Camera Positie](#camera-positie)
 * [Kubus](#kubus)
 * [NAP Vlak](#nap-vlak)
 * [Windmolen](#windmolen)
@@ -33,6 +35,28 @@ Je kunt kiezen uit:
 ///
 
 ////
+
+---
+
+### Annotatie
+
+Klik op `Annotatie` om een opmerking in de viewer te plaatsen. De annotatie start blanco. Door er op te klikken kan je deze met tekst vullen. Je kan er ook meerdere maken, zodat je notities of opmerkingen bij kan houden.
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.annotatie.png)  
+/// caption
+_(Afbeelding) Annotatie ObjectenBibliotheek_  
+///
+
+---
+
+### Camera Positie
+
+Klik op `Camera Positie` om een camera in de viewer te plaatsen. Je plaatst de  camera met de op dat moment ingestelde hoogte en kijkhoek. Op deze manier kan je verschillende camera standpunten maken en bewaren in een project, om zo makkelijk een "view-path" naar keuze te kunnen maken. 
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.camera.png)  
+/// caption
+(Afbeelding) Camera Positie  
+///
 
 ---
 
@@ -102,7 +126,7 @@ de viewer zichtbaar te maken.
 
 ### Ontwikkeling Zuidoost
 
-De functionaliteit Ontwikkeling Zuidoost is een bijzonder onderdeel van de Objecten Bibliotheek. Met deze functie worden
+De functie Ontwikkeling Zuidoost is een bijzonder onderdeel van de Objecten Bibliotheek. Met deze functie worden
 de Nieuwbouwontwikkelingen in het gebied Amsterdam-Zuidoost in de viewer gekoppeld. Klik op `Ontwikkeling Zuidoost` om
 deze te activeren.
 
