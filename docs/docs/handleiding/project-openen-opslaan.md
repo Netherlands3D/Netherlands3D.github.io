@@ -20,4 +20,7 @@ Met de knop `Project openen` wordt een venster geopend met aanvullende uitleg en
 
 ![Building Blocks](../handleiding/imgs/3d-viewer.project.openen.png){ width="350px" }
 
+!!! tip "Klik en sleep"
+    Projecten openen kan ook door ze vanuit de Verkenner/Finder te klikken en slepen naar de 3D Viewer. Best handig!
+    
 &nbsp;
