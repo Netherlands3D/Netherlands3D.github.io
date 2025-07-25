@@ -56,3 +56,40 @@ De lijndikte kan worden aangepast door op het `instellingen-icoon` te klikken. H
 _(Afbeelding) Eigenschappen_  
 <br>
 Er kunnen meerdere lijnen worden ingetekend.  
+
+---
+
+###**Grid**  
+Klik op `Grid` en je kan met de muis, in combinatie met de linkermuisknop en shift-toets een selectiegebied selecteren.  
+
+![Building Blocks](../handleiding/imgs/grid.masking.selectie.png)
+_(Afbeelding) Meerdere secties van 100x100 geselecteerd._
+<br>
+
+![Building Blocks](../handleiding/imgs/grid.masking.laag.png)
+_(Afbeelding) Gridlaag toegevaagd aan lagenpaneel._
+<br>
+
+![Building Blocks](../handleiding/imgs/grid.masking.eigenschappen.png)
+_(Afbeelding) Eigenschappen gridlaag._
+<br>
+
+![Building Blocks](../handleiding/imgs/grid.masking.uitsnijden.png)
+_(Afbeelding) Gebied uitsnijden in gridlaag._
+<br>
+
+![Building Blocks](../handleiding/imgs/grid.masking.uitsnijden.omdraaien.png)
+_(Afbeelding) Uitgesneden gebied omdraaien._
+<br>
+
+Er kunnen meerdere grids worden ingetekend.
+<br>
+
+!!! tip "Masking and Clipping"
+    Bovenstaande handelingen kan je met alle selectiemogelijkheden uitvoeren. Dus ook met een polygoon en een lijn. Zo kan je meerdere gebieden uitsnijden of highlighten.
+
+
+![Building Blocks](../handleiding/imgs/grid.masking.mogelijkheden.png)
+_(Afbeelding) Mogelijkheden uitgesneden gebieden._
+<br>
+  
