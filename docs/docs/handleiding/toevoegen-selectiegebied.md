@@ -66,17 +66,21 @@ Klik op `Grid` en je kan met de muis, in combinatie met de linkermuisknop en shi
 _(Afbeelding) Meerdere secties van 100x100 geselecteerd._
 <br>
 
+
 ![Building Blocks](../handleiding/imgs/grid.masking.laag.png)
-_(Afbeelding) Gridlaag toegevaagd aan lagenpaneel._
+_(Afbeelding) Gridlaag toegevoegd._
 <br>
+
 
 ![Building Blocks](../handleiding/imgs/grid.masking.eigenschappen.png)
 _(Afbeelding) Eigenschappen gridlaag._
 <br>
 
+
 ![Building Blocks](../handleiding/imgs/grid.masking.uitsnijden.png)
 _(Afbeelding) Gebied uitsnijden in gridlaag._
 <br>
+
 
 ![Building Blocks](../handleiding/imgs/grid.masking.uitsnijden.omdraaien.png)
 _(Afbeelding) Uitgesneden gebied omdraaien._
@@ -86,7 +90,9 @@ Er kunnen meerdere grids worden ingetekend.
 <br>
 
 !!! tip "Masking and Clipping"
-    Bovenstaande handelingen kan je met alle selectiemogelijkheden uitvoeren. Dus ook met een polygoon en een lijn. Zo kan je meerdere gebieden uitsnijden of highlighten.
+    Bovenstaande handelingen kan je met alle selectiemogelijkheden uitvoeren. Dus ook met een polygoon en een lijn. Zo kan je meerdere gebieden uitsnijden of highlighten. 
+    
+    Achteraf kan je de geselecteerde lijn(en), gebied(en) en grid(s) ook aanpassen. Bij lijnen en gebieden kan je de laag selecteren en de zichtbare punten oppakken en verplaatsen en bij een grid kan je een nieuwe selectie maken.
 
 
 ![Building Blocks](../handleiding/imgs/grid.masking.mogelijkheden.png)
