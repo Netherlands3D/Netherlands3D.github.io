@@ -1,6 +1,6 @@
 # Importeren
 
-Functionaliteit, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.importeren.png){ width="350px" }  
 _(Afbeelding) Toevoegen / Importeren_

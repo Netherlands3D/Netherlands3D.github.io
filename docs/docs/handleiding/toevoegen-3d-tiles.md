@@ -1,6 +1,6 @@
 # 3D Tiles
 
-Functionaliteit, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.3d.tiles.png){ width="350px" }  
 /// caption
