@@ -1,6 +1,6 @@
 # Urban ReLeaf
 
-Functionaliteit, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.UR.png){ width="350px" }  
 _(Afbeelding) Toevoegen / Urban ReLeaf_

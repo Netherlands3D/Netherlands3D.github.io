@@ -1,6 +1,6 @@
 # Fotorealistische Wereld
 
-Functionaliteit, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.google.png){ width="350px" }  
 _(Afbeelding) Toevoegen / Fotorealistische Wereld_

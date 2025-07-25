@@ -1,6 +1,6 @@
 # Basislagen
 
-Functionaliteit, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.basis.png){ width="350px" }  
 _(Afbeelding) Toevoegen / Basislagen_

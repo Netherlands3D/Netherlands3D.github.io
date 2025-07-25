@@ -1,6 +1,6 @@
 # Objecten bibliotheek
 
-functies, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.ob.png)
 /// caption

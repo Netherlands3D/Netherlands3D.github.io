@@ -1,20 +1,20 @@
 # Selectiegebied
 
-Functionaliteit, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.tekengebied.png){ width="350px" }  
 _(Afbeelding) Toevoegen / Selectiegebied_
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
-Met deze functie is het mogelijk om één of meerdere **Polygonen** (veelvlakken) of **lijnen** in te **tekenen**.
+Met deze functie is het mogelijk om één of meerdere **Polygonen** (gebieden),  **lijnen** of **grids** in te tekenen.
 <br>  
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.tekengebied.png){ width="350px" }  
 _(Afbeelding) Toevoegen / Tekengebied_
 
-Na klikken op `Selectiegebied` kan er gekozen worden uit het tekenen van een Polygoon of een lijn in de 3D-Viewer.
+Na klikken op `Selectiegebied` kan er gekozen worden uit het tekenen van een Polygoon, lijn of grid in de 3D-Viewer.
 <br>  
 ---
 
