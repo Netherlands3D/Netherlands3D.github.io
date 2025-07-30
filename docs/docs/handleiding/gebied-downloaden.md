@@ -7,12 +7,10 @@ Met de functionaliteit Gebied Downloaden kunnen delen van een **gebied als besta
 
 Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Gebied Downloaden en geeft uitleg over de interface en essentiële functies.  
 <br>
-<br>
-<br>
 
 ---
 
-## Overzicht van functionaliteiten
+## Beschrijving
 
 Met **Gebied downloaden** kunnen delen van een gebied worden opgeslagen en in andere software worden ingeladen. 
 
@@ -23,7 +21,6 @@ _(Video) Gebied downloaden_
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
 
 ### **Menu**
 Door met de muis op het `Gebied downloaden-icoon` in het hoofdmenu te klikken wordt de tool actief. Het menu klapt open en de **instellingen worden zichtbaar**.
@@ -33,7 +30,7 @@ _(Afbeelding) Gebied downloaden-menu_
 
 ---
 
-### **Functionaliteiten**
+### **Werking**
 
 * #### **Gebied downloaden**   
 Na het activeren van de functionaliteit wordt het menu actief en kun je met de muis meerdere secties van 100x100 meter selecteren.

@@ -86,8 +86,8 @@ De knop `Informatie` opent de Homepage in een apart browser-venster.
 
 Het menu bevat de volgende functies:
 
-![Building Blocks](../handleiding/imgs/3d-viewer.rechtsonder.noordpijl.png)
 ![Building Blocks](../handleiding/imgs/3d-viewer.rechtsonder.noordpijl.gedraaid.png)
+![Building Blocks](../handleiding/imgs/3d-viewer.rechtsonder.noordpijl.png)
 #### Weergave naar noorden draaien
 
 Klik op `Weergave naar noorden draaien` om de kijkrichting automatisch naar het noorden te richten.   
