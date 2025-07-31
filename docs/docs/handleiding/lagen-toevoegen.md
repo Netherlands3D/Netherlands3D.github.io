@@ -5,25 +5,25 @@
 ![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 <br>
 
-Lagen is **dé kernfunctionaliteit van Netherlands3d.eu**. Deze functionaliteit biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
+Lagen is **dé kernfunctie van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
  
-Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
+Dit hoofdstuk beschrijft de belangrijkste functies van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
 ### Menu (linksonder)
 
 Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
-en het `toevoegen-menu` klapt open en de functionaliteiten worden zichtbaar.
+en het `toevoegen-menu` klapt open en de functies worden zichtbaar.
 
 ![Building Blocks](../handleiding/imgs/lagen.main.bottom.png)
 /// caption
 (Afbeelding) toevoegen-menu
 ///
 
-### Functionaliteiten
+### functies
 
 #### Organiseren
 
@@ -38,7 +38,7 @@ Met het `Prullenbak-icoon` wordt de geselecteerde laag of object verwijderd. Dit
 
 #### Toevoegen
 
-Het koppelen van datalagen al dan niet in combinatie met objecten is dé kernfunctionaliteit van Netherlands3D. Met
+Het koppelen van datalagen al dan niet in combinatie met objecten is dé kernfunctie van Netherlands3D. Met
 het `+ icoon` opent het Toevoegen menu en zijn de verschillende teken-, koppel- en importmogelijkheden (gedeeltelijk)
 zichtbaar. Door met de muis de blauwe bovenbalk omhoog te slepen opent het menu volledig.
 
