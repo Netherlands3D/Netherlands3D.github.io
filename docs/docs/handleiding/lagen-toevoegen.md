@@ -2,7 +2,7 @@
 
 (Kern)functies, hoofdmenu.
 
-![Building Blocks](../handleiding/imgs/lagen.menu.main.png){ style="height:230px;width:50px" }
+![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 <br>
 
 Lagen is **dé kernfunctionaliteit van Netherlands3d.eu**. Deze functionaliteit biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
@@ -18,7 +18,7 @@ Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Lagen en geeft u
 Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
 en het `toevoegen-menu` klapt open en de functionaliteiten worden zichtbaar.
 
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/lagen.main.bottom.png)
 /// caption
 (Afbeelding) toevoegen-menu
 ///
@@ -54,7 +54,7 @@ Het menu bevat de volgende zeven functies:
 6. [Fotorealistische Wereld (link)](toevoegen-fotorealistische-wereld.md)
 7. [Objecten bibliotheek (link)](toevoegen-objecten-biep.md)
 
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.full.png){ width="350px"}
+![Building Blocks](../handleiding/imgs/lagen.main.bottom.full.png)
 /// caption
 _(Afbeelding) Toevoegen menu, volledig zichtbaar_
 ///
