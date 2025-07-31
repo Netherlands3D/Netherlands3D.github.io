@@ -2,7 +2,8 @@
 
 (Kern)functies, hoofdmenu.
 
-![Building Blocks](../handleiding/imgs/lagen.menu.main.png){ style="height:230px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/lagen.menu.main.png){ style="height:230px;width:50px" }
+<br>
 
 Lagen is **dé kernfunctionaliteit van Netherlands3d.eu**. Deze functionaliteit biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
  
