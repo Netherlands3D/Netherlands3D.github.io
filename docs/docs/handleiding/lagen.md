@@ -3,16 +3,16 @@
 (Kern)functionaliteit, hoofdmenu.  
 ![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 
-Lagen is **dé kernfunctionaliteit van Netherlands3d.eu**. Deze functionaliteit biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
+Lagen is **dé kernfunctie van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
  
-Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
+Dit hoofdstuk beschrijft de belangrijkste functies van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
 <br>
 <br>
 <br>
 
 ---
 
-## Overzicht van functionaliteiten
+## Overzicht van functies
 
 Door het uit-/aanvinken van datalagen worden deze verborgen of getoond. 
 Met behulp van links en/of het importeren van bestanden worden datalagen en objecten gekoppeld.
@@ -24,7 +24,7 @@ _(Video) gebruik van Lagen_
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
 ### **Menu (linksboven)**
 Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
@@ -35,7 +35,7 @@ _(Afbeelding) lagen-menu_
 
 ---
 
-### **Functionaliteiten**
+### **functies**
 
 * #### **Standaardlagen**   
 De lagen Bomen, Bossen, Gebouwen en Maaiveld zijn in de basisversie standaard gekoppeld.

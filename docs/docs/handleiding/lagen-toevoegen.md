@@ -1,6 +1,6 @@
 # Lagen toevoegen
 
-(Kern)functionaliteit, hoofdmenu.
+(Kern)functies, hoofdmenu.
 
 ![Building Blocks](../handleiding/imgs/lagen.menu.main.png){ style="height:230px;width:50px" align=left }
 
@@ -37,11 +37,11 @@ Met het `Prullenbak-icoon` wordt de geselecteerde laag of object verwijderd. Dit
 
 #### Toevoegen
 
-Het koppelen van datalagen al dan niet in combinatie met objecten is dé kernfunctionaliteit van Netherlands3d.eu. Met
+Het koppelen van datalagen al dan niet in combinatie met objecten is dé kernfunctionaliteit van Netherlands3D. Met
 het `+ icoon` opent het Toevoegen menu en zijn de verschillende teken-, koppel- en importmogelijkheden (gedeeltelijk)
 zichtbaar. Door met de muis de blauwe bovenbalk omhoog te slepen opent het menu volledig.
 
-Het menu bevat de volgende 7 teken- koppel- en importmogelijkheden:
+Het menu bevat de volgende zeven functies:
   
 //// html | div.two-column
 
