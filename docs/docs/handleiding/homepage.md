@@ -13,23 +13,19 @@ Naast de **functionaliteiten** bieden we specifiek voor twee doelgroepen informa
 (Afbeelding) Hoofdmenubalk
 ///
 
-### Functionaliteiten
+### Functionaliteiten en functies
 
-In het hoofdstuk Handleiding vind je een gedetailleerde beschrijving van alle functionaliteiten ondersteund met
-afbeeldingen en/of filmpjes.
+In het hoofdstuk Handleiding vind je een gedetailleerde beschrijving van alle functionaliteiten en functies ondersteund met afbeeldingen en/of filmpjes.
 
 ### Voor organisaties
 
-Dit hoofdstuk is onder ontwikkeling en bevat straks een uitgebreide bron van informatie.  
-Het doel is om organisaties te ondersteunen met gidsen, best practices en antwoorden op veel gestelde vragen die
+Dit hoofdstuk is onder ontwikkeling en bevat straks een uitgebreide bron van informatie. Het doel is om organisaties te ondersteunen met gidsen, best practices en antwoorden op veel gestelde vragen die
 essentieel zijn voor het gebruik van het Netherlands3D platform.
 
 ### Voor ontwikkelaars
 
-Ben je een ontwikkelaar en wil je bijvoorbeeld eigen functionaliteiten binnen Netherlands3D ontwikkelen? Dan vind je
-in dit hoofdstuk de benodigde technische documentatie.  
-Deze documentatie is bedoeld voor ontwikkelaars die willen begrijpen hoe het platform werkt, de architectuur willen
-verkennen en nieuwe modules of functionaliteiten willen bijdragen.
+Ben je een ontwikkelaar en wil je bijvoorbeeld eigen functie binnen Netherlands3D ontwikkelen? Dan vind je in dit hoofdstuk de benodigde technische documentatie.  
+Deze documentatie is bedoeld voor ontwikkelaars die willen begrijpen hoe het platform werkt, de architectuur willen verkennen en nieuwe modules of functie willen bijdragen.
 
 ---
 

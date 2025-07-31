@@ -7,11 +7,11 @@ _(Afbeelding) Toevoegen / Importeren_
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
 ### **Importeren Eigen bestand**   
 
-De functionaliteit `Importeren` biedt de mogelijkheid om **lagen en Objecten** via het importeren van bestanden of **via weblinks te koppelen**.
+De functie `Importeren` biedt de mogelijkheid om **lagen en Objecten** via het importeren van bestanden of **via weblinks te koppelen**.
 <br>  
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png){ width="350px" }  
 _(Afbeelding) Importeren Eigen bestand_  
