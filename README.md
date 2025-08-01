@@ -1,9 +1,7 @@
 Documentation
 =============
 
-In this repository we create the website, project-wide documentation and, combined with the documentation for 
-each package, we use mkdocs to build a static html website and publish it to https://netherlands3d.eu/docs using 
-Github Pages.
+In this repository we create the website, project-wide documentation and, combined with the documentation for each package, we use mkdocs to build a static html website and publish it to https://netherlands3d.eu/ using Github Pages.
 
 Writing your own additions
 --------------------------
@@ -22,8 +20,7 @@ To preview the generated documentation you can start the `.\bin\develop.bat` scr
 start building and watching the files in the docs folder. This also means you do not need to restart this command
 on every change, mkdocs is watching the docs folder and will rebuild automatically while it is running.
 
-> Make sure that you have docker installed, mkdocs is ran through docker so that you do not need to install it on your 
-> own system. 
+> Make sure that you have docker installed, mkdocs is ran through docker so that you do not need to install it on your > own system. 
 
 The location where you can preview the docs is at: http://localhost:8000.
 
