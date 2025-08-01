@@ -71,7 +71,7 @@ De Object informatie bevat de volgende data.
 ---
 
 !!! tip "Kan ik meer BAG informatie krijgen?"
-	Ja dat kan zeker, door op het BAG ID te klikken van het pand wat is geselecteerd, wordt je doorgestuurd naar https://bagviewer.kadaster.nl/lvbag/bag-viewer en ingezoomd op het geselecteerde pand in de 3D-Viewer. ![Building Blocks](../handleiding/imgs/object.info.menu.select.bag.png){ width="350px" }
+	Ja dat kan zeker, door op het BAG ID te klikken van het pand wat is geselecteerd, wordt je doorgestuurd naar https://bagviewer.kadaster.nl/lvbag/bag-viewer/ en ingezoomd op het geselecteerde pand in de 3D-Viewer. ![Building Blocks](../handleiding/imgs/object.info.menu.select.bag.png){ width="350px" }
 
 
 ### Aanvullende technische details
