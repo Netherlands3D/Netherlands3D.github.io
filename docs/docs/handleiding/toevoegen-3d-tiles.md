@@ -1,6 +1,6 @@
 # 3D Tiles
 
-Functie, Lagen, submenu.  
+Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.3d.tiles.png){ width="350px" }  
 /// caption
@@ -9,11 +9,11 @@ Functie, Lagen, submenu.
 
 ---
 
-## Gedetailleerde beschrijving van de functie
+## Gedetailleerde beschrijving van de functionaliteiten
 
 ### Menu
 
-Met de functie Tiles kunnen 3D Tiles uit twee voorgedefinieerde lagen worden gekoppeld.  
+Met de functionaliteit Tiles kunnen 3D Tiles uit twee voorgedefinieerde lagen worden gekoppeld.  
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.menu.png){ width="350px" }  
 /// caption
