@@ -1,0 +1,4623 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
+    
+    
+      
+        <title>Geheugen en performance optimalisatie - </title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#geheugen-en-performance-optimalisatie" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="" class="md-header__button md-logo" aria-label="" data-md-component="logo">
+      
+  <img src="../../../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Geheugen en performance optimalisatie
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../functionaliteiten/wat-is-netherlands3d/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Voor gebruikers
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../organisations/netherlands3d-platform/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Voor organisaties
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../introduction/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Voor ontwikkelaars
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="" class="md-nav__button md-logo" aria-label="" data-md-component="logo">
+      
+  <img src="../../../../images/logo.png" alt="logo">
+
+    </a>
+    
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Voor gebruikers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Voor gebruikers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../functionaliteiten/wat-is-netherlands3d/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wat is Netherlands3D?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../functionaliteiten/functionaliteiten-overzicht/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overzicht functies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    3D-viewer
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            3D-viewer
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algemeen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_2" id="__nav_1_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Startscherm
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Startscherm
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer-locatie-bepalen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Locatie bepalen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer-functionaliteiten/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functionaliteiten
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer-instellingen-sub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Applicatie instellingen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3" id="__nav_1_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Werkruimte
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Werkruimte
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3_1" id="__nav_1_3_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Werkbalk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Werkbalk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/object-informatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Object informatie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/ondergrond-doorzicht/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ondergrond doorzicht
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3_1_3" id="__nav_1_3_3_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lagen
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_3_3_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Lagen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algemeen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#menu-linksboven" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Menu linksboven
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#standaardlagen" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Standaardlagen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#laagvolgorde" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Laagvolgorde
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#tonenverbergen" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tonen/verbergen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#transformatie-tool" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transformatie-tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#eigenschappen" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eigenschappen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#kleurenpaneel" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kleurenpaneel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen/#afgeschermde-bronnen" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Afgeschermde bronnen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3_1_4" id="__nav_1_3_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lagen toevoegen
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_3_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lagen toevoegen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen-toevoegen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algemeen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen-toevoegen/#menu-linksonder" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Menu (linksonder)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen-toevoegen/#organiseren" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Organiseren
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/lagen-toevoegen/#verwijderen" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Verwijderen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3_1_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3_1_4_5" id="__nav_1_3_3_1_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Toevoegen
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_1_3_3_1_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3_1_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            Toevoegen
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/toevoegen-importeren/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Importeren
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/toevoegen-selectiegebied/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Selectiegebied
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/toevoegen-urban-releaf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Urban ReLeaf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/toevoegen-basislagen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Basislagen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/toevoegen-3d-tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3D Tiles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/toevoegen-fotorealistische-wereld/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Fotorealistische Wereld
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/toevoegen-objecten-biep/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Objecten bibliotheek
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/zonnestand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zonnestand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/gebied-downloaden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gebied downloaden
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/project-openen-opslaan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project openen/opslaan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3_2" id="__nav_1_3_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applicatiebalk
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Applicatiebalk
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer#schermafbeelding-maken" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schermafbeelding maken
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer-instellingen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3D viewer instellingen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer#informatie" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Informatie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3_3_3" id="__nav_1_3_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Weergave en informatie
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Weergave en informatie
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer/#orientatie-en-mini-map" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Orientatie en Mini-map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer/#weergave-naar-noorden-draaien" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Weergave naar noorden draaien
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer/#orthografischperspectief" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Orthografisch/perspectief
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer/#mini-map" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mini-map
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer/#mini-map" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Positie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/3D-viewer/#navigeren" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Navigeren
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Homepage
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Homepage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Algemeen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/homepage#hoofdstukken" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hoofdstukken
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../handleiding/homepage#zoeken" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zoeken
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Voorbeelden voor eindgebruikers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Voorbeelden voor eindgebruikers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../voorbeelden/wms-wfs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Importeren van een WMS/WFS-link
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../voorbeelden/3d-tiles-importeren/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Importeren van een 3D Tiles-link
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Voor organisaties
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Voor organisaties
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../organisations/netherlands3d-platform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Netherlands3D Platform
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../organisations/netherlands3d-platform#keuzehulp" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keuzehulp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ondersteuning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Ondersteuning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../organisations/cors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mijn URL wil niet importeren door CORS, en nu?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Verantwoording
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Verantwoording
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../organisations/solarstudy-calculation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Verantwoording zonnestudie berekening
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Voor ontwikkelaars
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Voor ontwikkelaars
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Platform Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Platform Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Platform Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functionalities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functionalities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Guides
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/loading-a-custom-project-file/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Loading your own customized default Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Layers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Layers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adding-a-simple-type-of-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding a simple type of layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../adding-behaviour-to-a-layer-with-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Adding behaviour to a layer with data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/asset-bundles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Asset Bundles to add Objects to the Object Library
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_4" id="__nav_3_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Styling
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Styling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/how-to-color-parts-of-the-terrain/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How to color parts of the terrain
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/adding-styling-support-to-layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add styling support to layers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/dealing-with-cors-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dealing with CORS issues during development
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/troubleshooting-build-pipeline-failures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshooting Build Pipeline Failures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Explanation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Explanation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../build-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Our Build Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core Concepts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../layers-with-authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing Layers with Authentication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_3" id="__nav_3_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Features
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Features
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/embedding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Embedding Netherlands3D on Your Website
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/floating-origin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Working with large distances (Floating Origin)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/geojson/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GeoJSON Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_4" id="__nav_3_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Packages
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            Packages
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../packages/creating-and-managing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating and managing Packages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_5" id="__nav_3_4_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    User interface
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            User interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/keeping-our-documentation-current/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keeping Our Documentation Current
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/understanding-blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Understanding Blocks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/understanding-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Understanding Components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../decisions/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Architectural Decisions
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5_1" id="__nav_3_5_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            Architectural Decisions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../decisions/20241009-styling-of-layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2024-10-09 - Laagstijlen / Symbologie
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2" id="__nav_3_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    User interface
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            User interface
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2_1" id="__nav_3_5_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Blocks
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_5_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Blocks
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/blocks/property-panel-and-sections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Properties
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_5_2_2" id="__nav_3_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Components
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/components/accordion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Accordion
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/components/cards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/components/sliders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/components/double-sliders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Double Slider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ui/components/text-fields/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Text Field
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/ogc-webservices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing OGC Web Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../testing/3d-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Testing 3D Model Formats
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_7">
+            <span class="md-nav__icon md-icon"></span>
+            Contributing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/coding-standards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Coding Standards
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contributing/documentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing to our Documentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#geheugen-en-performance-optimalisatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geheugen en performance optimalisatie
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Geheugen en performance optimalisatie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caching" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caching
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Caching">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cache-niveaus" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cache-niveaus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overgangs-mechanisme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overgangs-mechanisme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-wms-tegels" class="md-nav__link">
+    <span class="md-ellipsis">
+      Voorbeeld: WMS-tegels
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-structuren-en-geheugenlayout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Structuren en Geheugenlayout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Structuren en Geheugenlayout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structuurkeuze" class="md-nav__link">
+    <span class="md-ellipsis">
+      Structuurkeuze
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geheugenbeheer-met-unitycollections" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geheugenbeheer met Unity.Collections
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samenvatting-dos-donts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Samenvatting: Do’s &amp; Don’ts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waarom-geen-unity-jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waarom géén Unity Jobs?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Geheugen en performance optimalisatie</h1>
+
+<h2 id="geheugen-en-performance-optimalisatie">Geheugen en performance optimalisatie</h2>
+<p>Netherlands3D is een WebGL applicatie met de bijbehorende beperkingen zoals een maximaal inzetbaar geheugenbereik van 
+2GB RAM en dat de applicatie zelf single-threaded is.</p>
+<p>De volgende richtlijnen zijn van toepassing om het tegelsysteem optimaal te laten functioneren:</p>
+<ul>
+<li><strong>Caching</strong>, informatie die infrequent opnieuw ingeladen moet worden moet niet in geheugen blijven, maar gecached 
+  worden naar <code>Application.temporaryCachePath</code>.</li>
+<li><strong>Gebruik van unmanaged en value types</strong> ten behoeve van een optimale geheugenlayout en om CPU cache misses te 
+  beperken.</li>
+<li><strong>Jobs/Burst-systeem vermijden</strong></li>
+</ul>
+<p>In de hoofdstukken hieronder staat beschreven waarom deze keuzes gemaakt worden en ook wat de impact is voor de 
+ontwikkelaar om rekening mee te houden. </p>
+<div class="admonition info">
+<p class="admonition-title">Unity WebGL is niet 100% single-threaded</p>
+<p>Een veelvoorkomend misverstand is dat Unity WebGL en JavaScript volledig single-threaded zijn. Hoewel beide één 
+main loop (“player loop” of “event loop”) hebben, lopen sommige van de acties die ze starten wel degelijk op aparte 
+threads:</p>
+<ul>
+<li>
+<p><strong>Web Workers</strong>: kun je expliciet in JavaScript aanmaken om reken-intensieve taken parallel uit te voeren, buiten 
+  de main loop om.</p>
+</li>
+<li>
+<p><strong>Web Requests</strong>: Unity gebruikt voor UnityWebRequest de JavaScript Fetch-API. Die delegeert netwerk-activiteiten 
+  aan de browser, die deze op achtergrond threads afhandelt. Hierdoor kun je meerdere requests tegelijk in 
+  behandeling hebben.</p>
+</li>
+</ul>
+<p>Zodra een achtergrond taak (bijvoorbeeld een web request) gereed is, keert de callback terug naar JavaScript en dus 
+weer naar de Unity-player loop. Pas dan wordt het resultaat in de hoofd-loop verwerkt.</p>
+<p><a href="https://medium.com/@farshad.development/unlocking-multi-threading-in-javascript-with-web-workers-13b6a1366c28">Meer informatie is hier te lezen.</a></p>
+</div>
+<h3 id="caching">Caching</h3>
+<p>Om in een Unity WebGL-applicatie binnen de strikte geheugen-limieten te blijven, hanteren we een meer-laagse
+cache-strategie voor tile-content. Elke tegel­content doorloopt vier mogelijke staten—van “helemaal niet aanwezig” tot
+“actief in geheugen”—zodat we alleen de écht benodigde data in RAM houden, en de rest elders opslaan.</p>
+<div class="admonition todo">
+<p class="admonition-title">Todo</p>
+<ul>
+<li>Cache eviction beschrijven, bijv. bij memory pressure</li>
+<li>Kan dit ingezet worden voor alle soorten content in het project en niet alleen tiles? Denk aan MTL bestanden</li>
+<li>Beschrijf verschil tussen remote en local assets; local assets kunnen niet stale worden en hoeven niet naar Warm.
+  local assets leven altijd in cold storage, en om dan dat te dupliceren naar warm is zonde.</li>
+<li>Zouden we middels een strategy een van de niveaus kunnen 'aanpassen'? Bijvoorbeeld cold storage naar 
+  memcache/redis laten schrijven als de gebruiker dat heeft? </li>
+<li>Moet het mogelijk zijn om per laag een retention policy te kunnen inregelen?</li>
+</ul>
+</div>
+<h4 id="cache-niveaus">Cache-niveaus</h4>
+<p><em>1. Hot</em></p>
+<ul>
+<li><strong>Definitie</strong>: De content is geladen als een Unity-object (bijvoorbeeld een <code>Texture2D</code>) en staat in het actieve
+  geheugen.</li>
+<li><strong>Gevolg</strong>: Telt volledig mee voor de WebAssembly-heap (de Unity-Memory.buffer), dus draagt bij aan de limiet die je
+  instelt via <strong>WebGL Memory Size</strong>.</li>
+</ul>
+<p><em>2. Warm</em></p>
+<ul>
+<li><strong>Definitie</strong>: De content is geëxporteerd naar een bestand in <code>Application.temporaryCachePath</code> (Emscripten’s MEMFS).</li>
+<li><strong>Gevolg</strong>: Verdwijnt uit de WebAssembly-heap, maar leeft voort in de JavaScript-heap als TypedArray. Dat betekent dat
+  het niet meer onder Unity’s MAX_MEMORY valt, maar wél ruimt opeist van de browser-JS-heap (±4 GB in Chrome 64-bit).</li>
+</ul>
+<p><em>3. Cold</em></p>
+<ul>
+<li><strong>Definitie</strong>: De content is verplaatst naar IndexedDB, via Emscripten’s IDBFS of eigen JS-interop.</li>
+<li><strong>Gevolg</strong>: Telt niet mee voor de JS-heap, maar wel voor de browser-schijfruimte-quota (meestal tot ~6 % van de vrije
+  schijfruimte). Perfect voor grote bestanden die je langer wilt bewaren.</li>
+</ul>
+<p><em>4. Stale</em></p>
+<ul>
+<li><strong>Definitie</strong>: De content is niet aanwezig (nooit geladen of expliciet verwijderd/exired).</li>
+<li><strong>Gevolg</strong>: Bij next-request moet de data weer vanaf de bron (WMS, server, etc.) worden opgehaald.</li>
+</ul>
+<h4 id="overgangs-mechanisme">Overgangs-mechanisme</h4>
+<div class="admonition quote">
+<p class="admonition-title">Quote</p>
+<p>There are 2 hard problems in computer science: cache invalidation, naming things, and off-by-1 errors.</p>
+<p>-- Leon Bambrick</p>
+</div>
+<ol>
+<li><strong>Initialisatie</strong> → alle tiles starten in <strong>Stale</strong>.</li>
+<li><strong>Gebruiker in zicht</strong> → tile laadt, content wordt <strong>Hot</strong> (direct in geheugen).</li>
+<li><strong>Uit zicht maar binnenkort weer nodig</strong> → verplaats Hot → Warm (MEMFS).</li>
+<li><strong>Lang uit zicht, low-priority</strong> → verplaats Warm → Cold (IndexedDB).</li>
+<li><strong>Verwijderd of verlopen</strong> → ruim Cold op → terug naar <strong>Stale</strong>.</li>
+</ol>
+<p>Op deze manier blijft alleen wat nú écht nodig is in het dure RAM staan, en gebruik je de goedkopere lagen (MEMFS of IndexedDB) voor de rest.</p>
+<h4 id="voorbeeld-wms-tegels">Voorbeeld: WMS-tegels</h4>
+<ol>
+<li><strong>Stale</strong>: bij opstart zijn alle WMS-tegels ongekend.</li>
+<li><strong>Hot</strong>: als een tegel in view komt, vraagt <code>TileContentLoader</code> de afbeelding op en slaat deze als <code>Texture2D</code> in RAM op.</li>
+<li><strong>Warm</strong>: zodra de gebruiker de tegel even niet meer ziet maar mogelijk snel terugkeert, schrijven we de data weg naar <code>temporaryCachePath</code>. De tegel zelf blijft verwijzen naar het bestand in MEMFS, maar geeft RAM vrij.</li>
+<li><strong>Cold</strong>: bij zeer ver uit zicht of bij geheugendruk plaatsen we de tegeldata in IndexedDB.</li>
+<li><strong>Stale</strong>: als de laag wordt verwijderd, of wanneer een cache-expiry is bereikt, wissen we de IndexedDB-versie; de volgende keer valt de tegel weer in <strong>Stale</strong> en moet hij opnieuw worden geladen.</li>
+</ol>
+<h3 id="data-structuren-en-geheugenlayout">Data Structuren en Geheugenlayout</h3>
+<p>In WebGL-applicaties heb je te maken met strikte limieten op zowel CPU-tijd als geheugen (zowel WASM-heap als
+JavaScript-heap). Slecht ontworpen datastructuren leiden tot:</p>
+<ul>
+<li>Onvoorspelbare GC-pauzes die zorgen voor framerate-hicks en mindere gebruikerservaring.</li>
+<li>CPU-cache-misses die loops vertragen en de laadtijd van tiles opvoeren.</li>
+<li>Geheugenlekken of overallocaties die tot uitval (out-of-memory) kunnen leiden, vooral op mobiele of low-end devices.</li>
+</ul>
+<p>Deze richtlijnen helpen om:</p>
+<ol>
+<li>Consistente performance te verkrijgen bij verschillende hardware en browsers.</li>
+<li>Voorspelbare geheugencapaciteit te behouden, binnen de limieten van Unity WebGL en de browser.</li>
+<li>Debuggen en onderhoud te vereenvoudigen door eenduidige patterns (value types, Native-collecties) toe te passen.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Als het in Unity zijn Jobs systeem werkt, dan is het goed</p>
+<p>Hoewel we het Unity Jobs systeem niet gebruiken, is het aan te raden om data structuren zo te schrijven dat die
+daarin toe te passen zijn. Unity Jobs is ontworpen met Data-Oriented Design in gedachten en op deze manier weet
+je wanneer je datamodel klopt.</p>
+</div>
+<h4 id="structuurkeuze">Structuurkeuze</h4>
+<p><strong>1. Gebruik altijd value types (<code>struct</code>)</strong></p>
+<ul>
+<li><strong>Waarom</strong>: Inline opslag, geen managed heap–allocaties, geen onvoorspelbare GC-pauzes.</li>
+<li><strong>Hoe</strong>: Definieer <code>TileSet</code>, <code>TilesInView</code>, en alle gerelateerde data als <code>struct</code>.</li>
+</ul>
+<p><strong>2. Vermijd reference types (<code>class</code>, <code>string</code>)</strong></p>
+<ul>
+<li><strong>Waarom niet</strong>: Leven op managed heap, leiden tot garbage-collectie en fragmentatie.</li>
+<li><strong>Tekstdata</strong>: Gebruik <code>NativeText</code> of <code>FixedString32Bytes</code>/<code>FixedString64Bytes</code> voor tekst.</li>
+</ul>
+<p><strong>3. Geen class-inheritance voor data</strong></p>
+<ul>
+<li><strong>Beperkingen</strong>: <code>struct</code> ondersteunt geen inheritance.</li>
+<li><strong>Alternatief</strong>: Pas <strong>composition</strong> toe:<ul>
+<li>Maak kleinere, uniforme data-<code>structs</code> en combineer ze in grotere struct-velden.</li>
+<li>Voor polymorfische gedrag, gebruik <strong>discriminated unions</strong> (een enum + union-struct).</li>
+</ul>
+</li>
+</ul>
+<h4 id="geheugenbeheer-met-unitycollections">Geheugenbeheer met Unity.Collections</h4>
+<p><strong>1. Native-collecties</strong></p>
+<ul>
+<li><strong>Gebruik</strong>: <code>NativeArray&lt;T&gt;</code>, <code>NativeList&lt;T&gt;</code>, <code>NativeHashMap&lt;K,V&gt;</code>, <code>NativeQueue&lt;T&gt;</code>.</li>
+<li><strong>Voordeel</strong>: Contigüe, unmanaged geheugenblokken buiten de managed heap.</li>
+</ul>
+<p><strong>2. Lifecycle (“allocatie → gebruik → vrijgave”)</strong></p>
+<ul>
+<li><strong>Allocatie</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kt">var</span><span class="w"> </span><span class="n">buffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">NativeArray</span><span class="o">&lt;</span><span class="n">MyStruct</span><span class="o">&gt;</span><span class="p">(</span><span class="n">count</span><span class="p">,</span><span class="w"> </span><span class="n">Allocator</span><span class="p">.</span><span class="n">Persistent</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>Gebruik</strong>: lees/schrijf data direct.</p>
+</li>
+<li>
+<p><strong>Vrijgave</strong>:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">buffer</span><span class="p">.</span><span class="n">Dispose</span><span class="p">();</span>
+</code></pre></div>
+<ul>
+<li>
+<p><strong>Checklist</strong>:</p>
+<ul>
+<li>Sluit alle <code>Allocator.Persistent</code>-allocaties af met <code>Dispose</code>.</li>
+<li>Controleer op dubbele <code>Dispose</code> (risico op ObjectDisposedException).</li>
+</ul>
+</li>
+</ul>
+<h4 id="samenvatting-dos-donts">Samenvatting: Do’s &amp; Don’ts</h4>
+<table>
+<thead>
+<tr>
+<th>Do’s</th>
+<th>Don’ts</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definieer data als <code>struct</code></td>
+<td>Gebruik geen <code>class</code> voor data</td>
+</tr>
+<tr>
+<td>Gebruik <code>NativeArray&lt;T&gt;</code> en <code>NativeList&lt;T&gt;</code></td>
+<td>Sla data niet op in managed heap</td>
+</tr>
+<tr>
+<td>Breng data contigüe onder</td>
+<td>Gebruik geen pointer-indexen</td>
+</tr>
+<tr>
+<td>Beheer memory expliciet (<code>Dispose</code>)</td>
+<td>Verwaarloos geen <code>Dispose</code>-calls</td>
+</tr>
+<tr>
+<td>Pas composition toe ipv inheritance voor structs</td>
+<td>Gebruik geen polymorphe classes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="waarom-geen-unity-jobs">Waarom géén Unity Jobs?</h3>
+<p>Unity’s Job-systeem is ontworpen om data binnen meerdere threads gelijktijdig te verwerken. Echter, in de context van
+WebGL biedt het Jobs-systeem nauwelijks voordelen:</p>
+<ol>
+<li>
+<p><strong>Beperkte WebGL-threading</strong></p>
+<ul>
+<li>Browsers ondersteunen WebAssembly threads alleen via experimentele Web Workers + SharedArrayBuffer, wat door veel
+  platformen (zoals iOS/Safari) niet of beperkt wordt aangeboden.</li>
+<li>Unity WebGL builds zijn standaard single-threaded, waardoor alle jobs alsnog op de hoofdthread worden geplant.</li>
+</ul>
+</li>
+<li>
+<p><strong>Extra complexiteit en overhead</strong></p>
+<ul>
+<li>Jobs vereisen opzet rond <code>JobHandle</code>, memory fences en (optioneel) Burst-compilatie.</li>
+<li>Omdat threads niet daadwerkelijk parallel werken in WebGL, ontstaan onnodige synchronisatiekosten en extra
+  API-overhead.</li>
+</ul>
+</li>
+<li>
+<p><strong>Onderhoud en foutgevoeligheid</strong></p>
+<ul>
+<li>De complexiteit van Jobs verhoogt de test- en debugging-load.</li>
+<li>De ontwikkeltijd neemt toe omdat er meer expertise nodig is om dit te bouwen en onderhouden.</li>
+</ul>
+</li>
+</ol>
+<p>In WebGL-projecten voegen Unity Jobs meer overhead en complexiteit toe dan dat ze performance opleveren.
+We kiezen er daarom bewust voor om sequentiële loops en native collecties te gebruiken, zonder Job-dispatching.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.instant", "navigation.path", "navigation.footer", "navigation.tracking", "content.tabs.link"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.50899def.min.js"></script>
+      
+    
+  </body>
+</html>
