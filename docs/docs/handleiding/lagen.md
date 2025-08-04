@@ -1,18 +1,15 @@
 # Lagen
 
-(Kern)functie, hoofdmenu.  
+Basisfunctie, hoofdmenu.  
 ![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 
-Lagen is **dé kernfunctie van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
+Lagen is onderdeel van **de basisfuncties van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
  
-Dit hoofdstuk beschrijft de belangrijkste functies van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
+Dit hoofdstuk beschrijft de belangrijkste functies van lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
 <br>
-<br>
-<br>
-
 ---
 
-## Overzicht van functies
+## Overzicht van de functies
 
 Door het uit-/aanvinken van datalagen worden deze verborgen of getoond. 
 Met behulp van links en/of het importeren van bestanden worden datalagen en objecten gekoppeld.
