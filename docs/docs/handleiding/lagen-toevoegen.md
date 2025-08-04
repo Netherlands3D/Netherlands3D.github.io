@@ -31,7 +31,7 @@ Met het `Map-icoon` wordt een folder aangemaakt waarvan de naam kan worden aange
 
 ![Building Blocks](../handleiding/imgs/lagen.main.bottom.folder.png)
 /// caption
-(Afbeelding) toevoegen-menu
+(Afbeelding) toevoegen folder-menu
 ///
 
 #### Verwijderen
@@ -40,7 +40,7 @@ Met het `Prullenbak-icoon` wordt de geselecteerde laag of object verwijderd. Dit
 
 ![Building Blocks](../handleiding/imgs/lagen.main.bottom.bin.png)
 /// caption
-(Afbeelding) toevoegen-menu
+(Afbeelding) verwijderen-menu
 ///
 
 !!! tip "Waar is de undo-functie?"
