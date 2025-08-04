@@ -1,6 +1,6 @@
 # Lagen toevoegen
 
-(Kern)functies, hoofdmenu.
+Basisfunctie, hoofdmenu.
 
 ![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 <br>
