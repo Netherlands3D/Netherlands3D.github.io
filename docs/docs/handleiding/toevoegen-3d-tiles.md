@@ -64,5 +64,5 @@ Met `Maaiveld (3D tiles)` wordt het maaiveld uit de
 <br>
 
 !!! tip "Uitleg Referentiehoogte"
-    De hoogte van een 3D-tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site. https://3dtilesnederland.nl/over-terrein-en-3d-tilesets/ 
+    De hoogte van een 3D-tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site. (https://3dtilesnederland.nl/over-terrein-en-3d-tilesets/) 
     
