@@ -71,7 +71,7 @@ De Object informatie bevat de volgende data.
 ---
 
 !!! tip "Kan ik meer BAG informatie krijgen?"
-	Ja dat kan zeker, door op het BAG ID te klikken van het pand wat is geselecteerd, wordt je doorgestuurd naar (https://bagviewer.kadaster.nl/lvbag/bag-viewer/) en ingezoomd op het geselecteerde pand in de 3D-Viewer. ![Building Blocks](../handleiding/imgs/object.info.menu.select.bag.png){ width="350px" }
+	Ja dat kan zeker, door op het BAG ID te klikken van het pand wat is geselecteerd, wordt je doorgestuurd naar de [BAG-viewer](https://bagviewer.kadaster.nl/lvbag/bag-viewer) van het kadaster en ingezoomd op het geselecteerde pand in de 3D-Viewer. ![Building Blocks](../handleiding/imgs/object.info.menu.select.bag.png){ width="350px" }
 
 
 ### Aanvullende technische details
@@ -88,3 +88,5 @@ Ga hiervoor naar de optie [Gebied downloaden](gebied-downloaden.md) in het hoofd
 ### Referenties
 
 Link naar de [API van het Kadaster](https://www.kadaster.nl/zakelijk/producten/adressen-en-gebouwen/bag-api-individuele-bevragingen)
+
+[def]: https://bagviewer.kadaster.nl/lvbag/bag-viewer/
