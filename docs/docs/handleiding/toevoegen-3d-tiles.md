@@ -43,3 +43,26 @@ Met `Maaiveld (3D tiles)` wordt het maaiveld uit de
 /// caption
 (Afbeelding) Maaiveld en Gebouwen (3D Tiles)
 ///
+
+---
+
+#### Referentiehoogte aanpassen
+
+3D-Tile lagen kunnen op een verkeerde hoogte liggen. We hebben daarvoor een instelling gemaakt die je bij het eigenschappenpaneel kan activeren. Als standaard staat deze ingesteld op Ellipsoïde. Heb je een laag die op een verkeerde hoogte ligt, klik dan op één van de 2 mogelijkheden.
+<br>
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.ellipsoide.png)  
+/// caption
+(Afbeelding) Referentiehoogte op Ellipsoïde
+///
+<br>
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.geoide.png)  
+/// caption
+(Afbeelding) Referentiehoogte op Geoïde
+///
+<br>
+
+!!! tip "Uitleg Referentiehoogte"
+    De hoogte van een 3D-tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site. https://3dtilesnederland.nl/over-terrein-en-3d-tilesets/ 
+    
