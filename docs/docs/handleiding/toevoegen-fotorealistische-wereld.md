@@ -7,9 +7,9 @@ _(Afbeelding) Toevoegen / Fotorealistische Wereld_
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
-Met de functionaliteit Fotorealistische Wereld kunnen de **3D tiles van Google Earth** worden **gekoppeld en gevisualiseerd** in Netherlands3D.eu.
+Met de functie Fotorealistische Wereld kunnen de **3D tiles van Google Earth** worden **gekoppeld en gevisualiseerd** in Netherlands3D.eu.
 
 
 
@@ -19,8 +19,8 @@ Klik op `Fotorealistische Wereld` en het de laag **RealityMesh (3D Tiles)** word
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.google.1.png)  
 _(Afbeelding) Utrecht CS in 3DBAG_  
 <br> 
-!!! tip "Waarom is de deze functionaliteit beschermd?"	
-	NB! Aangezien de 3D Google Earth Tiles een betaalde service van Google is, kan deze functionaliteit niet zonder inlogcode of sleutel worden vrijgegeven.  
+!!! tip "Waarom is de deze functie beschermd?"	
+	NB! Aangezien de 3D Google Earth Tiles een betaalde service van Google is, kan deze functie niet zonder inlogcode of sleutel worden vrijgegeven.  
 <br> 
 Klik op `Update` om verder te gaan.  
 

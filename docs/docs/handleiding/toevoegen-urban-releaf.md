@@ -7,9 +7,9 @@ _(Afbeelding) Toevoegen / Urban ReLeaf_
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
-Met de functionaliteit Urban ReLeaf kunnen de **resultaten van het Klimaatonderzoek** dat van 1 juli tot en met 31 augustus 2024 is **uitgevoerd in de Provincie Utrecht** worden gekoppeld en gevisualiseerd.  
+Met de functie Urban ReLeaf kunnen de **resultaten van het Klimaatonderzoek** dat van 1 juli tot en met 31 augustus 2024 is **uitgevoerd in de Provincie Utrecht** worden gekoppeld en gevisualiseerd.  
 <br>
 Het klimaat is op drie factoren gemeten in de zones die als hexagoon worden weergegeven;
  
