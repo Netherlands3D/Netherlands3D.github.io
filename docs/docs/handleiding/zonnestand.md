@@ -1,6 +1,6 @@
 # Zonnestand
 
-Functie, hoofdmenu. 
+Functies, hoofdmenu. 
  
 ![Building Blocks](../handleiding/imgs/zonnestand.menu.main.png){ style="height:230px;width:50px"  align=left }
 
