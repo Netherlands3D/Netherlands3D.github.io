@@ -5,7 +5,7 @@
 ![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
 <br>
 
-Lagen is **dé kernfunctie van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
+Lagen is onderdeel van de **basisfuncties van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
  
 Dit hoofdstuk beschrijft de belangrijkste functies van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
 
@@ -23,7 +23,7 @@ en het `toevoegen-menu` klapt open en de functies worden zichtbaar.
 (Afbeelding) toevoegen-menu
 ///
 
-### functies
+### Functies
 
 #### Organiseren
 

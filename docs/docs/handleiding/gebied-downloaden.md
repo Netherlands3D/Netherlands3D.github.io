@@ -1,11 +1,12 @@
 # Gebied downloaden
 
-Functionaliteit, hoofdmenu.  
-![Building Blocks](../handleiding/imgs/gebied.downloaden.menu.main.png){ style="height:230px;width:50px" align=left }
+Functie, hoofdmenu.  
+![Building Blocks](../handleiding/imgs/gebied.downloaden.menu.main.png)
 <br>
-Met de functionaliteit Gebied Downloaden kunnen delen van een **gebied als bestand worden gedownload** (in de formaten .DAE en .DXF). Deze functionaliteit bevordert de aansluiting en uitwisseling met andere visualisatie- en CAD programma's. 
 
-Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Gebied Downloaden en geeft uitleg over de interface en essentiële functies.  
+Met de functie Gebied Downloaden kunnen delen van een **gebied als bestand worden gedownload** (in de formaten .DAE en .DXF). Deze functie bevordert de aansluiting en uitwisseling met andere visualisatie- en CAD programma's. 
+
+Dit hoofdstuk beschrijft de belangrijkste functies van Gebied Downloaden en geeft uitleg over de interface en essentiële functies.  
 <br>
 
 ---
