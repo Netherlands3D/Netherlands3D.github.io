@@ -1,29 +1,30 @@
 # Zonnestand
 
-Functionaliteit, hoofdmenu.  
+Functie, hoofdmenu. 
+ 
 ![Building Blocks](../handleiding/imgs/zonnestand.menu.main.png){ style="height:230px;width:50px"  align=left }
 
 **Zonnestand** is een zon- en schaduw-simulatie tool die is ontwikkeld om gebruikers te helpen de impact van zonlicht en schaduwen in datalagen en ontwerpen op een specifieke locatie eenvoudig te visualiseren.  
 Door gebruikers in staat te stellen basisparameters in te voeren, zoals tijd en datum, genereert Zonnestand real-time schaduwprojecties, waardoor het toegankelijk is voor data-specialisten, ontwerpers, docenten en hobbyisten. 
 
-Dit hoofdstuk beschrijft de belangrijkste functionaliteiten van Zonnestand geeft uitleg over de interface en essentiële functies.
+Dit hoofdstuk beschrijft de belangrijkste functies van Zonnestand geeft uitleg over de interface en essentiële functies.
 
 Daarnaast is het mogelijk om een schaduwstudie te maken met de functie **Schaduwstudie**. Hiermee is het mogelijk om van de standaard 12 momenten in het jaar een schermafbeelding te maken en deze te downloaden via een .zip bestand. Deze afbeelding zijn bijvoorbeeld te gebruiken in stedenbouwkundige rapporten.
 
 ---
 
-## Overzicht van functionaliteiten
+## Overzicht van functies
 
 Door het **aanpassen van datum** en tijd wordt de **zonnestand realistisch weergegeven** voor de **gekozen locatie** en het **gekozen moment**. Met animatie tijdverloop wordt het verloop van de schaduw gedurende de dag en nacht realistisch weergegeven. De snelheid van het verloop is instelbaar. 
 
 <video controls>
 <source src="../video/zonnestand.viewer.mp4" type="video/mp4">
 </video>
-_(Video) Functionaliteit Zonnestand_
+_(Video) functie Zonnestand_
 
 ---
 
-## Gedetailleerde beschrijving van de functionaliteiten
+## Gedetailleerde beschrijving van de functies
 
 ### **Menu**
 Door met de muis op het `Zonnestand-icoon` in het hoofdmenu te klikken wordt de tool actief.  
@@ -34,7 +35,7 @@ _(Afbeelding) Zonnestand-menu_
 
 ---
 
-### **Functionaliteiten**
+### **Werking**
 
 * **Pull down**   
   Door op de `pijl` te klikken wordt het menu `Tijd en datum aanpassen` ingeklapt. Door vervolgens weer op de `pijl` te klikken klapt het menu `Tijd en datum aanpassen` uit.
@@ -103,7 +104,7 @@ Door op de knop `download` te klikken wordt een serie van 12 afbeeldingen gegene
 
 ![Building Blocks](../handleiding/imgs/schaduwstudie_menu.png){ width="350px" }
 
-*De functionaliteit maakt afbeeldingen van de actuele camerastandpunt, dus houd er rekening mee dat de resultaten afhankelijk zijn van de keuze van het camerastandpunt.*
+*De functie maakt afbeeldingen van de actuele camerastandpunt, dus houd er rekening mee dat de resultaten afhankelijk zijn van de keuze van het camerastandpunt.*
 
 
 
