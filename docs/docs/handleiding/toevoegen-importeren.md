@@ -30,7 +30,7 @@ Na klikken op `Eigen bestand` opent de Verkenner (Windows)/Finder (MacOs) en kan
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png){ width="350px" }  
 _(Afbeelding) Importeren bestand via URL_  
 
-Met **Importeren bestand via URL** worden databronnen via een weblink gekoppeld.  
+Met **Importeren bestand via URL** kan je databronnen (WFS, WMS, GeoJSON, 3D-Tiles) via een weblink koppelen.  
 Klik op `Bestand via URL`. Het menu; Laag toevoegen via URL wordt geopend.
 <br>  
 ![Building Blocks](../handleiding/imgs/lagen.import.url.menu.png){ width="350px" }

@@ -7,8 +7,7 @@ Houdt de link - dit is vaak een url - bij de hand.
 
 ## Stap 1. Open de 3D-Viewer
 
-Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `Bekijk de viewer` en de 
-3D-viewer wordt geopend.
+Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `Bekijk de viewer` en de 3D-viewer wordt geopend.
 
 ![Lagen](../handleiding/imgs/headliner.png)
 /// caption
@@ -22,7 +21,7 @@ Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `
 
 ---
 
-## Stap 2. Ga naar het Lagen-menu
+## Stap 2. Klik op de plus
 
 <div class="grid" markdown>
 
@@ -30,15 +29,12 @@ Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `
 /// caption
 (Afbeelding) Basislagen & functionaliteiten
 ///
-
-* Klik op de `Lagen` knop in de werkbalk (3e icoon van boven).  
-* Het lagen paneel klapt open en de **basislagen** (links boven) en functionaliteiten (links onder) worden zichtbaar.
+ 
+* Het lagen paneel klapt open en de **basislagen** (links boven) en de functies (links onder) worden zichtbaar.
 
 </div>
 
 ---
-
-## Stap 3. Open het Toevoegen-menu
 
 <div class="grid" markdown>
 
@@ -47,14 +43,13 @@ Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `
 (Afbeelding) Toevoegen menu, volledig zichtbaar
 ///
 
-Klik op `+` icoon en het **Toevoegen-menu** en de verschillende **teken-, koppel- en importmogelijkheden** worden 
-(gedeeltelijk) zichtbaar.
+Klik op `+` icoon en het **Toevoegen-menu** en de verschillende **teken-, koppel- en importmogelijkheden** worden (gedeeltelijk) zichtbaar.
 
 </div>
 
 ---
 
-## Stap 4. Bestand toevoegen met url
+## Stap 3. Bestand toevoegen met url
 
 <div class="grid" markdown>
 
@@ -92,10 +87,13 @@ Kopieër en plak de link van het bestand in het vakje [URL link] en klik op `Toe
 
 ---
 
-## Stap 5. Navigeer naar de 3D Tiles-data
+## Stap 4. Navigeer naar de 3D Tiles-data
 
 Na `Toevoegen` is de link gekoppeld en is de laag zichtbaar in het `Lagen` paneel.
 
 Ga naar de locatie waar de 3D Tiles-link betrekking op heeft om de 3D Tiles laag in de 3D-Viewer te bekijken.
 
 Sla het project op met `Project Opslaan` (links onder) om de koppeling te bewaren.
+
+!!! tip "snel naar locatie van de data"
+    Bij datasets die een bepaalde locatie omvattten kan je ook dubbelklikken op de nieuwe laag. De camera verplaatst dan naar de locatie waar de data zich bevind.
