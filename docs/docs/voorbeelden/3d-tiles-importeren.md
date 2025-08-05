@@ -31,19 +31,7 @@ Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `
 ///
  
 * Het lagen paneel klapt open en de **basislagen** (links boven) en de functies (links onder) worden zichtbaar.
-
-</div>
-
----
-
-<div class="grid" markdown>
-
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.full.png){width="350px"}
-/// caption
-(Afbeelding) Toevoegen menu, volledig zichtbaar
-///
-
-Klik op `+` icoon en het **Toevoegen-menu** en de verschillende **teken-, koppel- en importmogelijkheden** worden (gedeeltelijk) zichtbaar.
+* Het **Toevoegen-menu** en de verschillende **teken-, koppel- en importmogelijkheden** worden (gedeeltelijk) zichtbaar.
 
 </div>
 
