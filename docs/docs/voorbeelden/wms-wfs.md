@@ -37,7 +37,7 @@ Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `
 
 ---
 
-## Stap 2. Ga naar het Lagen-menu
+## Stap 2. Klik op de plus knop
 
 <div class="grid" markdown>
 
@@ -46,30 +46,14 @@ Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `
 (Afbeelding) Basislagen & functionaliteiten
 ///
 
-* Klik op de `Lagen` knop in de werkbalk (3e icoon van boven).  
-* Het lagen paneel klapt open en de **basislagen** (links boven) en functionaliteiten (links onder) worden zichtbaar.
+* Het lagen paneel klapt open en de **basislagen** (links boven) en de functies (links onder) worden zichtbaar.
+* Het **Toevoegen-menu** en de verschillende **teken-, koppel- en importmogelijkheden** worden (gedeeltelijk) zichtbaar.
 
 </div>
 
 ---
 
-## Stap 3. Open het Toevoegen-menu
-
-<div class="grid" markdown>
-
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.full.png){width="350px"}
-/// caption
-(Afbeelding) Toevoegen menu, volledig zichtbaar
-///
-
-Klik op `+` icoon en het **Toevoegen-menu** en de verschillende **teken-, koppel- en importmogelijkheden** worden 
-(gedeeltelijk) zichtbaar.
-
-</div>
-
----
-
-## Stap 4. Bestand toevoegen met url
+## Stap 3. Bestand toevoegen met url
 
 <div class="grid" markdown>
 
@@ -107,9 +91,12 @@ Kopieër en plak de link van het bestand in het vakje [URL link] en klik op `Toe
 
 ---
 
-## Stap 5. Navigeer naar de WMS/WFS-data
+## Stap 4. Navigeer naar de WMS/WFS-data
 
 Na `Toevoegen` is de link gekoppeld en zijn de sublagen (in het geval van een WFS) in Lagen zichtbaar.
 Ga naar de locatie waar de WMS/WFS-link betrekking op heeft om de WMS/WFS-Laag in de 3D-Viewer te bekijken.
 
 Sla het project op met `Project Opslaan` (links onder) om de koppeling te bewaren.
+
+!!! tip "Snel naar locatie van de data"
+    Bij datasets die alleen data op een bepaalde locatie omvatten kan je ook dubbelklikken op de nieuwe laag. De camera verplaatst dan naar de locatie waar de data zich bevind.
