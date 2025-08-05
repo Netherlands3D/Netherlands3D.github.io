@@ -83,5 +83,5 @@ Ga naar de locatie waar de 3D Tiles-link betrekking op heeft om de 3D Tiles laag
 
 Sla het project op met `Project Opslaan` (links onder) om de koppeling te bewaren.
 
-!!! tip "snel naar locatie van de data"
-    Bij datasets die een bepaalde locatie omvattten kan je ook dubbelklikken op de nieuwe laag. De camera verplaatst dan naar de locatie waar de data zich bevind.
+!!! tip "Snel naar locatie van de data"
+    Bij datasets die alleen een bepaalde locatie omvatten kan je ook dubbelklikken op de nieuwe laag. De camera verplaatst dan naar de locatie waar de data zich bevind.
