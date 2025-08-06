@@ -2,7 +2,7 @@
 
 ![Building Blocks](../handleiding/imgs/instellingen.sub.png)
 /// caption
-(Afbeelding) Applicatie instellingen  
+(Afbeelding) _Applicatie instellingen_  
 ///
 
 ## (Beeld)kwaliteit
