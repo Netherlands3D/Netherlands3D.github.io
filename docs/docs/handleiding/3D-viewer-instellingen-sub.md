@@ -12,13 +12,11 @@ hoge, middelmatige of lage kwaliteit. De optie `laag` biedt de snelste performan
 
 ## Limiteer scroll gevoeligheid
 
-In sommige gevallen reageert de 3D-viewer niet optimaal op de muisbewegingen van de gebruiker. Door de optie
-`Limiteer scroll gevoeligheid` aan te vinken kan dit worden verbeterd.
+In sommige gevallen reageert de 3D-viewer niet optimaal op de muisbewegingen van de gebruiker. Door de optie `Limiteer scroll gevoeligheid` aan te vinken kan dit worden verbeterd.
 
 ## Frames per seconde
 Als je deze instelling aanvinkt dan zie je rechtsboven in je scherm het aantal frames per seconde van de viewer. Dit kan helpen te bepalen welke beeldkwaliteits instelling te kiezen
 
 ---
 
-Klik op `x` (rechtsboven) om het instellingenmenu af te sluiten. Hierna toont de 3D-viewer het [default] startpunt; het
-centrum van Amersfoort.
+Klik op `x` (rechtsboven) om het instellingenmenu af te sluiten. Hierna toont de 3D-viewer het [default] startpunt; het centrum van Amersfoort (kadastraal nulpunt van Nederland).

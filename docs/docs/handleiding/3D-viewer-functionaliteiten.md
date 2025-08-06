@@ -13,13 +13,13 @@ Klik in het `selectievakje` om de laag of functie aan of uit te zetten.
 
 ## **Functies**
 
-#### **Terreinen**
+#### **Terrein**
 Met maaiveld, ofwel het 'oppervlak waarop we lopen' is weergegeven als 3D terrein. 
 Voor het tonen van dit terrein is gebruik gemaakt van de 3D Basisvoorziening van het Kadaster. 
 Visueel onderscheiden zijn gebouwen, terreinonderdelen (zoals wegen, groenvlakken en water) en bruggen, waarbij de 	gebouwen niet als 3D objecten worden getoond in deze laag. Op enkele onderdelen is een geometrische versimpeling 	toegepast om het maaiveld sneller in de viewer te tonen.
 Bron: 3D Basisvoorziening, datum: 2019
 
-#### **3DBag**
+#### **Gebouwen**
 Alle objecten op de laag 'Gebouwen' komen uit de 3D BAG, een jaarlijks geactualiseerde dataset van alle gebouwen in 	Nederland. De set is ontwikkeld door de de 3D geoinformatie onderzoeksgroep van de Technische Universiteit Delft. Aan 	het gebruik van de 3D BAG zitten.
 Bron: 3DBAG, datum: 2024, actualisatie: Jaarlijks
 
