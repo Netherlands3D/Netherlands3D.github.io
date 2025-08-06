@@ -3,7 +3,7 @@
 Functie, hoofdmenu.  
 
 
-![Building Blocks](../handleiding/imgs/ondergrond.doorzicht.menu.main.png)){ style="height:230px;width:50px"  align=left }
+![Building Blocks](../handleiding/imgs/ondergrond.doorzicht.menu.main.png){ style="height:230px;width:50px"  align=left }
 <br>
 
 Ondergrond doorzicht is onderdeel van de **basisfuncties in Netherlands3D.eu**.
