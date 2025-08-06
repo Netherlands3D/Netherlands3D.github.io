@@ -7,6 +7,7 @@ Functie, hoofdmenu.
 
 Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, ook binnen de **3D Viewer direct zoeken naar een adres of locatie**.
 &nbsp;
+<br>
 
 
 ## Gedetailleerde beschrijving van de functie
