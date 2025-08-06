@@ -2,7 +2,7 @@
 
 Functie, hoofdmenu.
 
-<img src="../handleiding/imgs/zoeken.menu.main.png" style="width:50px; float: left; margin-right: 10px;" />
+![Building Blocks](../handleiding/imgs/zoeken.menu.main.png) style="width:50px; float: left; margin-right: 10px;" />
 
 <br>
 
