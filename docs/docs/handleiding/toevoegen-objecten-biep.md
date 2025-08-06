@@ -4,7 +4,7 @@ Functies, Lagen, submenu.
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.ob.png)
 /// caption
-(Afbeelding) Toevoegen / Objecten bibliotheek
+(Afbeelding) _Toevoegen / Objecten bibliotheek_
 ///
 
 ---
@@ -31,7 +31,7 @@ Je kunt kiezen uit:
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.png){ width="200px"}  
 /// caption
-(Afbeelding) Toevoegen objecten uit de Objecten bibliotheek
+(Afbeelding) _Toevoegen objecten uit de Objecten bibliotheek_
 ///
 
 ////
@@ -55,7 +55,7 @@ Klik op `Camera Positie` om een camera in de viewer te plaatsen. Je plaatst de  
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.camera.png)  
 /// caption
-(Afbeelding) Camera Positie  
+(Afbeelding) _Camera Positie_  
 ///
 
 ---
@@ -79,7 +79,7 @@ doorbreken.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.nap.png)  
 /// caption
-(Afbeelding) NAP Vlak  
+(Afbeelding) _NAP Vlak_  
 ///
 
 ---
@@ -92,7 +92,7 @@ menu van de Windmolen.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.windmolen.gif)  
 /// caption
-(Afbeelding) Windmolen ObjectenBibliotheek
+(Afbeelding) _Windmolen ObjectenBibliotheek_
 ///
 
 ---
@@ -105,7 +105,7 @@ Klik op `Reuzenrad` om een draaiend Reuzenrad in de viewer zichtbaar te maken.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.reuzenrad.gif)  
 /// caption
-(Afbeelding) Reuzenrad ObjectenBibliotheek
+(Afbeelding) _Reuzenrad ObjectenBibliotheek_
 ///
 
 ---
@@ -119,7 +119,7 @@ de viewer zichtbaar te maken.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.bomen.png)  
 /// caption
-(Afbeelding) Bomen; vlnr Linde, Berk, Beuk of Canadapopulier ObjectenBibliotheek  
+(Afbeelding) _Bomen; vlnr Linde, Berk, Beuk of Canadapopulier ObjectenBibliotheek_
 ///
 
 ---
@@ -132,5 +132,5 @@ deze te activeren.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.ontwikkeling.zo.png)
 /// caption
-(Afbeelding) Ontwikkeling Amsterdam-Zuidoost
+(Afbeelding) _Ontwikkeling Amsterdam-Zuidoost_
 ///
