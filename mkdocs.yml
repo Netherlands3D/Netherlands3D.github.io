@@ -14,6 +14,7 @@ nav:
 
           - 'Werkruimte':
               - 'Werkbalk':
+                  - 'Zoekfunctie': 'docs/handleiding/zoeken.md'
                   - 'Object informatie': 'docs/handleiding/object-informatie.md'
                   - 'Ondergrond doorzicht': 'docs/handleiding/ondergrond-doorzicht.md'
                   - 'Lagen':
