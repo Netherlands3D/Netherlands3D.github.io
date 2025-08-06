@@ -37,13 +37,13 @@ Ga naar [https://netherlands3d.eu](https://netherlands3d.eu/), klik op de knop `
 
 ---
 
-## Stap 2. Klik op de plus knop
+## Stap 2. Klik op de plus
 
 <div class="grid" markdown>
 
 ![Building Blocks](../handleiding/imgs/lagen.top.bottom.png){width="350px"}
 /// caption
-(Afbeelding) Basislagen & functionaliteiten
+(Afbeelding) Basislagen & functies
 ///
 
 * Het lagen paneel klapt open en de **basislagen** (links boven) en de functies (links onder) worden zichtbaar.
