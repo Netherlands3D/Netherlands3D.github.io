@@ -2,14 +2,13 @@
 
 Functie, hoofdmenu.
 
-<div style="display: flex; align-items: flex-start; gap: 15px;">
-  <img src="imgs/zoeken.menu.main.png" alt="Werkbalk, zoekfunctie" style="max-width: 200px; height: auto;">
-  
-  <p>
-    Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, 
-    ook binnen de <strong>3D Viewer direct zoeken naar een adres of locatie</strong>.
-  </p>
-</div>
+![Building Blocks](../handleiding/imgs/zoeken.menu.main.png) style="max-width: 200px; height: auto;">
+
+Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, ook binnen de **3D Viewer direct zoeken naar een adres of locatie.**
+<br>
+<br>
+<br>
+<br>
 
 
 ## Gedetailleerde beschrijving van de functie
