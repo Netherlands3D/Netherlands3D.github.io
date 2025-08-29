@@ -4,7 +4,8 @@ Functie, hoofdmenu.
 
 
 ![Building Blocks](../handleiding/imgs/ondergrond.doorzicht.menu.main.png){ style="width:50px"  align=left }
-<br>
+<br><br><br><br>
+
 
 Ondergrond doorzicht is onderdeel van de **basisfuncties in Netherlands3D.eu**.
 Ondergrond doorzicht is een functie die is ontworpen om gebruikers een **uitgebreid beeld te geven van de ondergrondse omgeving.** Door ondergrondse structuren te visualiseren, kunnen professionals op verschillende gebieden weloverwogen beslissingen nemen en hun operationele efficiëntie verbeteren. 
