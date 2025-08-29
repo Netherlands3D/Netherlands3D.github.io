@@ -5,6 +5,7 @@ Functie, hoofdmenu.
 ![Building Blocks](../handleiding/imgs/object.info.menu.main.png){ style="width:50px"  align=left }
 <br><br><br><br>
 
+
 Met de BAG Object Informatie tool kan de gebruiker **schematische 3D modellen van alle objecten in Nederland bekijken**
 en gedetailleerde **object (gebouw) informatie opvragen.**
 
