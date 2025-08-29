@@ -3,7 +3,7 @@
 Functie, hoofdmenu.
 
 <div style="display: flex; align-items: flex-start; gap: 15px;">
-  <img src="../handleiding/imgs/zoeken.menu.main.png" alt="Werkbalk, zoekfunctie" style="max-width: 200px; height: auto;">
+  <img src="imgs/zoeken.menu.main.png" alt="Werkbalk, zoekfunctie" style="max-width: 200px; height: auto;">
   
   <p>
     Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, 
