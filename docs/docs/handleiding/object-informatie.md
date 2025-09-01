@@ -2,20 +2,23 @@
 
 Functie, hoofdmenu.
 
-<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
+<div style="display: flex; align-items: flex-start; gap: 5px;" markdown>
 
-   ![Zoekmenu](../handleiding/imgs/object.info.menu.main.png){ width="80px" }
-
-
-Met de BAG Object Informatie tool kan de gebruiker **schematische 3D modellen van alle objecten in Nederland bekijken**
-en gedetailleerde **object (gebouw) informatie opvragen.**
-
-BAG Object Informatie is onderdeel van de **basisfuncties in Netherlands3D.eu**. Alle objecten op de laag '
-Gebouwen' komen uit de 3DBAG. Dit is een up-to-date land dekkende dataset met 3D gebouwmodellen van Nederland.
-
-Dit hoofdstuk beschrijft de belangrijkste functies van BAG Object Informatie en geeft uitleg over de interface
-en essentiële functies.
-
+  ![Zoekmenu](../handleiding/imgs/object.info.menu.main.png){ width="80px" }
+  <div markdown>
+    <p>
+      Met de BAG Object Informatie tool kan de gebruiker **schematische 3D modellen van alle objecten in Nederland bekijken**
+      en gedetailleerde **object (gebouw) informatie opvragen.**
+    </p>
+    <p>
+      BAG Object Informatie is onderdeel van de **basisfuncties in Netherlands3D.eu**. Alle objecten op de laag '
+      Gebouwen' komen uit de 3DBAG. Dit is een up-to-date land dekkende dataset met 3D gebouwmodellen van Nederland.
+      </p>
+	  <p>
+	  Dit hoofdstuk beschrijft de belangrijkste functies van BAG Object Informatie en geeft uitleg over de interface
+      en essentiële functies.
+    </p>
+  </div>
 </div>
 
 ## Overzicht van functies
