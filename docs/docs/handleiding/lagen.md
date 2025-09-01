@@ -7,6 +7,7 @@ Lagen is onderdeel van **de basisfuncties van Netherlands3d.eu**. Deze functie b
  
 Dit hoofdstuk beschrijft de belangrijkste functies van lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
 <br>
+
 ---
 
 ## Overzicht van de functies
