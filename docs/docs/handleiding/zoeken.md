@@ -3,9 +3,9 @@
 Functie, hoofdmenu.
 
 
-<div style="display: flex; align-items: flex-start; gap: 15px;">
+<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
 
-   <img src="../handleiding/imgs/zoeken.menu.main.png" alt="Zoekmenu" style="max-width:200px;">
+   ![Zoekmenu](../handleiding/imgs/zoeken.menu.main.png){ width="60px" }
 
   <p>
     Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, 
