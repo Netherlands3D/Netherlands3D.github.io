@@ -3,7 +3,7 @@
 Functie, hoofdmenu.
 
 ![Werkbalk, zoeken](../handleiding/imgs/zoeken.menu.main.png){ style="width:60px"  align=left }
-<br><br><br><br>
+<br><br><br><br><br><br><br><br>
 
 Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, ook binnen de **3D Viewer direct zoeken naar een adres of locatie.**
 
