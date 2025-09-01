@@ -2,9 +2,17 @@
 
 Functie, hoofdmenu.
 
-| | |
-|--- |--- |
-| ![Zoekmenu](imgs/zoeken.menu.main.png){width="60px"} | Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, ook binnen de **3D Viewer direct zoeken naar een adres of locatie**. |
+
+<div style="display: flex; align-items: flex-start; gap: 15px;">
+
+  <img src="imgs/zoeken.menu.main.png" alt="Zoekmenu" style="max-width:200px;">
+
+  <p>
+    Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, 
+    ook binnen de <strong>3D Viewer direct zoeken naar een adres of locatie</strong>.
+  </p>
+
+</div>
 
 ## Gedetailleerde beschrijving van de functie
 
