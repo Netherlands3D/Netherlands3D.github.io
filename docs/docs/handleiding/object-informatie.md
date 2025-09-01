@@ -2,7 +2,7 @@
 
 Functie, hoofdmenu.
 
-![Building Blocks](../handleiding/imgs/object.info.menu.main.png){ style="width:50px"  align=left }
+![Werkbalk, informatie](../handleiding/imgs/object.info.menu.main.png){ style="width:60px"  align=left }
 <br><br><br><br>
 
 
@@ -15,7 +15,7 @@ Gebouwen' komen uit de 3DBAG. Dit is een up-to-date land dekkende dataset met 3D
 Dit hoofdstuk beschrijft de belangrijkste functies van BAG Object Informatie en geeft uitleg over de interface
 en essentiële functies.
 
----
+
 
 ## Overzicht van functies
 
