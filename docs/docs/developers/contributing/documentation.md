@@ -11,8 +11,46 @@ First, you'll need to set up your environment for making contributions:
 1. **Fork the Repository**: Go to https://github.com/Netherlands3D/netherlands3D.github.io/ and fork the repository to 
    your GitHub account.
 2. **Clone the Fork**: Clone your forked repository to your local machine to make changes.
-3. **Install MkDocs (Optional)**: If you wish to preview your changes locally, you'll need to install MkDocs. Follow the
-   installation guide on their website.
+
+## Previewing Changes
+
+You can preview the documentation locally in two different ways: either using Docker (recommended, no local installation
+required),or by installing MkDocs directly on your system.
+
+### Option 1: Using Docker (Recommended)
+
+If you have [Docker Desktop](https://docker.com) installed and running, you can use the included helper script:
+
+```powershell
+.\bin\develop.bat
+```
+
+This will start a virtual webserver inside Docker and make the site available at:
+
+    http://localhost:8000
+
+As long as the script is running, any edits you make to the documentation files will automatically be detected and the
+site will refresh. In most cases, your browser will even reload automatically.
+
+This method ensures a consistent environment for all contributors.
+
+### Option 2: Installing MkDocs Locally
+
+If you prefer to install MkDocs directly on your machine:
+
+1. Follow the installation guide on the [MkDocs](https://www.mkdocs.org/getting-started/) website and on 
+   the [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) website.
+2. In your project directory, run:
+
+```powershell
+mkdocs serve
+```
+
+This will start a local development server and make the site available at:
+
+    http://localhost:8000
+
+Like with Docker, changes to the files will automatically update the preview.
 
 ## Making Contributions
 
@@ -30,17 +68,6 @@ First, you'll need to set up your environment for making contributions:
 3. **Update mkdocs.yml**: If you are adding a new page, don't forget to update the mkdocs.yml configuration file to
    include
    your new page in the navigation.
-
-### Previewing Your Changes
-
-If you've installed MkDocs locally, you can preview your changes by running the following command in your project
-directory:
-
-```bash
-mkdocs serve
-```
-
-This will start a local web server. Open your web browser and go to http://127.0.0.1:8000 to see your changes.
 
 ### Submitting Your Contributions
 
