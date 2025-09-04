@@ -22,7 +22,7 @@ Na het opstarten van de 3D viewer is het instellingen menu actief. In het instel
 
 ## Werkruimte
 
-![Building Blocks](../handleiding/imgs/3d-viewer.interface.png)
+![Werkruimte](../handleiding/imgs/3d-viewer.interface.png)
 _(Afbeelding) 3D-Viewer interface_
 
 De interface is opgedeeld in het 3D-scherm met daaromheen de knoppen van de interface gegroepeerd in vier menu's:
@@ -30,13 +30,14 @@ De interface is opgedeeld in het 3D-scherm met daaromheen de knoppen van de inte
 1. Werkbalk – linksboven  
 2. Project openen/opslaan - linksonder  
 3. Applicatiebalk – rechtsboven  
-4. Weergave en informatie - onder  
+4. Camerahoogte slider - rechts
+5. Informatie - onder 
 
 ---
 
 ### Werkbalk
 
-![Building Blocks](../handleiding/imgs/3d-viewer.menu.linksboven.png){ style="height:230px;width:50px"  align=left }
+![Building Blocks](../handleiding/imgs/3d-viewer.menu.linksboven.png){ style="width:50px"  align=left }
 
 Het hoofdmenu (linksboven) bevat de volgende functies (van boven naar onder);
 
@@ -47,10 +48,13 @@ Het hoofdmenu (linksboven) bevat de volgende functies (van boven naar onder);
 * [Toevoegen (link)](../toevoegen/)
 * [Zonnestand (Link)](../zonnestand/)
 * [Downloaden (Link)](../gebied-downloaden/)
+<br><br>
+---
+### Project openen/opslaan
 
-![Building Blocks](../handleiding/imgs/3d-viewer.menu.linksonder.png){ style="height:100px;width:50px" align=left }
+![Building Blocks](../handleiding/imgs/3d-viewer.menu.linksonder.png){ style="width:50px" align=left }
 
-Het Project opslaan/openen-menu bevindt zich in de linker onder hoek en bevat de volgende functies;
+Het Project opslaan/openen-menu bevindt zich in de linkeronderhoek en bevat de volgende functies;
 
 * [Project opslaan (Link)](/docs/handleiding/project-openen-opslaan/#project-opslaan)
 * [Project openen (Link)](/docs/handleiding/project-openen-opslaan/#project-openen)
@@ -80,7 +84,18 @@ De knop `Informatie` opent de Homepage in een apart browser-venster.
 
 ---
 
-### Weergave en informatie
+### Camerahoogteslider
+
+<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
+
+   ![Zoekmenu](../handleiding/imgs/3d-viewer.camerahoogte.rechts.png){ width="240px" align=left }
+
+Met de camerahoogteslider kan (door het blauwe cameraatje te slepen) de hoogte van de camera ingesteld worden.
+</div>
+
+---
+
+### Informatie
 
 ![Building Blocks](../handleiding/imgs/3d-viewer.menu.rechtsonder.png){ width="360px" }
 
@@ -122,7 +137,7 @@ In de onderbalk van de viewer staan (rechts) de coördinaten van de positie van 
 
 ---
 
-### Navigeren
+## Navigeren
 
 Het scherm toont de locatie die in het instellingenmenu is ingevoerd of – als er geen invoer is gedaan - de
 default-locatie (het kadastrale nulpunt van Nederland in het centrum van Amersfoort). Het beeld is in perspectief, onder een lichte hoek en vanaf een hoogte van 300 meter.
