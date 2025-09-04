@@ -1,12 +1,13 @@
 # Lagen
 
 Basisfunctie, hoofdmenu.  
-![Building Blocks](../handleiding/imgs/lagen.menu.main.png)
+<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
+
+   ![Zoekmenu](../handleiding/imgs/lagen.menu.main.png){ width="240px" align=left }
 
 Lagen is onderdeel van **de basisfuncties van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
- 
-Dit hoofdstuk beschrijft de belangrijkste functies van lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
-<br>
+ Dit hoofdstuk beschrijft de belangrijkste functies van lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
+</div>
 
 ---
 
