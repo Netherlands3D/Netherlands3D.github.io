@@ -2,18 +2,16 @@
 
 Functie, hoofdmenu.  
 
+<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
 
-![Building Blocks](../handleiding/imgs/ondergrond.doorzicht.menu.main.png){ style="width:50px"  align=left }
-<br><br><br><br>
-
+   ![Ondergrond Doorzicht](../handleiding/imgs/ondergrond.doorzicht.menu.main.png){ width="480px" align=left }
 
 Ondergrond doorzicht is onderdeel van de **basisfuncties in Netherlands3D.eu**.
 Ondergrond doorzicht is een functie die is ontworpen om gebruikers een **uitgebreid beeld te geven van de ondergrondse omgeving.** Door ondergrondse structuren te visualiseren, kunnen professionals op verschillende gebieden weloverwogen beslissingen nemen en hun operationele efficiëntie verbeteren. 
-
 Dit hoofdstuk beschrijft de werking van ondergrond doorzicht en geeft uitleg over de interface en essentiële onderdelen. Daarnaast is er een overzicht van de mogelijkheden en toepassingen van de functie en laat zien hoe ondergrond doorzicht dient als een essentiële bron voor het verkennen van wat er onder de oppervlakte ligt.
+</div>
 
 ---
-
 ## Overzicht
 
 Met het doorzicht koepelvenster worden delen van datalagen en/of objecten welke zich onder het maaiveld en binnen de straal van het venster bevinden zichtbaar gemaakt. Met de muis kan het venster verplaatst worden waardoor andere ondergrondse delen zichtbaar worden.

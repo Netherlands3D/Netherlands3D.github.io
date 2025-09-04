@@ -5,7 +5,7 @@ Functie, hoofdmenu.
 
 <div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
 
-   ![Zoekmenu](../handleiding/imgs/zoeken.menu.main.png){ width="80px" }
+   ![Zoekmenu](../handleiding/imgs/zoeken.menu.main.png){ width="120px" }
 
   <p>
     Met de zoekfunctie kan je, naast de zoekfunctie in het instellingenmenu, 

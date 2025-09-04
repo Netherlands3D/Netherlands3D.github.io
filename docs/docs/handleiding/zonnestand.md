@@ -1,16 +1,17 @@
 # Zonnestand
 
 Functies, hoofdmenu. 
- 
-![Building Blocks](../handleiding/imgs/zonnestand.menu.main.png){ style="height:230px;width:50px"  align=left }
+
+<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
+
+   ![Zonnestand](../handleiding/imgs/zonnestand.menu.main.png){ width="480px" align=left }
+
 
 **Zonnestand** is een zon- en schaduw-simulatie tool die is ontwikkeld om gebruikers te helpen de impact van zonlicht en schaduwen in datalagen en ontwerpen op een specifieke locatie eenvoudig te visualiseren.  
 Door gebruikers in staat te stellen basisparameters in te voeren, zoals tijd en datum, genereert Zonnestand real-time schaduwprojecties, waardoor het toegankelijk is voor data-specialisten, ontwerpers, docenten en hobbyisten. 
-
 Dit hoofdstuk beschrijft de belangrijkste functies van Zonnestand geeft uitleg over de interface en essentiële functies.
-
 Daarnaast is het mogelijk om een schaduwstudie te maken met de functie **Schaduwstudie**. Hiermee is het mogelijk om van de standaard 12 momenten in het jaar een schermafbeelding te maken en deze te downloaden via een .zip bestand. Deze afbeelding zijn bijvoorbeeld te gebruiken in stedenbouwkundige rapporten.
-
+</div>
 ---
 
 ## Overzicht van functies
