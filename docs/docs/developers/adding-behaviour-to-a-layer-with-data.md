@@ -106,7 +106,7 @@ public class TwoCubesColorPropertyData : LayerPropertyData
     [JsonIgnore] public readonly UnityEvent<Color> Cube2ColorChanged = new();
     
     [JsonIgnore]
-    public float Cube1Color
+    public Color Cube1Color
     {
         get => cube1Color;
         set
@@ -117,7 +117,7 @@ public class TwoCubesColorPropertyData : LayerPropertyData
     }
 
     [JsonIgnore]
-    public float Cube2Color
+    public Color Cube2Color
     {
         get => cube2Color;
         set
@@ -166,7 +166,7 @@ public class TwoCubesColorChangingBehaviour : MonoBehaviour, ILayerWithPropertyD
     public void LoadProperties(List<LayerPropertyData> properties)
     {
         // Find the property data for this behaviour in the list of properties belonging to its parent layer
-        var properties = properties.OfType<TwoCubesColorPropertyData>().FirstOrDefault();
+        properties = properties.OfType<TwoCubesColorPropertyData>().FirstOrDefault();
         
         // if we found something, use that
         if (properties != null)
