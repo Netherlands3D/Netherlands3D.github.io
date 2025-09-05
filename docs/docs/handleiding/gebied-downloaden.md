@@ -1,13 +1,15 @@
 # Gebied downloaden
 
 Functie, hoofdmenu.  
-![Building Blocks](../handleiding/imgs/gebied.downloaden.menu.main.png)
-<br>
+
+<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
+
+   ![Zonnestand](../handleiding/imgs/gebied.downloaden.menu.main.png){ width="240px" align=left }
+
 
 Met de functie Gebied Downloaden kunnen delen van een **gebied als bestand worden gedownload** (in de formaten .DAE en .DXF). Deze functie bevordert de aansluiting en uitwisseling met andere visualisatie- en CAD programma's. 
-
 Dit hoofdstuk beschrijft de belangrijkste functies van Gebied Downloaden en geeft uitleg over de interface en essentiële functies.  
-<br>
+</div>
 
 ---
 
