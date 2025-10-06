@@ -10,7 +10,7 @@
 
 Netherlands3D is developed in Unity, thus you'll need few prerequisites to start with the platform:
 
-1. Install Unity, the recommended version is Unity 6 (6000.0.44f1), including the WebGL build options. Please check 
+1. Install Unity, the recommended version is Unity 6 (6000.0.58f2), including the WebGL build options. Please check 
    the Unity Download Page -or Unity Hub- and the official Installation Guide for assistance.
 2. Basic understanding of Unity and C# programming language.
 
