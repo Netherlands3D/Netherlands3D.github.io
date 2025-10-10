@@ -19,11 +19,14 @@ required),or by installing MkDocs directly on your system.
 
 ### Option 1: Using Docker (Recommended)
 
-If you have [Docker Desktop](https://docker.com) installed and running, you can use the included helper script:
+If you have [Docker Desktop](https://docker.com) installed and running, you can follow these steps:
 
-```powershell
-.\bin\develop.bat
-```
+1. Open Powershell (or your IDE's terminal)
+2. Make sure you are in your project folder (usually something like `C:\Users\[username]\[path to where you cloned]\Netherlands3D.github.io`)
+3. Run the included helper script:
+   ```powershell
+   .\bin\develop.bat
+   ```
 
 This will start a virtual webserver inside Docker and make the site available at:
 
