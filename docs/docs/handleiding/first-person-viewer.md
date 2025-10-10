@@ -1,10 +1,7 @@
 # First Person Viewer
 
 
-<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
-
-*De First Person Viewer (FPV) is een work-in-progress functionaliteit van Netherlands3D.*
-</div>
+!!!tip "De First Person Viewer (FPV) is een work-in-progress functionaliteit van Netherlands3D."
 
 De First Person Viewer maakt het mogelijk voor gebruikers om zich op realistische ooghoogte door de 3D-wereld te bewegen. Zo kan de gebruiker ervaren hoe een aangepaste omgeving in het echt beleefd zou worden.
 
