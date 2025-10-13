@@ -1,11 +1,7 @@
 # First Person Viewer
 
-Functie, hoofdmenu.  
 
-<div style="display: flex; align-items: flex-start; gap: 15px;" markdown>
-
-*De First Person Viewer (FPV) is een work-in-progress functionaliteit van Netherlands3D.*
-</div>
+!!!tip "De First Person Viewer (FPV) is een work-in-progress functionaliteit van Netherlands3D."
 
 De First Person Viewer maakt het mogelijk voor gebruikers om zich op realistische ooghoogte door de 3D-wereld te bewegen. Zo kan de gebruiker ervaren hoe een aangepaste omgeving in het echt beleefd zou worden.
 
@@ -13,6 +9,7 @@ De First Person Viewer maakt het mogelijk voor gebruikers om zich op realistisch
 ---
 ## Beginnen
 Om de First Person Viewer te starten, volg je de onderstaande stappen:
+
 1. Zet de functionaliteit aan via Instellingen → Functionaliteiten → First Person Viewer.
 2. Er verschijnt een First Person Viewer-knop rechtsonder in beeld, naast de noordpijl.
 3. Sleep het poppetje uit de knop naar de gewenste locatie in de wereld waar je wilt rondlopen. Vanaf hier opent de First Person Viewer.
@@ -119,7 +116,6 @@ Handige sneltoetsen:
 
 ### Movement Modus
 Op dit moment heeft de first person viewer twee bewegings-modi, lopen en vliegen.
-Hiernaast zijn meerdere modi in ontwikkeling.
 Je kunt van **modus wisselen** door:
 
 - op de pijlen links of rechts in de button op het scherm te klikken.
@@ -136,6 +132,8 @@ In het instellingenpaneel van de First Person Viewer kun je enkele variabelen aa
 
 Typ zelf de gewenste waardes in en klik vervolgens uit het veld om de waardes vast te leggen.
 
+!!! tip "Bewegings modi in ontwikkeling"
+	Op het moment werken wij aan meerdere bewegings modi, waaronder autorijden en fietsen.
 
 ### Functionaliteiten
 De first person viewer heeft enkele functionaliteiten die in de beta versie beschikbaar zijn voor gebruik:
