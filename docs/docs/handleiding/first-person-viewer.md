@@ -25,7 +25,7 @@ Om de First Person Viewer te starten, volg je de onderstaande stappen:
 De first person viewer vergrendeld de muisaanwijzer vast in de first person viewer. Deze kun je weer ontgrendelen door één keer op **Backspace** te drukken.
 Het verlaten van de first person viewer kan op meerdere manieren;
 
-- Houd de **Backspace**-toets 2 seconden ingedrukt. Linksboven in het scherm verschijnt een voortgangsbalk zien die aangeeft hoe lang je escape nog moet indrukken voordat je de first person viewer verlaat.
+- Houd de **Backspace**-toets 2 seconden ingedrukt. Linksboven in het scherm verschijnt een voortgangsbalk zien die aangeeft hoe lang je backspace nog moet indrukken voordat je de first person viewer verlaat.
 - Druk één keer op Backspace om de muis vrij te geven, en klik vervolgens rechtsboven op de 'verlaten' knop om de First Person Viewer te verlaten. 
 
 ![Building Blocks](../handleiding/video/fpv_verlaten.gif){ width="550px" }  
