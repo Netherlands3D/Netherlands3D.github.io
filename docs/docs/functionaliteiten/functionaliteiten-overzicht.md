@@ -22,6 +22,7 @@ Deze pagina bevat het **overzicht van alle functies** van de **3D-Viewer** van N
 [Orthografisch/perspectief](/docs/handleiding/3D-viewer/#orthografischperspectief)  
 [Positie](/docs/handleiding/3D-viewer/#positie)  
 [Weergave naar noorden draaien](/docs/handleiding/3D-viewer/#weergave-naar-noorden-draaien)  
+[First Person Viewer](/docs/handleiding/first-person-viewer)
 ///
 ////
 
