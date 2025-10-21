@@ -22,9 +22,9 @@ Met de functie Tiles kunnen 3D Tiles uit twee voorgedefinieerde lagen worden gek
 
 ---
 
-### Gebouwen (3D tiles)
+### Gebouwen (3D Tiles)
 
-Met `Gebouwen (3D tiles)` worden gebouwen uit de 
+Met `Gebouwen (3D Tiles)` worden gebouwen uit de 
 [3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.  
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.gebouwen.png)  
@@ -34,9 +34,9 @@ Met `Gebouwen (3D tiles)` worden gebouwen uit de
 
 ---
 
-### Maaiveld (3D tiles)
+### Maaiveld (3D Tiles)
 
-Met `Maaiveld (3D tiles)` wordt het maaiveld uit de 
+Met `Maaiveld (3D Tiles)` wordt het maaiveld uit de 
 [3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.maaiveld.png)  
@@ -48,7 +48,7 @@ Met `Maaiveld (3D tiles)` wordt het maaiveld uit de
 
 #### Referentiehoogte aanpassen
 
-3D-Tile lagen kunnen op een verkeerde hoogte liggen. We hebben daarvoor een instelling gemaakt die je bij het eigenschappenpaneel kan activeren. Als standaard staat deze ingesteld op Ellipsoïde. Heb je een laag die op een verkeerde hoogte ligt, klik dan op één van de 2 mogelijkheden.
+3D Tile lagen kunnen op een verkeerde hoogte liggen. We hebben daarvoor een instelling gemaakt die je bij het eigenschappenpaneel kan activeren. Als standaard staat deze ingesteld op Ellipsoïde. Heb je een laag die op een verkeerde hoogte ligt, klik dan op één van de 2 mogelijkheden.
 <br>
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.ellipsoide.png)  
@@ -64,4 +64,11 @@ Met `Maaiveld (3D tiles)` wordt het maaiveld uit de
 <br>
 
 !!! tip "Uitleg Referentiehoogte"
-    De hoogte van een 3D-tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site [Uitleg Geoïde/ellipsoïde](https://3dtilesnederland.nl/over-terrein-en-3d-tilesets)
+    De hoogte van een 3D Tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site [Uitleg Geoïde/ellipsoïde](https://3dtilesnederland.nl/over-terrein-en-3d-tilesets)
+
+Daarnaast kan je 3D Tiles lagen ook koppelen via het importeren menu, als bestand of als link naar een url met 3D Tiles data.
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.custom.png)  
+/// caption
+(Afbeelding) Referentiehoogte op Geoïde
+///
