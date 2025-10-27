@@ -1,6 +1,6 @@
 ﻿# How to color parts of the terrain
 
-### Introduction
+## Introduction
 
 How to use the CartesianTileLayerStyler and expressions to assign distinct fill colors to specific terrain feature
 types—e.g. footpaths, residential zones, and roads—based on their material index.
@@ -10,13 +10,13 @@ file and will be automatically reapplied whenever the project is reopened or the
 
 ---
 
-### Prerequisites
+## Prerequisites
 
 - A `BinaryMeshLayer` or similar layer already added to your scene
 
 ---
 
-### Step 1: Identify your feature-type → material-index mapping
+## Step 1: Identify your feature-type → material-index mapping
 
 Your tile data assigns each feature a material index via the `data-materialindex` attribute. Decide which indices
 correspond to each terrain part. For example:
@@ -32,7 +32,7 @@ const int roadIndex          = 2;   // e.g. “road” material
 
 ---
 
-### Step 2: Choose your colors
+## Step 2: Choose your colors
 
 Define the `Color` instances you want to use:
 
@@ -44,7 +44,7 @@ var roadColor = new Color(0.7f, 0.7f, 0.7f); // light gray
 
 ---
 
-### Step 3: Apply styling in code
+## Step 3: Apply styling in code
 
 In your layer-initialization (or UI callback), call `CartesianTileLayerStyler.SetColor` for each type:
 
@@ -89,7 +89,7 @@ void StyleTerrainLayer(BinaryMeshLayer terrainLayer)
 
 ---
 
-### Step 4: Verify in the Editor
+## Step 4: Verify in the Editor
 
 1. Enter Play Mode (or run in the Scene view).
 2. Inspect your terrain layer: footpaths should now use `footpathColor`, residential blocks use `residentialColor`, and
@@ -98,7 +98,7 @@ void StyleTerrainLayer(BinaryMeshLayer terrainLayer)
 
 ---
 
-### What’s next?
+## What’s next?
 
 - **Combine multiple indices:** if “roads” span two materials, use a single `StylingRule` with `Expression.Any`:
   ```csharp
@@ -112,6 +112,15 @@ void StyleTerrainLayer(BinaryMeshLayer terrainLayer)
 - **Dynamic UI:** build a color-picker panel that reads the current style via `GetColor` and lets users tweak colors at
   runtime.
 
-### Performance tips
+---
+
+## Performance tips
 
 - Regroup similar expressions into fewer rules; avoid one-rule-per-feature if you have hundreds.
+
+---
+
+
+## Further Reading
+
+- [Explanation: Layer styling](../styling.md) - for more in-depth information how the styling system works.

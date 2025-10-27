@@ -80,10 +80,6 @@ nav:
       - 'Platform Architecture':
         - 'Platform Overview': 'docs/developers/platform-architecture.md'
         - 'docs/developers/functionalities.md'
-#      - 'Getting Started':
-#        - 'docs/developers/getting-started/using-the-twin.md'
-#        - 'docs/developers/getting-started/from-scratch.md'
-#        - 'docs/developers/getting-started/your-own-functionality.md'
       - 'Guides':
           - 'docs/developers/quickstart.md'
           - 'docs/developers/guides/loading-a-custom-project-file.md'
@@ -98,20 +94,18 @@ nav:
           - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
       - 'Explanation':
         - 'docs/developers/build-pipeline.md'
-        - 'Core Concepts':
-            - 'Overview': 'docs/developers/core-concepts.md'
-            - 'docs/developers/projects.md'
-            - 'docs/developers/layers.md'
-            - 'docs/developers/layers-with-authentication.md'
+        - 'Core Concepts': 'docs/developers/core-concepts.md'
+        - 'docs/developers/projects.md'
+        - Layers:
+          - "Overview": 'docs/developers/layers.md'
+          - "Styling": 'docs/developers/styling.md'
+          - 'docs/developers/layers-with-authentication.md'
         - 'Features':
             - 'docs/developers/features/embedding.md'
             - 'docs/developers/features/floating-origin.md'
             - 'docs/developers/features/geojson.md'
-        - 'Packages':
-            - 'docs/developers/packages/creating-and-managing.md'
         - 'User interface':
             - 'docs/developers/ui/introduction.md'
-            - 'docs/developers/ui/keeping-our-documentation-current.md'
             - 'docs/developers/ui/understanding-blocks.md'
             - 'docs/developers/ui/understanding-components.md'
       - 'Reference':

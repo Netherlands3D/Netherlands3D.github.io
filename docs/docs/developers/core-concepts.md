@@ -96,10 +96,13 @@ possibilities for visualizing and analyzing spatial data.
 ## Styles: Bringing Data to Life
 
 While layers define what data is displayed and where, Styles (or Symbology) determine how that data is visualized.
-Styles control the visual appearance of layers, including colors, line thickness, transparency, and more. Similar to how
-CSS styles HTML in web development, styles in Netherlands3D customize the visual representation of your spatial data.
-Whether you want to highlight certain areas, differentiate between types of infrastructure, or simply make your map more
-visually appealing, styles give you the flexibility to achieve your desired look and feel.
+Styles control the visual appearance of layers, including colors, line thickness, transparency, and more. 
+
+Similar to how CSS styles HTML in web development, styles in Netherlands3D customize the visual representation of your 
+spatial data. Whether you want to highlight certain areas, differentiate between types of infrastructure, or simply 
+make your map more visually appealing, styles give you the flexibility to achieve your desired look and feel.
+
+You can read more about styling in its dedicated chapter "[Layer Styles](./styling.md)". 
 
 ## Conclusion
 
