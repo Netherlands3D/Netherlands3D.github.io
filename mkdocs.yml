@@ -126,7 +126,10 @@ nav:
           - 'docs/developers/testing/3d-models.md'
       - 'Contributing':
           - 'docs/developers/contributing/coding-standards.md'
-          - 'docs/developers/contributing/documentation.md'
+          - 'Documentation':
+              - 'Overview': 'docs/developers/contributing/documentation.md'
+              - 'docs/developers/contributing/writing-guides.md'
+              - 'docs/developers/contributing/writing-explanation-pages.md'
 #  - 'Artikelen':
 #      - 'articles/index.md'
 #  - 'Over ons':
