@@ -283,5 +283,6 @@ black box, and layer teams can concentrate on rendering while data teams focus o
 
 ## 9. Further reading
 
-- [Guide: Adding styling support to layers](./guides/adding-styling-support-to-layers.md)
-- [Guide: how to color parts of the terrain](./guides/how-to-color-parts-of-the-terrain.md)
+- [Explanation: Projects](projects.md)
+- [Explanation: Layer styling](styling.md)
+- [Guide: Adding a simple type of layer](adding-a-simple-type-of-layer.md)

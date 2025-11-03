@@ -77,7 +77,7 @@ nav:
           - 'docs/organisations/solarstudy-calculation.md'
   - 'Voor ontwikkelaars':
       - 'docs/developers/introduction.md'
-      - 'Platform Architecture':
+      - 'Platform':
         - 'Platform Overview': 'docs/developers/platform-architecture.md'
         - 'docs/developers/functionalities.md'
       - 'Guides':
@@ -95,6 +95,7 @@ nav:
       - 'Explanation':
         - 'docs/developers/build-pipeline.md'
         - 'Core Concepts': 'docs/developers/core-concepts.md'
+        # - 'docs/developers/architecture.md'
         - 'docs/developers/projects.md'
         - Layers:
           - "Overview": 'docs/developers/layers.md'
@@ -190,6 +191,7 @@ markdown_extensions:
   - admonition
   - attr_list
   - md_in_html
+  - footnotes
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:
