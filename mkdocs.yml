@@ -56,7 +56,7 @@ nav:
                   - 'Orthografisch/perspectief': 'docs/handleiding/3D-viewer/#orthografischperspectief'
                   - 'Mini-map': 'docs/handleiding/3D-viewer/#mini-map'
                   - 'Positie': 'docs/handleiding/3D-viewer/#mini-map'
-                  - 'First Person View': 'docs/handleiding/3D-viewer/#first-person-view'
+                  - 'docs/handleiding/first-person-viewer.md'
 
           - 'Navigeren': 'docs/handleiding/3D-viewer/#navigeren'
 
