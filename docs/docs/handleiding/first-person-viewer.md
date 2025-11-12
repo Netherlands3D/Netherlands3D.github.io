@@ -149,4 +149,4 @@ Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de z
 *De First Person Viewer is een bètaversie in ontwikkeling door Netherlands3D*.
 
 Voertuigen Beta Link: 
-[Klik Hier](https://cdn-dev-ams-3da.azureedge.net/autobuild/feature/fpv-models-update/1292979048/feature/)
+[Klik Hier](https://cdn-dev-ams-3da.azureedge.net/autobuild/feature/fpv-models-update/370868112/feature/)
