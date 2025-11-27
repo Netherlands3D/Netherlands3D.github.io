@@ -2,30 +2,32 @@
 
 ## Visie
 
-Tilekit is een raamwerk om geospatiale datasets te visualiseren, inclusief de mogelijkheid om deze data te bevragen.
+Tilekit is een raamwerk om geospatiale datasets te visualiseren middels een geheugen-geoptimaliseerde methode om grote 
+gebieden te kunnen visualiseren op een manier die web-geschikt is.
 
 ---
 
-## Synopsis
+## Introductie
 
-Een geospatiale dataset is een dataset die getegeld aangeboden wordt -zoals 3D Tiles, Webmapper en WMTS-, of een
-verzameling van geospatiale features -zoals WFS, OGC API Features of GeoJSON-. Tilekit is ontworpen om deze datasets
-op een getegelde manier te visualiseren.
+Digitale twin omgevingen brengen een brede variatie aan ruimtelijke datasets samen: van fijnmazige tegeldiensten tot
+uitgebreide, ongetegelde modellen, van rasterlagen tot 3D-geometrie en thematische vectorinformatie. Elk van deze
+bronnen heeft een eigen structuur, formaat en dynamiek, maar in de applicatie moeten ze samenkomen in één integrale
+visualisatie.
 
-Dit betekent dat Tilekit uit twee aparte maar nauw verbonden delen bestaat:
+Tilekit is ontwikkeld om dit proces te vereenvoudigen. Het biedt een generiek en uitbreidbaar fundament waarmee elke
+dataset—ongeacht of deze getegeld, ongetegeld, statisch of dynamisch is—op een consistente manier kan worden
+geïnterpreteerd, beheerd en weergegeven. In plaats van dat iedere bron speciale behandeling nodig heeft, zorgt Tilekit
+voor één uniforme levenscyclus waarmee data efficiënt kan worden gestreamd en gevisualiseerd.
 
-- Het opbouwen en bevragen van een of meer verzamelingen van features
-- Het efficient opdelen van de geospatiale wereld in een verzameling van tegels die features visualiseren
+Deze aanpak maakt het mogelijk om meerdere grote datasets tegelijk te gebruiken binnen Unity, inclusief
+WebGL-toepassingen waar zorgvuldig omgaan met geheugen en bandbreedte belangrijk is. Door datastructuren te
+optimaliseren, onderdelen strikt te scheiden en de tile-levenscyclus centraal te stellen, biedt Tilekit een solide basis
+voor schaalbare en performante visualisatie.
 
-Afhankelijk van de databron kan de volgorde van de processen variëren, wat leidt tot een soort kip-of-ei-probleem.
-Systemen die van nature tegel-georiënteerd zijn – zoals WMTS of 3D Tiles – zullen doorgaans eerst tegels genereren en
-tegelijkertijd bepalen welke features aanwezig zijn in die tegels. Het is echter ook mogelijk om te starten met een
-verzameling features, waarna een deel ervan wordt geselecteerd om bijbehorende tegels van te maken, zoals het geval is
-bij GeoJSON-bestanden of WFS.
-
-!!!tip
-    Hoewel je genegen zou zijn om bij raster of 3D Data gebaseerde datasets aan te nemen dat er geen features zijn, is 
-    het praktisch om de verbeelding -raster of mesh data- van een tegel als één feature te beschouwen.
+Deze technische specificatie beschrijft hoe Tilekit dit bereikt: de ontwerpkeuzes, datastructuren, extensiepunten en
+service-typen die het systeem vormen. Het document helpt ontwikkelaars begrijpen hoe verschillende bronnen in één
+samenhangend geheel kunnen worden opgenomen, en hoe nieuwe datasettypes eenvoudig kunnen worden geïntegreerd in een
+groeiend landschap van ruimtelijke informatie.
 
 ---
 
@@ -35,11 +37,10 @@ Tilekit heeft ten doel om een raamwerk te bieden voor het visualiseren van alle 
 vereist een ontwerp waar bij de volgende doelen gesteld zijn:
 
 - **Raamwerk** om, getegeld, geospatiale data in te laden en visualiseren.
-- **Makkelijk om onderdelen te vervangen** zonder het hele systeem aan te hoeven te passen, 
-  zie [Pluggable Architectuur](pluggable-architectuur.md).
-- **Asynchroon-first** middels Promises
+- **Geheugen-geoptimaliseerd** om op het web grote gebieden te kunnen tonen.
+- **Makkelijk om onderdelen toe te voegen** zonder het hele systeem aan te hoeven te passen.
 - **Ondersteunt publieke en afgeschermde bronnen** middels authenticatie.
-- **Live linken (remote datasets) of importeren (lokale datasets)** van data moet mogelijk zijn 
+- **Live streamen (remote datasets) of importeren (lokale datasets)** van data moet mogelijk zijn 
 
 ---
 
@@ -51,21 +52,20 @@ geimplementeerd worden.
 
 ## Duik dieper in de materie
 
-- [Pluggable Architectuur](pluggable-architectuur.md)
-- [Tegelsysteem](tegelsysteem.md)
-- [Features](features.md)
-- [Metadata](metadata.md)
-- [Ophalen van data](ophalen-van-data.md)
-- [Geheugen en performance](geheugen-en-performance-optimalisatie.md)
+- [Architectuur in vogelvlucht](architectuur-in-vogelvlucht.md)
+- [Memory management](memory-management.md)
 - [Appendix A. Casussen](appendix-a-casussen.md)
 - [Appendix B. Bronvermeldingen](appendix-b-bronvermeldingen.md)
 - [Appendix C. Begrippen](appendix-c-begrippen.md)
 
-## Notities en TODO tbv uitwerking
+## Nog uit te zoeken / beschrijven
 
+- Meer in-diepte hoe de architectuur werkt
+- CRS afhandeling
+- Tiling Schemes en hoe die werken
+- Debugging tools
+- Features
+- Styling
+- Memory Management Handreiking
 - Postprocessing van tegels verder toelichten, mogelijk met clipping en masking als voorbeeld
-- Herzien of laden vanaf zichtpunt wel een goede beslissing is
-- Laadvolgorde tegels beter beschrijven
-- Beter beschrijven hoe het tegelsysteem een tussenlaag is en dat het 'werk' door monobehaviours gebeurd
 - Beschrijving hoe hoogte wisselingen te kunnen doen (FAQ?)
-- CRS is nog niet benoemd; dat stuk moet ook nog

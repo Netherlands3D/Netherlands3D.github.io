@@ -1,8 +1,8 @@
-﻿## Tegelsysteem
+﻿# Tegelsysteem
 
-### Doelen
+## Doelen
 
-#### Functionaliteit
+### Functionaliteit
 
 - **Uitbreidbaarheid**
 
@@ -28,7 +28,7 @@
     - Event-systeem voor beïnvloeding van tegels (bijv. styling bij creatie)
     - Mechanisme voor verversen van tegels bij runtime-styling
 
-#### Tilingstructuur
+### Tilingstructuur
 
 - **LOD-ondersteuning (HLOD)**
 
@@ -45,7 +45,7 @@
 
     - Instelbare fouttolerantie voor LOD-keuze
 
-#### Architectuur & Techniek
+### Architectuur & Techniek
 
 - **Gebaseerd op field-tested standaarden en concepten**
 
@@ -53,10 +53,11 @@
     - GeoJSON
     - OGC API
         - Tiles
+        - Tile Matrix Sets
         - Maps
         - Features
     - OGC WMS
-    - OGC WMS
+    - OGC WMTS
     - OGC WFS
 
 - **Coördinaten & Projectie**
@@ -73,7 +74,7 @@
 
     - Intuïtieve structuur met MonoBehaviours & ScriptableObjects voor configuratie
 
-#### Niet-functionele aspecten
+### Niet-functionele aspecten
 
 - **Performance**
 
@@ -98,13 +99,13 @@
     - *Progressive enhancement*: eerst goedkope, daarna detail
     - *Prioritering*: nabijgelegen tegels eerst laden
 
-### Expliciete en impliciete TileSets
+## Expliciete en impliciete TileSets
 
 Bij het ontwerpen van een tegelsysteem maken we onderscheid tussen **expliciete** en **impliciete**
 tegelsystemen. Beide benaderingen beschrijven hoe tegels binnen een (hiërarchische) structuur worden georganiseerd en
 aangesproken, maar ze verschillen fundamenteel in hoe deze wordt gedefinieerd.
 
-#### Expliciet Tegelsysteem
+### Expliciet Tegelsysteem
 
 Een expliciet tegelsysteem beschrijft elke tegel individueel, inclusief zijn positie, relatie tot andere tegels en
 metadata. Hierbij maken we gebruik van een vooraf gedefinieerde lijst van tegels in de TileSet. Elke tegel kent zijn
@@ -120,7 +121,7 @@ kinderen expliciet, inclusief verwijzingen naar onderliggende tegels.
 **Voordeel:** Volledige controle en flexibiliteit over de positie, hiërarchie en metadata per tegel.  
 **Nadeel:** Grotere initiële payload en ongeschikt voor grootschalige datasets.
 
-#### Impliciet Tegelsysteem
+### Impliciet Tegelsysteem
 
 Een impliciet tegelsysteem beschrijft geen individuele tegels, maar maakt gebruik van een algoritme om tegels
 af te leiden op basis van een vaste structuur. Dit systeem is schaalbaar en efficiënt, omdat de hiërarchie en locatie
@@ -154,7 +155,7 @@ Zie https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/
 specificatie omgaat met Impliciete Tiling, Tilekit zijn ontwerp is gebaseerd op deze principes met extra ondersteuning
 voor uniforme grids.
 
-### Levenscyclus van een kaartlaag
+## Levenscyclus van een kaartlaag
 
 ![](img/tiling-flow.png)
 
@@ -174,14 +175,15 @@ herhalend proces. De standaard aanname van Tilekit is dat een Timer klasse geimp
 volgorde afhandeld; maar Tilekit ondersteunt ook dat het stagen en mappen door andere processen worden uitgevoerd.
 
 !!!tip "Staging en mapping zijn idempotent"
-Bovenstaande betekent staging en mapping geen afhankelijkheid mogen hebben en dat beide
-handelingen [Idempotent](#idempotent) zijn. Staging mag meermaals uitgevoerd kunnen worden voordat mapping wordt
-uitgevoerd en andersom.
 
+    Bovenstaande betekent staging en mapping geen afhankelijkheid mogen hebben en dat beide
+    handelingen [Idempotent](#idempotent) zijn. Staging mag meermaals uitgevoerd kunnen worden voordat mapping wordt
+    uitgevoerd en andersom.
+    
     Deze ontwerpkeuze is fundamenteel om asynchrone handelingen te ondersteunen omdat de mapping fase alleen een change
     kan starten, maar de change zelf meerdere frames en cycli van staging zou kunnen duren.
 
-#### Inladen van een TileSet
+### Inladen van een TileSet
 
 In hoofdstuk [7.4. Datamodel](#74-datamodel) is beschreven welke elementen de definitie van een TileSet heeft. Hiermee
 kan je flexibel een breed scala aan tegelsystemen mee weergeven, maar dit van begin af aan inrichten is een uitdaging
@@ -198,7 +200,7 @@ TileSet te kunnen configureren:
 Middels dit proces kunnen willekeurige databronnen omgezet worden in TileSet definities, en uniform afgehandeld worden
 in de rest van het systeem.
 
-##### Voorwaarden voor een valide TileSet
+#### Voorwaarden voor een valide TileSet
 
 **Spatial Coherence**
 
@@ -208,8 +210,9 @@ een R-tree datastructuur en geeft optimalisatiemogelijkheden, zoals het volledig
 tegels als de applicatie niet eens in de buurt is.
 
 !!!info "Voorbeeld"
-Als we ergens in Nederland naar een lokatie kijken dan kunnen we alle tegels -van elk LOD niveau- overslaan buiten
-Nederland, zoals Duitsland of geheel Afrika. Dit kan alleen als de tegels in Nederland Spatial Coherence hebben.
+
+    Als we ergens in Nederland naar een lokatie kijken dan kunnen we alle tegels -van elk LOD niveau- overslaan buiten
+    Nederland, zoals Duitsland of geheel Afrika. Dit kan alleen als de tegels in Nederland Spatial Coherence hebben.
 
 **Aanwezigheid van een Geometrische Error**
 
@@ -226,7 +229,7 @@ Als deze relatie niet klopt, kan de applicatie verkeerde beslissingen nemen over
 visuele artefacten of onnauwkeurigheden als gevolg. Het afdwingen van deze regel zorgt ervoor dat LOD-logica zoals
 Screen Space Error correct werkt.
 
-##### TileSetBuilder
+#### TileSetBuilder
 
 De TileBuilder biedt een aantal gemaksfuncties waarmee een TileSet gemakkelijk opgebouwd kan worden. Aangezien een
 TileSet zelf bestaat uit een paar korte instructies en vervolgens een boomstructuur aan Tile objecten zal de TileBuilder
@@ -238,10 +241,10 @@ quadTreeTileBuilder = TileSetBuilder.QuadTree(bounds);
 
 ```
 
-##### TileSetFactory
+#### TileSetFactory
 
 
-#### Staging
+### Staging
 
 De Staging fase in de [TileMapper](#tilemapper) is bedoeld om te bepalen welke tegels in- en
 uitgeladen moeten worden om in de [7.3.4. Mapping](#734-mapping) fase dit in gang te kunnen zetten. De staging fase, net
@@ -257,7 +260,7 @@ Het staging proces is verdeeld in 3 stappen:
 3. Welke wijzigingen moeten worden uitgevoerd om van de huidige naar de nieuwe situatie te komen -genaamd
    een [Transition](#transition) - middels een [TilesTransitionPlanner](#tilestransitionplanner).
 
-##### Tegel selectie
+#### Tegel selectie
 
 De TileSelector is een service die bepaald welke tegels er in beeld zouden moeten zijn. Van de TileSelector kunnen
 meerdere strategieen zijn, degene die standaard toegepast wordt is de "TilesInView" tile selector.
@@ -325,8 +328,7 @@ De `TileSelector` gebruikt onderstaande logica om te bepalen of een tegel voldoe
 
 !!! warning "**Let op**: als `distanceToCamera` bijna nul is (bijvoorbeeld als de camera zich binnen de bounding volume van een tegel bevindt), dan wordt de SSE oneindig groot. In dat geval wordt de SSE behandeld als `float.MaxValue`."
 
-
-#### Mapping
+### Mapping
 
 !!! danger "Dit hoofdstuk is nog in ontwikkeling."
 
@@ -341,7 +343,7 @@ De `TileSelector` gebruikt onderstaande logica om te bepalen of een tegel voldoe
     - de Tegeldata - zoals de GeoJSON - die uit een WFS ingeladen is
     - een visualisatie - zoals een GameObject of PolygonVisualiser?
 
-### Verversen van tegels
+## Verversen van tegels
 
 Externe factoren, zoals styling of filtering, kunnen reeds ingeladen tegels beïnvloeden. Wanneer dit gebeurd is het
 nodig om tegels te kunnen verversen.
@@ -360,11 +362,18 @@ De volgende voorwaarden zijn hierbij van belang:
 Als een ingrijpendere wijziging nodig is, dan moet de tegel vervangen worden middels een [ChangeSet](#changeset) zodat
 de oude tegel in beeld blijft en een nieuwe tegel asynchroon wordt aangemaakt.
 
-### Datamodel
+## Datamodel
 
 !!!todo
-Kijk naar https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc#availability om na
-te gaan of er een betere manier is om de ID van een tegel te bepalen middels de Morton Z-order curve.
+
+    Kijk naar https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc#availability om na
+    te gaan of er een betere manier is om de ID van een tegel te bepalen middels de Morton Z-order curve.
+
+!!!todo
+    
+    Dit ontwerp is niet optimaal voor memory, dit moet herzien worden. Vooral het gebruik van hierarchieen van tegels is
+    vanuit OOP interessant - maar niet vanuit geheugen gezien. Een enkele lijst waarbij aan tegels wordt gerefereerd 
+    met hun identifiers is veel interessanter
 
 ```mermaid
 classDiagram
@@ -484,7 +493,7 @@ classDiagram
 
 - TileContent mag ook verwijzen naar een externe tileset: https://docs.ogc.org/cs/22-025r4/22-025r4.html#core-external-tilesets
 
-### Services
+## Services
 
 ```mermaid
 classDiagram

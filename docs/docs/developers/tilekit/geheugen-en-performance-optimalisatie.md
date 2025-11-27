@@ -1,18 +1,18 @@
-﻿## Geheugen en performance optimalisatie
+﻿# Geheugen en performance optimalisatie
 
-Netherlands3D is een WebGL applicatie met de bijbehorende beperkingen zoals een maximaal inzetbaar geheugenbereik van 
+Netherlands3D is een WebGL applicatie met de bijbehorende beperkingen zoals een maximaal inzetbaar geheugenbereik van
 2GB RAM en dat de applicatie zelf single-threaded is.
 
 De volgende richtlijnen zijn van toepassing om het tegelsysteem optimaal te laten functioneren:
 
-- **Caching**, informatie die infrequent opnieuw ingeladen moet worden moet niet in geheugen blijven, maar gecached 
+- **Caching**, informatie die infrequent opnieuw ingeladen moet worden moet niet in geheugen blijven, maar gecached
   worden naar `Application.temporaryCachePath`.
-- **Gebruik van unmanaged en value types** ten behoeve van een optimale geheugenlayout en om CPU cache misses te 
+- **Gebruik van unmanaged en value types** ten behoeve van een optimale geheugenlayout en om CPU cache misses te
   beperken.
 - **Jobs/Burst-systeem vermijden**
 
-In de hoofdstukken hieronder staat beschreven waarom deze keuzes gemaakt worden en ook wat de impact is voor de 
-ontwikkelaar om rekening mee te houden. 
+In de hoofdstukken hieronder staat beschreven waarom deze keuzes gemaakt worden en ook wat de impact is voor de
+ontwikkelaar om rekening mee te houden.
 
 !!!info "Unity WebGL is niet 100% single-threaded"
 
@@ -88,15 +88,19 @@ _4. Stale_
 4. **Lang uit zicht, low-priority** → verplaats Warm → Cold (IndexedDB).
 5. **Verwijderd of verlopen** → ruim Cold op → terug naar **Stale**.
 
-Op deze manier blijft alleen wat nú écht nodig is in het dure RAM staan, en gebruik je de goedkopere lagen (MEMFS of IndexedDB) voor de rest.
+Op deze manier blijft alleen wat nú écht nodig is in het dure RAM staan, en gebruik je de goedkopere lagen (MEMFS of
+IndexedDB) voor de rest.
 
 #### Voorbeeld: WMS-tegels
 
 1. **Stale**: bij opstart zijn alle WMS-tegels ongekend.
-2. **Hot**: als een tegel in view komt, vraagt `TileContentLoader` de afbeelding op en slaat deze als `Texture2D` in RAM op.
-3. **Warm**: zodra de gebruiker de tegel even niet meer ziet maar mogelijk snel terugkeert, schrijven we de data weg naar `temporaryCachePath`. De tegel zelf blijft verwijzen naar het bestand in MEMFS, maar geeft RAM vrij.
+2. **Hot**: als een tegel in view komt, vraagt `TileContentLoader` de afbeelding op en slaat deze als `Texture2D` in RAM
+   op.
+3. **Warm**: zodra de gebruiker de tegel even niet meer ziet maar mogelijk snel terugkeert, schrijven we de data weg
+   naar `temporaryCachePath`. De tegel zelf blijft verwijzen naar het bestand in MEMFS, maar geeft RAM vrij.
 4. **Cold**: bij zeer ver uit zicht of bij geheugendruk plaatsen we de tegeldata in IndexedDB.
-5. **Stale**: als de laag wordt verwijderd, of wanneer een cache-expiry is bereikt, wissen we de IndexedDB-versie; de volgende keer valt de tegel weer in **Stale** en moet hij opnieuw worden geladen.
+5. **Stale**: als de laag wordt verwijderd, of wanneer een cache-expiry is bereikt, wissen we de IndexedDB-versie; de
+   volgende keer valt de tegel weer in **Stale** en moet hij opnieuw worden geladen.
 
 ### Data Structuren en Geheugenlayout
 
@@ -168,13 +172,13 @@ Deze richtlijnen helpen om:
 
 #### Samenvatting: Do’s & Don’ts
 
-| Do’s                                           | Don’ts                            |
-|-------------------------------------------------|-----------------------------------|
-| Definieer data als `struct`                     | Gebruik geen `class` voor data    |
-| Gebruik `NativeArray<T>` en `NativeList<T>`      | Sla data niet op in managed heap  |
-| Breng data contigüe onder                       | Gebruik geen pointer-indexen      |
-| Beheer memory expliciet (`Dispose`)              | Verwaarloos geen `Dispose`-calls  |
-| Pas composition toe ipv inheritance voor structs | Gebruik geen polymorphe classes   |
+| Do’s                                             | Don’ts                           |
+|--------------------------------------------------|----------------------------------|
+| Definieer data als `struct`                      | Gebruik geen `class` voor data   |
+| Gebruik `NativeArray<T>` en `NativeList<T>`      | Sla data niet op in managed heap |
+| Breng data contigüe onder                       | Gebruik geen pointer-indexen     |
+| Beheer memory expliciet (`Dispose`)              | Verwaarloos geen `Dispose`-calls |
+| Pas composition toe ipv inheritance voor structs | Gebruik geen polymorphe classes  |
 
 ### Waarom géén Unity Jobs?
 

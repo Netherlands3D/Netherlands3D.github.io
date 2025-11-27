@@ -1,8 +1,9 @@
-﻿## Appendix C. Begrippen
+﻿# Appendix C. Begrippen
 
-// TODO: https://github.com/CesiumGS/3d-tiles/blob/main/specification/README.adoc uitkammen en de begrippen hierin zetten, zoals refinement
+// TODO: https://github.com/CesiumGS/3d-tiles/blob/main/specification/README.adoc uitkammen en de begrippen hierin
+zetten, zoals refinement
 
-### Bounding Volume
+## Bounding Volume
 
 **Aliassen**: Begrenzingsvolume.
 
@@ -13,39 +14,44 @@ hiërarchische structuren (zoals tile trees).
 Er zijn drie standaardtypen begrenzingsvolumes:
 
 - Box (doosvormig volume): een rechthoekige doos in 3D-ruimte (axis-aligned of georiënteerd).
-
 - Sphere (bolvormig volume): een bol met een middelpunt en straal.
-
-- Region (regiovormig volume): een complexere beschrijving die een geograﬁsch gebied aanduidt, vaak gedefinieerd door 
-  een rechthoekige uitsnede in lengte- en breedtegraden, met een minimale en maximale hoogte (bijvoorbeeld voor gebruik 
+- Region (regiovormig volume): een complexere beschrijving die een geograﬁsch gebied aanduidt, vaak gedefinieerd door
+  een rechthoekige uitsnede in lengte- en breedtegraden, met een minimale en maximale hoogte (bijvoorbeeld voor gebruik
   op een globe).
 
 Begrenzingsvolumes worden voornamelijk gebruikt om snel te kunnen bepalen of een object zichtbaar is of moet worden
 ingeladen, zonder alle details van het object zelf te hoeven analyseren.
 
-### Capabilities
+## Bucket
 
-### Change
+Een **bucket** is een slice van een groter, vooraf gealloceerd en gealigneerd blok geheugen dat Tilekit gebruikt om
+compacte, variabele-lengtestructuren efficiënt op te slaan. Buckets bieden een uniforme manier om gegevens die niet
+overal dezelfde grootte hebben — zoals children-lijsten, contents-lijsten of strings in een stringtable — toch in
+voorspelbare, contiguous geheugenblokken onder te brengen.
 
-Een Change is een handeling die nodig is om een tegel van begin tot einde - inclusief visualisatie - toe te voegen of te verwijderen uit de wereld.
+Elke bucket vertegenwoordigt een segment van vaste capaciteit binnen een groter geheugenblok. Door deze opdeling kan
+Tilekit variabele hoeveelheden data opslaan zonder dynamische allocaties of herschalen van arrays. In plaats van per
+item nieuwe geheugenruimte te reserveren, verwijst een element simpelweg naar een bucket met voldoende capaciteit voor
+zijn children, contents of andere variabele velden. Dit zorgt voor een stabiel geheugenprofiel, voorkomt fragmentatie en
+maakt snelle indexgebaseerde toegang mogelijk.
 
-Changes kunnen geannuleerd worden, in welk geval de Status Quo behouden blijft.
+## Capabilities
 
-### Changeset
+## **Cold Storage**
 
-Een Changeset is een set aan Changes die als 1 geheel uitgevoerd moeten worden - als een ChangeSet geannuleerd wordt, dan wordt de status quo behouden.
+Een gematerialiseerde view op de brondataset binnen een interessegebied.  
+Cold Storage bevat minimale, gestandaardiseerde gegevens in SoA-vorm: bounding volumes, resolutiemaatstaven,
+tile-indices, inhoudsverwijzingen en metagegevens. Cold Storage dekt niet noodzakelijk de volledige dataset.
 
-Toevoegen altijd voor verwijderen, zodra verwijderen loopt mag niet meer geannuleerd
+## Databron
 
-### Databron
+## Design Pattern: Builder
 
-### Design Pattern: Builder
+## Design Pattern: Factory
 
-### Design Pattern: Factory
+## Design Pattern: Strategy
 
-### Design Pattern: Strategy
-
-### Digitaal Terrein Model (DTM)
+## Digitaal Terrein Model (DTM)
 
 **Aliassen**: Maaiveld, Grondoppervlak, Digital Terrain Model
 
@@ -60,12 +66,12 @@ Meer informatie:
 - https://www.eea.europa.eu/help/glossary/eea-glossary/digital-terrain-model
 - https://nl.wikipedia.org/wiki/Digitaal_hoogtemodel
 
-### Digitaal Oppervlakte Model (DSM)
+## Digitaal Oppervlakte Model (DSM)
 
 **Aliassen**: Digitaal Hoogtemodel, Digital Surface Model
 
-Omvat het [Digitaal Terrein Model (DTM)](#digitaal-terrein-model-dtm) **plus** alle bovengrondse objecten op het 
-aardoppervlak zoals gebouwen en vegetatie. Het model bestaat uit een reeks gegevenspunten die hoogte-informatie 
+Omvat het [Digitaal Terrein Model (DTM)](#digitaal-terrein-model-dtm) **plus** alle bovengrondse objecten op het
+aardoppervlak zoals gebouwen en vegetatie. Het model bestaat uit een reeks gegevenspunten die hoogte-informatie
 bevatten, waardoor een driedimensionaal beeld van het terrein kan worden gecreëerd.
 
 ![](img/dtm-dsm.png)
@@ -75,7 +81,13 @@ Meer informatie:
 - https://www.eea.europa.eu/help/glossary/eea-glossary/digital-terrain-model
 - https://nl.wikipedia.org/wiki/Digitaal_hoogtemodel
 
-### Geoide
+## Fragmentatie
+
+Het fenomeen waarbij geheugen versnipperd raakt door veel kleine allocaties en deallocaties.  
+Fragmentatie kan leiden tot crashes in omgevingen met vaste geheugengrenzen zoals WebGL. Tilekit voorkomt fragmentatie
+met SoA-structuren, pools en preallocatie.
+
+## Geoide
 
 **Aliassen**: NAP (soort van)
 
@@ -94,7 +106,7 @@ Meer informatie:
 
 - https://nl.wikipedia.org/wiki/Geo%C3%AFde
 
-### Geometric Error
+## Geometric Error
 
 De geometricError is een maat (in meters) die zegt hoe "grof" een tegel is in vergelijking met zijn fijnere kinderen.
 Het komt neer op: hoeveel detail je mist als je deze tegel toont in plaats van zijn onderliggende (meer gedetailleerde)
@@ -114,40 +126,78 @@ Bijvoorbeeld:
 Waarom dit belangrijk is? Dit helpt het systeem beslissen wanneer het moet inzoomen naar meer detail (kindtegels laden),
 of wanneer een grove weergave prima is (ouders tonen).
 
-### HLOD
+## HLOD
 
-### Getegelde laag
+## Hot Tile
 
-### Lagensysteem
+De daadwerkelijke, gematerialiseerde representatie in Unity.  
+Hot tiles zijn zichtbaar in de scène en gebruiken renderers, GPU-buffers, GameObjects of andere renderingmechanismen
+afhankelijk van het archetype.
 
-### LayerData
+## Getegelde laag
 
-### Idempotent
+## Idempotent
 
 **Idempotentie** is de eigenschap van een object (of systeem) en/of een operatie daarop dat het object niet meer
 verandert als de operatie nogmaals wordt uitgevoerd.
 
 Bron: https://nl.wikipedia.org/wiki/Idempotentie
 
-### Mapping
+## Interessegebied
 
-### Midden van het Scherm
+Het ruimtelijke gebied waarin Cold Storage wordt opgebouwd.  
+Dit gebied omvat meer dan alleen de huidige cameraview, maar hoeft niet de volledige dataset te dekken. Het bepaalt de
+subset van tiles die Tilekit beschikbaar houdt voor selectie.
+
+## Lagensysteem
+
+## LayerData
+
+## Mapping
+
+## **Materialisatie**
+
+Het proces waarbij een DataSet gegevens uit de databron ophaalt en omzet in de gestandaardiseerde Cold Storage-structuur
+van Tilekit. Materialiseren gebeurt uitsluitend voor de **Cold Storage** en betreft het vullen of bijwerken van de
+SoA-georganiseerde gegevens voor alle tiles binnen het interessegebied.
+
+## **Material View**
+
+Een concept uit databankterminologie dat beschrijft dat Cold Storage niet een kopie is van de brondata, maar een
+voorgematerialiseerde, performante view daarvan, gericht op snelle toegang.
+
+## Memory Alignment
+
+De praktijk waarbij data op voorspelbare grenzen in het geheugen wordt geplaatst.  
+Alignment bevordert performance, minimaliseert fragmentatie en maakt bulkoperaties efficiënter. In Tilekit worden cold
+data en buffers structureel gealigneerd.
+
+## Midden van het Scherm
 
 Het midden van het scherm betekent concreet het punt in de viewport waar de camera naar kijkt, op de hoogte van
 het [digitale terreinmodel (DTM)](https://en.wikipedia.org/wiki/Digital_elevation_model), en als er geen digitaal
 terrein model aanwezig voor de gegeven lokatie: de hoogte van de [[#Geoide]].
 
-### NAP hoogte
+## NAP hoogte
 
 **Zie**: [[Orthometrische hoogte]]
 
-### Orthometrische hoogte
+## Orthometrische hoogte
 
 ![](img/hoogten-uitgelegd.jpg)
 
-### Pluggable Architectuur
+## Preallocatie
 
-### Screen Space Error (SSE)
+Het vooraf toewijzen van geheugen voor datastructuren die tijdens runtime nodig zijn.  
+Tilekit verdeelt geheugen voor cold, warm en hot paden grotendeels vóór runtime, waardoor allocaties tijdens de
+tile-levenscyclus worden voorkomen.
+
+## Pools
+
+Herbruikbare verzamelingen van objecten, buffers of structuren die telkens opnieuw worden gebruikt in plaats van opnieuw
+gealloceerd. Pools zijn essentieel voor stabiliteit en performance in Tilekit.
+
+## Screen Space Error (SSE)
 
 De *screen space error* is een maat voor hoe zichtbaar een geometrische afwijking is op het scherm, uitgedrukt in
 pixels. Het wordt gebruikt om te bepalen of een object (zoals een tegel in een hiërarchie) voldoende detail heeft op
@@ -180,11 +230,11 @@ Waarbij:
 Deze waarde wordt vergeleken met een ingestelde grenswaarde (`maximumScreenSpaceError`). Als de SSE groter is dan deze
 grens, moet een meer gedetailleerde versie worden geladen.
 
-### Spatial Coherence
+## Spatial Coherence
 
 De gezamenlijke inhoud van alle kindtegels valt volledig binnen het begrenzingsvolume van de oudertegel.
 
-Dat betekent niet dat het hele begrenzingsvolume (zie [Bounding Volume](#bounding-volume)) van de oudertegel opgevuld 
+Dat betekent niet dat het hele begrenzingsvolume (zie [Bounding Volume](#bounding-volume)) van de oudertegel opgevuld
 moet zijn, maar wel dat de kindtegels niet buiten de grenzen van hun ouder mogen uitsteken.
 
 Kindtegels mogen elkaar onderling wel overlappen, zoals te zien is in deze afbeelding:
@@ -194,15 +244,21 @@ Kindtegels mogen elkaar onderling wel overlappen, zoals te zien is in deze afbee
 Zie [https://portal.ogc.org/files/102132#core-bounding-volume-spatial-coherence](https://portal.ogc.org/files/102132#core-bounding-volume-spatial-coherence)
 voor meer informatie.
 
-### Staging
+## Structure of Arrays (SoA)
 
-### Tick
+Een geheugenindeling waarbij elk attribuut in een eigen lineaire array staat. SoA voorkomt fragmentatie, verbetert
+cachegedrag en maakt tile-selectie en diffing snel en voorspelbaar. Tilekit gebruikt SoA in Cold Storage en in delen van
+warm data.
 
-### Tile
+## Tick
+
+## Tile
 
 **Aliassen**: Tegel
 
-Een tegel is een beschrijving van een voorgedefinieerd geografisch gebied, inclusief een verzameling van nul of meer [[#Feature|features]] en een of meer representaties in de vorm van 3D Data, raster of vector informatie.
+Een **tile** is de kleinste ruimtelijke eenheid binnen Tilekit waarmee data uit een dataset wordt gestructureerd,
+geadresseerd en geselecteerd. Tiles vormen een uniforme abstractie over uiteenlopende databronnen, ongeacht of deze
+getegeld of ongetegeld zijn.
 
 Officiele OGC Definitie:
 
@@ -216,25 +272,54 @@ Officiele OGC Definitie:
 > In de context van een geospatiale data-tegelset bevat een tegel gegevens voor een dergelijke ruimtelijke indeling als
 > onderdeel van een overkoepelende set tegels voor die betegelde geospatiale data.
 
-### TileContentLoader
+Een tile vertegenwoordigt altijd een **ruimtelijk gebied** (bijv. een bounding volume, quad, polygoon of andere
+ruimtebeschrijving) en verwijst naar de data die binnen dat gebied beschikbaar is. De tile bevat geen inhoud zelf, maar
+metadata en verwijzingen waarmee Tilekit kan bepalen:
 
-### TileMapper
+- waar de tile zich ruimtelijk bevindt,
+- welk detailniveau of resolutieniveau de tile vertegenwoordigt,
+- welke children of parent-tiles eraan gekoppeld zijn (indien aanwezig),
+- welke inhoud binnen de tile kan worden aangeboden (rasterbeelden, features, geometrie, etc.).
 
-### TileSelector
+Tiles in Tilekit komen altijd voort uit de **Cold Storage**: de gematerialiseerde view op een dataset binnen het
+interessegebied. Vanuit Cold Storage kan Tilekit tiles selecteren, prioriteren en verwerken zonder kennis van het
+onderliggende protocol of bestandsformaat.
 
-### TileSet
+Omdat alle datasets dezelfde tile-abstractie gebruiken, kunnen Archetypes en DataSets uniform werken:
 
-### TileSetBuilder
+- DataSets bepalen hoe tiles uit de bron worden afgeleid,
+- Archetypes bepalen hoe de inhoud van tiles moet worden geïnterpreteerd en weergegeven.
 
-### TileSetFactory
+Kort gezegd:
 
-### TilesTransitionPlanner
+> **Een tile is de ruimtelijke en structurele drager van informatie in Tilekit, en vormt het centrale ankerpunt waarop
+selectie, verwerking en visualisatie worden gebaseerd.**
 
-### Transition
+## TileSet
 
-### Visualisatie
+## Tile Lifecycle (Cold → Warm → Hot)
 
-### Zichtpunt
+Het proces waarin tiles achtereenvolgens worden:
+
+- opgenomen in Cold Storage,
+- voorbereid als Warm Tile,
+- en gevisualiseerd als Hot Tile.
+
+Deze lifecycle vormt het fundament van Tilekit’s ontwerp.
+
+## Tile Selection
+
+Het proces waarin Tilekit bepaalt welke tiles relevant zijn op basis van camera, resolutie, afstand, tijdsaspecten of
+andere criteria. Tile selection werkt uitsluitend binnen het interessegebied (Cold Storage).
+
+## Visualisatie
+
+## Warm Tile
+
+De set dataset-specifieke resources die nodig zijn om een tile snel hot te kunnen maken, zoals textures, meshes,
+attributen of polygonbuffers. Warm tiles worden opgebouwd vanuit cold data, maar zijn nog niet actief in de scène.
+
+## Zichtpunt
 
 De lokatie in de wereld waar de camera naar kijkt; in tegenstelling tot de camerapositie is deze lokatie waarschijnlijk
 middenin de viewport en de lokatie met het hoogste detailniveau en prioriteit van inladen.
