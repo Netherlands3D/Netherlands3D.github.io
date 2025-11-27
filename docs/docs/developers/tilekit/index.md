@@ -54,6 +54,7 @@ geimplementeerd worden.
 
 - [Architectuur in vogelvlucht](architectuur-in-vogelvlucht.md)
 - [Memory management](memory-management.md)
+- [Data opslag](data-opslag.md)
 - [Appendix A. Casussen](appendix-a-casussen.md)
 - [Appendix B. Bronvermeldingen](appendix-b-bronvermeldingen.md)
 - [Appendix C. Begrippen](appendix-c-begrippen.md)
