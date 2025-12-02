@@ -57,6 +57,7 @@ geimplementeerd worden.
 - [Tijdsafhandeling](tijdsafhandeling.md)
 - [Data opslag](data-opslag.md)
 - [Ophalen van data](ophalen-van-data.md)
+- [Tegelsysteem](tegelsysteem.md)
 - [Features](features.md)
 - [Appendix A. Casussen](appendix-a-casussen.md)
 - [Appendix B. Bronvermeldingen](appendix-b-bronvermeldingen.md)

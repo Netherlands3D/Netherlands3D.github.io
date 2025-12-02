@@ -1,65 +1,5 @@
 ﻿# Tegelsysteem
 
-## Doelen
-
-### Functionaliteit
-
-- **Uitbreidbaarheid**
-
-    - Ondersteuning voor nieuwe GIS-standaarden (WFS, OGC API Features, WMS)
-    - Ondersteuning voor extra bestandsformaten (PNG, Raster, GLB, FBX, OBJ)
-
-- **Laagstructuur & Databronnen**
-
-    - Eén TileSet kan meerdere lagen visualiseren vanuit gedeelde bron (bijv. WMS)
-    - Eén TileSet kan tegels uit andere TileSets bevatten als remote TileSet
-
-- **Authenticatie**
-
-    - Ondersteuning voor afgeschermde bronnen met authenticatie
-
-- **Featurebeheer**
-
-    - Features kunnen in meerdere tegels voorkomen, maar worden slechts eenmaal gerenderd; zie [Features](#7-features).
-    - Features moeten bevraagd kunnen worden middels querying.
-
-- **Styling & Events**
-
-    - Event-systeem voor beïnvloeding van tegels (bijv. styling bij creatie)
-    - Mechanisme voor verversen van tegels bij runtime-styling
-
-### Tilingstructuur
-
-- **LOD-ondersteuning (HLOD)**
-
-    - Variabele tegelgrootte (zoals 3D Tiles)
-    - Variabele databron (zoals Cartesian Tiles)
-    - Combinatie van beide (bijv. WMS op afstand/lokaal)
-
-- **Tilingmodellen**
-
-    - *Impliciet tiling* voor wereld-dekkende datasets
-    - *Expliciet tiling* voor vooraf gedefinieerde hiërarchieën
-
-- **Geometric Error Threshold**
-
-    - Instelbare fouttolerantie voor LOD-keuze
-
-### Architectuur & Techniek
-
-- **Gebaseerd op field-tested standaarden en concepten**
-
-    - 3D Tiles
-    - GeoJSON
-    - OGC API
-        - Tiles
-        - Tile Matrix Sets
-        - Maps
-        - Features
-    - OGC WMS
-    - OGC WMTS
-    - OGC WFS
-
 - **Coördinaten & Projectie**
 
     - Abstract Coordinate System; projectie door developers configureerbaar.
@@ -69,35 +9,6 @@
 - **Floating Origin**
 
     - Compatibel zonder directe koppeling
-
-- **Unity-integratie**
-
-    - Intuïtieve structuur met MonoBehaviours & ScriptableObjects voor configuratie
-
-### Niet-functionele aspecten
-
-- **Performance**
-
-    - Caching van tegels en datasets
-    - Minimaliseren van geheugenverbruik (WebGL-geschikt)
-    - Actieve resource-opruiming vereist
-
-- **Robuustheid**
-
-    - Fouttolerantie bij netwerkproblemen of externe fouten
-
-- **Gebruiksvriendelijkheid**
-
-    - Eenvoudig beheer en uitbreiding van datasets
-
-- **Debugging**
-
-    - Visuele tools voor tile-analyse en debugging
-
-- **Laadstrategie**
-
-    - *Progressive enhancement*: eerst goedkope, daarna detail
-    - *Prioritering*: nabijgelegen tegels eerst laden
 
 ## Expliciete en impliciete TileSets
 
@@ -115,8 +26,7 @@ kinderen expliciet, inclusief verwijzingen naar onderliggende tegels.
 
 - Structuur is volledig gespecificeerd.
 - Onderlinge relaties (ouder-kind) zijn expliciet gedefinieerd.
-- Geschikt voor complexe hiërarchieën of geoptimaliseerde datastructuren.
-- Maakt vaak gebruik van LOD's (Levels of Detail) per tegel.
+- Geschikt voor complexe hiërarchieën.
 
 **Voordeel:** Volledige controle en flexibiliteit over de positie, hiërarchie en metadata per tegel.  
 **Nadeel:** Grotere initiële payload en ongeschikt voor grootschalige datasets.
@@ -157,48 +67,18 @@ voor uniforme grids.
 
 ## Levenscyclus van een kaartlaag
 
-![](img/tiling-flow.png)
-
 De levenscyclus van een kaartlaag bestaat uit de volgende stappen:
 
 1. **Inladen van een laag**: in dit stadium worden de capabilities opgehaald van de gekozen databron, en
-   omgezet in Tilekit zijn eigen tegelset definitie. Dit garandeert dat het klaarzetten van de tegels en het bijwerken
-   van de weergave altijd dezelfde informatie hebben, ongeacht de bron.
-2. **Klaarzetten van tegels ([Staging](#staging))**: Bij het klaarzetten van tegels wordt bepaald welke tegels ingeladen
-   en ontladen moeten worden; hierbij wordt gekeken naar de actuele situatie, een gewenste situatie en lopende
-   wijzigingen om te bepalen welke wijzigingen in de wachtrij gezet moeten worden.
-3. **Bijwerken van de weergave ([Mapping](#mapping))**: In dit stadium wordt de wachtrij van wijzigingen afgelopen en
-   wijzigingen ingestart en gemonitored.
-
-Het klaarzetten van de tegels ([Staging](#staging)) en het bijwerken van de weergave ([Mapping](#mapping)) is een
-herhalend proces. De standaard aanname van Tilekit is dat een Timer klasse geimplementeerd is die beide stadia in
-volgorde afhandeld; maar Tilekit ondersteunt ook dat het stagen en mappen door andere processen worden uitgevoerd.
-
-!!!tip "Staging en mapping zijn idempotent"
-
-    Bovenstaande betekent staging en mapping geen afhankelijkheid mogen hebben en dat beide
-    handelingen [Idempotent](#idempotent) zijn. Staging mag meermaals uitgevoerd kunnen worden voordat mapping wordt
-    uitgevoerd en andersom.
-    
-    Deze ontwerpkeuze is fundamenteel om asynchrone handelingen te ondersteunen omdat de mapping fase alleen een change
-    kan starten, maar de change zelf meerdere frames en cycli van staging zou kunnen duren.
+   omgezet in Tilekit zijn eigen tegelset definitie - de Cold Storage. Dit garandeert dat het klaarzetten van de 
+   tegels en het bijwerken van de weergave altijd dezelfde informatie hebben, ongeacht de bron.
+2. **Warm maken van tegels (verwarmen)**: 
+3. **Hot maken van de tegels (verhitten)**: 
 
 ### Inladen van een TileSet
 
 In hoofdstuk [7.4. Datamodel](#74-datamodel) is beschreven welke elementen de definitie van een TileSet heeft. Hiermee
-kan je flexibel een breed scala aan tegelsystemen mee weergeven, maar dit van begin af aan inrichten is een uitdaging
-zonder de effecten te weten van alle knoppen waar je aan kan draaien.
-
-Om dit proces te versimpelen zijn er 2 ondersteunende services die gebruikt kunnen worden om op een simpele manier een
-TileSet te kunnen configureren:
-
-1. **TileSetBuilder**, een [Builder](https://refactoring.guru/design-patterns/builder) service waarmee je met een paar
-   korte instructies tiles kan builden en een TileSet valideren.
-2. **TileSetFactory**, een [Factory](https://refactoring.guru/design-patterns/factory-method) service waarmee je in een
-   keer een gehele TileSet instantieert met een specifieke configuratie.
-
-Middels dit proces kunnen willekeurige databronnen omgezet worden in TileSet definities, en uniform afgehandeld worden
-in de rest van het systeem.
+kan je flexibel een breed scala aan tegelsystemen mee weergeven.
 
 #### Voorwaarden voor een valide TileSet
 
@@ -229,37 +109,6 @@ Als deze relatie niet klopt, kan de applicatie verkeerde beslissingen nemen over
 visuele artefacten of onnauwkeurigheden als gevolg. Het afdwingen van deze regel zorgt ervoor dat LOD-logica zoals
 Screen Space Error correct werkt.
 
-#### TileSetBuilder
-
-De TileBuilder biedt een aantal gemaksfuncties waarmee een TileSet gemakkelijk opgebouwd kan worden. Aangezien een
-TileSet zelf bestaat uit een paar korte instructies en vervolgens een boomstructuur aan Tile objecten zal de TileBuilder
-
-Voorbeeld:
-
-```csharp
-quadTreeTileBuilder = TileSetBuilder.QuadTree(bounds);
-
-```
-
-#### TileSetFactory
-
-
-### Staging
-
-De Staging fase in de [TileMapper](#tilemapper) is bedoeld om te bepalen welke tegels in- en
-uitgeladen moeten worden om in de [7.3.4. Mapping](#734-mapping) fase dit in gang te kunnen zetten. De staging fase, net
-als de mapping fase is bedoeld om [idempotent](#idempotent) uitgevoerd te worden. Dit betekent dat het mogelijk is om
-meermaals deze stap uit te kunnen voeren en dat de uitkomst altijd 1-op-1 toegepast kan worden in de mapping fase.
-
-![](img/tiling-flow-staging.png)
-
-Het staging proces is verdeeld in 3 stappen:
-
-1. Welke tegels zijn er nu in beeld middels de `TilesInView` verzameling
-2. Welke tegels moeten er in beeld komen middels een `TileSelector` service
-3. Welke wijzigingen moeten worden uitgevoerd om van de huidige naar de nieuwe situatie te komen -genaamd
-   een [Transition](#transition) - middels een [TilesTransitionPlanner](#tilestransitionplanner).
-
 #### Tegel selectie
 
 De TileSelector is een service die bepaald welke tegels er in beeld zouden moeten zijn. Van de TileSelector kunnen
@@ -284,7 +133,11 @@ is dus van belang dat we niet altijd op zoek zijn naar 1 tegel in een aftakking 
 een reeks aan kinderen te verkrijgen omdat bij een ADD de kind tegel niet de ouder tegel vervangt, maar juist in
 combinatie met een ouder tegel wordt ingeladen.
 
-// TODO Update schema, en controleer de exacte werking als afwisselend ADD en REPLACE door elkaar gebruikt worden
+!!!todo 
+    Update schema, en controleer de exacte werking als afwisselend ADD en REPLACE door elkaar gebruikt worden
+
+!!!todo
+    Onderzoeken of een BEAM of BFS search beter werkt.
 
 **Wat is "de juiste LOD"?**
 
@@ -328,21 +181,6 @@ De `TileSelector` gebruikt onderstaande logica om te bepalen of een tegel voldoe
 
 !!! warning "**Let op**: als `distanceToCamera` bijna nul is (bijvoorbeeld als de camera zich binnen de bounding volume van een tegel bevindt), dan wordt de SSE oneindig groot. In dat geval wordt de SSE behandeld als `float.MaxValue`."
 
-### Mapping
-
-!!! danger "Dit hoofdstuk is nog in ontwikkeling."
-
-![](img/tiling-flow-mapping.png)
-
-- Tegels mogen pas "InView" als een change succesvol afgemeld is
-- Tegel GameObjecten kunnen er al zijn voordat een Tegel in view is; dan kan een Change nog pending zijn
-- Als een dergelijke change geannuleerd wordt; dan moet het gameobject opgeruimd worden
-    - Ergo: Changes moeten een Cancel mogelijkheid hebben, die een contra actie/opruim actie uitvoert
-- Een Tegel kent een aantal dingen
-    - de "Tile" definitie uit de TileSet
-    - de Tegeldata - zoals de GeoJSON - die uit een WFS ingeladen is
-    - een visualisatie - zoals een GameObject of PolygonVisualiser?
-
 ## Verversen van tegels
 
 Externe factoren, zoals styling of filtering, kunnen reeds ingeladen tegels beïnvloeden. Wanneer dit gebeurd is het
@@ -359,263 +197,174 @@ De volgende voorwaarden zijn hierbij van belang:
   onnodig bewerkingen uitgevoerd worden.
 * Het verversen van een enkele tegel is een synchroon proces zodat er geen verstoring voor de gebruikersbeleving.
 
-Als een ingrijpendere wijziging nodig is, dan moet de tegel vervangen worden middels een [ChangeSet](#changeset) zodat
-de oude tegel in beeld blijft en een nieuwe tegel asynchroon wordt aangemaakt.
-
 ## Datamodel
+
+In het datamodel maken we onderscheid tussen drie niveau's:
+
+- Ondersteunende data objecten, zoals Buckets in Memory management - deze objecten zijn bedoeld om in een schrijfmodel
+  gebruikt te worden maar representeren technische concepten, in tegenstelling tot domein concepten in de 
+  applicatie.
+- Schrijf-model, zoals de Cold Storage - deze objecten vormen de geheugen-geoptimaliseerde maar complexe SoA kern van 
+  Tilekit. Aanpassingen in deze classes zijn gevoelig en moeten goed geprofiled worden.
+- Lees-model, zoals de Tile klasse of de BoundingVolume - dit is een laag bovenop het schrijf-model dat op een meer 
+  begrijpelijke manier toegang geeft en meer lijkt op een Object Oriented Programming manier van omgaan met data. Wat
+  hier van belang is, is dat het leesmodel zelf geen data heeft maar alleen verwijzingen naar waar de data in het 
+  schrijf-model verkregen kan worden.
 
 !!!todo
 
     Kijk naar https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc#availability om na
     te gaan of er een betere manier is om de ID van een tegel te bepalen middels de Morton Z-order curve.
 
-!!!todo
+### Memory management
+
+In Tilekit wordt geheugenbeheer geoptimaliseerd door gebruik te maken van compacte, vooraf gealloceerde buffers—ook wel
+buckets genoemd. In plaats van traditionele dynamische datastructuren, die leiden tot frequente allocaties en
+geheugenfragmentatie, werken deze buckets met ranges die verwijzen naar delen van een vaste buffer. Hierdoor kan het
+systeem toch dynamische data opslaan en uitbreiden, zonder dat het onderliggende geheugen beweegt of opnieuw gealloceerd
+hoeft te worden.
+
+Deze aanpak vermindert fragmentatie, verhoogt cache-efficiëntie, en maakt het mogelijk om grote hoeveelheden tegels en
+tile-metadata te beheren binnen strikte geheugenlimieten. Het klassediagram hieronder toont hoe de belangrijkste 
+geheugenbeheer-klassen samenwerken om dit model te ondersteunen.
+
+```mermaid
+classDiagram
+    class Buckets~T~ {
+        - NativeList~BucketRange~ ranges;
+        + NativeList~BucketRange~ Ranges;
+        - NativeList~T~ flat;
+        + NativeList~T~ Flat;
+        + int Length
+        + int Capacity
+        + T this[int index];
+
+        + Add(ReadOnlySpan<T> items) int
+        + GetBucket(int rangeIndex) Bucket~T~
+        + Clear() void
+    }
+
+    class BucketRange {
+        + int Offset;
+        + int Count;
+    }
     
-    Dit ontwerp is niet optimaal voor memory, dit moet herzien worden. Vooral het gebruik van hierarchieen van tegels is
-    vanuit OOP interessant - maar niet vanuit geheugen gezien. Een enkele lijst waarbij aan tegels wordt gerefereerd 
-    met hun identifiers is veel interessanter
+    class Bucket~T~ {
+        - NativeSlice~T~ s;
+        + int Count
+        + T this[int index];
+
+        + NativeSlice~T~.Enumerator GetEnumerator()
+        + void Replace(NativeArray~T~ replacement)
+    }
+
+    Buckets~T~ --> BucketRange
+    Buckets~T~ -- Bucket~T~
+```
+
+#### Buckets
+
+De `Buckets`-class fungeert als een efficiënte wrapper rond twee NativeList-structuren:
+
+1. Flat – een lineaire NativeList<T> waarin alle data compact achter elkaar wordt opgeslagen.
+2. Ranges – een NativeList<BucketRange> waarin per bucket wordt bijgehouden waar in de Flat-buffer de data staat
+   (startindex + lengte).
+
+Met deze combinatie kunnen we dynamische datasets opslaan zonder dynamische datastructuren te hoeven gebruiken. Nieuwe
+of groeiende datasets worden simpelweg achteraan de Flat-buffer geplaatst, en de bijbehorende BucketRange wijst naar het
+relevante segment.
+
+Dankzij deze ranges kan het systeem zeer snel een slice ophalen—een “bucket”—zonder kopiëren of extra allocaties. De
+Flat blijft compact en fragmentatie wordt voorkomen.
+
+#### Bucket
+
+De `Bucket`-klasse is een dunne wrapper rond een `NativeSlice<T>`. Een `NativeSlice` verwijst rechtstreeks naar een deel 
+van een onderliggende buffer — in dit geval het Flat-array van de `Buckets`-class — zonder eigen geheugen te bezitten.
+
+Omdat een `Bucket` dus slechts een view is op bestaande data:
+
+- Kan data direct worden gelezen alsof het een kleine, zelfstandige collectie is.
+- Kan data ook worden overschreven of gemodificeerd, waarbij de wijzigingen meteen in het oorspronkelijke Flat-array
+  terechtkomen.
+- Hoeft er nooit een kopie gemaakt te worden, wat zowel allocaties als geheugenfragmentatie voorkomt.
+
+### Schrijfmodel
 
 ```mermaid
 classDiagram
-	class Tileset {
-		+ Tile Root
+	class ColdStorage {
+		+ BoxBoundingVolume AreaOfInterest
+		+ BoundingVolumeStore BoundingVolumes
+        + NativeList~double~ GeometricError;
+        + NativeList~MethodOfRefinement~ Refine;
+        + NativeList~float4x4~ Transform;
+
+        + Buckets~int~ Children;
+        + Buckets~TileContentData~ Contents;
+        + StringTable Strings;
 	}
 
-	class Tile {
-		Guid Id
-		BoundingVolume BoundingVolume
-		double GeometricError
-		TileContents Contents
-		Matrix4x4 Transform
-		Metadata Metadata
-		Tiles Children
-		ImplicitTilingScheme ImplicitTiling = None
-		MethodOfRefinement Refine = MethodOfRefinement.Replace
-	}
+    class MethodOfRefinement {
+        Add = 0,
+        Replace = 1
+    }
+    <<Enumeration>> MethodOfRefinement
 
-	class Tiles {
-		
-	}
+	class BoundingVolumeType {
+        Uninitialized = 0,
+        Region = 1,
+        Sphere = 2,
+        Box = 3
+    }
+    <<Enumeration>> BoundingVolumeType
 
-	class TileContents {
-		
-	}
+    class BoundingVolumeRef {
+        + BoundingVolumeType Type;
+        + int Index;
+    }
 
-	class BoundingVolume {
-		+ Vector3Double Center
-		+ Vector3Double Size
-		
-		+ BoundsDouble ToBounds()
-	}
-	
-	namespace BoundingVolumes {
-		class BoxBoundingVolume
-		class SphereBoundingVolume
-		class RegionBoundingVolume
-	}
+    class BoundingVolumeStore {
+        + NativeList~BoundingVolumeRef~ BoundingVolumeRefs;
+        + NativeList~BoxBoundingVolume~ Boxes;
+        + NativeList~RegionBoundingVolume~ Regions;
+        + NativeList~SphereBoundingVolume~ Spheres;
+    }
 
-	
-	class TileContent {
-		TemplatedUri Uri
-		BoundingVolume BoundingVolume
-		Metadata Metadata
-	}
-	
-	class Metadata {
-	}
+    class BoxBoundingVolume {
+        + double3 Center;
+        + double3 HalfAxisX;
+        + double3 HalfAxisY;
+        + double3 HalfAxisZ;
+    }
+    
+    class RegionBoundingVolume {
+        + double West;
+        + double South;
+        + double East;
+        + double North;
+        + double MinHeight;
+        + double MaxHeight;
+    }
+    
+    class SphereBoundingVolume {
+        + double3 Center
+        + double Radius
+    }
+    
+    class TileContentData {
+        + int UriIndex;
+        + BoundingVolumeRef BoundingVolume;
+    }
 
-	class ImplicitTilingScheme {
-		+ SubdivisionScheme SubdivisionScheme
-		+ int SubtreeLevels
-		+ int AvailableLevels
-		+ TemplatedUri Subtrees
-	}
-	
-	namespace ImplicitTilingSchemes {
-		class None {
-		}
-		
-		class UniformGrid {
-			+ Dimensions Dimensions
-		}
-		
-		class QuadTree {
-			+ int SubtreeLevels
-			+ int AvailableLevels
-		}
-		
-		class OcTree {
-			+ int SubtreeLevels
-			+ int AvailableLevels
-		}
-	}
-	
-	class MethodOfRefinement {
-		Replace
-		Add
-	}
-	
-	class SubdivisionScheme {
-		UniformGrid
-		QuadTree
-		Octree
-	}
-	
-	<<Enumeration>> MethodOfRefinement
-	<<Enumeration>> SubdivisionScheme
-	<<Abstract>> BoundingVolume
-	<<Abstract>> ImplicitTilingScheme
-	
-	Metadata --|> Dictionary~string, string~
-	BoundingVolume <|-- BoxBoundingVolume
-	BoundingVolume <|-- RegionBoundingVolume
-	BoundingVolume <|-- SphereBoundingVolume
-	ImplicitTilingScheme <|-- None
-	ImplicitTilingScheme <|-- UniformGrid
-	ImplicitTilingScheme <|-- QuadTree
-	ImplicitTilingScheme <|-- OcTree
-
-	Tileset "1" *-- "1" Tile : Has
-	Tile "1" *-- "1" BoundingVolume : Affects
-	Tile "1" *-- "1" TileContents : Has
-	TileContents "1" *-- "0..*" TileContent : Contains
-	Tile "1" *-- "1" Metadata : Is described by
-	Tile "1" *-- "1" Tiles : Has
-	Tiles "1" *-- "0..*" Tile : Contains
-	Tile "1" *-- "0..1" ImplicitTilingScheme : Can have
-	Tile "1" *-- "1" MethodOfRefinement : Will interact with parent by
-	TileContent "1" *-- "1" BoundingVolume : Affects
-	TileContent "1" *-- "1" Metadata : Is described by
-	TileContent "1" ..> "0..1" Tileset : Can import external tileset
-	ImplicitTilingScheme "1" *-- "1" SubdivisionScheme : Is subdivided as
+    ColdStorage --> BoxBoundingVolume
+    ColdStorage --> BoundingVolumeStore
+    ColdStorage --> TileContentData
+    MethodOfRefinement <-- ColdStorage 
+    TileContentData --> BoundingVolumeRef
+    BoundingVolumeRef --> BoundingVolumeType
+    BoundingVolumeStore --> BoundingVolumeRef
+    BoundingVolumeStore --> BoxBoundingVolume
+    BoundingVolumeStore --> SphereBoundingVolume
+    BoundingVolumeStore --> RegionBoundingVolume
 ```
-
-
-- TileContent mag ook verwijzen naar een externe tileset: https://docs.ogc.org/cs/22-025r4/22-025r4.html#core-external-tilesets
-
-## Services
-
-```mermaid
-classDiagram
-	class TileMapper {
-		+ Load(TileSet tileSet)
-		+ Stage()
-		+ Commit()
-	}
-	
-	class ComposableTileMapper {
-		TileSelector TileSelector
-		ChangeScheduler ChangeScheduler
-		TileRenderer TileRenderer
-	}
-	
-	class LegacyCartesianTilesTileMapper {
-	}
-	
-	class Legacy3DTilesTileMapper {
-	}
-
-	class TileSelector {
-		+ Select()
-	}
-
-	class TileRenderer {
-		+ Add()
-		+ Replace()
-		+ Remove()
-	}
-	
-	class ChangeScheduler {
-		ChangePlan ChangePlan
-		
-		+ Schedule()
-		+ Apply()
-	}
-
-	class ImmediateChangeScheduler {
-	}
-
-	class ChangePlan {
-		List~Change~ Changes
-		
-		+ Plan()
-		+ FindByTile
-		+ Cancel
-	}
-
-	class Change {
-		StatusOfChange Status
-		TypeOfChange Type
-		ChangeAction Action
-		Tile Tile
-
-		Action~Change~ Planned
-		Action~Change~ Triggered
-		Action~Change~ Cancelled
-		Action~Change~ Completed
-
-		+ bool IsPending
-		+ bool InProgress
-		+ bool IsCancelled
-		+ bool IsCompleted
-
-		+ Plan()
-		+ Trigger()
-		+ Cancel()
-		+ Complete()
-		+ UsingAction()
-		+ Add()$
-		+ Remove()$
-	}
-
-	class ChangeSet {
-		+ Changes()
-	}
-	
-	class TypeOfChange {
-		Add
-		Remove
-	}
-	
-	class StatusOfChange {
-		Pending
-		InProgress
-		Cancelled
-		Completed
-	}
-
-	<<MonoBehaviour>> TileMapper
-	<<ScriptableObject>> TileSelector
-	<<ScriptableObject>> ChangeScheduler
-	<<Enumeration>> StatusOfChange
-	<<Enumeration>> TypeOfChange
-	
-	ImmediateChangeScheduler --|> ChangeScheduler
-	TileMapper <|-- ComposableTileMapper
-	TileMapper <|-- LegacyCartesianTilesTilesetRenderer
-	TileMapper <|-- Legacy3DTilesTilesetRenderer
-
-	note for TileMapper "Selects the Tiles in view, 
-		stages these tiles by passing to the ChangePlan 
-		which tiles need to be added, removed or replaced"
-	note for TileMapper "Can also be a wrapper around legacy 
-		tile handlers, in which case nothing further of the new 
-		system is used"
-		
-	TileMapper o-- "1" TileSet
-	ComposableTileMapper *-- "1" TileSelector
-	ComposableTileMapper *-- ChangeScheduler
-	ComposableTileMapper *-- TileRenderer
-	ChangeScheduler *-- ChangePlan
-	ChangePlan *-- "*" Change
-	ChangePlan *-- "*" ChangeSet
-	ChangeSet o-- Change
-	Change *-- TypeOfChange
-	Change *-- StatusOfChange
-	Change o-- Tile
-	
-```
-
-Projector has been omitted from the scheme above because I need to think about it
-
-Middlewares for styling need to be added
