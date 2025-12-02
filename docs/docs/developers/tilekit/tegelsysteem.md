@@ -289,7 +289,50 @@ Omdat een `Bucket` dus slechts een view is op bestaande data:
   terechtkomen.
 - Hoeft er nooit een kopie gemaakt te worden, wat zowel allocaties als geheugenfragmentatie voorkomt.
 
-### Schrijfmodel
+### Schrijf-model
+
+Het schrijf-model is een geheugen-geoptimaliseerde Structure of Array (SoA) opzet waarbij tegels niet als 
+tegel-objecten, maar als arrays van velden worden opgeslagen - zie de ColdStorage klasse. Elk array representeert een 
+veld van een tegel - zoals de geometrische error - en de index van elk array is gelijk aan de tegel index.
+
+!!!example
+
+    Stel dat je een tegel met id 42 hebt, dan kan van elk van deze arrays index 42 bevraagd worden en dan heb je de 
+    data voor die tegel.
+
+Om het gebruik te vergemakkelijken hiervan is een lees-model ingericht (zie volgende hoofdstuk) waar middels handles,
+of referenties, een wrapper is gemaakt om een meer object-georienteerde, en daarmee herkenbare, manier van bevragen aan
+te bieden.
+
+De centrale klasse hierin is de `ColdStorage` klasse, deze bevat de data voor een verzameling tegels; veelal gebruikt 
+voor een enkele laag in de applicatie.
+
+Dit deel van Tilekit is heftig geoptimaliseerd voor geheugen (her)gebruik, en dit is ook te zien in hoe de data 
+structuren zijn gemaakt. Elk van deze arrays is een NativeList met een vooraf ingestelde capaciteit die groot genoeg 
+moet zijn om in 90% van de situaties niet te hoeven resizen. Hierdoor krijg je bij het toevoegen van een laag 1x 
+meerdere allocaties maar vervolgens tijdens de levensduur van de laag geen nieuwe allocaties van tegel-data.
+
+!!! note "Het kan wel gebeuren dat bij het laden van `Content` allocaties plaatsvindt. Dit kan gemitigeerd worden door middel van object pooling maar niet 100% voorkomen."
+
+Voor het wijzigen van het schrijf-model gelden de volgende regels:
+
+- **Allocatie van tegel-data mag alleen tijdens het aanmaken van een laag**, hiermee heb je een vast geheugenbudget om mee 
+  te werken en beperkt fragmentatie.
+    - _Uitzondering_: het resizen van een laag als blijkt dat er meer data nodig is, tune de applicatie dat dit nooit of 
+      zelden gebeurd, en resize in vaste blokgroottes voor optimaal hergebruik van de geheugenruimte als een laag 
+      gedisposed wordt.
+- **Werk alleen met NativeLists of NativeArrays van data met een vooraf ingestelde grootte**. Door het gebruik van unmanaged
+  memory verminder je de druk op de garbage collector en kan Unity bepaalde caching trucs uitvoeren die helpen.
+- **Vermijd reference types zoveel mogelijk** - reference types kunnen niet gebruikt worden in NativeLists en NativeArrays 
+  en kunnen een complete value type toch de managed heap in trekken.
+- **Gebruik de kleinst mogelijke data structuren**, inclusief het voorzien van een `byte` type aan enums als deze een kleine
+  set elementen gebruiken.
+- Over enums gesproken - **alle enums in de write model moeten value-backed zijn**, dus een expliciete numerieke waarde toe-
+  gewezen hebben. Dit maakt het gebruik hiervan voorspelbaarder.
+- **Inheritance van objecten is niet mogelijk**, door het gebruik van structs kan je geen inheritance gebruiken en 
+  inheritance nodigt boxing uit, waardoor extra allocaties plaatsvinden tijdens uitvoering.
+
+Hieronder zie je een overzicht van de klassen die in de kern van het schrijf-model gebruikt worden:
 
 ```mermaid
 classDiagram
@@ -368,3 +411,109 @@ classDiagram
     BoundingVolumeStore --> SphereBoundingVolume
     BoundingVolumeStore --> RegionBoundingVolume
 ```
+
+#### Cold Storage
+
+ColdStorage vormt de laagste trede in de tegel hiërarchie en is het minimale opslagpunt voor alle tegels. Waar warm en 
+hot tiles daadwerkelijk materiaal, geometrie of rendering-gerelateerde data bevatten, bewaart ColdStorage uitsluitend de 
+structurele en ruimtelijke metadata die nodig is om een tile te identificeren, selecteren en prioriteren.
+
+##### Doel van de ColdStorage
+
+Het doel van ColdStorage is om een volledig overzicht van alle potentiële tegels in een dataset te behouden, zonder
+kostbare resources zoals texturen, meshes of decoded payloads in het geheugen te laden. 
+
+Hierdoor kan Tilekit:
+
+- grote tegelpiramides en diepe hiërarchieën ondersteunen
+- snel bepalen welke tegels relevant zijn voor de camera
+- soepele overgang naar warm/hot states realiseren (lifecycle-beheer)
+- memory-fragmentatie minimaliseren door SoA-opslag
+
+ColdStorage is ontworpen voor schaalbaarheid, vooral richting provinciale of nationale datasets, waarvele tiles in 
+metadata-vorm beschikbaar moeten zijn.
+
+##### Inhoud van ColdStorage
+
+Een ColdStorage bevat voor elke tile:
+
+- **BoundingVolume** — box, region of sphere
+- **Geometric error** (of resolutiebereik)
+- **Tijdsbereik** (optioneel, voor spatiotemporele datasets)
+- **Verwijzingen naar kinderen** of informatie uit het tiling scheme
+- **Contentinformatie** (zoals URL of index naar content mapping)
+
+Cruciaal is dat deze data blittable en SoA-georiënteerd is opgeslagen in NativeArrays of NativeLists, zodat iteratie,
+culling en selectie extreem goedkoop blijven — ook in WebGL.
+
+##### Het interessegebied
+
+ColdStorage wordt altijd gecreëerd voor een specifiek interessegebied (area of interest). Dit gebied bepaalt hoeveel van
+de tile piramide wordt gematerialiseerd.
+
+Het interessegebied:
+
+- Bepaalt welke tiles geselecteerd worden bij ingestie - wanneer een dataset wordt ingelezen (bijvoorbeeld WMS, WMTS, 
+  3D Tiles of GeoJSON), worden alleen die tiles opgenomen waarvan het bounding volume snijdt met het interessegebied. 
+  Dit voorkomt dat ColdStorage onnodig groot wordt.
+- Vermindert de diepte van de piramide - omdat tegels die volledig buiten het interessegebied vallen worden uitgesloten, 
+  bevat ColdStorage alleen de relevante delen van de hiërarchie.
+
+#### Bounding Volumes
+
+Een tegel of content element, heeft een locatie en afmeting in de wereld. Dit wordt middels een bounding volume geduid.
+De bounding volume komt in drie vormen (box, sphere en region) en worden in meer detail beschreven in de 3D Tiles 
+specificatie.
+
+Doordat het schrijf-model geheugen-geoptimaliseerd werkt, is het niet mogelijk om middels polymorfisme een abstracte 
+bounding volume toe te wijzen aan een tegel en dan een kind-klasse daarvan op die plek te zetten. Dit breekt met 
+geheugen alignment en zal fragmentatie en allocaties door boxing veroorzaken.
+
+Als gevolg hiervan is er de `BoundingVolumeStore`, wat een Structure of Arrays is speciaal voor bounding volumes. Elk
+element dat een bounding volume nodig heeft, heeft eigenlijk een `BoundingVolumeRef`. De `BoundingVolumeRef` is een 
+verwijzing binnen de `BoundingVolumeStore` naar de juiste array en index in die array van het type bounding volume die 
+je wil toepassen.
+
+De impact hiervan is dat je 'teveel' geheugen gebruikt omdat voor elk type bounding volume een versie onthouden wordt,
+dit is voor de complexiteit een acceptabele trade-off.
+
+!!!todo
+
+    We willen onderzoeken of de huidige bounding-volume opslag geoptimaliseerd kan worden. Momenteel slaan we voor elke 
+    tile drie varianten op (box, sphere, region) terwijl er maar één actief is, wat onnodig veel geheugen kost.
+
+    Voorstel om te onderzoeken:
+
+    - Gebruik één platte NativeArray<double> als opslag voor alle bounding-volume data.
+    - Gebruik daarnaast een NativeArray<BoundingVolumeIndex> met:
+        - Kind (Box/Sphere/Region)
+        - Offset naar de juiste positie in de double-array.
+    - Definieer per volume-type een vaste lengte in doubles (bijv. Box = 12, Sphere = 4, Region = 6).
+    - Maak read-model “views” (BoxView, SphereView, RegionView) die via offset + values het volume exposen, i.p.v. 
+      volledige structs op te slaan.
+    - Onderzoek of NativeSlice<double> of offset-gebaseerde toegang het meest efficiënt is in jobs.
+    - Centraliseer de allocatie en het wegschrijven van volumes in één API, zodat type-lengtes en offsets foutloos blijven.
+    
+#### TileContentData
+
+Elke tegel kent een of meer content elementen, de tile content data is een structuur waarin we bijhouden welke content
+in welk deel van de tegel beschikbaar is.
+
+!!!example
+
+    Een voorbeeld is een omgevingsmodel waarbij elke tegel een maaiveld mesh heeft, een mesh met bomen en een mesh met 
+    gebouwen. Dit zijn drie content elementen op dezelfde tegel. Zie de 3D Tiles specificatie voor meer informatie.
+
+Content, in deze context, is data die gevisualiseerd kan worden als onderdeel van de tegel. Voorbeelden zijn textures 
+en meshes. In de Cold Storage wordt niet de content zelf opgeslagen, maar alleen verwijzingen daarnaar middels de 
+`UriIndex` - hetgeen een referentie is naar een element in een speciale string table.
+
+!!!todo
+    De string table voor het opslaan van uri's kan op verschillende manieren geoptimaliseerd worden, het is aan te raden
+    om niet naar 1 op 1 string storage te kijken maar om de-duping mogelijk te maken van onderdelen in de url. Door
+    een URL te splitsen op scheme, host, pad-segmenten en query parameters en elk van deze als losse strings met integer
+    referenties op te slaan kan de hoeveelheid string, of character, data geoptimaliseerd worden.
+
+Content in de tile content data kan ook beperkt zijn tot een bepaald gebied, of middels een bounding volume geplaatst 
+zijn op een specifieke plek - hierbij is van belang dat spatial coherence gerespecteerd moet blijven en de bounding 
+volume van de content spatially coherent is met die van de tegel.
