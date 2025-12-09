@@ -3,9 +3,7 @@
 Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.3d.tiles.png) 
-/// caption
-(Afbeelding) Toevoegen / 3D Tiles
-///
+_(Afbeelding) Toevoegen / 3D Tiles_
 
 ---
 
@@ -13,12 +11,10 @@ Functies, Lagen, submenu.
 
 ### Menu
 
-Met de functie Tiles kunnen 3D Tiles uit twee voorgedefinieerde lagen worden gekoppeld.  
+Met de functie 3D Tiles kan je basis 3D Tiles lagen uit twee voorgedefinieerde lagen koppelen.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.menu.png)
-/// caption
-(Afbeelding) Toevoegen / 3D Tiles
-///
+_(Afbeelding) Toevoegen / 3D Tiles_
 
 ---
 
@@ -28,9 +24,7 @@ Met `Gebouwen (3D tiles)` worden gebouwen uit de
 [3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.  
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.gebouwen.png)  
-/// caption
-(Afbeelding) Gebouwen (3D Tiles)
-///
+_(Afbeelding) Gebouwen (3D Tiles)_
 
 ---
 
@@ -40,9 +34,7 @@ Met `Maaiveld (3D tiles)` wordt het maaiveld uit de
 [3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.maaiveld.png)  
-/// caption
-(Afbeelding) Maaiveld en Gebouwen (3D Tiles)
-///
+_(Afbeelding) Maaiveld en Gebouwen (3D Tiles)_
 
 ---
 
@@ -52,15 +44,11 @@ Met `Maaiveld (3D tiles)` wordt het maaiveld uit de
 <br>
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.ellipsoide.png)  
-/// caption
-(Afbeelding) Referentiehoogte op Ellipsoïde
-///
+_(Afbeelding) Referentiehoogte op Ellipsoïde_
 <br>
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.geoide.png)  
-/// caption
-(Afbeelding) Referentiehoogte op Geoïde
-///
+_(Afbeelding) Referentiehoogte op Geoïde_
 <br>
 
 !!! tip "Uitleg Referentiehoogte"

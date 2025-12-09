@@ -1,11 +1,9 @@
-# 3D Tiles
+# Bibliotheek
 
 Functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.3d.tiles.png) 
-/// caption
-(Afbeelding) Toevoegen / 3D Tiles
-///
+![Building Blocks](../handleiding/imgs/toevoegen-activeren-bibliotheek.png) 
+_(Afbeelding) Activeren Bibliotheek_
 
 ---
 
@@ -13,55 +11,36 @@ Functies, Lagen, submenu.
 
 ### Menu
 
-Met de functie Tiles kunnen 3D Tiles uit twee voorgedefinieerde lagen worden gekoppeld.  
+Met de functie Bibliotheek zijn alle objecten uit te objectenbibliotheek, het toevoegen van Fotorealistische wereld (Google realitymesh), basislagen, tekengebieden, 3D-Tiles, Urban Releaf lagen, objecten en catalogi onder één knop gebundeld.
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.menu.png)
-/// caption
-(Afbeelding) Toevoegen / 3D Tiles
-///
+![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek.png)
+_(Afbeelding) opzet Bibliotheek_
 
 ---
 
-### Gebouwen (3D tiles)
+### **Fotorealistische Wereld**
 
-Met `Gebouwen (3D tiles)` worden gebouwen uit de 
-[3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.  
+Met de functie Fotorealistische Wereld kan je de **3D tiles van Google Earth koppelen en visualiseren** in Netherlands3D.eu. Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen Fotorealistische wereld](../handleiding/toevoegen-fotorealistische-wereld)
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.gebouwen.png)  
-/// caption
-(Afbeelding) Gebouwen (3D Tiles)
-///
+
+### **Basislagen**
+
+Met de functie Basislagen kan je de **4 beschikbare basislagen** (opnieuw) koppelen in Netherlands3D.eu. Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen basislagen](../handleiding/toevoegen-basislagen)
+
+### **Tekengebied**
+
+Met de functie Basislagen kan je **Tekengebieden** toevoegen in Netherlands3D.eu. Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen tekengebied](../handleiding/toevoegen-selectiegebieden)
+
+### **3D Tiles**
+
+Met de functie 3D Tiles kan je **basis 3D Tiles lagen** toevoegen in Netherlands3D.eu. Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen tekengebied](../handleiding/toevoegen-3d-tiles)
+
+### **Urban Releaf**
+
+Met de functie Urban Releaf kan je de **Urban Releaf lagen** toevoegen in Netherlands3D.eu. (zijn alleen actief binnen Utrecht) Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen Urban Releaf](../handleiding/toevoegen-urban-releaf)
+
+### **Objecten**
+
+Met de functie Objecten kan je de **objecten uit de objectenbibliotheek** toevoegen in Netherlands3D.eu. Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen objecten bibliotheek](../handleiding/toevoegen-objecten-biep)
 
 ---
-
-### Maaiveld (3D tiles)
-
-Met `Maaiveld (3D tiles)` wordt het maaiveld uit de 
-[3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.
-
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.maaiveld.png)  
-/// caption
-(Afbeelding) Maaiveld en Gebouwen (3D Tiles)
-///
-
----
-
-#### Referentiehoogte aanpassen
-
-3D-Tile lagen kunnen op een verkeerde hoogte liggen. We hebben daarvoor een instelling gemaakt die je bij het eigenschappenpaneel kan activeren. Als standaard staat deze ingesteld op Ellipsoïde. Heb je een laag die op een verkeerde hoogte ligt, klik dan op één van de 2 mogelijkheden.
-<br>
-
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.ellipsoide.png)  
-/// caption
-(Afbeelding) Referentiehoogte op Ellipsoïde
-///
-<br>
-
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.geoide.png)  
-/// caption
-(Afbeelding) Referentiehoogte op Geoïde
-///
-<br>
-
-!!! tip "Uitleg Referentiehoogte"
-    De hoogte van een 3D-tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site [Uitleg Geoïde/ellipsoïde](https://3dtilesnederland.nl/over-terrein-en-3d-tilesets)
