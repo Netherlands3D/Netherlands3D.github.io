@@ -20,7 +20,7 @@ _(Afbeelding) opzet Bibliotheek_
 
 ### **Fotorealistische Wereld**
 
-Met de functie Fotorealistische Wereld kan je de **3D tiles van Google Earth koppelen en visualiseren** in Netherlands3D.eu. Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen Fotorealistische wereld](../handleiding/toevoegen-fotorealistische-wereld)
+Met de functie Fotorealistische Wereld kan je de **3D tiles van Google Earth koppelen en visualiseren** in Netherlands3D.eu. Voor gedetailleerde informatie over de werking klik op deze link: [Toevoegen Fotorealistische wereld](../toevoegen-fotorealistische-wereld)
 
 
 ### **Basislagen**

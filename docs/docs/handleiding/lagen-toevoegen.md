@@ -8,7 +8,7 @@ Basisfunctie, hoofdmenu.
 
 
 Lagen is onderdeel van de **basisfuncties van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
- Dit hoofdstuk beschrijft de belangrijkste functies van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
+ Dit hoofdstuk beschrijft de belangrijkste functies van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies. Voor meer informatie kijk bij [Lagen importeren](../toevoegen-importeren)
 </div>
 
 ---

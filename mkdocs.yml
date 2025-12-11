@@ -29,21 +29,21 @@ nav:
                       - 'Afgeschermde bronnen': 'docs/handleiding/lagen/#afgeschermde-bronnen'
                   - 'Lagen toevoegen':
                       - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
-                      - 'Menu (linksonder)': 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                  - 'Zonnestand': 'docs/handleiding/zonnestand.md'
+                  - 'Gebied downloaden': 'docs/handleiding/gebied-downloaden.md'
+                  - 'Menu (linksonder)': 
+                      - 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                      - 'docs/handleiding/project-openen-opslaan.md'
+                      - 'Bibliotheek':
+                         - 'docs/handleiding/bibliotheek-basis.md'
+                         - 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
+                         - 'docs/handleiding/toevoegen-selectiegebied.md'
+                         - 'docs/handleiding/toevoegen-urban-releaf.md'
+                         - 'docs/handleiding/toevoegen-basislagen.md'
+                         - 'docs/handleiding/toevoegen-3d-tiles.md'
+                         - 'docs/handleiding/toevoegen-objecten-biep.md'                                           
                       - 'Organiseren': 'docs/handleiding/lagen-toevoegen/#organiseren'
-                      - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'
-                      - 'Toevoegen':
-                          - 'docs/handleiding/toevoegen-importeren.md'
-                          - 'docs/handleiding/toevoegen-selectiegebied.md'
-                          - 'docs/handleiding/toevoegen-urban-releaf.md'
-                          - 'docs/handleiding/toevoegen-basislagen.md'
-                          - 'docs/handleiding/toevoegen-3d-tiles.md'
-                          - 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
-                          - 'docs/handleiding/toevoegen-objecten-biep.md'
-
-                  - 'docs/handleiding/zonnestand.md'
-                  - 'docs/handleiding/gebied-downloaden.md'
-                  - 'docs/handleiding/project-openen-opslaan.md'
+                      - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'                  
 
               - 'Applicatiebalk':
                   - 'Schermafbeelding maken': 'docs/handleiding/3D-viewer#schermafbeelding-maken'
