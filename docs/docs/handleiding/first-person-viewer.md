@@ -16,7 +16,7 @@ Om de First Person Viewer te starten, volg je de onderstaande stappen:
 
 <br>
 
-![Building Blocks](../handleiding/video/fpv_start_drag.gif){ width="550px" }  
+![Building Blocks](../handleiding/video/fpv_enter.gif){ width="800px" }  
 
 
 ---
@@ -32,7 +32,7 @@ Het verlaten van de first person viewer kan op meerdere manieren;
 - Houd de **Backspace**-toets 2 seconden ingedrukt. Linksboven in het scherm verschijnt een voortgangsbalk zien die aangeeft hoe lang je backspace nog moet indrukken voordat je de first person viewer verlaat.
 - Druk één keer op Backspace om de muis vrij te geven, en klik vervolgens rechtsboven op de 'verlaten' knop om de First Person Viewer te verlaten. 
 
-![Building Blocks](../handleiding/video/fpv_verlaten.gif){ width="550px" }  
+![Building Blocks](../handleiding/video/fpv_verlaten.gif){ width="800px" }  
 
 
 ---
@@ -141,29 +141,49 @@ De first person viewer heeft vier bewegings-modi, lopen en vliegen. Je kunt van 
 - In het instellingenpaneel een andere modus aan te klikken.
 - De toetsen **Tab** en **Enter** te gebruiken.
 
-![Building Blocks](../handleiding/video/fpv_moduswissel.gif){ width="550px" }  
 
 
 In het instellingenpaneel kun je de instellingen van de huidige modus aanpassen. Typ zelf de gewenste waardes in en klik vervolgens uit het veld om de waardes vast te leggen.
 
+![Building Blocks](../handleiding/video/fpv_settings_aanpassen.gif){ width="800px" }  
 
 ### Functionaliteiten
+
+![Building Blocks](../handleiding/imgs/fpv_functionaliteiten.png){ width="400px" }  
+
 De first person viewer heeft enkele functionaliteiten die in de beta versie beschikbaar zijn voor gebruik:
 
 - Ondergronds kijken:
 Bij het activeren van deze functie verschijnt een cirkel op het grondvlak, waarmee je ondergronds kunt kijken. In de interface die opent, kun je de grootte van de circel, en de lagen die gebruikt worden aanpassen. 
 
+![Building Blocks](../handleiding/imgs/fpv_ondergrond.png){ width="800px" }  
+
+
 - Gebouwen informatie:
 Klik met de muis op het betreffende gebouw. Als u *muisvergrendeling* gebruikt, verschijnt er een cursor in het midden van uw scherm. Richt deze cursor  op het gewenste gebouw en klik. 
 In de interface verschijnt gebouwinformatie, uit de Basisadministratie Adressen en Gebouwen (BAG). *Let op, houd voor deze functionaliteit uw muis stil wanneer u klikt, bewegende selectie wordt meestal niet gedetecteerd.*
 
+![Building Blocks](../handleiding/video/fpv_gebouw_selecteren.gif){ width="800px" }  
+
 - Zonnestand simuleren: 
 Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de zon in de slider op te pakken en te bewegen.
 
+![Building Blocks](../handleiding/imgs/fpv_schaduwen.png){ width="800px" }  
+
 - Lagenpaneel (simpel): In dit paneel kun je lagen aan en uit zetten. Dit paneel is ontworpen om situaties te vergelijken, aanpassingen kunnen alleen buiten de first person viewer gemaakt worden. 
+
+![Building Blocks](../handleiding/imgs/fpv_lagenpaneel.png){ width="400px" }  
 
 - Meet-tool: Meet afstanden snel op. Open het paneel. Klik in de wereld om een meetpunt aan te maken. Klik nogmaals elders om een tweede punt aan te maken. Hiertussen zal automatisch een lijn komen met daarbij de afstand tussen de twee punten. Je kunt meerdere punten maken, waar elk opvolgende punt een nieuwe lijn maakt. Klik op het kruisje in een meting in de interface om een lijn te verwijderen. Let op: deze afmetingen zijn benaderingen, de afstanden zijn niet exact. 
 
+![Building Blocks](../handleiding/imgs/fpv_meettool.png){ width="400px" }  
+
+- Noordpijl. Klik om camera naar het noorden te draaien.
+
 - Reset to start: Deze button hersteld de beginpositie van de first person viewer.
+
+- Snap up: Verplaatst je naar de hoogste positie boven je. (Handig voor als je onder het maaiveld of een gebouw bent gekomen).
+
+![Building Blocks](../handleiding/imgs/fpv_navigatiebuttons.png){ width="400px" }  
 
 
