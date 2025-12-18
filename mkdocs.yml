@@ -37,11 +37,11 @@ nav:
                       - 'Bibliotheek':
                          - 'Algemeen': 'docs/handleiding/bibliotheek-basis.md'
                          - 'Fotorealistische wereld': 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
-                         - 'Selectiegebied': 'docs/handleiding/toevoegen-selectiegebied.md'
-                         - 'Urban Releaf': 'docs/handleiding/toevoegen-urban-releaf.md'
                          - 'Basislagen': 'docs/handleiding/toevoegen-basislagen.md'
+                         - 'Tekengebieden': 'docs/handleiding/toevoegen-selectiegebied.md'
                          - '3D Tiles': 'docs/handleiding/toevoegen-3d-tiles.md'
-                         - 'Objecten Bibliotheek': 'docs/handleiding/toevoegen-objecten-biep.md'                                           
+                         - 'Urban Releaf': 'docs/handleiding/toevoegen-urban-releaf.md'
+                         - 'Objecten': 'docs/handleiding/toevoegen-objecten-biep.md'                                           
                       - 'Organiseren': 'docs/handleiding/lagen-toevoegen/#organiseren'
                       - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'                  
 

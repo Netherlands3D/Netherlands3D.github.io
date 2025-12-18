@@ -2,10 +2,8 @@
 
 Functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.ob.png)
-/// caption
-(Afbeelding) _Toevoegen / Objecten bibliotheek_
-///
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.ob.png)<br>
+_(Afbeelding) Toevoegen / Objecten bibliotheek_
 
 ---
 
@@ -18,21 +16,17 @@ Je kunt kiezen uit:
 //// html | div.two-column
 
 * [Annotatie](#annotatie)
+* [Bomen / folder](#bomen)
 * [Camera Positie](#camera-positie)
 * [Kubus](#kubus)
 * [NAP Vlak](#nap-vlak)
-* [Windmolen](#windmolen)
-* [Reuzenrad](#reuzenrad)
-* [Amerikaanse linde](#bomen)
-* [Berk](#bomen)
-* [Beuk](#bomen)
-* [Canadapopulier](#bomen)
 * [Ontwikkeling Zuidoost](#ontwikkeling-zuidoost)
+* [Reuzenrad](#reuzenrad)
+* [Windmolen](#windmolen)
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.png){ width="200px"}  
-/// caption
-(Afbeelding) _Toevoegen objecten uit de Objecten bibliotheek_
-///
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.png)<br>
+_Toevoegen objecten uit de Objecten bibliotheek_
 
 ////
 
@@ -42,10 +36,8 @@ Je kunt kiezen uit:
 
 Klik op `Annotatie` om een opmerking in de viewer te plaatsen. De annotatie start blanco. Door er op te klikken kan je deze met tekst vullen. Je kan er ook meerdere maken, zodat je notities of opmerkingen bij kan houden.
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.annotatie.png)  
-/// caption
-_(Afbeelding) Annotatie ObjectenBibliotheek_  
-///
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.annotatie.png)<br>
+_Annotatie ObjectenBibliotheek_
 
 ---
 

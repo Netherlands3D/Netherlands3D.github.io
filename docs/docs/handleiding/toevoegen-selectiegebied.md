@@ -2,17 +2,16 @@
 
 Functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.tekengebied.png){ width="350px" }  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.tekengebied.png) <br>
 _(Afbeelding) Toevoegen / Tekengebied_
 
----
 
 ## Gedetailleerde beschrijving van de functies
 
 Met deze functie kan je om één of meerdere **Polygonen** (gebieden),  **lijnen** of **grids** intekenen.
 <br>  
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.tekengebied.png){ width="350px" }  
-_(Afbeelding) Toevoegen / Tekengebied_
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.tekengebied.png)<br>
+_(Afbeelding) drie keuzes polygoon, lijn of grid_
 
 Klik op `Tekengebied` om te kiezen tussen het tekenen van een Polygoon, lijn of grid in de 3D-Viewer.
 
