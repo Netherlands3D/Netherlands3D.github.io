@@ -2,10 +2,9 @@
 
 Functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/toevoegen-activeren-bibliotheek.png) <br>
-_(Afbeelding) Activeren Bibliotheek_
+![Building Blocks](../handleiding/imgs/toevoegen-activeren-bibliotheek.png)<br>
+_Activeren Bibliotheek_
 
----
 
 ## Gedetailleerde beschrijving van de functies
 
@@ -13,8 +12,8 @@ _(Afbeelding) Activeren Bibliotheek_
 
 Met de functie Bibliotheek zijn alle objecten uit te objectenbibliotheek, het toevoegen van Fotorealistische wereld (Google realitymesh), basislagen, tekengebieden, 3D-Tiles, Urban Releaf lagen, objecten en catalogi onder één knop gebundeld.
 
-![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek.png) <br>
-_(Afbeelding) opzet Bibliotheek_
+![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek.png)<br>
+_opzet Bibliotheek_
 
 ---
 

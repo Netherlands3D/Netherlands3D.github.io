@@ -29,6 +29,7 @@ nav:
                       - 'Afgeschermde bronnen': 'docs/handleiding/lagen/#afgeschermde-bronnen'
                   - 'Lagen toevoegen':
                       - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
+                      - 'Importeren': 'docs/handleiding/toevoegen-importeren.md'
                   - 'Zonnestand': 'docs/handleiding/zonnestand.md'
                   - 'Gebied downloaden': 'docs/handleiding/gebied-downloaden.md'
                   - 'Menu (linksonder)': 

@@ -2,10 +2,9 @@
 
 Functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.importeren.png){ width="350px" }  
-_(Afbeelding) Toevoegen / Importeren_
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.importeren.png)<br> 
+_Toevoegen / Importeren_
 
----
 
 ## Gedetailleerde beschrijving van de functies
 
@@ -13,27 +12,27 @@ _(Afbeelding) Toevoegen / Importeren_
 
 De functie `Importeren` biedt de mogelijkheid om **lagen en Objecten** via het importeren van bestanden of **via weblinks te koppelen**.
 <br>  
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png){ width="350px" }  
-_(Afbeelding) Importeren Eigen bestand_  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png)<br> 
+_Importeren Eigen bestand_  
   
 Met `Eigen bestand` kunnen .OBJ, .CSV, .JSON, .GEOJSON en .GLB bestanden worden gekoppeld.  
 Na klikken op `Eigen bestand` opent de Verkenner (Windows)/Finder (MacOs) en kan het bestand worden geladen.
 <br>   
 
 !!!	tip "Drag and Drop"
-	Met klik en slepen van een bestand vanuit verkenner of Finder in het 	viewervenster, worden bovenstaande formaten ook ingeladen. LET OP: Dit kan niet met meerdere bestanden tegelijk.
+	Met klik en slepen van een bestand vanuit verkenner of Finder in het viewervenster, worden bovenstaande formaten ook ingeladen. LET OP: Dit kan niet met meerdere bestanden tegelijk.
 
 ---
 
 ### **Importeren bestand via URL**   
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png){ width="350px" }  
-_(Afbeelding) Importeren bestand via URL_  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png)<br> 
+_Importeren bestand via URL_  
 
 Met **Importeren bestand via URL** kan je databronnen (WFS, WMS, GeoJSON, 3D-Tiles) via een weblink koppelen.  
 Klik op `Bestand via URL`. Het menu; Laag toevoegen via URL wordt geopend.
 <br>  
-![Building Blocks](../handleiding/imgs/lagen.import.url.menu.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/lagen.import.url.menu.png)<br>
 <br>
 Kopieër en plak de link van het bestand in het vakje [URL link].   
 In de nabije toekomst is hier een link naar veelgebruikte WFS/WMS-lagen te vinden.
@@ -47,8 +46,8 @@ Na `Toevoegen` is de **link gekoppeld** en de **data zichtbaar** in de 3D-Viewer
 
 Stap1. Klik op `Eigen bestand` en importeer het .OBJ-bestand.
 <br>  
-![Building Blocks](../handleiding/imgs/lagen.import.obj.png)  
-_(Afbeelding) Gedetailleerde Domtoren middels .OBJ geïmporteerd._  
+![Building Blocks](../handleiding/imgs/lagen.import.obj.png)<br>
+_Gedetailleerde Domtoren middels .OBJ geïmporteerd_  
 
 Na het **importeren** wordt het **Object in de 3D omgeving** en in de lijst onder Lagen **zichtbaar**.  
 
@@ -62,14 +61,14 @@ Stap 2a. Het geselecteerde Object kan met de **transformatie-tools** op de **jui
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.trans.png){ width="248px" }
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.rot.png){ width="248px" }
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.scale.png){ width="248px" }  
-_(Afbeelding) Verplaatsen, roteren en verschalen met de transformatie-tool_
+_Verplaatsen, roteren en verschalen met de transformatie-tool_
 
 ---
 
 Stap 2b. Met de `Eigenschappen` -functie kan de **locatie, oriëntatie en schaal** van het geimporteerde Object **handmatig worden ingevoerd**.  
 
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.example.png)
-_(Afbeelding) Handmatig invoeren van locatie, oriëntatie en schaal._ 
+_Handmatig invoeren van locatie, oriëntatie en schaal._ 
  
 --- 
  
@@ -82,9 +81,9 @@ Klik op `Bestand toevoegen` in het Eigenschappen-menu en selecteer het .mtl-best
 Klik op Bestand via URL en koppel de link.   
 <br>
 ![Building Blocks](../handleiding/imgs/lagen.import.url.example1.png)
-_(Afbeelding) Voorbeeld 1;  Luchtfoto's van Nederland gekoppeld met WMS-link_  
+_Voorbeeld 1;  Luchtfoto's van Nederland gekoppeld met WMS-link_  
 
 ---
 
 ![Building Blocks](../handleiding/imgs/lagen.import.url.example2.png)
-_(Afbeelding) Voorbeeld 2;  Landelijke BRT kaart gekoppeld met WMS-link_
+_Voorbeeld 2;  Landelijke BRT kaart gekoppeld met WMS-link_
