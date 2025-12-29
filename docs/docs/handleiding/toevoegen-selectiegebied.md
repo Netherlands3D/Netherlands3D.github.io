@@ -8,7 +8,7 @@ _Tekengebied activeren_
 
 ## Gedetailleerde beschrijving van de functies
 
-Met deze functie kan je om één of meerdere **Polygonen** (gebieden),  **lijnen** of **grids** intekenen.
+Met deze functie kan je één of meerdere **polygonen** (gebieden),  **lijnen** of **grids** intekenen.
 <br>  
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.tekengebied.png)<br>
 _drie keuzes polygoon, lijn of grid_
@@ -29,7 +29,7 @@ Je kan meerdere Tekengebieden intekenen.
 ---
 
 ### **Verspreid objecten in gebied**   
-Door een object zoals bijvoorbeeld een boom uit de **Objectenbibliotheek** toe te voegen aan de laag Polygon, activeert de functie **Verspreid objecten in gebied** 
+Door een object zoals bijvoorbeeld een boom uit de **Objectenbibliotheek** toe te voegen aan de laag polygoon, activeert de functie **Verspreid objecten in gebied** 
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.TG.verspreid.object.gif)<br>
@@ -38,7 +38,7 @@ _Activeren functie **Verspreid objecten in gebied**._
 Doorloop de volgende stappen;  
 
 - Voeg een object (boom) toe uit de **Objectenbibliotheek**,  
-- Sleep het object in **Lagen** op het Polygon,  
+- Sleep het object in **Lagen** op het polygoon,  
 - klik op `eigenschappen` van het object,  
 - vink `Verspreid objecten in gebied` aan,  
 - pas eventueel de Eigenschappen van Verspreiden object aan.  
