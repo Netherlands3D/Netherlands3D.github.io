@@ -121,7 +121,7 @@ Klik op `Reuzenrad` om een draaiend Reuzenrad in de viewer zichtbaar te maken.
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.reuzenrad.activeren.png)<br>
 _Reuzenrad ObjectenBibliotheek_
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.reuzenrad.gif)<br>
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.reuzenrad.gif){ width="480px" }<br>
 _Reuzenrad ObjectenBibliotheek_
 
 ---
@@ -135,7 +135,7 @@ menu van de Windmolen.
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.windmolen.activeren.png)<br>
 _Windmolen toevoegen_
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.windmolen.gif)<br>
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.windmolen.gif){ width="480px" }<br>
 _Windmolen_
 
 ---

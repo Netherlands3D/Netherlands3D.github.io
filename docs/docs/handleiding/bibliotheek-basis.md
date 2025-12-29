@@ -10,7 +10,7 @@ _Activeren Bibliotheek_
 
 ### Menu
 
-Met de functie Bibliotheek zijn alle objecten uit te objectenbibliotheek, het toevoegen van Fotorealistische wereld (Google realitymesh), basislagen, tekengebieden, 3D-Tiles, Urban Releaf lagen, objecten en catalogi onder één knop gebundeld.
+Met de functie Bibliotheek zijn alle objecten uit de objectenbibliotheek, het toevoegen van Fotorealistische wereld (Google realitymesh), basislagen, tekengebieden, 3D-Tiles, Urban Releaf lagen, objecten en catalogi onder één knop gebundeld.
 
 ![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek.png)<br>
 _opzet Bibliotheek_
