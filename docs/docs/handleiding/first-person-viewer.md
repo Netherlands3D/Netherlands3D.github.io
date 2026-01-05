@@ -120,6 +120,7 @@ Automodus en fietsmodus:
 
 ### Algemene besturing:
 Wisselen tussen bewegingsmodi: **Tab** of **Enter**.
+
 De camera te draaien zonder de muis: 
 
 - *Omhoog draaien*: **I**.
@@ -174,10 +175,6 @@ Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de z
 
 ![Building Blocks](../handleiding/imgs/fpv_lagenpaneel.png){ width="400px" }  
 
-- Meet-tool: Meet afstanden snel op. Open het paneel. Klik in de wereld om een meetpunt aan te maken. Klik nogmaals elders om een tweede punt aan te maken. Hiertussen zal automatisch een lijn komen met daarbij de afstand tussen de twee punten. Je kunt meerdere punten maken, waar elk opvolgende punt een nieuwe lijn maakt. Klik op het kruisje in een meting in de interface om een lijn te verwijderen. Let op: deze afmetingen zijn benaderingen, de afstanden zijn niet exact. 
-
-![Building Blocks](../handleiding/imgs/fpv_meettool.png){ width="400px" }  
-
 - Noordpijl. Klik om camera naar het noorden te draaien.
 
 - Reset to start: Deze button hersteld de beginpositie van de first person viewer.
@@ -185,5 +182,3 @@ Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de z
 - Snap up: Verplaatst je naar de hoogste positie boven je. (Handig voor als je onder het maaiveld of een gebouw bent gekomen).
 
 ![Building Blocks](../handleiding/imgs/fpv_navigatiebuttons.png){ width="400px" }  
-
-
