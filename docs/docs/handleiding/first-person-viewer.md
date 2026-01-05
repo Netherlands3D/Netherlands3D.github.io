@@ -148,6 +148,8 @@ In het instellingenpaneel kun je de instellingen van de huidige modus aanpassen.
 
 ![Building Blocks](../handleiding/video/fpv_settings_aanpassen.gif){ width="800px" }  
 
+---
+
 ### Functionaliteiten
 
 ![Building Blocks](../handleiding/imgs/fpv_functionaliteiten.png){ width="400px" }  
