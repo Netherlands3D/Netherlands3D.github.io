@@ -2,19 +2,23 @@
 
 Functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.basis.png){ width="350px" }  
-_(Afbeelding) Toevoegen / Basislagen_
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.basis.png)<br>
+_Basislagen activeren_
 
----
+
 
 ## Gedetailleerde beschrijving van de functies
 
 ### **Basislagen**  
-Met de functie Basislagen kunnen de vier basislagen welke in de standaard/basisversie zijn gekoppeld worden verwijderd of toegevoegd.  
+Met de functie Basislagen kan je de vier basislagen welke in de standaard/basisversie zijn gekoppeld opnieuw  toegevoegen. Het verwijderen van lagen kan gewoon in het lagenpaneel zelf, door de laag te selecteren en op de `prullebak` te klikken, of door de laag te selecteren en op `del` te drukken.<br>
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.basis.menu.all.png)<br>
+_de vier basislagen_  
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.basis.menu.one.png)<br>
+_gekozen laag_  
 <br>
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.basis.menu.all.png){ width="350px" }
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.basis.menu.one.png){ width="350px" }  
-_(Afbeelding) De vier basislagen_  
-<br>
-Na het aanklikken van één van de lagen; `Maaiveld, Gebouwen, Bomen en/of Bossen` wordt deze laag verwijderd uit de viewer het bijbehorende icoon wordt lichtgrijs. Na het opnieuw aanklikken wordt de laag weer toegevoegd en het icoon donkerblauw.  
-<br>
+
+Als je één van de lagen aanklikt, voeg je die toe aan het lagenpaneel. Deze zijn zichtbaar als je de bibliotheek functie uitzet door op het `X` teken rechtsbovenin te klikken.
+
+---
