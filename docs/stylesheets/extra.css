@@ -146,11 +146,14 @@
 }
 
 .md-nav.md-nav--secondary {
-    border: 1px solid var(--nl3d-blue-100);
-    background: var(--nl3d-blue-50);
     border-radius: 0.25rem;
     padding: 0.8rem;
     font-size: 0.7rem;
+}
+
+[data-md-color-scheme=default] .md-nav.md-nav--secondary {
+    border: 1px solid var(--nl3d-blue-100);
+    background: var(--nl3d-blue-50);
 }
 
 .md-nav.md-nav--secondary > ul {
