@@ -157,36 +157,42 @@ In het instellingenpaneel kun je de instellingen van de huidige modus aanpassen.
 
 De first person viewer heeft enkele functionaliteiten die in de beta versie beschikbaar zijn voor gebruik:
 
-Ondergronds kijken:
+??? Gebouwen-informatie
 
-Bij het activeren van deze functie verschijnt een cirkel op het grondvlak, waarmee je ondergronds kunt kijken. In de interface die opent, kun je de grootte van de circel, en de lagen die gebruikt worden aanpassen. 
+    Klik met de muis op het betreffende gebouw. Als u *muisvergrendeling* gebruikt, verschijnt er een cursor in het midden van uw scherm. Richt deze cursor  op het gewenste gebouw en klik. 
+    In de interface verschijnt gebouwinformatie, uit de Basisadministratie Adressen en Gebouwen (BAG). *Let op, houd voor deze functionaliteit uw muis stil wanneer u klikt, bewegende selectie wordt meestal niet gedetecteerd.*
 
-![Building Blocks](../handleiding/imgs/fpv_ondergrond.png){ width="800px" }  
+    ![Building Blocks](../handleiding/video/fpv_gebouw_selecteren.gif){ width="800px" }  
 
+??? Ondergronds-kijken
 
-Gebouwen informatie:
+    Bij het activeren van deze functie verschijnt een cirkel op het grondvlak, waarmee je ondergronds kunt kijken. In de interface die opent, kun je de grootte van de circel, en de lagen die gebruikt worden aanpassen. 
 
-Klik met de muis op het betreffende gebouw. Als u *muisvergrendeling* gebruikt, verschijnt er een cursor in het midden van uw scherm. Richt deze cursor  op het gewenste gebouw en klik. 
-In de interface verschijnt gebouwinformatie, uit de Basisadministratie Adressen en Gebouwen (BAG). *Let op, houd voor deze functionaliteit uw muis stil wanneer u klikt, bewegende selectie wordt meestal niet gedetecteerd.*
-
-![Building Blocks](../handleiding/video/fpv_gebouw_selecteren.gif){ width="800px" }  
-
-Zonnestand simuleren: 
-Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de zon in de slider op te pakken en te bewegen.
-
-![Building Blocks](../handleiding/imgs/fpv_schaduwen.png){ width="800px" }  
-
-Lagenpaneel (simpel): In dit paneel kun je lagen aan en uit zetten. Dit paneel is ontworpen om situaties te vergelijken, aanpassingen kunnen alleen buiten de first person viewer gemaakt worden. 
-Je kunt ook een first-person-positie opslaan door de knop onderaan de interface te klikken. Door dubbel te klikken op de laag, kun je de positie weer innemen, met alle gegevens van beweging opgeslagen.
-
-![Building Blocks](../handleiding/imgs/fpv_lagenpaneel.png){ width="400px" }  
+    ![Building Blocks](../handleiding/imgs/fpv_ondergrond.png){ width="800px" }  
 
 
-Meet-tool: Meet afstanden snel op. 
+??? Zonnestand-simuleren
 
-Open het paneel. Klik in de wereld om een meetpunt aan te maken. Klik nogmaals elders om een tweede punt aan te maken. Hiertussen zal automatisch een lijn komen met daarbij de afstand tussen de twee punten. Je kunt meerdere punten maken, waar elk opvolgende punt een nieuwe lijn maakt. Klik op het kruisje in een meting in de interface om een lijn te verwijderen. Let op: deze afmetingen zijn benaderingen, de afstanden zijn niet exact. 
+    Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de zon in de slider op te pakken en te bewegen.
 
-![Building Blocks](../handleiding/imgs/fpv_meettool.png){ width="400px" }  
+    ![Building Blocks](../handleiding/imgs/fpv_schaduwen.png){ width="800px" }  
+
+??? Lagenpaneel-simpel
+
+    In dit paneel kun je lagen aan en uit zetten. Dit paneel is ontworpen om situaties te vergelijken, aanpassingen kunnen alleen buiten de first person viewer gemaakt worden. 
+    Je kunt ook een first-person-positie opslaan door de knop onderaan de interface te klikken. Door dubbel te klikken op de laag, kun je de positie weer innemen, met alle gegevens van beweging opgeslagen.
+    De first-person positie kan je ook intreden **buiten** de first person viewer. Deze posities kan je in het standaard lagenpaneel bewerken. Een first-person positie kan ook worden aangemaakt vanuit de bibliotheek.
+
+    ![Building Blocks](../handleiding/imgs/fpv_lagenpaneel.png){ width="400px" }  
+
+
+??? Meet-tool
+    
+    Meet afstanden snel op. 
+
+    Open het paneel. Klik in de wereld om een meetpunt aan te maken. Klik nogmaals elders om een tweede punt aan te maken. Hiertussen zal automatisch een lijn komen met daarbij de afstand tussen de twee punten. Je kunt meerdere punten maken, waar elk opvolgende punt een nieuwe lijn maakt. Klik op het kruisje in een meting in de interface om een lijn te verwijderen. Let op: deze afmetingen zijn benaderingen, de afstanden zijn niet exact. 
+
+    ![Building Blocks](../handleiding/imgs/fpv_meettool.png){ width="400px" }  
 
 
 - Noordpijl. Klik om camera naar het noorden te draaien.
