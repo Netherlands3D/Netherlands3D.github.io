@@ -1,8 +1,6 @@
 # First Person Viewer
 
 
-!!!tip "De First Person Viewer (FPV) is een beta functionaliteit van Netherlands3D."
-
 De First Person Viewer maakt het mogelijk voor gebruikers om zich op realistische ooghoogte door de 3D-wereld te bewegen. Zo kan je ervaren hoe een aangepaste omgeving te beleven is vanaf ooghoogte.
 
 
@@ -26,9 +24,6 @@ Je kunt de first person viewer verlaten door rechtsboven op de knop ‘verlaat f
 Als muisvergrendeling aanstaat, kun je de muis loslaten door éénmaal op **Backspace** te drukken.
 
 
-De first person viewer vergrendeld de muisaanwijzer vast in de first person viewer. Deze kun je weer ontgrendelen door één keer op **Backspace** te drukken.
-Het verlaten van de first person viewer kan op meerdere manieren;
-
 - Houd de **Backspace**-toets 2 seconden ingedrukt. Linksboven in het scherm verschijnt een voortgangsbalk zien die aangeeft hoe lang je backspace nog moet indrukken voordat je de first person viewer verlaat.
 - Druk één keer op Backspace om de muis vrij te geven, en klik vervolgens rechtsboven op de 'verlaten' knop om de First Person Viewer te verlaten. 
 
@@ -48,75 +43,80 @@ Om de muis los te ontgrendelen druk je eenmaal op **Backspace**.
 ## Besturing
 Er zijn verschillende manieren van bewegen in de first person viewer. Je kunt **lopen**, **vliegen**, **fietsen** en **autorijden**, in aparte bewegingsmodi.
 
-Bewegen kan op twee manieren;
+Besturing kan op drie manieren, kies de methode die voor jou het prettigst werkt.
 
-- met de **pijltjestoetsen**, *óf* 
-- met de knoppen **'W, A, S en D'**.
 
-Hieronder volgt uitleg per bedieningsmethode. Kies de methode die voor jou het prettigst werkt.
+??? Pijltjestoetsen 
 
-<br>
+    Met de pijltjestoetsen kun je rondbewegen in de First Person Viewer. Door te klikken en je muis te bewegen, verander je je kijkrichting. De pijltjestoetsen bewegen je vervolgens in die richting.
+    Op dit onderstaande kaartje is zichtbaar welke knoppen waarvoor dienen:
 
-#### Pijltjestoetsen
-Met de pijltjestoetsen kun je rondbewegen in de First Person Viewer. Door te klikken en je muis te bewegen, verander je je kijkrichting. De pijltjestoetsen bewegen je vervolgens in die richting.
-Op dit onderstaande kaartje is zichtbaar welke knoppen waarvoor dienen:
+    ![Building Blocks](../handleiding/imgs/FPV_buttonmappingPijlen.png){ width="1000px" }  
 
-![Building Blocks](../handleiding/imgs/FPV_buttonmappingPijlen.png){ width="1000px" }  
+    **Bewegingsmodi**:
 
-**Bewegingsmodi**:
+    - *Versnellen*: houdt **Shift** ingedrukt.
 
-- *Versnellen*: houdt **Shift** ingedrukt.
+    Loopmodus:
 
-Loopmodus:
+    - *Springen*: druk op **Spatiebalk**.
 
-- *Springen*: druk op **Spatiebalk**.
+    Vliegmodus:
 
-Vliegmodus:
+    - *Omhoog vliegen*: **Spatiebalk** *of* **PageUp**.
+    - *Omlaag vliegen*: **PageDown**.
 
-- *Omhoog vliegen*: **Spatiebalk** *of* **PageUp**.
-- *Omlaag vliegen*: **PageDown**.
+    Automodus en fietsmodus:
 
-Automodus en fietsmodus:
+    - *Sturen*: Gebruik **pijltjes naar links en rechts** om het voertuig te sturen. In deze modi kun je vrij rondkijken zonder de voertuigen te draaien met de camera.
+    - *Handrem*: **Spatie**
 
-- *Sturen*: Gebruik **pijltjes naar links en rechts** om het voertuig te sturen. In deze modi kun je vrij rondkijken zonder de voertuigen te draaien met de camera.
-- *Handrem*: **Spatie**
+??? WASD
 
-<br>
+    Je kunt ook kiezen om rond te bewegen door de knoppen 'W, A, S en D' te gebruiken. 
 
-#### W A S D
-Je kunt ook kiezen om rond te bewegen door de knoppen 'W, A, S en D' te gebruiken. 
+    - Vooruit: **W**.
+    - Achteruit: **S**.
+    - Links: **A**.
+    - Rechts: **D**.
 
-- Vooruit: **W**.
-- Achteruit: **S**.
-- Links: **A**.
-- Rechts: **D**.
+    Deze knoppen zijn bepaald met respect tot hun positie op het toetsenbord, net als de pijltjestoetsen. 
+    Door te klikken en je muis te bewegen, verander je je kijkrichting. De knoppen 'W, A, S, en D' zullen jou bewegen in de gekozen kijkrichting.
 
-Deze knoppen zijn bepaald met respect tot hun positie op het toetsenbord, net als de pijltjestoetsen. 
-Door te klikken en je muis te bewegen, verander je je kijkrichting. De knoppen 'W, A, S, en D' zullen jou bewegen in de gekozen kijkrichting.
+    Onderstaand kaartje toont de knoppenindeling:
 
-Onderstaand kaartje toont de knoppenindeling:
+    ![Building Blocks](../handleiding/imgs/FPV_buttonmappingWASD.png){ width="1000px" }  
 
-![Building Blocks](../handleiding/imgs/FPV_buttonmappingWASD.png){ width="1000px" }  
+    **Bewegingsmodi**
 
-**Bewegingsmodi**
+    - *Versnellen*: houdt **Shift** ingedrukt.
 
-- *Versnellen*: houdt **Shift** ingedrukt.
+    Loopmodus:
 
-Loopmodus:
+    - *Springen*: druk op **Spatiebalk**.
 
-- *Springen*: druk op **Spatiebalk**.
+    Vliegmodus:
 
-Vliegmodus:
+    - *Omhoog vliegen*: **Spatiebalk** *of* **Q**.
+    - *Omlaag vliegen*: **E**.
 
-- *Omhoog vliegen*: **Spatiebalk** *of* **Q**.
-- *Omlaag vliegen*: **E**.
+    Automodus en fietsmodus:
 
-Automodus en fietsmodus:
+    - *Sturen*: Gebruik **"A" en "D"** om het voertuig te sturen. In deze modi kun je vrij rondkijken zonder de voertuigen te draaien met de camera.
+    - *Handrem*: **Spatie**
 
-- *Sturen*: Gebruik **"A" en "D"** om het voertuig te sturen. In deze modi kun je vrij rondkijken zonder de voertuigen te draaien met de camera.
-- *Handrem*: **Spatie**
+??? Controller
 
-<br>
+    Met een game-controller kun je de FPV makkelijk besturen met exacte controle. Op dit onderstaande kaartje is zichtbaar welke knoppen waarvoor dienen:
+
+    ![Building Blocks](../handleiding/imgs/fpv_controllermapping.png){ width="1000px" }  
+
+    - *Bewegen*: **Linker stick**
+    - *Camera draaien*: **Rechter stick**
+    - Springen: **Knop-Zuid**
+    - Omhoog vliegen: **Knop-Zuid**, **R2** (ligt aan soort controller.)
+    - Omlaag vliegen: **L2**
+    - Switch movement Modus: **Left & Right**
 
 ### Algemene besturing:
 Wisselen tussen bewegingsmodi: **Tab** of **Enter**.
@@ -130,9 +130,10 @@ De camera te draaien zonder de muis:
 
 Handige sneltoetsen:
 
-- *Screenshot*: **C**.
-- *"Snap" naar het hoogste niveau*: **R**.
-- *Verberg alle UI (User Interfaces): **H**. Druk nogmaals H om de UI weer te tonen*.
+- *Schermafbeelding*: **C** en **Option/Start**
+- *"Snap" naar het hoogste niveau*: **R** en **Controller-Up**.
+- *Presentatiemodus: **H** en **Controller-Down**.
+
 
 ---
 
@@ -156,26 +157,37 @@ In het instellingenpaneel kun je de instellingen van de huidige modus aanpassen.
 
 De first person viewer heeft enkele functionaliteiten die in de beta versie beschikbaar zijn voor gebruik:
 
-- Ondergronds kijken:
+Ondergronds kijken:
+
 Bij het activeren van deze functie verschijnt een cirkel op het grondvlak, waarmee je ondergronds kunt kijken. In de interface die opent, kun je de grootte van de circel, en de lagen die gebruikt worden aanpassen. 
 
 ![Building Blocks](../handleiding/imgs/fpv_ondergrond.png){ width="800px" }  
 
 
-- Gebouwen informatie:
+Gebouwen informatie:
+
 Klik met de muis op het betreffende gebouw. Als u *muisvergrendeling* gebruikt, verschijnt er een cursor in het midden van uw scherm. Richt deze cursor  op het gewenste gebouw en klik. 
 In de interface verschijnt gebouwinformatie, uit de Basisadministratie Adressen en Gebouwen (BAG). *Let op, houd voor deze functionaliteit uw muis stil wanneer u klikt, bewegende selectie wordt meestal niet gedetecteerd.*
 
 ![Building Blocks](../handleiding/video/fpv_gebouw_selecteren.gif){ width="800px" }  
 
-- Zonnestand simuleren: 
+Zonnestand simuleren: 
 Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de zon in de slider op te pakken en te bewegen.
 
 ![Building Blocks](../handleiding/imgs/fpv_schaduwen.png){ width="800px" }  
 
-- Lagenpaneel (simpel): In dit paneel kun je lagen aan en uit zetten. Dit paneel is ontworpen om situaties te vergelijken, aanpassingen kunnen alleen buiten de first person viewer gemaakt worden. 
+Lagenpaneel (simpel): In dit paneel kun je lagen aan en uit zetten. Dit paneel is ontworpen om situaties te vergelijken, aanpassingen kunnen alleen buiten de first person viewer gemaakt worden. 
+Je kunt ook een first-person-positie opslaan door de knop onderaan de interface te klikken. Door dubbel te klikken op de laag, kun je de positie weer innemen, met alle gegevens van beweging opgeslagen.
 
 ![Building Blocks](../handleiding/imgs/fpv_lagenpaneel.png){ width="400px" }  
+
+
+Meet-tool: Meet afstanden snel op. 
+
+Open het paneel. Klik in de wereld om een meetpunt aan te maken. Klik nogmaals elders om een tweede punt aan te maken. Hiertussen zal automatisch een lijn komen met daarbij de afstand tussen de twee punten. Je kunt meerdere punten maken, waar elk opvolgende punt een nieuwe lijn maakt. Klik op het kruisje in een meting in de interface om een lijn te verwijderen. Let op: deze afmetingen zijn benaderingen, de afstanden zijn niet exact. 
+
+![Building Blocks](../handleiding/imgs/fpv_meettool.png){ width="400px" }  
+
 
 - Noordpijl. Klik om camera naar het noorden te draaien.
 
