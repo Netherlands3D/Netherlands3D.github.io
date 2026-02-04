@@ -1,4 +1,4 @@
-# ADR — Gebruik van Async/Await en Unity Awaitables
+# Gebruik van Async/Await en Unity Awaitables
 
 |            |              |
 |------------|--------------|
