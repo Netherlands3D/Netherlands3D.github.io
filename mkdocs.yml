@@ -115,6 +115,7 @@ nav:
         - 'Architectural Decisions':
             - 'docs/developers/decisions/index.md'
             - 'docs/developers/decisions/20241009-styling-of-layers.md'
+            - 'docs/developers/decisions/20260204-async-await-standardisation.md'
         - 'User interface':
             - 'Blocks':
                 - 'docs/developers/ui/blocks/property-panel-and-sections.md'
