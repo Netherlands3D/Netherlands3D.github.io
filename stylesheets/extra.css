@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root, [data-md-color-scheme=default] {
+    --nl3d-blue: #2982C9;
+    --nl3d-red: #E57373;
+    --nl3d-blue-50: #F3F7FB;
+    --nl3d-blue-100: #DFE8F2;
+    --nl3d-blue-900: #323955;
+    --md-default-fg-color: var(--nl3d-blue-900);
+    --md-typeset-a-color: var(--nl3d-blue);
+}
+:root {
+    --md-text-font: "Inter";
+    --md-code-font: "Roboto Mono";
+}
+
+.md-typeset {
+    line-height: 1.5;
+    letter-spacing: 0.015em;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3
+{
+    font-family: 'Instrument Sans', sans-serif;
+}
+
+.md-content .md-typeset h1 {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.md-content .md-typeset h1:after {
+    content: "";
+    background: var(--nl3d-red);
+    position: absolute;
+    bottom: -.5rem;
+    left: 0;
+    height: 3px;
+    width: 50%;
+}
+
+.md-typeset h2 {
+    margin-top: 2rem;
+}
+
+.md-typeset figure {
+    margin: 0;
+    text-align: left;
+}
+
+.md-tabs__item.md-tabs__item--active {
+    color: var(--nl3d-red);
+}
+
+[data-md-color-primary=white] .md-search__form {
+    background-color: var(--nl3d-blue-50);
+    border: 1px solid var(--nl3d-blue-100);
+    border-radius: 0.25rem;
+}
+
+
+
+/*****************************************************************************/
+/** Pages with numbered headings *********************************************/
+/*****************************************************************************/
+
+.numbered-page {
+    counter-reset : h2;
+}
+
+.numbered-page h2 {
+    counter-reset : h3;
+}
+
+.numbered-page h3 {
+    counter-reset : h4;
+}
+
+.numbered-page h4 {
+    counter-reset : h5;
+}
+
+.numbered-page h5 {
+    counter-reset : h6;
+}
+
+.numbered-page h2:before {
+    content : counter(h2,decimal) ". ";
+    counter-increment : h2;
+}
+
+.numbered-page h3:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) ". ";
+    counter-increment : h3;
+}
+
+.numbered-page h4:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) ". ";
+    counter-increment : h4;
+}
+
+.numbered-page h5:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) ". ";
+    counter-increment : h5;
+}
+
+.numbered-page h6:before {
+    content : counter(h2,decimal) "." counter(h3,decimal) "." counter(h4,decimal) "." counter(h5,decimal) "." counter(h6,decimal) ". ";
+    counter-increment : h6;
+}
+
+.numbered-page h2.nocount:before,
+.numbered-page h3.nocount:before,
+.numbered-page h4.nocount:before,
+.numbered-page h5.nocount:before,
+.numbered-page h6.nocount:before {
+    content : "";
+    counter-increment : none;
+}
+
+/*****************************************************************************/
+/** Navigation sidebar *******************************************************/
+/*****************************************************************************/
+
+.md-nav {
+    font-size: 0.7rem;
+}
+
+.md-nav__link {
+    margin-top: 0.7em;
+}
+/* Section header in "navigation" sidebar */
+.md-nav__item--section>.md-nav__link[for] {
+    font-family: 'Instrument Sans', sans-serif;
+    padding-top: .5em;
+}
+
+/* Section header in "navigation" sidebar */
+.md-nav--lifted>.md-nav__list>.md-nav__item>[for] {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--nl3d-red);
+    padding-top: 0;
+}
+
+.md-nav.md-nav--secondary {
+    border: 1px solid var(--nl3d-blue-100);
+    border-radius: 0.25rem;
+    padding: 0.8rem;
+    font-size: 0.7rem;
+}
+
+[data-md-color-scheme=default] .md-nav.md-nav--secondary {
+    background: var(--nl3d-blue-50);
+}
+
+.md-nav.md-nav--secondary > ul {
+    padding-bottom: 0;
+}
+
+.md-nav--secondary .md-nav__title {
+    font-family: 'Instrument Sans', sans-serif;
+    background: inherit;
+    box-shadow: none;
+    color: var(--nl3d-blue);
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-bottom: 1px solid #0B70C1;
+    padding-left: 0;
+}
+
+[dir=ltr] .md-nav--secondary > .md-nav__list {
+    padding-left: 0;
+}
+
+/*****************************************************************************/
+/** Full-width tricks ********************************************************/
+/*****************************************************************************/
+
+.md-container {
+    /**
+    We use tricks to create a full-width background color,
+    but hiding the overflow prevents the page from breaking
+    **/
+    overflow: hidden;
+}
+
+.md-header__button.md-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.md-header__button.md-logo img {
+    height: 1.8rem;
+}
+
+/*****************************************************************************/
+/** NAV **********************************************************************/
+/*****************************************************************************/
+
+@media screen and (min-width: 768px) {
+    .md-header {
+        padding-top: .75rem;
+        padding-bottom: .25rem;
+    }
+    .md-header__inner {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}
+
+/*****************************************************************************/
+/** HERO *********************************************************************/
+/*****************************************************************************/
+
+.hero {
+    margin-top: -1.5rem;
+    margin-bottom: 1.5rem;
+    background-image: url('../images/hero.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 24rem;
+}
+
+.hero p {
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (min-width: 425px) {
+    .hero {
+        margin: 0 calc(50% - 50vw) -3rem;
+        position: relative;
+        top: -2.5rem;
+    }
+}
+
+/*****************************************************************************/
+/** HERO Teaser **************************************************************/
+/*****************************************************************************/
+
+.teaser {
+    background: var(--md-primary-fg-color);
+}
+
+.teaser h1 {
+    display: none;
+}
+
+@media screen and (min-width: 425px) {
+    .teaser {
+        margin-top: 0;
+        position: absolute;
+        top: 15vw;
+        padding: .75rem 1.5rem .75rem;
+        max-width: 20rem;
+        border-radius: .25rem;
+        border: 1px solid var(--md-default-fg-color--lightest);
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .teaser {
+        top: 7.5vw;
+    }
+}
+
+@media screen and (min-width: 1220px) {
+    .teaser {
+        top: 10vw;
+    }
+}
+
+/*****************************************************************************/
+/** Photo Cards - Grid Cards with photos filling the card to the border ******/
+/*****************************************************************************/
+
+.photo-cards {
+    li > p:first-of-type {
+        margin: -.8rem -.8rem 0 -.8rem;
+        margin-top: -.8rem !important;
+    }
+}
+
+/*****************************************************************************/
+/** Full Width Colored Sections **********************************************/
+/*****************************************************************************/
+
+.full-width {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.full-width::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -50vw;
+    right: -50vw;
+    background-color: #f7f7f7;
+    z-index: -1;
+}
+
+.md-content__inner > .full-width:last-child {
+    margin-bottom: -2rem;
+}
+
+
+/*****************************************************************************/
+/** Specialised styling for the 'In Samenwerking Met' card section ***********/
+/*****************************************************************************/
+
+.in-cooperation-with {
+    /* make sure heading padding doesn't collapse, but don't add a significant padding ourselves */
+    padding-top: 0.1rem;
+    margin-top: 2.5rem;
+}
+.md-typeset .in-cooperation-with__partners {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+}
+.md-typeset .in-cooperation-with__partners li {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.md-typeset .in-cooperation-with__partners img {
+    max-height: 150px;
+    filter: grayscale(100%);
+    opacity: 0.6;
+}
+.md-typeset .in-cooperation-with__partners img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/*****************************************************************************/
+/** Two column flex layout ***************************************************/
+/*****************************************************************************/
+
+.two-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.two-column + .two-column {
+    margin-top: 1.5rem;
+    border-top: 2px dotted var(--md-default-fg-color--lighter);
+    padding-top: 1.5rem;
+}
+
+.two-column.minimal + .two-column {
+    margin-top: 0;
+    border-top: 0;
+    padding-top: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .two-column {
+        gap: 2rem;
+        flex-direction: row;
+    }
+
+    .two-column.minimal > * {
+        flex: 0 0 50%;
+    }
+
+    .two-column h2,
+    .two-column h3
+    {
+        flex: 0 0 16.66667%;
+
+        margin-top: .7rem;
+        padding-top: 0;
+    }
+}
