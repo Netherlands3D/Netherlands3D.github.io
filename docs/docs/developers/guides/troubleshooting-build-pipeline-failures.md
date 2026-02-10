@@ -104,18 +104,20 @@ Limited disk space on the runner due to temporary files or cached data.
 **Symptom:**  
 The `Game-CI: Build Unity project` step fails due to corrupted or incompatible files in the `Library` directory.
 
+The error message `The file 'VirtualArtifacts/Primary/3dc838491f0e95d47a43e62101d2c8f2' is corrupted! Remove it and launch unity again!`
+or a variant there of shows.
+
+This can happen when a update in Unity version is done, or when some branches are still on a different version 
+of Unity.
+
 **Cause:**  
 The cache may contain outdated or invalid files after changes to assets, packages, or project settings.
 
 **Solution:**
 
-- Clear the cache by removing the cached `Library` directory. Update the cache key in the workflow to force a rebuild:
-    ```yaml
-    - uses: actions/cache@v2
-      with:
-        path: Library
-        key: ClearCache-${{ github.run_id }}
-    ```
+- Delete the cache for the offending branch on the **Manage Caches** page in Github: https://github.com/Netherlands3D/twin/actions/caches
+
+If the problem persists - delete all caches on this page; sometimes caches are re-used when they are similar.
 
 ---
 
