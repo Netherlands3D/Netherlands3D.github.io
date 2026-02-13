@@ -132,7 +132,7 @@ Handige sneltoetsen:
 
 - *Schermafbeelding*: **C** en **Option/Start**
 - *"Snap" naar het hoogste niveau*: **R** en **Controller-Up**.
-- *Presentatiemodus: **H** en **Controller-Down**.
+- *Presentatiemodus*: **H** en **Controller-Down**.
 
 
 ---
@@ -151,7 +151,7 @@ In het instellingenpaneel kun je de instellingen van de huidige modus aanpassen.
 
 ---
 
-### Functionaliteiten
+## Functionaliteiten
 
 ![Building Blocks](../handleiding/imgs/fpv_functionaliteiten.png){ width="400px" }  
 
@@ -175,7 +175,7 @@ De first person viewer heeft enkele functionaliteiten die in de beta versie besc
 
     Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de zon in de slider op te pakken en te bewegen.
 
-    ![Building Blocks](../handleiding/imgs/fpv_schaduwen.png){ width="800px" }  
+    ![Building Blocks](../handleiding/imgs/fpv_zonnestand.gif){ width="800px" }  
 
 ??? Lagenpaneel-simpel
 
