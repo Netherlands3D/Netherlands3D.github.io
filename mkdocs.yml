@@ -96,6 +96,7 @@ nav:
           - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
       - 'Explanation':
         - 'docs/developers/build-pipeline.md'
+        - 'docs/developers/feature-build-pipeline.md'
         - 'Core Concepts': 'docs/developers/core-concepts.md'
         # - 'docs/developers/architecture.md'
         - 'docs/developers/projects.md'
