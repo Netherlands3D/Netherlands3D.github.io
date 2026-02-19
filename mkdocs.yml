@@ -92,6 +92,8 @@ nav:
           - 'Styling':
               - 'docs/developers/guides/how-to-color-parts-of-the-terrain.md'
               - 'docs/developers/guides/adding-styling-support-to-layers.md'
+          - 'User Interface (UI Toolkit)':
+              - 'docs/developers/guides/ui/creating-a-custom-component.md'
           - 'docs/developers/guides/dealing-with-cors-issues.md'
           - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
       - 'Explanation':
