@@ -60,7 +60,7 @@ provide behaviour and integration points for the control.
 
 ---
 
-### Make the control in C\#
+### 1.1. Make the control in C\#
 
 Minimal implementation:
 
@@ -96,7 +96,7 @@ They are Netherlands3D helper methods that:
 
 ---
 
-### Make the layout template (UXML)
+### 1.2. Make the layout template (UXML)
 
 **File:** `Assets/UI Toolkit/Resources/UI/Components/Header.uxml`
 
@@ -122,7 +122,7 @@ stylesheet to apply styling to this element.
 
 ---
 
-### Make the styling (USS)
+### 1.3. Make the styling (USS)
 
 Example header bar: full‑width, automatic height, horizontal layout with spaced content.
 
@@ -190,7 +190,7 @@ file:
 
 Let's expand on that.
 
-### 2.1. Adding a label
+### 2.1. Adding a title
 
 Unity has a label control that does nothing more than display text. This sounds like a perfect candidate for our
 header's label.
@@ -240,7 +240,7 @@ Let's add it into our template:
 
 This is a good first step, but next: let's style it and set the label text using an attribute on our header. 
 
-### 2.2.  Styling the header's label
+### 2.2. Styling the title
 
 In the [chapter where we setup our styling](#make-the-styling-uss), we introduced the style for the header itself. Now
 we need to add a bit of styling to make sure the header's title has the correct text size.
