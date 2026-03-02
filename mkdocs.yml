@@ -120,6 +120,11 @@ nav:
             - 'docs/developers/decisions/20241009-styling-of-layers.md'
             - 'docs/developers/decisions/20260204-async-await-standardisation.md'
         - 'User interface':
+            - 'Theme':
+                - 'docs/developers/ui/spacing.md'
+                - 'docs/developers/ui/colors.md'
+                - 'docs/developers/ui/font-family.md'
+                - 'docs/developers/ui/font-size.md'
             - 'Blocks':
                 - 'docs/developers/ui/blocks/property-panel-and-sections.md'
             - 'Components':
