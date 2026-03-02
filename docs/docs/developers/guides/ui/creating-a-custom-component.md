@@ -21,17 +21,23 @@ This guide consists of the following parts:
 
 1. [Setting up a simple presentation control](#1-setup-a-simple-presentational-control)
 2. [Adding content](#2-adding-content)
-3. Configuring a control using props (To be written)
-4. Responding to events  (To be written)
+3. [Configuring a control using attributes](#3-configuring-a-control-using-attributes)
 
 Through this structure it is expected that you can either reference the specific section when you want to accomplish
 one of these.
 
-In the end, we want to end up with a control that looks like this:
+In the end, we want to end up with a control that can be included like this:
 
 ```xml
-<nl3d:Header label="My header text" help-url="https://netherlands3d.eu/docs/my-help-topic" />
+<nl3d:Header 
+    title="My header text" 
+    help-url="https://netherlands3d.eu/docs/my-help-topic" 
+/>
 ```
+
+and looks like this:
+
+![An example of what a header control might look like](example-header-control.png)
 
 ---
 
@@ -207,7 +213,7 @@ Two important attributes here are `name` and `class`.
 - The `class` attribute is used for styling (see [the earlier chapter on styling](#make-the-styling-uss)) and that will 
   be used to make sure the label will have the right look and feel for this control.
 
-Let's omit the `name` for now, and add a `class` named `header-label`.
+Let's omit the `name` for now, and add a `class` named `header-title`.
 
 !!! important
     Because class names are global for the whole application, it is **required** to make sure each class specific to 
@@ -261,6 +267,202 @@ Again, we use [USS variables](https://docs.unity3d.com/6000.3/Documentation/Manu
 say: this text should be extra-large! By using these variables we can easily change the theme later on, or provide
 variants for accessibility.
 
+### 2.3. Adding the Help Button
+
+The header also contains a help icon on the right. Netherlands3D provides a reusable control for this: `HelpButton`. It 
+displays a standardized help icon and opens a URL when clicked.
+
+Because this is a full custom control with its own layout and styling, **no additional USS rules are required** — it
+will automatically use its built‑in appearance and behaviour.
+
+The basic usage looks like this:
+
+```xml
+<nl3d:HelpButton name="HelpButton" />
+```
+
+Just as with the title label, the `name` attribute is optional, but in this case we **will use it** so our Header logic
+can easily find the element and configure its URL.
+
+Let’s add it below the title label:
+
+```xml
+<ui:UXML
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ui="UnityEngine.UIElements"
+    noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd"
+    xmlns:nl3d="Netherlands3D.UI.Components"
+    editor-extension-mode="False"
+    class="header"
+>
+    <!-- Left-aligned title -->
+    <ui:Label class="header-title" />
+
+    <!-- Right-aligned help icon -->
+    <nl3d:HelpButton name="HelpButton" />
+</ui:UXML>
+```
+
+Because the header itself uses horizontal flex layout (`flex-direction: row; justify-content: space-between;`), this
+naturally places the title on the left and the help icon on the right.
+
+## 3. Configuring a Control Using Attributes
+
+Now that the Header control has layout and styling, we want to make it **configurable from UXML**—just like built‑in UI
+elements.
+
+UI authors should be able to write:
+
+```xml
+<nl3d:Header 
+    title="My Header"
+    help-url="https://netherlands3d.eu/docs/my-topic"
+/>
+```
+
+To achieve this, we expose **UXML attributes** using the `UxmlAttribute` annotation. This is the simplest and most
+readable way to map values from UXML into a custom control.
+
+In this chapter we implement the two attributes **one at a time**:
+
+1.  `title`
+2.  `help-url`
+
+---
+
+### 3.1. Preparing the Header Logic
+
+Before attributes can be applied, we need references to the internal elements we added in earlier chapters—the label and
+the help button.
+
+```csharp
+using Netherlands3D.UI_Toolkit.Scripts;
+using Netherlands3D.UI.Components;
+using Netherlands3D.UI.ExtensionMethods;
+using UnityEngine.UIElements;
+
+namespace Netherlands3D.UI.Components
+{
+    [UxmlElement]
+    public partial class Header : VisualElement
+    {
+        private Label titleLabel;
+        private HelpButton helpButton;
+
+        public Header()
+        {
+            this.CloneComponentTree("Components");
+            this.AddComponentStylesheet("Components");
+
+            // demonstrate getting a control by their class attribute
+            titleLabel = this.Q<Label>(className: "header-title");
+
+            // demonstrate getting a control by their name attribute
+            helpButton = this.Q<HelpButton>("help");
+        }
+    }
+}
+```
+
+With these references in place, we can now configure them from UXML.
+
+---
+
+### 3.2. Adding the `title` Attribute
+
+We begin with the simplest attribute: controlling the text of the header title.
+
+**Add the public property**
+
+We expose a property that sets the text of the internal label:
+
+```csharp
+public string Title
+{
+    get => titleLabel.text;
+    set => titleLabel.text = value;
+}
+```
+
+**Mark it as a UXML attribute**
+
+By adding the `UxmlAttribute` annotation, Unity automatically makes this property available in UXML:
+
+```csharp
+[UxmlAttribute]
+public string Title [...]
+```
+
+…but we also want to **apply** its value to the internal label when Unity instantiates the control.
+
+So the final combined version becomes:
+
+```csharp
+[UxmlAttribute]
+public string Title
+{
+    get => titleLabel.text;
+    set => titleLabel.text = value;
+}
+```
+
+No extra boilerplate. No backing field. Unity handles everything under the hood.
+
+**Using the attribute in UXML**
+
+Your header now supports:
+
+```xml
+<nl3d:Header title="My Header Title" />
+```
+
+This will set the label text automatically when the UI loads.
+
+---
+
+### 3.3. Adding the `help-url` Attribute
+
+Next, we make it possible to configure the HelpButton’s URL from UXML.
+
+**Add the forwarding property**
+
+Our HelpButton exposes some property like `Url` or `HelpUrl`. We forward that through our header control:
+
+```csharp
+public string HelpUrl
+{
+    get => helpButton.HelpUrl;
+    set => helpButton.HelpUrl = value;
+}
+```
+
+**Mark it as a UXML attribute**
+
+Just like with the title:
+
+```csharp
+[UxmlAttribute]
+public string HelpUrl
+{
+    get => helpButton.HelpUrl;
+    set => helpButton.HelpUrl = value;
+}
+```
+
+Unity will now inject the UXML attribute value automatically when the control is created.
+
+**Using the attribute in UXML**
+
+Your header now supports:
+
+```xml
+<nl3d:Header 
+    help-url="https://netherlands3d.eu/docs/getting-started"
+/>
+```
+
+The HelpButton will open the correct documentation page when clicked.
+
 ---
 
 ## Best practices
@@ -268,3 +470,5 @@ variants for accessibility.
 - Use [USS variables](https://docs.unity3d.com/6000.3/Documentation/Manual/UIE-USS-CustomProperties.html) for colors, 
   spacing, and text styles. These are defined in: **`Assets/UI Toolkit/Resources/UI/_Theme.uss`**
 - Do not use magic numbers, especially for spacing. Check the theme for a list of available variables.
+- Use the `name` attribute for look-ups, not for styling
+- Use the `class` attribute for styling, not for look-ups
