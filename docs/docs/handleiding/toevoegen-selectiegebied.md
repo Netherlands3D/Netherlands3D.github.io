@@ -98,5 +98,10 @@ Je kan meerdere grids intekenen.<br>
 ![Building Blocks](../handleiding/imgs/grid.masking.mogelijkheden.png)<br>
 _Mogelijkheden uitgesneden gebieden._
 
+!!! tip "Nieuw!"
+    Stel: je hebt een geojson bestand met een projectgrens die je als masker wilt gebruiken, dat kan! Selecteer het gewenste vlak uit je geojson bestand en klik op het icoontje linksboven naast het layerpanel. Het vlak wordt dan omgezet tot een maskerlaag, zodat je die direct als clippingmask kan inzetten. 
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.tekengebied_geojson.png)<br>
+_Masker maken van geselecteerd geojson vlak._
 ---
   
