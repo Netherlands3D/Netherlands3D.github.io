@@ -47,8 +47,8 @@ Met de muis en linkermuisknop kan de volgorde van de lagen worden gewijzigd.
 _(Afbeelding) Rangschikken van lagen_
 
 !!! tip "Waarom zie ik geen effect bij het verslepen van de lagen?"
-	Het verplaatsen van lagen heeft alleen een zichtbaar effect bij lagen waarin WMS-data gekoppeld is.  
-	[zie Voorbeeld koppelen bestand met URL](../toevoegen-importeren/#bestand-bestand-via-url).
+
+    Het verplaatsen van lagen heeft alleen een zichtbaar effect bij lagen waarin WMS-data gekoppeld is. [zie Voorbeeld koppelen bestand met URL](../toevoegen-importeren/#bestand-bestand-via-url).
 
 * #### **Tonen/verbergen**   
 Klik op het `oog` voor het verbergen of tonen van de inhoud van de datalagen in de 3D-Viewer.

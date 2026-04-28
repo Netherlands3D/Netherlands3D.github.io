@@ -17,8 +17,8 @@ nav:
                   - 'Zoekfunctie': 'docs/handleiding/zoeken.md'
                   - 'Object informatie': 'docs/handleiding/object-informatie.md'
                   - 'Ondergrond doorzicht': 'docs/handleiding/ondergrond-doorzicht.md'
-                  - 'Lagen':
-                      - 'Algemeen': 'docs/handleiding/lagen.md'
+                  - 'Lagen algemeen':
+                      - 'Inleiding': 'docs/handleiding/lagen.md'
                       - 'Menu linksboven': 'docs/handleiding/lagen/#menu-linksboven'
                       - 'Standaardlagen': 'docs/handleiding/lagen/#standaardlagen'
                       - 'Laagvolgorde': 'docs/handleiding/lagen/#laagvolgorde'
@@ -27,9 +27,8 @@ nav:
                       - 'Eigenschappen': 'docs/handleiding/lagen/#eigenschappen'
                       - 'Kleurenpaneel': 'docs/handleiding/lagen/#kleurenpaneel'
                       - 'Afgeschermde bronnen': 'docs/handleiding/lagen/#afgeschermde-bronnen'
-                  - 'Lagen toevoegen':
-                      - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
-                      - 'Importeren': 'docs/handleiding/toevoegen-importeren.md'
+                  - 'Lagen toevoegen': 'docs/handleiding/lagen-toevoegen.md'
+                  - 'Lagen organiseren': 'docs/handleiding/lagen-organiseren.md'
                   - 'Zonnestand': 'docs/handleiding/zonnestand.md'
                   - 'Gebied downloaden': 'docs/handleiding/gebied-downloaden.md'
                   - 'Menu (linksonder)': 
