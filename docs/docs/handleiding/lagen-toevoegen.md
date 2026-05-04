@@ -6,20 +6,20 @@ Basisfunctie, hoofdmenu.
 
    ![Lagen Toevoegen](../handleiding/imgs/lagen.toevoegen.menu.main.png){ width="240px" align=left }
 
-Het toevoegen van lagen gebeurt via het uploaden van een eigen bestand (.nl3d/.obj/.glb/.json/.geojson/.csv), het laden via een url of het laden van lagen via de bibliotheek. Voor meer informatie over de Bibliotheek klik hier  [Bibliotheek](../bibliotheek-basis)
+Het toevoegen van lagen gebeurt via het uploaden van een eigen bestand, het laden via een url of het laden van lagen via de bibliotheek. Voor meer informatie over de Bibliotheek klik hier  [Bibliotheek](../bibliotheek-basis)
 
 </div>
 
 ### **Importeren Eigen bestand**   
 
 De functie `Importeren` biedt de mogelijkheid om **lagen en Objecten** via het importeren van bestanden of **via weblinks te koppelen**.
-<br>  
+
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png)<br> 
 _Uploaden vanaf deze computer_  
   
 Met `Uploaden vanaf deze computer` kunnen .OBJ, .CSV, .JSON, .GEOJSON en .GLB bestanden worden gekoppeld.  
 Na klikken op `Uploaden vanaf deze computer` opent de Verkenner (Windows)/Finder (MacOs) en kan het bestand worden geladen.
-<br>   
+   
 
 !!! tip "Drag and Drop"
    
@@ -27,28 +27,30 @@ Na klikken op `Uploaden vanaf deze computer` opent de Verkenner (Windows)/Finder
 
 ---
 
-### **Importeren bestand via URL**   
+### **Importeren bestand vanaf link**   
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.url.png)<br> 
 _Toevoegen vanaf link_
 
 Met **Toevoegen vanaf link** kan je databronnen (WFS, WMS, GeoJSON, 3D-Tiles) via een weblink koppelen.  
 Klik op `Toevoegen vanaf link`. Het menu; Laag toevoegen via URL wordt geopend.
-<br>  
+
 ![Building Blocks](../handleiding/imgs/lagen.import.url.menu.png)<br>
-<br>
+
 Kopieër en plak de link van het bestand in het vakje [URL link].   
 In de nabije toekomst is hier een link naar veelgebruikte WFS/WMS-lagen te vinden.
 
 Na `Toevoegen` is de **link gekoppeld** en de **data zichtbaar** in de 3D-Viewer. 
 
+---
+
 ### **Importeren van een Catalogus**
 
-Op dezelfde manier kan je ook een catalogus aan de bibliotheek toevoegen bijvoorbeeld een demo omgeving die is gepubliceerd door https://hub.clearly.app/home. Kopieër en plak de link van de catalogus https://ogc-demo.clearly.app/v2/ in het venster. Dan zal de catalogus worden toegevoegd aan de bibliotheek via de bibliotheek kan je dan alle lagen die beschikbaar zijn en voldoen aan onze importformaten, importeren in het lagenpaneel. Voor meer informatie over de Bibliotheek klik hier  [Bibliotheek](../bibliotheek-basis)<br>
+Op dezelfde manier kan je ook een catalogus aan de bibliotheek toevoegen bijvoorbeeld een demo omgeving die is gepubliceerd door https://hub.clearly.app/home. Kopieër en plak de link van de catalogus https://ogc-demo.clearly.app/v2/ in het venster. Dan zal de catalogus worden toegevoegd aan de bibliotheek via de bibliotheek kan je dan alle lagen die beschikbaar zijn en voldoen aan onze importformaten, importeren in het lagenpaneel. <div>Voor meer informatie over de Bibliotheek klik hier  [Bibliotheek](../bibliotheek-basis)</div>
+
 
  ![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek_catalogus.png)<br>
  _importeren van een catalogus_
-
 
 ---
 
@@ -57,7 +59,7 @@ Op dezelfde manier kan je ook een catalogus aan de bibliotheek toevoegen bijvoor
 ### **Bestand Importeren met .OBJ**   
 
 Stap1. Klik op `Uploaden vanaf deze computer` en importeer het .OBJ-bestand.
-<br>  
+
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.png)<br>
 _Gedetailleerde Domtoren middels .OBJ geïmporteerd_  
 

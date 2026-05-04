@@ -21,7 +21,7 @@ _toevoegen folder-menu_
 
 #### Verwijderen
 
-Met het `Prullenbak-icoon` wordt de geselecteerde laag of object verwijderd. Dit kan ook met de `del/delete-toets` van het toetsenbord. NB! Sla voor het verwijderen alle instellingen op met `Project Opslaan`. 
+Met het `Prullenbak-icoon` wordt de geselecteerde laag of object verwijderd. Dit kan ook met de `del/delete-toets` van het toetsenbord. <div>NB! Sla voor het verwijderen alle instellingen op met `Project Opslaan`. </div>
 
 ![Building Blocks](../handleiding/imgs/lagen.main.bottom.bin.png)<br>
 _verwijderen-menu_
