@@ -52,7 +52,8 @@ _(Afbeelding) Meerdere secties van 100x100 geselecteerd._
 _(Afbeelding) Keuze voor export format._
 
 !!! tip "Waarom kan ik het selectiegebied niet roteren?"
-	Het selectiegebied is altijd loodrecht op de horizontale-as/op het noorden georiënteerd.
+
+    Het selectiegebied is altijd loodrecht op de horizontale-as/op het noorden georiënteerd.
 
 * #### **Coördinaten huidige selectie**   
 Met deze functie kun je de coördinaten van het hoekpunt zuidwest en het hoekpunt noordoost naar het klembord kopiëren.
