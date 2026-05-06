@@ -3,7 +3,9 @@
 Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.tekengebied.png) <br>
-_Tekengebied activeren_
+/// caption
+Tekengebied activeren
+///
 
 
 ## Gedetailleerde beschrijving van de functies
@@ -11,7 +13,9 @@ _Tekengebied activeren_
 Met deze functie kan je één of meerdere **polygonen** (gebieden),  **lijnen** of **grids** intekenen.
 <br>  
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.tekengebied.png)<br>
-_drie keuzes polygoon, lijn of grid_
+/// caption
+drie keuzes polygoon, lijn of grid
+///
 
 Klik op `Tekengebied` om te kiezen tussen het tekenen van een Polygoon, lijn of grid in de 3D-Viewer.
 
@@ -21,7 +25,9 @@ Klik op `Polygoon` en een kleine witte bol verschijnt bij de muisaanwijzer in he
 <br>
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.TG.poly.gif)<br>
-_Intekenen polygoon_  
+/// caption
+Intekenen polygoon
+///  
 
 
 Je kan meerdere Tekengebieden intekenen.  
@@ -33,7 +39,9 @@ Door een object zoals bijvoorbeeld een boom uit de **Objectenbibliotheek** toe t
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.TG.verspreid.object.gif)<br>
-_Activeren functie **Verspreid objecten in gebied**._  
+/// caption
+Activeren functie **Verspreid objecten in gebied**
+///
 
 Doorloop de volgende stappen;  
 
@@ -49,12 +57,16 @@ Doorloop de volgende stappen;
 Klik op `Lijn` en een kleine witte bol verschijnt bij de muisaanwijzer in het 3D scherm. Klik in het scherm en teken hiermee de lijn door het eindpunt op de gewenste plek te plaatsen. [Kleuren aanpassen?] Door op één van de eindpunten te klikken kan je de lijn aanpassen.  
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.TG.line.gif)<br> 
-_Intekenen lijn_  
+/// caption
+Intekenen lijn
+///
 
 De lijndikte kan worden aangepast door op het `instellingen-icoon` te klikken. Het Eigenschappenmenu verschijnt waarmee de lijndikte van 1.00 tot 200.00 meter kan worden aangepast. Standaard is de dikte 10.00 meter.  
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.TG.lijn.dikte.png)<br>
-_Eigenschappen_  
+/// caption
+Eigenschappen
+///
 
 Je kan meerdere lijnen intekenen.  
 
@@ -64,28 +76,33 @@ Je kan meerdere lijnen intekenen.
 Klik op `Grid` en je kan met de muis, in combinatie met de linkermuisknop en shift-toets een selectiegebied selecteren.  
 
 ![Building Blocks](../handleiding/imgs/grid.masking.selectie.png)<br>
-_Meerdere secties van 100x100 geselecteerd._
-<br>
+/// caption
+Meerdere secties van 100x100 geselecteerd
+///
 
 
 ![Building Blocks](../handleiding/imgs/grid.masking.laag.png)<br>
-_Gridlaag toegevoegd._
-<br>
+/// caption
+Gridlaag toegevoegd
+///
 
 
 ![Building Blocks](../handleiding/imgs/grid.masking.eigenschappen.png)<br>
-_Eigenschappen gridlaag._
-<br>
+/// caption
+Eigenschappen gridlaag
+///
 
 
 ![Building Blocks](../handleiding/imgs/grid.masking.uitsnijden.png)<br>
-_Gebied uitsnijden in gridlaag._
-<br>
+/// caption
+Gebied uitsnijden in gridlaag
+///
 
 
 ![Building Blocks](../handleiding/imgs/grid.masking.uitsnijden.omdraaien.png)<br>
-_Uitgesneden gebied omdraaien._
-<br>
+/// caption
+Uitgesneden gebied omdraaien
+///
 
 Je kan meerdere grids intekenen.<br>
 
@@ -96,12 +113,17 @@ Je kan meerdere grids intekenen.<br>
 
 
 ![Building Blocks](../handleiding/imgs/grid.masking.mogelijkheden.png)<br>
-_Mogelijkheden uitgesneden gebieden._
+/// caption
+Mogelijkheden uitgesneden gebieden.
+///
 
 !!! tip "Nieuw!"
     Stel: je hebt een geojson bestand met een projectgrens die je als masker wilt gebruiken, dat kan! Selecteer het gewenste vlak uit je geojson bestand en klik op het icoontje linksboven naast het layerpanel. Het vlak wordt dan omgezet tot een maskerlaag, zodat je die direct als clippingmask kan inzetten. 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.tekengebied_geojson.png)<br>
-_Masker maken van geselecteerd geojson vlak._
+/// caption
+Masker maken van geselecteerd geojson vlak.
+///
+
 ---
   

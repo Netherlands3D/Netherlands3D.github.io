@@ -20,7 +20,9 @@ Met **Gebied downloaden** kunnen delen van een gebied worden opgeslagen en in an
 <video controls>
 <source src="../video/gebied.downloaden.mp4" type="video/mp4">
 </video>
-_(Video) Gebied downloaden_
+/// caption
+(Video) Gebied downloaden
+///
 
 ---
 
@@ -29,7 +31,9 @@ _(Video) Gebied downloaden_
 Door met de muis op het `Gebied downloaden-icoon` in het hoofdmenu te klikken wordt de tool actief. Het menu klapt open en de **instellingen worden zichtbaar**.
 
 ![Building Blocks](../handleiding/imgs/gebied.downloaden.menu.png){ width="350px" }  
-_(Afbeelding) Gebied downloaden-menu_
+/// caption
+(Afbeelding) Gebied downloaden-menu
+///
 
 ---
 
@@ -39,17 +43,23 @@ _(Afbeelding) Gebied downloaden-menu_
 Na het activeren van de functionaliteit wordt het menu actief en kun je met de muis meerdere secties van 100x100 meter selecteren.
 
 ![Building Blocks](../handleiding/imgs/gebied.downloaden.segment.png)
-_(Afbeelding) Gebied downloaden, 100x100 sectie_
+/// caption
+(Afbeelding) Gebied downloaden, 100x100 sectie
+///
  
 * #### **Selecteer gebied**   
 Door met de muis, in combinatie met de linkermuisknop en shift-toets te slepen kun je het selectiegebied vergroten.  
 
 ![Building Blocks](../handleiding/imgs/gebied.downloaden.selectie.png)
-_(Afbeelding) Meerdere secties van 100x100 geselecteerd._
+/// caption
+(Afbeelding) Meerdere secties van 100x100 geselecteerd
+///
 
 * #### **Export format kiezen**
 ![Building Blocks](../handleiding/imgs/gebied.downloaden.export.format.png)  
-_(Afbeelding) Keuze voor export format._
+/// caption
+(Afbeelding) Keuze voor export format
+///
 
 !!! tip "Waarom kan ik het selectiegebied niet roteren?"
 

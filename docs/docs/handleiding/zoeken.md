@@ -22,7 +22,7 @@ Na het klikken op het vergrootglas opent de **zoekbalk**.
 
 ![Building Blocks](../handleiding/imgs/zoeken.balk.menu.main.png){ width="350px" }
 /// caption
-_(Afbeelding) Zoekbalk geopend_  
+(Afbeelding) Zoekbalk geopend
 ///
 
 ---
@@ -33,5 +33,5 @@ Tijdens het invullen van een **plaats of adres**, vindt het systeem al de eerste
 
 ![Building Blocks](../handleiding/imgs/zoeken.resultaat.menu.main.png){ width="350px" }
 /// caption
-_(Afbeelding) Zoekbalk resultaat_  
+(Afbeelding) Zoekbalk resultaat
 ///

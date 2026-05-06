@@ -18,7 +18,9 @@ Met het doorzicht koepelvenster worden delen van datalagen en/of objecten welke 
 
 <video controls>
 <source src="../video/ondergrond.doorzicht.mp4" type="video/mp4"></video>
-_(Video) Ondergrond doorzicht_ 
+/// caption
+(Video) Ondergrond doorzicht
+///
 
 ---
 
@@ -28,7 +30,9 @@ _(Video) Ondergrond doorzicht_
 Door met de muis op het `Ondergrond doorzicht-icoon` in het hoofdmenu te klikken wordt de tool actief. Het doorzicht koepelvenster is nu aan de locatie/beweging van de muis gekoppeld.
 
 ![Building Blocks](../handleiding/imgs/ondergrond.menu.png){ width="350px" }  
-_(Afbeelding) Ondergrond doorzicht_
+/// caption
+(Afbeelding) Ondergrond doorzicht
+///
 
 ---
 
@@ -41,4 +45,6 @@ De koepel beweegt mee met de muis over het gebied waarvan de ondergrond zichtbaa
 Door met de muis over het witte vierkant te bewegen verschijnt een hand waarmee na het `[klikken en vasthouden van de linkermuisknop]` en het slepen van de muis de grootte van het doorzicht koepelvenster kan worden aangepast. Hiermee wordt een groter c.q. kleiner gebied onder het maaiveld zichtbaar.
 
 ![Building Blocks](../handleiding/video/ondergrond.gif){ width="350px" }  
-_(Afbeelding) Aanpassen diameter koepelvenster_
+/// caption
+(Afbeelding) Aanpassen diameter koepelvenster
+///

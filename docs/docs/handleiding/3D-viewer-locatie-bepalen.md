@@ -1,7 +1,9 @@
 # Locatie bepalen
-![Building Blocks](../handleiding/imgs/instellingen.main.png)  
-_(Afbeelding) Locatie bepalen - submenu_  
-<br>
+![Building Blocks](../handleiding/imgs/instellingen.main.png)<br>
+/// caption
+(Afbeelding) Locatie bepalen - submenu
+///
+
 Met deze functie kun je de **locatie invoeren**. Dit kan op drie manieren;
 <ol>
 <li>Door met de muis op een locatie in de map te klikken</li>   

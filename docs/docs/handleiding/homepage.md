@@ -36,7 +36,9 @@ donkere achtergrond of `Light`; donkere tekst op een lichte achtergrond. In de D
 energie en hoeft het systeem in het geval van een laptop minder snel te worden opgeladen.
 
 ![Building Blocks](../handleiding/imgs/schermmodus.gif)
-_(Afbeelding) Dark/Light modus_
+/// caption
+(Afbeelding) Dark/Light modus
+///
 
 ---
 
