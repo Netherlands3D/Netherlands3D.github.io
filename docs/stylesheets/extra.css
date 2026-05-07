@@ -14,9 +14,6 @@
     --md-code-font: "Roboto Mono";
 }
 
-figcaption {
-    font-style: italic;
-}
 .md-typeset {
     line-height: 1.5;
     letter-spacing: 0.015em;
@@ -51,6 +48,10 @@ figcaption {
 .md-typeset figure {
     margin: 0;
     text-align: left;
+}
+.md-typeset figcaption {
+    margin: 0;
+    font-style: italic;
 }
 
 .md-tabs__item.md-tabs__item--active {
