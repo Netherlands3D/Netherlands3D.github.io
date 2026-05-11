@@ -1,8 +1,8 @@
 # Applicatie instellingen
 
-![Building Blocks](../handleiding/imgs/instellingen.sub.png)
+![Building Blocks](../handleiding/imgs/instellingen.sub.png)<br>
 /// caption
-(Afbeelding) _Applicatie instellingen_  
+(Afbeelding) Applicatie instellingen
 ///
 
 ## (Beeld)kwaliteit

@@ -3,7 +3,9 @@
 Functies, Lagen, Bibliotheek.  
   
 ![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek_fotorealistischewereld.png)<br>
-_Fotorealistische Wereld activeren_
+/// caption
+Fotorealistische Wereld activeren
+///
 
 
 ## Gedetailleerde beschrijving van de functies
@@ -16,7 +18,9 @@ Klik op `Fotorealistische Wereld` en de laag **RealityMesh (3D Tiles)** wordt to
 <br>
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.google.1.png)<br>
-_Utrecht CS in 3DBAG_  
+/// caption
+Utrecht CS in 3DBAG
+///
 <br>
 
 !!! tip "Waarom is de deze functie beschermd?"	
@@ -29,7 +33,9 @@ Klik op `Update` om verder te gaan.
 ### **Met Gebruikersnaam en Wachtwoord**
 Toegangsscherm met Gebruikersnaam en Wachtwoord:
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.google.login.png)<br>
-_Toegangsscherm met gebruikersnaam en wachtwoord_  
+/// caption
+Toegangsscherm met gebruikersnaam en wachtwoord
+///
 <br>
 
 Bij andere datasets met Gebruikersnaam en wachtwoord kan je die hier invullen, maar bij de Fotorealistische wereld is alleen een API-key voldoende.
@@ -39,7 +45,9 @@ Bij andere datasets met Gebruikersnaam en wachtwoord kan je die hier invullen, m
 Klik op het vinkje in het `pull-down-menu` met het slotje naast **Toegang bescherm...** en het volgende menu verschijnt;   
 <br>
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.google.sleutel.png)<br>
-_Toegangsscherm met Google-sleutel_  
+/// caption
+Toegangsscherm met Google-sleutel
+///
 <br>
 
 Plak de sleutel in het veld `Typen` en klik op `Bevestigen`. De 3D Tiles worden direct geladen. 
@@ -48,7 +56,9 @@ Plak de sleutel in het veld `Typen` en klik op `Bevestigen`. De 3D Tiles worden 
 	Indien er geen gebruikersnaam/wachtwoord beschikbaar is; Ga naar Google en maak via een eigen Google-account een 'sleutel’ aan. Hoe je dat doet lees je hier (externe link); [Aanmaken Google-sleutel](https://developers.google.com/maps/documentation/embed/get-api-key). Check ook vooral de voorwaarden, in de meeste gevallen is het gebruik gratis (hangt af van hoeveelheid gebruik)
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.google.example.png)<br>
-_Utrecht CS in Google Earth 3D Tiles_ 
+/// caption
+Utrecht CS in Google Earth 3D Tiles
+///
 
 ---
 !!! tip "Ik zie na het inloggen geen 3D Tiles in de viewer?"	

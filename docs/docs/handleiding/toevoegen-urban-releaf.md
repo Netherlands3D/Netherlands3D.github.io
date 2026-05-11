@@ -3,7 +3,9 @@
 Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.UR.png)<br>
-_Urban ReLeaf activeren_
+/// caption
+Urban ReLeaf activeren
+///
 
 ---
 
@@ -28,7 +30,9 @@ Als je op een hexagoon klikt, zie je de gemeten waarde in de ingestelde periode 
 Klik op `Temperatuur`, `Vochtigheid` en/of `Thermisch ongemak` en de bijbehorende laag wordt toegevoegd en de hexagonen geladen.  
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.UR.main.menu.png)<br>
-_Toevoegen / Urban ReLeaf_
+/// caption
+Toevoegen / Urban ReLeaf
+///
 
 ---
 
@@ -38,7 +42,9 @@ Klik bij de Lagen op het `instellingen-icoon` en je kan de **eigenschappen van d
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.UR.temp.eigenschappen.png)<br> 
-_Eigenschappen van de hexagon-weergave_  
+/// caption
+Eigenschappen van de hexagon-weergave
+///
 
 ---
 
@@ -51,7 +57,10 @@ Met het **aanpassen** van de `Start datum` en/of de `Eind datum` kunnen de **uit
 Met het aanpassen van `Minimum waarde` en/of `Maximum waarde` – door de schuif naar links of naar rechts te verplaatsen - worden de **gebieden** die binnen de in-te-stellen **bandbreedte** vallen **weergegeven**. Met de `kleuren-tool` kan het kleurenverloop van minimum- naar maximumwaarde worden aangepast.  
 <br>
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.UR.example.png)<br> 
-_Weergave uitkomsten Temperatuurmeting Urban ReLeaf_  
+/// caption
+Weergave uitkomsten Temperatuurmeting Urban ReLeaf
+///
 <br> 
 Kijk op [https://urbanreleaf.eu/](https://urbanreleaf.eu/) voor meer informatie.
-<br> 
+
+---

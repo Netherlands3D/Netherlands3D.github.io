@@ -3,7 +3,9 @@
 Functies, Lagen, submenu.  
   
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.ob.png)<br>
-_(Afbeelding) Toevoegen / Objecten bibliotheek_
+/// caption
+(Afbeelding) Toevoegen / Objecten bibliotheek
+///
 
 ---
 
@@ -26,7 +28,9 @@ Je kunt kiezen uit:
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.png)<br>
-_Toevoegen objecten uit de Objecten bibliotheek_
+/// caption
+Toevoegen objecten uit de Objecten bibliotheek
+///
 
 ////
 
@@ -37,10 +41,14 @@ _Toevoegen objecten uit de Objecten bibliotheek_
 Klik op `Annotatie` om een opmerking in de viewer te plaatsen. De annotatie start blanco. Door er op te dubbelklikken kan je deze met tekst vullen. Je kan er ook meerdere maken, zodat je notities of opmerkingen bij kan houden.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.annotatie.activeren.png)<br>
-_Annotatie toevoegen_
+/// caption
+Annotatie toevoegen
+///
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.annotatie.png)<br>
-_Annotatie toegevoegd en ingevuld_
+/// caption
+Annotatie toegevoegd en ingevuld
+///
 
 ---
 
@@ -51,17 +59,23 @@ Klik op `Bomen` om in het submenu van bomen te komen.
 ---
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.bomen.activeren.png)<br>
-_Bomen menu activeren_
+/// caption
+Bomen menu activeren
+///
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.bomen.keuze.png)<br>
-_Bomenkeuze; Amerikaanse Linde, Berk, Beuk of Canadapopulier_
+/// caption
+Bomenkeuze; Amerikaanse Linde, Berk, Beuk of Canadapopulier
+///
 
 Door te klikken op de verschillende bomen wordt een boom geplaatst in de viewer.
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.bomen.png)<br>
-_Bomen; vlnr Amerikaanse Linde, Berk, Beuk of Canadapopulier_
+/// caption
+Bomen; vlnr Amerikaanse Linde, Berk, Beuk of Canadapopulier
+///
 
 ---
 ### Camera Positie
@@ -70,10 +84,14 @@ Klik op `Camera Positie` om een camera in de viewer te plaatsen. Je plaatst de  
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.camera.activeren.png)<br>
-_Camera Positie toevoegen_
+/// caption
+Camera Positie toevoegen
+///
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.camera.png)<br>
-_Camera Positie_
+/// caption
+Camera Positie
+///
 
 ---
 
@@ -82,10 +100,14 @@ _Camera Positie_
 Klik op `Kubus` om een kubus in de viewer zichtbaar te maken. De kubus heeft een standaardafmeting van 10x10x10 meter.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.kubus.activeren.png)<br>
-_Kubus toevoegen_
+/// caption
+Kubus toevoegen
+///
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.kubus.png)<br>
-_Kubus ObjectenBibliotheek_
+/// caption
+Kubus ObjectenBibliotheek
+///
 
 ---
 
@@ -94,10 +116,14 @@ _Kubus ObjectenBibliotheek_
 Klik op `NAP Vlak` om een (horizontaal)vlak in de viewer zichtbaar te maken. Met dit vlak kun je de NAP hoogte van een terrein of gebouw bepalen of eenvoudig laten zien welke gebieden in Nederland kunnen overstromen als de dijken doorbreken.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.nap.activeren.png)<br>
-_NAP Vlak toevoegen_
+/// caption
+NAP Vlak toevoegen
+///
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.nap.png)<br>
-_NAP Vlak_
+/// caption
+NAP Vlak
+///
 
 ---
 
@@ -106,10 +132,14 @@ _NAP Vlak_
 De functie Ontwikkeling Zuidoost is een bijzonder onderdeel van de Objecten Bibliotheek. Met deze functie worden de Nieuwbouwontwikkelingen in het gebied Amsterdam-Zuidoost in de viewer gekoppeld. Klik op `Ontwikkeling Zuidoost` om deze te activeren.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.ontwikkeling.zo.activeren.png)<br>
-_Ontwikkeling Amsterdam-Zuidoost toevoegen_
+/// caption
+Ontwikkeling Amsterdam-Zuidoost toevoegen
+///
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.ontwikkeling.zo.png)<br>
-_Ontwikkeling Amsterdam-Zuidoost_
+/// caption
+Ontwikkeling Amsterdam-Zuidoost
+///
 
 ---
 
@@ -119,10 +149,14 @@ Klik op `Reuzenrad` om een draaiend Reuzenrad in de viewer zichtbaar te maken.
 
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.reuzenrad.activeren.png)<br>
-_Reuzenrad ObjectenBibliotheek_
+/// caption
+Reuzenrad ObjectenBibliotheek
+///
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.reuzenrad.gif){ width="480px" }<br>
-_Reuzenrad ObjectenBibliotheek_
+/// caption
+Reuzenrad ObjectenBibliotheek
+///
 
 ---
 
@@ -133,9 +167,13 @@ standaardhoogte van 70 meter met een Rotordiameter van 54.50 meter. De afmetinge
 menu van de Windmolen.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.windmolen.activeren.png)<br>
-_Windmolen toevoegen_
+/// caption
+Windmolen toevoegen
+///
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.ob.windmolen.gif){ width="480px" }<br>
-_Windmolen_
+/// caption
+Windmolen
+///
 
 ---

@@ -15,7 +15,9 @@ Het toevoegen van lagen gebeurt via het uploaden van een eigen bestand, het lade
 De functie `Importeren` biedt de mogelijkheid om **lagen en Objecten** via het importeren van bestanden of **via weblinks te koppelen**.
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png)<br> 
-_Uploaden vanaf deze computer_  
+/// caption
+Uploaden vanaf deze computer
+///
   
 Met `Uploaden vanaf deze computer` kunnen .OBJ, .CSV, .JSON, .GEOJSON en .GLB bestanden worden gekoppeld.  
 Na klikken op `Uploaden vanaf deze computer` opent de Verkenner (Windows)/Finder (MacOs) en kan het bestand worden geladen.
@@ -30,12 +32,17 @@ Na klikken op `Uploaden vanaf deze computer` opent de Verkenner (Windows)/Finder
 ### **Importeren bestand vanaf link**   
 
 ![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.url.png)<br> 
-_Toevoegen vanaf link_
+/// caption
+Toevoegen vanaf link
+///
 
 Met **Toevoegen vanaf link** kan je databronnen (WFS, WMS, GeoJSON, 3D-Tiles) via een weblink koppelen.  
 Klik op `Toevoegen vanaf link`. Het menu; Laag toevoegen via URL wordt geopend.
 
 ![Building Blocks](../handleiding/imgs/lagen.import.url.menu.png)<br>
+/// caption
+Werkwijze
+///
 
 Kopieër en plak de link van het bestand in het vakje [URL link].   
 In de nabije toekomst is hier een link naar veelgebruikte WFS/WMS-lagen te vinden.
@@ -50,7 +57,9 @@ Op dezelfde manier kan je ook een catalogus aan de bibliotheek toevoegen bijvoor
 
 
  ![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek_catalogus.png)<br>
- _importeren van een catalogus_
+ /// caption
+ importeren van een catalogus
+///
 
 ---
 
@@ -61,7 +70,9 @@ Op dezelfde manier kan je ook een catalogus aan de bibliotheek toevoegen bijvoor
 Stap1. Klik op `Uploaden vanaf deze computer` en importeer het .OBJ-bestand.
 
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.png)<br>
-_Gedetailleerde Domtoren middels .OBJ geïmporteerd_  
+/// caption
+Gedetailleerde Domtoren middels .OBJ geïmporteerd
+///
 
 Na het **importeren** wordt het **Object in de 3D omgeving** en in de lijst onder Lagen **zichtbaar**.  
 
@@ -76,14 +87,18 @@ Stap 2a. Het geselecteerde Object kan met de **transformatie-tools** op de **jui
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.trans.png){ width="248px" }
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.rot.png){ width="248px" }
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.scale.png){ width="248px" }  
-_Verplaatsen, roteren en verschalen met de transformatie-tool_
+/// caption
+Verplaatsen, roteren en verschalen met de transformatie-tool
+///
 
 ---
 
 Stap 2b. Met de `Eigenschappen` -functie kan de **locatie, oriëntatie en schaal** van het geimporteerde Object **handmatig worden ingevoerd**.  
 
 ![Building Blocks](../handleiding/imgs/lagen.import.obj.example.png)
-_Handmatig invoeren van locatie, oriëntatie en schaal._ 
+/// caption
+Handmatig invoeren van locatie, oriëntatie en schaal
+///
  
 --- 
  
@@ -96,10 +111,14 @@ Klik op `Bestand toevoegen` in het Eigenschappen-menu en selecteer het .mtl-best
 Klik op `Toevoegen vanaf link` en koppel de link.   
 <br>
 ![Building Blocks](../handleiding/imgs/lagen.import.url.example1.png)
-_Voorbeeld 1;  Luchtfoto's van Nederland gekoppeld met WMS-link_  
+/// caption
+Voorbeeld 1;  Luchtfoto's van Nederland gekoppeld met WMS-link
+///
 
 ---
 
 ![Building Blocks](../handleiding/imgs/lagen.import.url.example2.png)
-_Voorbeeld 2;  Landelijke BRT kaart gekoppeld met WMS-link_
+/// caption
+Voorbeeld 2;  Landelijke BRT kaart gekoppeld met WMS-link
+///
 ---

@@ -15,7 +15,9 @@ Om de First Person Viewer te starten, volg je de onderstaande stappen:
 <br>
 
 ![Building Blocks](../handleiding/video/fpv_enter.gif){ width="800px" }  
-
+/// caption
+Werking First Person Viewer
+///
 
 ---
 
@@ -28,7 +30,9 @@ Als muisvergrendeling aanstaat, kun je de muis loslaten door éénmaal op **Back
 - Druk één keer op Backspace om de muis vrij te geven, en klik vervolgens rechtsboven op de 'verlaten' knop om de First Person Viewer te verlaten. 
 
 ![Building Blocks](../handleiding/video/fpv_verlaten.gif){ width="800px" }  
-
+/// caption
+Verlaten First Person Viewer
+///
 
 ---
 ### Muisvergrendeling
@@ -148,12 +152,18 @@ De first person viewer heeft vier bewegings-modi, lopen en vliegen. Je kunt van 
 In het instellingenpaneel kun je de instellingen van de huidige modus aanpassen. Typ zelf de gewenste waardes in en klik vervolgens uit het veld om de waardes vast te leggen.
 
 ![Building Blocks](../handleiding/video/fpv_settings_aanpassen.gif){ width="800px" }  
+/// caption
+Instellingen aanpassen
+///
 
 ---
 
 ## Functionaliteiten
 
-![Building Blocks](../handleiding/imgs/fpv_functionaliteiten.png){ width="400px" }  
+![Building Blocks](../handleiding/imgs/fpv_functionaliteiten.png){ width="400px" }
+/// caption
+Functionaliteiten
+/// 
 
 De first person viewer heeft enkele functionaliteiten die in de beta versie beschikbaar zijn voor gebruik:
 
@@ -202,3 +212,8 @@ De first person viewer heeft enkele functionaliteiten die in de beta versie besc
 - Snap up: Verplaatst je naar de hoogste positie boven je. (Handig voor als je onder het maaiveld of een gebouw bent gekomen).
 
 ![Building Blocks](../handleiding/imgs/fpv_navigatiebuttons.png){ width="400px" }  
+/// caption
+Navigatieknoppen
+///
+
+---

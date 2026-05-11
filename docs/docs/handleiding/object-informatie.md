@@ -35,7 +35,7 @@ verschijnt onderstaande tekst in beeld.
 
 ![Building Blocks](../handleiding/imgs/object.info.menu.open.png){ width="350px" }  
 /// caption
-_(Afbeelding) Object informatie-toelichting_
+(Afbeelding) Object informatie-toelichting
 ///
 
 ---

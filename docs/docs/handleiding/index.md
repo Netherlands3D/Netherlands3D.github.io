@@ -15,7 +15,9 @@ De homepage van Netherlands3d.eu biedt toegang tot de verschillende **hoofdstukk
 ### **Hoofdmenubalk**
 
 ![Building Blocks](../handleiding/imgs/hoofdmenubalk.png)
-_(Afbeelding) Hoofdmenubalk_
+/// caption
+(Afbeelding) Hoofdmenubalk
+///
 
 ### **Functionaliteiten**
 
@@ -34,7 +36,9 @@ In het hoofdstuk Handleiding vind je een gedetailleerde beschrijving van alle fu
 Door op het `Schermmodus-icoon` te klikken kan de interface kan de modus veranderd worden in `Dark`; lichte tekst op een donkere achtergrond of `Light`; donkere tekst op een lichte achtergrond. In de Dark modus gebruikt het systeem minder energie en hoeft het systeem in het geval van een laptop minder snel te worden opgeladen.
 
 ![Building Blocks](../handleiding/imgs/schermmodus.gif)
-_(Afbeelding) Dark/Light modus_
+/// caption
+(Afbeelding) Dark/Light modus
+///
 
 * #### **Zoeken**   
 Deze zoekfunctie biedt de mogelijkheid om naar trefwoorden te zoeken binnen Netherlands3D.eu. Vul de zoekterm(en) in bij `Zoeken` en de lijst met klikbare resultaten wordt in de context (hoofdstuk en alinea) getoond.
@@ -44,7 +48,9 @@ Deze zoekfunctie biedt de mogelijkheid om naar trefwoorden te zoeken binnen Neth
 ###  **Headline**
 
 ![Building Blocks](../handleiding/imgs/headliner.png)
-_(Afbeelding) Headline_
+/// caption
+(Afbeelding) Headline
+///
 
 * #### **Bekijk de viewer**   
 Met de knop `Bekijk de viewer` in de headline wordt de 3D-viewer functionaliteit gestart.  
@@ -58,7 +64,9 @@ Met de knop `Wat is het?` wordt de tekst ’Wat is Netherlands3D?’ onder het o
 ###  **Content**
 
 ![Building Blocks](../handleiding/imgs/content.png)
-_(Afbeelding) Content_
+/// caption
+(Afbeelding) Content
+///
 
 De content bevat een algemene beschrijving van Netherlands3D.eu.
 
@@ -67,6 +75,8 @@ De content bevat een algemene beschrijving van Netherlands3D.eu.
 ### **Footer** 
 
 ![Building Blocks](../handleiding/imgs/footer.png)
-_(Afbeelding)  Footer_
+/// caption
+(Afbeelding)  Footer
+///
 
 Deze laag bevat de logo's van de bij Netherlds3D.eu betrokken provincies en de mogelijkheid om door de hoofdstukken van het hoofdmenu in de hoofdbalk te bladeren.
