@@ -4,9 +4,9 @@ _(Afbeelding) Locatie bepalen - submenu_
 <br>
 Met deze functie kun je de **locatie invoeren**. Dit kan op drie manieren;
 <ol>
-<li>Door met de muis op een locatie in de map te klikken</li>   
 <li>Door het invoeren van een plaats-, straatnaam en/of postcode</li>   
 <li>Door bij X, Y een coördinaat* in te voeren</li>
+<li>Door met de muis op een locatie in de minimap te klikken</li>   
 </ol>  
 
 !!! tip "Waarom kan ik geen gps-coördinaten invoeren?"
