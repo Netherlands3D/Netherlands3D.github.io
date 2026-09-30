@@ -32,37 +32,6 @@ Creating blocks for Netherlands3D requires attention to:
 
 - **Adaptability:** Make blocks adaptable for different types of content and scenarios within the platform.
 
-## Managing Blocks
-
-The evolution of Netherlands3D involves regular updates to blocks, including additions, removals, or modifications. This
-process entails:
-
-1. **Planning:** Identifying the need based on user feedback or new functionalities.
-
-2. **Design and Development:** Crafting the block to fit Netherlands3D's design norms and technical specifications.
-
-3. **Testing:** Ensuring compatibility and performance across devices.
-
-4. **Implementation:** Incorporating the block into Netherlands3D and monitoring its effectiveness.
-
-## Distinction Between Blocks and Components
-
-Blocks and components are fundamental elements of the Netherlands3D UI, but they serve distinct purposes.
-
-**Blocks** are the overarching sections that structure and organize the user interface, similar to the chapters in a
-book. They are designed for flexibility, accommodating a variety of components to fulfill different functionalities
-within the platform. Blocks ensure a consistent layout and design language across Netherlands3D, providing a cohesive
-user experience.
-
-**Components**, on the other hand, are the detailed, interactive or static elements such as buttons, text fields, and
-sliders that reside within blocks. These elements are highly customizable and reusable, designed to perform specific
-functions or convey particular information. Components depend on blocks for context and placement, but their modularity
-allows them to be used in multiple scenarios across the platform.
-
-The primary distinction lies in their scale and function: blocks form the UI's structural foundation, while components
-populate these structures with content and interactivity. Understanding this difference is crucial for efficient design
-and development within Netherlands3D, ensuring a robust and user-friendly interface.
-
 ## Conclusion
 
 Blocks are foundational to the Netherlands3D UI design system, offering the structural basis for our digital twin

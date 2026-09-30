@@ -1,13 +1,13 @@
 ﻿# Add styling support to layers
 
-### Goal
+## Goal
 
 Show how to extend `LayerGameObject` to surface its visual elements as `LayerFeature` instances, and how to build a
 companion “Styler” class that applies and persists style rules to your layer’s features.
 
 ---
 
-### Prerequisites
+## Prerequisites
 
 * You already have a subclass of `LayerGameObject` for your custom layer type (e.g. `MyCustomLayerGameObject`).
 * You understand the basics of the Netherlands3D Expression & Styling system (see “How to color parts of the terrain”
@@ -15,7 +15,7 @@ companion “Styler” class that applies and persists style rules to your layer
 
 ---
 
-### Step 1: Expose your features
+## Step 1: Expose your features
 
 In your `LayerGameObject` subclass’s `Awake()`, create one `LayerFeature` per visual element (e.g. per material, 
 per mesh, per component). This lets the styling engine treat them as independent style targets.
@@ -49,7 +49,7 @@ The styling system only sees what you expose as `LayerFeatures`. By calling `Cre
 
 ---
 
-### Step 2: Annotate each feature with identifying attributes
+## Step 2: Annotate each feature with identifying attributes
 
 Override `AddAttributesToLayerFeature` to record everything the Styler needs—e.g. material index, material name, any
 semantic tags.
@@ -91,7 +91,7 @@ more attributes may be needed.
 
 ---
 
-### Step 3: Implement `ApplyStyling` to invoke your Styler
+## Step 3: Implement `ApplyStyling` to invoke your Styler
 
 Override `ApplyStyling` and, for each feature, request the resolved `Symbolizer` using the `GetStyling()` method and 
 hand it off to your custom Styler class.
@@ -116,12 +116,12 @@ Calling `base.ApplyStyling()` at the end ensures events fire for UI panels, prop
 
 ---
 
-### Step 4: Build your “Styler” helper
+## Step 4: Build your “Styler” helper
 
 Encapsulate all expression-creation and object-manipulation logic in a static helper class (e.g. `MyCustomLayerStyler`).
 This keeps your layer class clean and makes styling behavior discoverable.
 
-#### Step 4a: Register and Retrieve Styling Rules
+### Step 4a: Register and Retrieve Styling Rules
 
 Before you can apply visuals, your Styler must expose methods to register new style rules and retrieve saved styles for
 UI integration.
@@ -140,7 +140,7 @@ UI integration.
 This separation ensures that style registration and UI display logic live in your Styler class, cleanly apart from
 rendering.
 
-#### Step 4b: Applying styling rules
+### Step 4b: Applying styling rules
 
 To update any visuals, the Apply method must take the resolved `Symbolizer` — which encapsulates all style 
 properties for a feature—and translate those into concrete modifications on your layer’s objects. 
@@ -180,7 +180,7 @@ public static class MyCustomLayerStyler
 
 ---
 
-### Verification
+## Verification
 
 1. Enter Play Mode and open your custom layer’s property panel.
 2. Define a new style rule (e.g. “material == 2 → color = red”).
@@ -189,8 +189,14 @@ public static class MyCustomLayerStyler
 
 ---
 
-### What’s next?
+## What’s next?
 
 * Add support for line-width, opacity or other symbolizer properties.
 * Expose a color-picker or style-preset dropdown in your layer’s UI.
 * Document your Styler API so other developers can discover available expressions.
+
+---
+
+## Further Reading
+
+- [Explanation: Layer styling](../styling.md) - for more in-depth information how the styling system works.

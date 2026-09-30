@@ -38,7 +38,7 @@ image.
 
     - By mounting a folder, configurations or files can be modified without rebuilding the container.
     - In environments that support file-level mounts (like Docker), it is more efficient to directly mount a file
-      to `/usr/share/nginx/html/StreamingAssets/DefaultTemplate.nl3d`, as changes become immediately visible without
+      to `/usr/share/nginx/html/StreamingAssets/ProjectTemplate.nl3d`, as changes become immediately visible without
       restarting the container.
 
 ## General Steps for Configuring a Mount
@@ -47,11 +47,11 @@ image.
     - Ensure the storage location (e.g., a folder on a server or a cloud storage container) is configured and
       accessible.
 2. **Place the project file:**
-    - Place the custom project file (e.g., **`DefaultTemplate.nl3d`**) in the external storage location.
+    - Place the custom project file (e.g., **`ProjectTemplate.nl3d`**) in the external storage location.
 3. **Configure the mount:**
     - Set up the mount so that the external storage location is linked to the desired directory in the Docker container,
       such as **`/usr/share/nginx/html/StreamingAssets/Projects/`**. For a single file mount, use *
-      *`/usr/share/nginx/html/StreamingAssets/DefaultTemplate.nl3d`**.
+      *`/usr/share/nginx/html/StreamingAssets/ProjectTemplate.nl3d`**.
 
     - Restart the application or container to apply the new configuration. A single file mount does not require a
       restart.
@@ -63,19 +63,19 @@ image.
 Here is an example of how to configure a mount using the Docker command line when running Netherlands3D locally:
 
 1. **Make the project file available:**
-    - Ensure the custom project file **`DefaultTemplate.nl3d`** is available on your local system or an external storage
+    - Ensure the custom project file **`ProjectTemplate.nl3d`** is available on your local system or an external storage
       location.
 2. **Start the Docker container with a file mount:**
     - Use the following command to start the container:
 
         ```bash
         docker run -d \
-          -v /path/to/DefaultTemplate.nl3d:/usr/share/nginx/html/StreamingAssets/DefaultTemplate.nl3d \
+          -v /path/to/ProjectTemplate.nl3d:/usr/share/nginx/html/StreamingAssets/ProjectTemplate.nl3d \
           --name netherlands3d \
           ghcr.io/netherlands3d/twin:latest
         ```
 
-      In this example, the file **`/path/to/DefaultTemplate.nl3d`** is directly linked to the expected location in the
+      In this example, the file **`/path/to/ProjectTemplate.nl3d`** is directly linked to the expected location in the
       container.
 3. **No restart required:**
     - Since the file is mounted directly, changes are immediately visible without restarting the container.
@@ -90,7 +90,7 @@ Below are the steps to set this up using the Azure Portal:
     - In the Blob Storage for your environment, create a container to store project files, for example, named *
       *`projects`**.
 2. **Upload the project file:**
-    - Upload the new default project file, named **`DefaultTemplate.nl3d`**, to the container.
+    - Upload the new default project file, named **`ProjectTemplate.nl3d`**, to the container.
 3. **Go to the Web App Service:**
     - Open the Azure Portal and navigate to the Web App Service for your environment.
 4. **Open Settings:**
@@ -106,9 +106,9 @@ Below are the steps to set this up using the Azure Portal:
     - Enter the following value for **`Mount Path`**: **`/usr/share/nginx/html/StreamingAssets/Projects/`**.
     - This makes the contents of the Blob Storage container available at this location in the Docker container.
 8. **Save Settings:**
-    - Click **`Ok`**, and then **`Save`** to save the changes.
+    - Click **`Add`** to save the changes.
 9. **Restart the Web App Service:**
     - Go back to the **`Overview`** page for the Web App Service and click **`Restart`**. This will restart the Docker
-      container and initialize the **`DefaultTemplate.nl3d`** file.
+      container and initialize the **`ProjectTemplate.nl3d`** file.
 10. **Check in the browser:**
     - Open the application in the browser to verify that the configuration has been applied correctly.

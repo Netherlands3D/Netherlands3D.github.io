@@ -25,6 +25,11 @@ Netherlands3D is developed in Unity, thus you'll need few prerequisites to start
     
 2. Clone the Netherlands3D/twin repository from GitHub:
 
+    !!! warning
+        The projects contains long paths, make sure you clone in a folder that is not too deeply nested - see 
+        [https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry) 
+        for more information.
+
     ```bash
     git clone https://github.com/Netherlands3D/twin.git
     ```

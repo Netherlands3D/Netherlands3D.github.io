@@ -1,9 +1,5 @@
 ﻿## Features
 
-!!!question
-Moeten we wel een systeem voor features introduceren, of is dit een gevolg? Dat een WFS bevraagd kan worden door
-bbox's aan te brengen en de features op dit tegel een bij-effect zijn en gebeuren door observers?
-
 ### Wat is een feature?
 
 Een abstractie van reële wereldverschijnselen. Een digitale representatie van een echt bestaande entiteit of een
@@ -17,8 +13,9 @@ Bronnen:
 - [W3C-SDW#feature](https://www.w3.org/TR/sdw-bp/#dfn-feature)
 
 !!!info
-Een van de beste vertalingen naar het Nederlands is het woord "Kenmerk"; hoewel een exacte vertaling van het woord
-Feature niet in het Nederlands voorkomt. Als gevolg daarvan zal in dit document het woord Feature gebruikt worden.
+
+    Een van de beste vertalingen naar het Nederlands is het woord "Kenmerk"; hoewel een exacte vertaling van het woord
+    Feature niet in het Nederlands voorkomt. Als gevolg daarvan zal in dit document het woord Feature gebruikt worden.
 
 ### Doelen
 
@@ -43,12 +40,7 @@ Feature niet in het Nederlands voorkomt. Als gevolg daarvan zal in dit document 
     - WFS: Queryen op tijdgebaseerde attributen - Zie https://docs.ogc.org/is/17-069r4/17-069r4.html#_identifiers
     - Hele URL, zoals Amsterdam Time Machine
     - https://docs.ogc.org/is/20-057/20-057.html#toc52
-- Zijn sensor metingen ook features? Check SensorThings
 - Wat te doen met overlappende features, zoals gebouwen die kort op elkaar zitten? die kunnen dubbel voor gaan komen
   of we moeten bijhouden op welke tegels (meervoud) een feature kan voorkomen. Die moet dan ook pas opgeruimd worden
   zodra alle gerelateerde tegels uit beeld zijn. Maar hoe bepalen we of een feature dubbel is?
-
-### Datamodel
-
-### Services
 

@@ -10,7 +10,9 @@ Dit hoofdstuk beschrijft de belangrijkste functies van de 3D-viewer en de instel
 ### Startscherm
 
 ![Building Blocks](../handleiding/imgs/3d-viewer.png)
-_(Afbeelding) 3D-Viewer startscherm_
+/// caption
+(Afbeelding) 3D-Viewer startscherm
+///
 
 Na het opstarten van de 3D viewer is het instellingen menu actief. In het instellingenmenu zijn de volgende onderdelen beschikbaar;
 
@@ -23,7 +25,9 @@ Na het opstarten van de 3D viewer is het instellingen menu actief. In het instel
 ## Werkruimte
 
 ![Werkruimte](../handleiding/imgs/3d-viewer.interface.png)
-_(Afbeelding) 3D-Viewer interface_
+/// caption
+(Afbeelding) 3D-Viewer interface
+///
 
 De interface is opgedeeld in het 3D-scherm met daaromheen de knoppen van de interface gegroepeerd in vier menu's:
 
@@ -161,7 +165,9 @@ Dit kan op verschillende manieren;
 <video controls>
 <source src="../video/scroll.mp4" type="video/mp4">
 </video>
-_(Video) Scroll/Zoom_
+/// caption
+(Video) Scroll/Zoom
+///
 
 #### [Panning]
 
@@ -172,7 +178,9 @@ de 3D wereld verplaatsen.
 <video controls>
 <source src="../video/panning.mp4" type="video/mp4">
 </video>
-_(Video) Panning_
+/// caption
+(Video) Panning
+///
 
 #### [Draaien manier A.]
 
@@ -182,7 +190,9 @@ Door met de `muis en de ingedrukte middelste muisknop` over het scherm te `beweg
 <video controls>
 <source src="../video/orbit.mp4" type="video/mp4">
 </video>
-_(Video) Draaien manier A._
+/// caption
+(Video) Draaien manier A.
+///
 
 #### [Draaien manier B.]
 
@@ -192,4 +202,6 @@ de kijker het beeld `naar links of naar rechts en/of naar boven of naar beneden 
 <video controls>
 <source src="../video/orbit.pan.mp4" type="video/mp4">
 </video>
-_(Video) Draaien manier B._
+/// caption
+(Video) Draaien manier B.
+///

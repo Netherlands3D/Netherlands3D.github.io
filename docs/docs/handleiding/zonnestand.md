@@ -21,7 +21,9 @@ Door het **aanpassen van datum** en tijd wordt de **zonnestand realistisch weerg
 <video controls>
 <source src="../video/zonnestand.viewer.mp4" type="video/mp4">
 </video>
-_(Video) functie Zonnestand_
+/// caption
+(Video) functie Zonnestand
+///
 
 ---
 
@@ -31,8 +33,10 @@ _(Video) functie Zonnestand_
 Door met de muis op het `Zonnestand-icoon` in het hoofdmenu te klikken wordt de tool actief.  
 Het menu klapt open en de **instellingen worden zichtbaar**.
 
-![Building Blocks](../handleiding/imgs/zonnestand.menu.png){ width="350px" }  
-_(Afbeelding) Zonnestand-menu_
+![Building Blocks](../handleiding/imgs/zonnestand.menu.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Zonnestand-menu
+///
 
 ---
 
@@ -41,7 +45,10 @@ _(Afbeelding) Zonnestand-menu_
 * **Pull down**   
   Door op de `pijl` te klikken wordt het menu `Tijd en datum aanpassen` ingeklapt. Door vervolgens weer op de `pijl` te klikken klapt het menu `Tijd en datum aanpassen` uit.
 
-![Building Blocks](../handleiding/imgs/zonnestand.menu.in.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/zonnestand.menu.in.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Zonnestand invouwen
+///
 
 ---
 
@@ -50,7 +57,10 @@ _(Afbeelding) Zonnestand-menu_
   `Tijd`	in `uur:minuut` en de gewenste datum bij  
   `Datum` in `dag:maand;jaaren` en druk op `enter`.
 
-![Building Blocks](../handleiding/imgs/zonnestand.invoer.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/zonnestand.invoer.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Zonnestand invoer
+///
 
 Het effect van de nieuwe zonnestand en bijbehorende schaduwval zijn direct zichtbaar.
 
@@ -59,7 +69,10 @@ Het effect van de nieuwe zonnestand en bijbehorende schaduwval zijn direct zicht
 * **Tijd en Datum 2**    
   Door het `Zon-icoon` handmatig over de gestippelde boog te verslepen wordt de zonnestand en bijbehorend tijdstip aangepast. Zonnestand houdt hierbij automatisch rekening met zonsopgang en –ondergang. Zodra het tijdstip zich tussen zonsondergang en –opgang bevindt, verandert het icoon in een maan. 
 
-![Building Blocks](../handleiding/imgs/zonnestand.gif){ width="350px" }
+![Building Blocks](../handleiding/imgs/zonnestand.gif){ width="350px" }<br>
+/// caption
+(gif) Zonnestand via slepen
+///
 
 In het geval het tijdstip zich tussen zonsondergang en –opgang bevindt, is er geen schaduw zichtbaar.
 
@@ -68,14 +81,20 @@ In het geval het tijdstip zich tussen zonsondergang en –opgang bevindt, is er 
 * **Tijd en Datum (herstel)**  
   Door op het icoon `Herstel tijd en datum` te klikken wordt de actuele datum en tijd van het computersysteem van de gebruiker overgenomen.
 
-![Building Blocks](../handleiding/imgs/zonnestand.herstel.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/zonnestand.herstel.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Zonnestand herstel
+///
 
 ---
 
 * **Animatie tijdverloop realtime**   
   Standaard staat de Snelheid animatie ingesteld op `realtime`. De `pauze- en afspeelknop` hebben geen functie.
 
-![Building Blocks](../handleiding/imgs/zonnestand.realtime.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/zonnestand.realtime.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Zonnestand realtime
+///
 
 ---
 
@@ -83,7 +102,10 @@ In het geval het tijdstip zich tussen zonsondergang en –opgang bevindt, is er 
   Door in het pull down menu te kiezen voor `uur per seconde` kan de **animatie van het verloop van de zon** vanaf de ingestelde datum en tijdstip worden gestart met de `afspeelknop`. De andere knoppen van de interface worden dan ook actief.  
   Met de `pauze knop` kan de animatie worden gestopt. Met de `forward` resp. `backward` knop kan de snelheid van de animatie met hele stappen van 1 uur per seconde worden versneld resp. vertraagd.
 
-![Building Blocks](../handleiding/imgs/zonnestand.animatie.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/zonnestand.animatie.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Zonnestand animatie start/stop
+///
 
 ---
 
@@ -96,14 +118,20 @@ In het geval het tijdstip zich tussen zonsondergang en –opgang bevindt, is er 
 **Pull down**   
 Door op de `pijl` te klikken wordt het menu `schaduwstudie` ingeklapt. Door vervolgens weer op de `pijl` te klikken klapt het menu `schaduwstudie` uit.
 
-![Building Blocks](../handleiding/imgs/schaduwstudie_menu_ingeklapt.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/schaduwstudie_menu_ingeklapt.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Schaduwstudie invouwen
+///
 
 
 
 **Download**   
 Door op de knop `download` te klikken wordt een serie van 12 afbeeldingen gegenereerd volgens onderstaande normen en vervolgens verzameld in een `.zip` bestand met als naam `2025-03-05-T15-00-Schaduwstudie.zip` 
 
-![Building Blocks](../handleiding/imgs/schaduwstudie_menu.png){ width="350px" }
+![Building Blocks](../handleiding/imgs/schaduwstudie_menu.png){ width="350px" }<br>
+/// caption
+(Afbeelding) Schaduwstudie menu
+///
 
 *De functie maakt afbeeldingen van de actuele camerastandpunt, dus houd er rekening mee dat de resultaten afhankelijk zijn van de keuze van het camerastandpunt.*
 
@@ -139,3 +167,5 @@ Meer informatie over schaduwstudies en bezonning, staat op deze website https://
 **Beheer van tijdzones en zonnestand berekening**
 
 We maken gebruik van een eigen oplossing, omdat deze standaard niet in Unity beschikbaar is: voor meer informatie kijk op de tab voor organisaties [https://netherlands3d.eu/docs/organisations/netherlands3d-platform/](https://netherlands3d.eu/docs/organisations/netherlands3d-platform/)
+
+---

@@ -17,8 +17,8 @@ nav:
                   - 'Zoekfunctie': 'docs/handleiding/zoeken.md'
                   - 'Object informatie': 'docs/handleiding/object-informatie.md'
                   - 'Ondergrond doorzicht': 'docs/handleiding/ondergrond-doorzicht.md'
-                  - 'Lagen':
-                      - 'Algemeen': 'docs/handleiding/lagen.md'
+                  - 'Lagen algemeen':
+                      - 'Inleiding': 'docs/handleiding/lagen.md'
                       - 'Menu linksboven': 'docs/handleiding/lagen/#menu-linksboven'
                       - 'Standaardlagen': 'docs/handleiding/lagen/#standaardlagen'
                       - 'Laagvolgorde': 'docs/handleiding/lagen/#laagvolgorde'
@@ -27,23 +27,23 @@ nav:
                       - 'Eigenschappen': 'docs/handleiding/lagen/#eigenschappen'
                       - 'Kleurenpaneel': 'docs/handleiding/lagen/#kleurenpaneel'
                       - 'Afgeschermde bronnen': 'docs/handleiding/lagen/#afgeschermde-bronnen'
-                  - 'Lagen toevoegen':
-                      - 'Algemeen': 'docs/handleiding/lagen-toevoegen.md'
-                      - 'Menu (linksonder)': 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                  - 'Lagen toevoegen': 'docs/handleiding/lagen-toevoegen.md'
+                  - 'Lagen organiseren': 'docs/handleiding/lagen-organiseren.md'
+                  - 'Zonnestand': 'docs/handleiding/zonnestand.md'
+                  - 'Gebied downloaden': 'docs/handleiding/gebied-downloaden.md'
+                  - 'Menu (linksonder)': 
+                      - 'docs/handleiding/lagen-toevoegen/#menu-linksonder'
+                      - 'docs/handleiding/project-openen-opslaan.md'
+                      - 'Bibliotheek':
+                         - 'Algemeen': 'docs/handleiding/bibliotheek-basis.md'
+                         - 'Fotorealistische wereld': 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
+                         - 'Basislagen': 'docs/handleiding/toevoegen-basislagen.md'
+                         - 'Tekengebieden': 'docs/handleiding/toevoegen-selectiegebied.md'
+                         - '3D Tiles': 'docs/handleiding/toevoegen-3d-tiles.md'
+                         - 'Urban Releaf': 'docs/handleiding/toevoegen-urban-releaf.md'
+                         - 'Objecten': 'docs/handleiding/toevoegen-objecten-biep.md'                                           
                       - 'Organiseren': 'docs/handleiding/lagen-toevoegen/#organiseren'
-                      - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'
-                      - 'Toevoegen':
-                          - 'docs/handleiding/toevoegen-importeren.md'
-                          - 'docs/handleiding/toevoegen-selectiegebied.md'
-                          - 'docs/handleiding/toevoegen-urban-releaf.md'
-                          - 'docs/handleiding/toevoegen-basislagen.md'
-                          - 'docs/handleiding/toevoegen-3d-tiles.md'
-                          - 'docs/handleiding/toevoegen-fotorealistische-wereld.md'
-                          - 'docs/handleiding/toevoegen-objecten-biep.md'
-
-                  - 'docs/handleiding/zonnestand.md'
-                  - 'docs/handleiding/gebied-downloaden.md'
-                  - 'docs/handleiding/project-openen-opslaan.md'
+                      - 'Verwijderen': 'docs/handleiding/lagen-toevoegen/#verwijderen'                  
 
               - 'Applicatiebalk':
                   - 'Schermafbeelding maken': 'docs/handleiding/3D-viewer#schermafbeelding-maken'
@@ -56,6 +56,7 @@ nav:
                   - 'Orthografisch/perspectief': 'docs/handleiding/3D-viewer/#orthografischperspectief'
                   - 'Mini-map': 'docs/handleiding/3D-viewer/#mini-map'
                   - 'Positie': 'docs/handleiding/3D-viewer/#mini-map'
+                  - 'docs/handleiding/first-person-viewer.md'
 
           - 'Navigeren': 'docs/handleiding/3D-viewer/#navigeren'
 
@@ -77,13 +78,9 @@ nav:
           - 'docs/organisations/solarstudy-calculation.md'
   - 'Voor ontwikkelaars':
       - 'docs/developers/introduction.md'
-      - 'Platform Architecture':
+      - 'Platform':
         - 'Platform Overview': 'docs/developers/platform-architecture.md'
         - 'docs/developers/functionalities.md'
-#      - 'Getting Started':
-#        - 'docs/developers/getting-started/using-the-twin.md'
-#        - 'docs/developers/getting-started/from-scratch.md'
-#        - 'docs/developers/getting-started/your-own-functionality.md'
       - 'Guides':
           - 'docs/developers/quickstart.md'
           - 'docs/developers/guides/loading-a-custom-project-file.md'
@@ -94,31 +91,40 @@ nav:
           - 'Styling':
               - 'docs/developers/guides/how-to-color-parts-of-the-terrain.md'
               - 'docs/developers/guides/adding-styling-support-to-layers.md'
+          - 'User Interface (UI Toolkit)':
+              - 'docs/developers/guides/ui/creating-a-custom-component.md'
+              - 'docs/developers/guides/ui/editing-a-custom-control-using-ui-builder.md'
           - 'docs/developers/guides/dealing-with-cors-issues.md'
           - 'docs/developers/guides/troubleshooting-build-pipeline-failures.md'
       - 'Explanation':
         - 'docs/developers/build-pipeline.md'
-        - 'Core Concepts':
-            - 'Overview': 'docs/developers/core-concepts.md'
-            - 'docs/developers/projects.md'
-            - 'docs/developers/layers.md'
-            - 'docs/developers/layers-with-authentication.md'
+        - 'docs/developers/feature-build-pipeline.md'
+        - 'Core Concepts': 'docs/developers/core-concepts.md'
+        # - 'docs/developers/architecture.md'
+        - 'docs/developers/projects.md'
+        - Layers:
+          - "Overview": 'docs/developers/layers.md'
+          - "Styling": 'docs/developers/styling.md'
+          - 'docs/developers/layers-with-authentication.md'
         - 'Features':
             - 'docs/developers/features/embedding.md'
             - 'docs/developers/features/floating-origin.md'
             - 'docs/developers/features/geojson.md'
-        - 'Packages':
-            - 'docs/developers/packages/creating-and-managing.md'
         - 'User interface':
             - 'docs/developers/ui/introduction.md'
-            - 'docs/developers/ui/keeping-our-documentation-current.md'
             - 'docs/developers/ui/understanding-blocks.md'
             - 'docs/developers/ui/understanding-components.md'
       - 'Reference':
         - 'Architectural Decisions':
             - 'docs/developers/decisions/index.md'
             - 'docs/developers/decisions/20241009-styling-of-layers.md'
+            - 'docs/developers/decisions/20260204-async-await-standardisation.md'
         - 'User interface':
+            - 'Theme':
+                - 'docs/developers/ui/spacing.md'
+                - 'docs/developers/ui/colors.md'
+                - 'docs/developers/ui/font-family.md'
+                - 'docs/developers/ui/font-size.md'
             - 'Blocks':
                 - 'docs/developers/ui/blocks/property-panel-and-sections.md'
             - 'Components':
@@ -132,7 +138,10 @@ nav:
           - 'docs/developers/testing/3d-models.md'
       - 'Contributing':
           - 'docs/developers/contributing/coding-standards.md'
-          - 'docs/developers/contributing/documentation.md'
+          - 'Documentation':
+              - 'Overview': 'docs/developers/contributing/documentation.md'
+              - 'docs/developers/contributing/writing-guides.md'
+              - 'docs/developers/contributing/writing-explanation-pages.md'
 #  - 'Artikelen':
 #      - 'articles/index.md'
 #  - 'Over ons':
@@ -193,6 +202,7 @@ markdown_extensions:
   - admonition
   - attr_list
   - md_in_html
+  - footnotes
   - pymdownx.details
   - pymdownx.superfences:
       custom_fences:

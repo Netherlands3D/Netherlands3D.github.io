@@ -2,9 +2,9 @@
 
 Functies, Lagen, submenu.  
   
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.3d.tiles.png) 
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.menu.3d.tiles.png)<br> 
 /// caption
-(Afbeelding) Toevoegen / 3D Tiles
+3D Tiles toevoegen
 ///
 
 ---
@@ -13,11 +13,11 @@ Functies, Lagen, submenu.
 
 ### Menu
 
-Met de functie Tiles kunnen 3D Tiles uit twee voorgedefinieerde lagen worden gekoppeld.  
+Met de functie 3D Tiles kan je basis 3D Tiles lagen uit twee voorgedefinieerde lagen koppelen.
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.menu.png)
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.menu.png)<br>
 /// caption
-(Afbeelding) Toevoegen / 3D Tiles
+Toevoegen / 3D Tiles
 ///
 
 ---
@@ -27,9 +27,9 @@ Met de functie Tiles kunnen 3D Tiles uit twee voorgedefinieerde lagen worden gek
 Met `Gebouwen (3D Tiles)` worden gebouwen uit de 
 [3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.  
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.gebouwen.png)  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.gebouwen.png)<br>
 /// caption
-(Afbeelding) Gebouwen (3D Tiles)
+Gebouwen (3D Tiles)
 ///
 
 ---
@@ -39,9 +39,9 @@ Met `Gebouwen (3D Tiles)` worden gebouwen uit de
 Met `Maaiveld (3D Tiles)` wordt het maaiveld uit de 
 [3D Basisvoorziening van het Kadaster](https://www.pdok.nl/introductie/-/article/3d-basisvoorziening-1) gekoppeld.
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.maaiveld.png)  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.maaiveld.png)<br> 
 /// caption
-(Afbeelding) Maaiveld en Gebouwen (3D Tiles)
+Maaiveld en Gebouwen (3D Tiles)
 ///
 
 ---
@@ -51,18 +51,19 @@ Met `Maaiveld (3D Tiles)` wordt het maaiveld uit de
 3D Tile lagen kunnen op een verkeerde hoogte liggen. We hebben daarvoor een instelling gemaakt die je bij het eigenschappenpaneel kan activeren. Als standaard staat deze ingesteld op Ellipsoïde. Heb je een laag die op een verkeerde hoogte ligt, klik dan op één van de 2 mogelijkheden.
 <br>
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.ellipsoide.png)  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.ellipsoide.png)<br>
 /// caption
-(Afbeelding) Referentiehoogte op Ellipsoïde
+Referentiehoogte op Ellipsoïde
 ///
 <br>
 
-![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.geoide.png)  
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.3d.tiles.url.geoide.png)<br>
 /// caption
-(Afbeelding) Referentiehoogte op Geoïde
+Referentiehoogte op Geoïde
 ///
 <br>
 
+---
 !!! tip "Uitleg Referentiehoogte"
     De hoogte van een 3D Tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site [Uitleg Geoïde/ellipsoïde](https://3dtilesnederland.nl/over-terrein-en-3d-tilesets)
 

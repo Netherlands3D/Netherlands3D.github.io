@@ -1,6 +1,6 @@
-﻿## Appendix B. Bronvermeldingen
+﻿# Appendix B. Bronvermeldingen
 
-### B.1. Bronnen
+## B.1. Bronnen
 
 - [OGC 3D Tiles](https://docs.ogc.org/cs/22-025r4/22-025r4.html)
     - [3D Tiles - Implicit tiling in detail](https://github.com/CesiumGS/3d-tiles/blob/main/specification/ImplicitTiling/README.adoc)
@@ -12,7 +12,11 @@
 - [Use ScriptableObjects as delegate objects](https://unity.com/how-to/scriptableobjects-delegate-objects#pluggable-behavior)
 - [Refactoring Guru - Strategy Design Pattern](https://refactoring.guru/design-patterns/strategy)
 
-### B.2. Videos
+## B.2. Videos
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WwkuAqObplU?si=uJEhag4rAVIaZwJy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GZ6PuLikw84?si=FjnD_IiHmeieBQzj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hI9aN8ZG4vg?si=OZ6G_z3Acd3OynTP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/vxZx_PXo-yo?si=pgOyWeNfyCOwaNDJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 

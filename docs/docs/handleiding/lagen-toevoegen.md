@@ -6,69 +6,119 @@ Basisfunctie, hoofdmenu.
 
    ![Lagen Toevoegen](../handleiding/imgs/lagen.toevoegen.menu.main.png){ width="240px" align=left }
 
+Het toevoegen van lagen gebeurt via het uploaden van een eigen bestand, het laden via een url of het laden van lagen via de bibliotheek. Voor meer informatie over de Bibliotheek klik hier  [Bibliotheek](../bibliotheek-basis)
 
-Lagen is onderdeel van de **basisfuncties van Netherlands3d.eu**. Deze functie biedt de mogelijkheden om **datalagen en objecten** uit verschillende bronnen te (ont)**koppelen** en de zichtbaarheid hiervan aan te passen. 
- Dit hoofdstuk beschrijft de belangrijkste functies van Lagen en geeft uitleg over de gebruikersinterface en essentiële functies.  
 </div>
+
+### **Importeren Eigen bestand**   
+
+De functie `Importeren` biedt de mogelijkheid om **lagen en Objecten** via het importeren van bestanden of **via weblinks te koppelen**.
+
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.png)<br> 
+/// caption
+Uploaden vanaf deze computer
+///
+  
+Met `Uploaden vanaf deze computer` kunnen .OBJ, .CSV, .JSON, .GEOJSON en .GLB bestanden worden gekoppeld.  
+Na klikken op `Uploaden vanaf deze computer` opent de Verkenner (Windows)/Finder (MacOs) en kan het bestand worden geladen.
+   
+
+!!! tip "Drag and Drop"
+   
+    Met klik en slepen van een bestand vanuit verkenner of Finder in het viewervenster, worden bovenstaande formaten ook ingeladen. LET OP: Dit kan niet met meerdere bestanden tegelijk.
 
 ---
 
-## Gedetailleerde beschrijving van de functies
+### **Importeren bestand vanaf link**   
 
-### Menu (linksonder)
-
-Door met de muis op het `Lagen-icoon` in het hoofdmenu te klikken wordt de tool actief.  
-en het `toevoegen-menu` klapt open en de functies worden zichtbaar.
-
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.png)
+![Building Blocks](../handleiding/imgs/lagen.toevoegen.importeren.url.png)<br> 
 /// caption
-(Afbeelding) toevoegen-menu
+Toevoegen vanaf link
 ///
 
-### Functies
+Met **Toevoegen vanaf link** kan je databronnen (WFS, WMS, GeoJSON, 3D-Tiles) via een weblink koppelen.  
+Klik op `Toevoegen vanaf link`. Het menu; Laag toevoegen via URL wordt geopend.
 
-#### Organiseren
-
-Met het `Map-icoon` wordt een folder aangemaakt waarvan de naam kan worden aangepast (dubbelklikken) en waarin de gekoppelde lagen of objecten kunnen worden gesleept. Dit helpt bij het organiseren en overzichtelijk houden van de gekoppelde lagen en/of objecten.
-
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.folder.png)
+![Building Blocks](../handleiding/imgs/lagen.import.url.menu.png)<br>
 /// caption
-(Afbeelding) toevoegen folder-menu
+Werkwijze
 ///
 
-#### Verwijderen
+Kopieër en plak de link van het bestand in het vakje [URL link].   
+In de nabije toekomst is hier een link naar veelgebruikte WFS/WMS-lagen te vinden.
 
-Met het `Prullenbak-icoon` wordt de geselecteerde laag of object verwijderd. Dit kan ook met de `del/delete-toets` van het toetsenbord. NB! Sla voor het verwijderen alle instellingen op met `Project Opslaan`. 
+Na `Toevoegen` is de **link gekoppeld** en de **data zichtbaar** in de 3D-Viewer. 
 
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.bin.png)
-/// caption
-(Afbeelding) verwijderen-menu
+---
+
+### **Importeren van een Catalogus**
+
+Op dezelfde manier kan je ook een catalogus aan de bibliotheek toevoegen bijvoorbeeld een demo omgeving die is gepubliceerd door https://hub.clearly.app/home. Kopieër en plak de link van de catalogus https://ogc-demo.clearly.app/v2/ in het venster. Dan zal de catalogus worden toegevoegd aan de bibliotheek via de bibliotheek kan je dan alle lagen die beschikbaar zijn en voldoen aan onze importformaten, importeren in het lagenpaneel. <div>Voor meer informatie over de Bibliotheek klik hier  [Bibliotheek](../bibliotheek-basis)</div>
+
+
+ ![Building Blocks](../handleiding/imgs/toevoegen-bibliotheek_catalogus.png)<br>
+ /// caption
+ importeren van een catalogus
 ///
 
-!!! tip "Waar is de undo-functie?"
-	Sla na toevoegingen en/of aanpassingen het project regelmatig op. Er is geen UNDO-functie in Netherlands3D.eu.
+---
 
-#### Toevoegen
+## **Voorbeelden**
 
-Het koppelen van datalagen al dan niet in combinatie met objecten is dé kernfunctie van Netherlands3D. Met
-het `+ icoon` opent het Toevoegen menu en zijn de verschillende teken-, koppel- en importmogelijkheden (gedeeltelijk)
-zichtbaar. Door met de muis de blauwe bovenbalk omhoog te slepen opent het menu volledig.
+### **Bestand Importeren met .OBJ**   
 
-Het menu bevat de volgende zeven functies:
+Stap1. Klik op `Uploaden vanaf deze computer` en importeer het .OBJ-bestand.
+
+![Building Blocks](../handleiding/imgs/lagen.import.obj.png)<br>
+/// caption
+Gedetailleerde Domtoren middels .OBJ geïmporteerd
+///
+
+Na het **importeren** wordt het **Object in de 3D omgeving** en in de lijst onder Lagen **zichtbaar**.  
+
+!!! tip "Waarom heeft het geimporteerde Object niet de juiste afmetingen?"
+   
+    De viewer neemt automatisch de oriëntatie en schaal van het Object (3D-model) zoals het is gemaakt over. Met de transformatie-tools kunnen de schaal en/of oriëntatie van het Object worden aangepast. Het is ook mogelijk om de schaal van het Object en/of oriëntatie in een extern 3D-programma zoals Blender aan te passen en opnieuw te importeren.
+
+---
   
-//// html | div.two-column
-
-1. [Importeren (link)](toevoegen-importeren.md)
-2. [Selectiegebied (link)](toevoegen-selectiegebied.md)
-3. [Urban ReLeaf (link)](toevoegen-urban-releaf.md)
-4. [Basislagen (link)](toevoegen-basislagen.md)
-5. [3D Tiles (link)](toevoegen-3d-tiles.md)
-6. [Fotorealistische Wereld (link)](toevoegen-fotorealistische-wereld.md)
-7. [Objecten bibliotheek (link)](toevoegen-objecten-biep.md)
-
-![Building Blocks](../handleiding/imgs/lagen.main.bottom.full.png)
+Stap 2a. Het geselecteerde Object kan met de **transformatie-tools** op de **juiste locatie** of aangepaste **oriëntatie en schaal** worden gebracht. Klik op het gekoppelde `Object` in Lagen en de transformatie-tool is geactiveerd.
+<br>   
+![Building Blocks](../handleiding/imgs/lagen.import.obj.trans.png){ width="248px" }
+![Building Blocks](../handleiding/imgs/lagen.import.obj.rot.png){ width="248px" }
+![Building Blocks](../handleiding/imgs/lagen.import.obj.scale.png){ width="248px" }  
 /// caption
-_(Afbeelding) Toevoegen menu, volledig zichtbaar_
+Verplaatsen, roteren en verschalen met de transformatie-tool
 ///
 
-////
+---
+
+Stap 2b. Met de `Eigenschappen` -functie kan de **locatie, oriëntatie en schaal** van het geimporteerde Object **handmatig worden ingevoerd**.  
+
+![Building Blocks](../handleiding/imgs/lagen.import.obj.example.png)
+/// caption
+Handmatig invoeren van locatie, oriëntatie en schaal
+///
+ 
+--- 
+ 
+Stap 3. Met **Bestand toevoegen** kan het **.mtl-bestand** dat bij het .OBJ-bestand behoord **aan het 3D-model gekoppeld**. Hiermee wordt kleur- en textuur-informatie meegeladen met het 3D-model.  
+Klik op `Bestand toevoegen` in het Eigenschappen-menu en selecteer het .mtl-bestand in de Verkenner/Finder.
+
+---
+
+### **Toevoegen vanaf link**   
+Klik op `Toevoegen vanaf link` en koppel de link.   
+<br>
+![Building Blocks](../handleiding/imgs/lagen.import.url.example1.png)
+/// caption
+Voorbeeld 1;  Luchtfoto's van Nederland gekoppeld met WMS-link
+///
+
+---
+
+![Building Blocks](../handleiding/imgs/lagen.import.url.example2.png)
+/// caption
+Voorbeeld 2;  Landelijke BRT kaart gekoppeld met WMS-link
+///
+---

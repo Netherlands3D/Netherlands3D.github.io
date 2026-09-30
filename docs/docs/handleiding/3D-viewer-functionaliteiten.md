@@ -4,9 +4,11 @@ Stel je eigen Netherlands3D.eu samen!
 Met het submenu `Functionaliteiten` krijgt de gebruiker toegang tot het **aan-/uitzetten van de standaard datalagen en (menu)functies** die in de basis versie van Netherlands3d.eu wordt aangeboden.    
 
 ---
-![Building Blocks](../handleiding/imgs/functionaliteiten.png)
-_(Afbeelding) Functionaliteiten - submenu_  
-<br> 
+![Building Blocks](../handleiding/imgs/functionaliteiten.png)<br>
+/// caption
+(Afbeelding) Functionaliteiten - submenu
+///
+
 Klik in het `selectievakje` om de laag of functie aan of uit te zetten.   
 
 ---
