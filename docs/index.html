@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netherlands3D — Open-source Digital Twin-framework voor Nederland</title>
+<meta name="description" content="Netherlands3D is het open-source Digital Twin-framework ontworpen voor Nederland. Visualiseer data in 3D, gecombineerd en consistent voor heel Nederland.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --page-bg:#f3f4f6;
+    --ink:#2b2b2b;
+    --ink-soft:#54595f;
+    --grey-badge:#545454;
+    --blue:#6d93c7;
+    --blue-deep:#4f76aa;
+    --rose:#e3a29f;
+    --rose-deep:#cf8783;
+    --line:#e9e9e9;
+    --surface:#f7f7f8;
+    --dark:#1c1e22;
+    --dark-soft:#2a2d32;
+    --radius:18px;
+    --maxw:1180px;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    background:var(--page-bg);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  section{position:relative;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  ::selection{background:var(--blue);color:#fff;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:18px 0;
+    transition:padding .35s var(--ease), background .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  header.nav .navbar{
+    max-width:var(--maxw);margin:0 auto;padding:10px 10px 10px 20px;
+    display:flex;align-items:center;justify-content:space-between;
+    background:rgba(255,255,255,.7);
+    backdrop-filter:blur(16px) saturate(160%);
+    -webkit-backdrop-filter:blur(16px) saturate(160%);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:100px;
+    box-shadow:0 8px 30px rgba(20,20,20,.06);
+    transition:background .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  header.nav.scrolled{padding:10px 0;}
+  header.nav.scrolled .navbar{background:rgba(255,255,255,.92);box-shadow:0 10px 30px rgba(20,20,20,.10);}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{height:30px;width:auto;}
+  nav.links{display:flex;gap:8px;align-items:center;}
+  .nav-item{position:relative;}
+  .nav-link{
+    display:flex;align-items:center;gap:5px;
+    font-size:14.5px;font-weight:600;color:var(--ink);
+    position:relative;padding:10px 14px;transition:color .25s;
+    border-radius:100px;
+  }
+  .nav-link .chev{width:13px;height:13px;flex:none;transition:transform .25s var(--ease);transform:rotate(-90deg);}
+  .nav-item:hover .nav-link{color:#000;background:rgba(20,20,20,.08);}
+  .nav-item:hover .nav-link .chev{transform:rotate(0deg);}
+
+  .dropdown{
+    position:absolute;top:100%;left:0;
+    width:100%;height:14px; /* smalle "brug", exact zo breed als het hoofditem zelf */
+    z-index:50;
+  }
+  .dropdown-panel{
+    position:absolute;top:100%;left:0;
+    width:max-content;max-width:min(92vw,520px);
+    display:flex;flex-direction:column;
+    padding:8px;
+    border-radius:var(--radius);
+    background:rgba(255,255,255,.98);
+    border:1px solid rgba(20,20,20,.07);
+    box-shadow:0 12px 28px rgba(20,20,20,.12);
+    overflow:hidden;
+    opacity:0;transform:translateY(14px);
+    pointer-events:none;
+    transition:opacity .3s var(--ease), transform .3s var(--ease);
+  }
+  /* Alleen tonen zolang de muis boven het hoofditem zelf (of het uitgeklapte paneel) staat —
+     de brug is precies zo breed als de knop, dus het menu klapt niet uit onder buurknoppen */
+  .nav-item:hover .dropdown-panel{
+    opacity:1;transform:translateY(0);pointer-events:auto;
+  }
+  .dropdown a{
+    display:block;padding:9px 16px;border-radius:10px;
+    font-size:14px;font-weight:500;color:var(--ink-soft);line-height:1.25;
+    white-space:nowrap;
+    transition:background .2s, color .2s;
+  }
+  .dropdown a:hover{background:var(--surface);color:var(--blue-deep);}
+
+  .nav-cta{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:#fff;font-weight:700;font-size:14px;
+    padding:11px 20px;border-radius:100px;white-space:nowrap;
+    transition:transform .25s var(--ease), background .25s;
+  }
+  .nav-cta:hover{background:var(--blue-deep);transform:translateY(-1px);}
+
+  .nav-toggle{
+    display:none;
+    flex-direction:column;justify-content:center;align-items:center;gap:5px;
+    width:42px;height:42px;border-radius:50%;
+    background:transparent;border:none;cursor:pointer;padding:0;flex:none;
+    transition:background .25s var(--ease);
+  }
+  .nav-toggle:hover{background:rgba(20,20,20,.06);}
+  .nav-toggle span{
+    display:block;width:19px;height:2px;background:var(--ink);border-radius:2px;
+    transition:transform .3s var(--ease), opacity .25s var(--ease);
+  }
+  header.nav.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  header.nav.menu-open .nav-toggle span:nth-child(2){opacity:0;}
+  header.nav.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;align-items:center;
+    overflow:hidden;
+    background:var(--dark);
+  }
+  .hero video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    filter:saturate(1.05) contrast(1.02);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(14,16,20,.55) 0%, rgba(14,16,20,.42) 38%, rgba(14,16,20,.72) 78%, rgba(10,11,14,.92) 100%);
+    z-index:1;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;z-index:1;
+    background:radial-gradient(120% 90% at 12% 8%, rgba(109,147,199,.28), transparent 55%),
+               radial-gradient(90% 70% at 95% 100%, rgba(227,162,159,.22), transparent 55%);
+  }
+  .hero-content{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:170px 32px 120px;width:100%;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:#fff;background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 16px;border-radius:100px;
+    margin-bottom:26px;
+    backdrop-filter:blur(6px);
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(109,147,199,.35);}
+  .eyebrow .os-icon{width:14px;height:14px;flex:none;fill:#fff;}
+  .hero h1{
+    font-size:clamp(46px,7.4vw,96px);
+    line-height:.98;font-weight:800;letter-spacing:-.03em;
+    color:#fff;margin:0 0 26px;max-width:900px;
+  }
+  .hero h1 em{
+    font-style:normal;font-weight:800;
+    background:linear-gradient(90deg,#a9c3e6,#eec3c0);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{
+    font-size:clamp(16px,2vw,19px);line-height:1.65;font-weight:400;
+    color:#ffffff;max-width:640px;margin:0 0 42px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-weight:700;font-size:15px;padding:16px 28px;border-radius:100px;
+    transition:transform .28s var(--ease), box-shadow .28s var(--ease), background .28s, color .28s;
+    border:1px solid transparent;
+  }
+  .btn-primary{background:#fff;color:var(--ink);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.25);}
+  .btn-ghost{color:#fff;border-color:rgba(255,255,255,.4);}
+  .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.7);transform:translateY(-2px);}
+  .btn svg{width:16px;height:16px;flex:none;}
+
+  .scroll-cue{
+    position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+    z-index:2;color:rgba(255,255,255,.75);
+    display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+    animation:bob 2.6s ease-in-out infinite;
+    cursor:pointer;border:none;background:none;padding:0;font-family:inherit;
+    transition:color .25s var(--ease);
+  }
+  .scroll-cue:hover,.scroll-cue:focus-visible{color:#fff;}
+  .scroll-cue .line{width:1px;height:34px;background:linear-gradient(180deg,rgba(255,255,255,.9),transparent);}
+  @keyframes bob{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+
+  /* ---------- BACK TO TOP ---------- */
+  .to-top-cue{
+    position:fixed;left:32px;top:50%;transform:translateY(-50%) translateX(-10px);
+    z-index:90;color:var(--ink-soft);
+    display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;
+    letter-spacing:.12em;text-transform:uppercase;font-weight:600;font-family:inherit;
+    background:transparent;border:1px solid transparent;
+    border-radius:100px;padding:14px 10px;cursor:pointer;
+    opacity:0;pointer-events:none;
+    transition:opacity .35s var(--ease), transform .35s var(--ease), color .25s var(--ease);
+  }
+  .to-top-cue.visible{opacity:1;pointer-events:auto;transform:translateY(-50%) translateX(0);}
+  .to-top-cue:hover,.to-top-cue:focus-visible{color:var(--ink);}
+  .to-top-cue .line{width:1px;height:26px;background:linear-gradient(0deg,var(--blue-deep),transparent);}
+  @media (max-width:640px){
+    .to-top-cue{left:16px;padding:10px 8px;}
+    .to-top-cue .line{height:18px;}
+  }
+
+  .video-toggle{
+    position:absolute;left:32px;bottom:34px;z-index:3;
+    width:52px;height:52px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(255,255,255,.10);
+    border:1px solid rgba(255,255,255,.35);
+    backdrop-filter:blur(6px);
+    cursor:pointer;
+    transition:background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+    padding:0;
+  }
+  .video-toggle:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.6);transform:translateY(-2px);}
+  .video-toggle svg{width:18px;height:18px;fill:#fff;flex:none;}
+  .video-toggle .icon-play{display:none;}
+  .video-toggle.paused .icon-pause{display:none;}
+  .video-toggle.paused .icon-play{display:block;}
+  @media (max-width:640px){
+    .video-toggle{left:20px;bottom:24px;width:46px;height:46px;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  .section{padding:120px 0;}
+  .section-tight{padding:90px 0;}
+  .section-head{max-width:680px;margin:0 0 64px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .kicker{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--blue-deep);margin-bottom:16px;
+  }
+  .kicker::before{content:"";width:22px;height:2px;background:var(--rose-deep);border-radius:2px;}
+  .section-head h2{
+    font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.025em;line-height:1.08;margin:0 0 18px;color:var(--ink);
+  }
+  .section-head p{font-size:17px;line-height:1.7;color:var(--ink-soft);margin:0;}
+
+  /* reveal-on-scroll */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- BLOCK GRAPHIC (replaceable image) ---------- */
+  .blockgraphic{position:relative;width:100%;aspect-ratio:1/1;max-width:380px;max-height: 380px;}
+  .blockgraphic .plate{
+    position:absolute;inset:0;background:var(--surface);border-radius:24px;
+    border:0px solid var(--line);
+    overflow:hidden;
+  }
+  .blockgraphic .plate img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  .blockgraphic .plate.zoomable{cursor:zoom-in;}
+  .blockgraphic .plate.zoomable .zoom-hint{
+    position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:14px;
+    background:rgba(20,22,26,0);transition:background .25s var(--ease);
+  }
+  .blockgraphic .plate.zoomable:hover .zoom-hint,
+  .blockgraphic .plate.zoomable:focus-visible .zoom-hint{background:rgba(20,22,26,.16);}
+  .blockgraphic .plate.zoomable .zoom-hint svg{
+    width:38px;height:38px;padding:9px;border-radius:50%;box-sizing:border-box;
+    background:rgba(255,255,255,.94);color:var(--ink);
+    box-shadow:0 6px 16px rgba(20,20,20,.20);
+    opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease), transform .25s var(--ease);
+  }
+  .blockgraphic .plate.zoomable:hover .zoom-hint svg,
+  .blockgraphic .plate.zoomable:focus-visible .zoom-hint svg{opacity:1;transform:translateY(0);}
+
+  /* ---------- INTRO STRIP ---------- */
+  .intro{padding:110px 0 40px;}
+  .intro .wrap{max-width:900px;text-align:center;}
+  .intro .kicker{justify-content:center;}
+  .intro h2{font-size:clamp(28px,3.4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin:0 0 22px;}
+  .intro p{font-size:18px;line-height:1.75;color:var(--ink-soft);margin:0 auto;max-width:760px;}
+
+  /* ---------- IMPORT/EXPORT TABLE ---------- */
+  .io-table-wrap{max-width:640px;margin:48px auto 0;text-align:left;}
+  .io-table{
+    width:100%;border-collapse:separate;border-spacing:0;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;box-shadow:0 12px 30px rgba(20,20,20,.05);
+  }
+  .io-table caption{
+    caption-side:top;text-align:left;padding:23px 22px 0;
+    font-size:15.5px;font-weight:700;letter-spacing:.08em;color:var(--dark);
+  }
+  .io-table thead th{
+    background:var(--surface);color:var(--ink);
+    font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    padding:14px 22px;border-bottom:1px solid var(--line);
+    text-align:left;
+  }
+  .io-table thead th.io-col{text-align:center;width:110px;}
+  .io-table tbody td{
+    padding:13px 22px;font-size:15px;color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+  .io-table tbody tr:first-child td{border-top:none;}
+  .io-table tbody tr:hover{background:var(--surface);}
+  .io-table tbody td.io-name{color:var(--ink);font-weight:600;}
+  .io-table tbody td.io-col{text-align:center;}
+  .io-check,.io-dash{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;}
+  .io-check{background:rgba(79,118,170,.12);color:var(--blue-deep);}
+  .io-check svg{width:13px;height:13px;}
+  .io-dash{color:var(--ink-soft);opacity:.35;font-weight:700;font-size:15px;}
+  .io-table-note{margin:14px 4px 0;font-size:13px;color:var(--ink-soft);opacity:.85;font-style:italic;}
+  .formaten-modal-body .io-table-wrap{max-width:none;margin:0;}
+  .body-link{
+    background:none;border:none;padding:0;margin:0;font:inherit;color:inherit;
+    cursor:pointer;text-decoration:underline;text-underline-offset:2px;
+  }
+  .body-link:hover,.body-link:focus-visible{color:var(--blue-deep);}
+
+  /* ---------- FEATURE ROWS ---------- */
+  .features{padding:60px 0 100px;}
+  .feature-row{
+    display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:top;
+    padding:70px 0;border-top:1px solid var(--line);
+  }
+  .feature-row:last-child{border-bottom:1px solid var(--line);}
+  .feature-row.rev .text{order:2;}
+  .feature-row.rev .graphic{order:1;}
+  .feature-num{font-size:12px;font-weight:800;color:var(--blue-deep);letter-spacing:.08em;margin-bottom:14px;}
+  .feature-row h3{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.02em;margin:0 0 16px;color:var(--ink);}
+  .feature-row .dek{font-size:16.5px;font-style:normal;color:var(--blue-deep);font-weight:600;margin:0 0 14px;line-height:1.5;}
+  .feature-row p.body{font-size:15.5px;line-height:1.8;color:var(--ink-soft);white-space:pre-line;margin:0;}
+  .feature-row .graphic{display:flex;justify-content:center;}
+
+  /* ---------- NAVIGATIE-BESTURING LIJST ---------- */
+  .nav-controls-list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:5px;}
+  .nav-controls-list li{position:relative;padding-left:26px;font-size:15px;line-height:1.65;color:var(--ink-soft);}
+  .nav-controls-list li::before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 3px rgba(0,0,0,.05);}
+  .nav-controls-list li b{color:var(--ink);font-weight:700;}
+  .nav-controls-list li:nth-child(1)::before{background:#2f6fed;}
+  .nav-controls-list li:nth-child(2)::before{background:#1f9d55;}
+  .nav-controls-list li:nth-child(3)::before{background:#0e9aa7;}
+  .nav-controls-list li:nth-child(4)::before{background:#e07b17;}
+  .nav-controls-list li:nth-child(5)::before{background:#d63447;}
+  .nav-controls-list li:nth-child(6)::before{background:#8e44ad;}
+
+  /* ---------- PARTNERS ---------- */
+  .partners{background:var(--surface);padding:90px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .partners .section-head{margin-bottom:44px;}
+  .partner-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  }
+  .partner-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:30px 26px;text-align:center;
+    display:flex;align-items:center;justify-content:center;min-height:110px;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
+  }
+  .partner-card:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(20,20,20,.08);border-color:transparent;}
+  .partner-card span{font-weight:700;font-size:15px;color:var(--ink-soft);letter-spacing:-.01em;}
+  .partner-card img{max-width:100%;max-height:56px;width:auto;height:auto;object-fit:contain;filter:grayscale(0);}
+
+  /* ---------- CTA BAND ---------- */
+  .cta-band{
+    position:relative;background:var(--dark);color:#fff;overflow:hidden;
+    padding:110px 0;
+  }
+  .cta-band .bg-blocks{position:absolute;inset:0;opacity:.5;}
+  .cta-band .wrap{position:relative;z-index:1;max-width:760px;text-align:center;}
+  .cta-band .kicker{color:var(--blue);}
+  .cta-band .kicker::before{background:var(--rose);}
+  .cta-band h2{font-size:clamp(28px,4vw,46px);font-weight:800;letter-spacing:-.025em;line-height:1.15;margin:0 0 20px;}
+  .cta-band p{font-size:17px;line-height:1.7;color:rgba(255,255,255,.75);margin:0 0 40px;}
+  .cta-band .hero-actions{justify-content:center;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#fff;padding:70px 0 34px;border-top:1px solid var(--line);}
+  .footer-top{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;
+    padding-bottom:50px;
+  }
+  .footer-brand img{height:28px;margin-bottom:16px;}
+  .footer-brand p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);max-width:280px;margin:0;}
+  .footer-col h4{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin:0 0 18px;}
+  .footer-col ul li{margin-bottom:12px;}
+  .footer-col a{font-size:14.5px;color:var(--ink-soft);transition:color .2s;}
+  .footer-col a:hover{color:var(--blue-deep);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+    padding-top:26px;border-top:1px solid var(--line);
+    font-size:13px;color:#8a8f96;
+  }
+  .footer-bottom a{color:#8a8f96;}
+  .footer-bottom a:hover{color:var(--ink);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    header.nav .navbar{padding:8px 10px 8px 18px;}
+    .nav-toggle{display:flex;}
+
+    nav.links{
+      position:absolute;top:calc(100% + 12px);left:16px;right:16px;
+      display:flex;flex-direction:column;gap:8px;
+      background:rgba(255,255,255,.98);
+      backdrop-filter:blur(16px) saturate(160%);
+      -webkit-backdrop-filter:blur(16px) saturate(160%);
+      border:1px solid rgba(20,20,20,.08);
+      border-radius:20px;
+      padding:0 12px;
+      box-shadow:0 24px 50px rgba(20,20,20,.18);
+      max-height:0;overflow:hidden;opacity:0;
+      transition:max-height .4s var(--ease), opacity .3s var(--ease), padding .4s var(--ease);
+      z-index:60;
+    }
+    header.nav.menu-open nav.links{
+      max-height:calc(100svh - 120px);overflow-y:auto;opacity:1;padding:12px;
+    }
+    .nav-item{width:100%;}
+    .nav-link{width:100%;justify-content:space-between;padding:14px 12px;border-radius:12px;}
+    .nav-item:hover .nav-link,.nav-item:focus-within .nav-link{background:none;}
+    .nav-item.open .nav-link{background:rgba(20,20,20,.05);color:var(--ink);}
+    .nav-item.open .nav-link .chev{transform:rotate(0deg);}
+
+    .dropdown{
+      position:static;width:auto;height:auto;
+      max-height:0;overflow:hidden;
+      transition:max-height .4s var(--ease);
+    }
+    .nav-item.open .dropdown{max-height:600px;}
+    .dropdown-panel{
+      position:static;width:auto;max-width:none;
+      background:none;border:none;box-shadow:none;border-radius:0;overflow:visible;
+      padding:4px 0 10px;gap:6px;
+      opacity:1;transform:none;pointer-events:auto;
+    }
+    .dropdown a{
+      background:var(--surface);
+      white-space:normal;padding:12px 14px;
+    }
+    .dropdown a:hover{background:var(--line);}
+
+    .footer-top{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:760px){
+    .wrap{padding:0 22px;}
+    .hero-content{padding:150px 22px 90px;}
+    .section{padding:80px 0;}
+    .feature-row{grid-template-columns:1fr;gap:34px;padding:46px 0;}
+    .feature-row.rev .text{order:1;}
+    .feature-row.rev .graphic{order:2;}
+    .partner-grid{grid-template-columns:repeat(2,1fr);}
+    .footer-top{grid-template-columns:1fr 1fr;gap:30px;}
+    .blockgraphic{max-width:260px;}
+  }
+  @media (max-width:480px){
+    header.nav .navbar{padding:8px 8px 8px 16px;}
+    .brand img{height:24px;}
+    .nav-cta{padding:9px 14px;font-size:13px;}
+    nav.links{left:10px;right:10px;}
+    .hero-actions{flex-direction:column;align-items:stretch;}
+    .hero-actions .btn{justify-content:center;}
+    .partner-grid{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;gap:36px;}
+    .footer-bottom{flex-direction:column;align-items:flex-start;}
+    .io-table thead th{padding:12px 14px;font-size:11.5px;}
+    .io-table tbody td{padding:11px 14px;font-size:13.5px;}
+    .io-table thead th.io-col{width:70px;}
+  }
+
+  /* ---------- FEATURE ROW: FULL WIDTH (functie-lijst) ---------- */
+  .feature-row-full{
+    padding:70px 0;border-top:1px solid var(--line);
+  }
+  .feature-row-full.rev{}
+  .feature-row-full h3{font-size:clamp(22px,2.6vw,28px);font-weight:800;letter-spacing:-.02em;margin:0 0 16px;color:var(--ink);}
+  .feature-row-full .dek{
+    font-size:16.5px;color:var(--ink-soft);max-width:760px;margin:0 0 34px;line-height:1.6;
+  }
+  .feature-row-full .dek a{color:var(--blue-deep);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  .feature-row-full p.body{font-size:15.5px;line-height:1.8;color:var(--ink-soft);max-width:760px;margin:0 0 34px;}
+
+  .functie-lijst{
+    display:grid;grid-template-columns:1fr 1fr;gap:38px 56px;
+  }
+  .functie-categorie h4{
+    font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--blue-deep);margin:0 0 14px;
+  }
+  .functie-items{display:flex;flex-wrap:wrap;gap:10px;}
+  .functie-item{
+    appearance:none;-webkit-appearance:none;
+    background:#fff;border:1px solid var(--line);border-radius:100px;
+    padding:10px 18px;font-family:inherit;font-size:14px;font-weight:600;color:var(--ink-soft);
+    cursor:pointer;text-align:left;line-height:1.3;
+    transition:background .2s, color .2s, border-color .2s, transform .2s, box-shadow .2s;
+  }
+  .functie-item:hover, .functie-item:focus-visible{
+    background:var(--blue-deep);color:#fff;border-color:var(--blue-deep);
+    transform:translateY(-2px);box-shadow:0 10px 22px rgba(79,118,170,.28);
+    outline:none;
+  }
+  @media (max-width:760px){
+    .functie-lijst{grid-template-columns:1fr;gap:30px;}
+  }
+
+  /* ---------- FUNCTIE MODAL (pop-up per functionaliteit) ---------- */
+  #functie-modal-overlay{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(20,22,26,.6);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;
+    backdrop-filter:blur(2px);
+  }
+  #functie-modal-overlay.show{display:flex;}
+  .functie-modal-box{
+    background:#fff;border-radius:var(--radius);border:1px solid var(--line);
+    width:min(720px,100%);max-height:85vh;overflow:hidden;
+    display:flex;flex-direction:column;
+    box-shadow:0 24px 60px rgba(15,17,20,.35);
+  }
+  .functie-modal-head{
+    padding:20px 26px;border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .functie-modal-head h3{font-size:20px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin:0;}
+  .functie-modal-close{
+    background:none;border:none;color:var(--ink-soft);font-size:20px;line-height:1;
+    cursor:pointer;padding:4px 8px;border-radius:8px;flex:none;transition:background .2s,color .2s;
+  }
+  .functie-modal-close:hover{background:var(--surface);color:var(--ink);}
+  .functie-modal-body{
+    padding:24px 26px;overflow-y:auto;font-size:15px;line-height:1.75;color:var(--ink-soft);
+  }
+  .functie-modal-body p{margin:0 0 14px;}
+  .functie-modal-body ul{margin:0 0 14px 20px;list-style:disc;}
+  .functie-modal-body li{margin-bottom:7px;}
+  .functie-modal-body strong{color:var(--ink);}
+  .functie-modal-body img{
+    width:100%;display:block;border-radius:12px;border:1px solid var(--line);
+    margin:0 0 16px;background:var(--surface);
+  }
+  .functie-modal-foot{
+    padding:14px 26px;border-top:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+  .functie-modal-source{font-size:12.5px;color:var(--ink-soft);}
+  .functie-modal-source a{color:var(--blue-deep);font-weight:600;}
+  .functie-modal-foot .btn-primary{padding:11px 22px;font-size:14px;background:var(--ink);color:#fff;}
+  .functie-modal-foot .btn-primary:hover{background:var(--blue-deep);}
+  @media (max-width:640px){
+    .functie-modal-box{max-height:90vh;}
+    .functie-modal-head{padding:16px 18px;}
+    .functie-modal-body{padding:18px;}
+    .functie-modal-foot{padding:12px 18px;}
+  }
+
+  /* ---------- IMAGE LIGHTBOX (vergroting van plate-afbeeldingen) ---------- */
+  #image-lightbox-overlay{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(12,13,15,.82);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;
+    backdrop-filter:blur(2px);
+    cursor:zoom-out;
+  }
+  #image-lightbox-overlay.show{display:flex;}
+  .image-lightbox-box{
+    position:relative;max-width:min(1100px,92vw);max-height:88vh;
+    display:flex;flex-direction:column;align-items:center;
+    cursor:default;
+  }
+  .image-lightbox-box img{
+    max-width:100%;max-height:80vh;border-radius:14px;
+    box-shadow:0 30px 70px rgba(0,0,0,.5);
+    background:#fff;display:block;
+  }
+  .image-lightbox-caption{
+    margin-top:14px;color:#fff;font-size:14px;font-weight:600;text-align:center;opacity:.85;
+  }
+  .image-lightbox-close{
+    position:absolute;top:-46px;right:-6px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;
+    width:38px;height:38px;border-radius:50%;font-size:18px;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s, border-color .2s;
+  }
+  .image-lightbox-close:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.5);}
+  @media (max-width:640px){
+    .image-lightbox-close{top:-42px;right:0;}
+  }
+
+  /* ---------- PROJECTEN CAROUSEL (Voorbeelden uit de praktijk) ---------- */
+  .projecten-carousel{
+    display:flex;align-items:flex-start;gap:14px;
+    margin-top:36px;
+  }
+  .projecten-viewport{flex:1 1 auto;min-width:0;overflow:hidden;}
+  .projecten-track{
+    display:flex;gap:28px;align-items:flex-start; /* voorkomt dat kortere kaarten worden
+      uitgerekt (stretch is de flex-default) waardoor hun inhoud verticaal centreert
+      en de afbeelding een stuk lager dan bij de andere kaarten zou beginnen */
+    overflow-x:hidden;
+    padding:4px 0 10px;margin:0;
+  }
+  .project-card{
+    flex:0 0 calc((100% - 56px)/3);
+    display:block;min-width:0;
+    border:none;background:none;padding:0;margin:0;text-align:left;
+    font-family:inherit;color:inherit;cursor:pointer;
+    border-radius:24px;-webkit-tap-highlight-color:transparent;
+    transition:transform .3s var(--ease);
+  }
+  .project-card:hover,.project-card:focus-visible{transform:translateY(-4px);outline:none;}
+  .project-card-plate{
+    position:relative;width:100%;aspect-ratio:1/1;
+    background:var(--surface);border-radius:24px;overflow:hidden;
+  }
+  .project-card-plate img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease);}
+  .project-card:hover .project-card-plate img,.project-card:focus-visible .project-card-plate img{transform:scale(1.06);}
+  .project-card-view{
+    position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:flex-end;padding:14px;
+    background:rgba(20,22,26,0);transition:background .25s var(--ease);
+  }
+  .project-card:hover .project-card-view,.project-card:focus-visible .project-card-view{background:rgba(20,22,26,.16);}
+  .project-card-view svg{
+    width:38px;height:38px;padding:9px;border-radius:50%;box-sizing:border-box;
+    background:rgba(255,255,255,.94);color:var(--ink);
+    box-shadow:0 6px 16px rgba(20,20,20,.20);
+    opacity:0;transform:translateY(6px);transition:opacity .25s var(--ease), transform .25s var(--ease);
+  }
+  .project-card:hover .project-card-view svg,.project-card:focus-visible .project-card-view svg{opacity:1;transform:translateY(0);}
+  .project-card-tag{
+    display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--blue-deep);margin:18px 0 8px;
+  }
+  .project-card h4{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--ink);margin:0 0 8px;line-height:1.3;}
+  .project-card p{font-size:14.5px;line-height:1.6;color:var(--ink-soft);margin:0;}
+  .tool-card-placeholder{
+    position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    background:linear-gradient(160deg,var(--surface),#e8eaed);color:var(--ink-soft);
+  }
+  .tool-card-placeholder svg{width:32px;height:32px;opacity:.38;}
+  .tool-card-placeholder span{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.55;}
+
+  .projecten-arrow{
+    width:46px;height:46px;border-radius:50%;flex:none;
+    display:flex;align-items:center;justify-content:center;
+    background:#fff;border:1px solid var(--line);color:var(--ink);cursor:pointer;padding:0;
+    transition:background .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease), color .25s;
+  }
+  .projecten-arrow:hover,.projecten-arrow:focus-visible{background:var(--ink);border-color:var(--ink);color:#fff;transform:translateY(-2px);outline:none;}
+  .projecten-arrow svg{width:18px;height:18px;flex:none;}
+  @media (max-width:920px){
+    .project-card{flex-basis:calc((100% - 28px)/2);}
+  }
+  @media (max-width:640px){
+    .projecten-carousel{gap:6px;}
+    .project-card{flex-basis:100%;}
+    .projecten-arrow{width:38px;height:38px;}
+    .projecten-arrow svg{width:15px;height:15px;}
+  }
+
+  .projecten-dots{
+    display:flex;justify-content:center;align-items:center;gap:10px;
+    margin-top:28px;
+  }
+  .projecten-dot{
+    width:9px;height:9px;border-radius:50%;flex:none;padding:0;border:none;
+    background:var(--line);cursor:pointer;
+    transition:background .25s var(--ease), width .25s var(--ease), border-radius .25s var(--ease);
+  }
+  .projecten-dot:hover{background:var(--ink-soft);}
+  .projecten-dot.active{width:22px;border-radius:5px;background:var(--blue-deep);}
+
+  /* ---------- PROJECT MODAL (pop-up per praktijkvoorbeeld) ---------- */
+  #project-modal-overlay{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(20,22,26,.6);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;
+    backdrop-filter:blur(2px);
+  }
+  #project-modal-overlay.show{display:flex;}
+  .project-modal-org{display:flex;align-items:center;gap:10px;margin:0 0 16px;}
+  .project-modal-org img{height:26px;width:auto;object-fit:contain;}
+  .project-modal-org span{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue-deep);}
+
+  /* ---------- TOOL MODAL (pop-up per hulpmiddel) ---------- */
+  #tool-modal-overlay{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(20,22,26,.6);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;
+    backdrop-filter:blur(2px);
+  }
+  #tool-modal-overlay.show{display:flex;}
+  .tool-modal-tag{
+    display:block;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--blue-deep);margin:0 0 14px;
+  }
+  .tool-modal-image-placeholder{
+    aspect-ratio:16/9;width:100%;border-radius:12px;border:1px solid var(--line);
+    background:linear-gradient(160deg,var(--surface),#e8eaed);color:var(--ink-soft);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    margin:0 0 18px;
+  }
+  .tool-modal-image-placeholder svg{width:36px;height:36px;opacity:.38;}
+  .tool-modal-image-placeholder span{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.55;}
+  .functie-modal-foot .btn-secondary{
+    padding:11px 22px;font-size:14px;border-radius:100px;font-weight:700;
+    background:none;color:var(--ink-soft);border:1px solid var(--line);cursor:pointer;
+    transition:background .2s, color .2s, border-color .2s;
+  }
+  .functie-modal-foot .btn-secondary:hover{background:var(--surface);color:var(--ink);border-color:var(--ink);}
+  .tool-modal-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .tool-modal-actions .btn-primary{text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+  .tool-modal-actions .btn-primary svg{width:15px;height:15px;flex:none;}
+
+  /* ---------- FORMATEN MODAL (pop-up bij "deze tabel") ---------- */
+  #formaten-modal-overlay{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(20,22,26,.6);
+    display:none;align-items:center;justify-content:center;
+    padding:24px;
+    backdrop-filter:blur(2px);
+  }
+  #formaten-modal-overlay.show{display:flex;}
+</style>
+</head>
+<body>
+
+<header class="nav" id="siteNav">
+  <div class="navbar">
+    <a href="#top" class="brand">
+      <img src="Afbeeldingen/Logos/netherlands3d.png" alt="Netherlands3D">
+    </a>
+    <nav class="links" id="navLinks">
+      <div class="nav-item">
+        <a href="#netherlands3d" class="nav-link">Over Netherlands3D
+          <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-panel">
+          <a href="#netherlands3d">Netherlands3D</a>
+          <a href="#waarom-deze-ontwikkeling">Waarom deze ontwikkeling?</a>
+          <a href="#doelgroep">Doelgroep</a>
+          <a href="#organisaties-achter-Netherlands3d">Organisaties achter Netherlands3D</a>
+          <a href="#samenhang-nldt">Samenhang met de NLDT</a>
+          <a href="#ontwikkelingen">Ontwikkelingen</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#hoe-gebruik-ik-netherlands3d" class="nav-link">Gebruikers
+          <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-panel">
+          <a href="#hoe-gebruik-ik-netherlands3d">Hoe gebruik ik Netherlands3D?</a>
+          <a href="#navigeren">Navigeren</a>
+          <a href="#functionaliteiten">Lijst van functionaliteiten</a>
+          <a href="#voorbeelden-praktijk">Voorbeelden uit de praktijk</a>
+          <a href="#hulpmiddelen">Hulpmiddelen</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#platform-datavisualisatie" class="nav-link">Ontwikkelaars
+          <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-panel">
+          <a href="#platform-datavisualisatie">Visualisatie van data</a>
+          <a href="#voor-en-nadelen">Platform keuze</a>
+          <a href="#common-ground">Common ground principes</a>
+          <a href="#samenhang-nldt">Referentiearchitectuur voor Digitale Tweelingen (NLDT)</a>
+          <a href="#doe-mee">Doe mee!</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#team" class="nav-link">Contact
+          <svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-panel">
+          <a href="#team">Team</a>
+          <a href="#contactgegevens">Contactgegevens</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <a class="nav-cta" href="https://netherlands3d.eu/twin/" target="_blank" rel="noopener">
+      Bekijk de viewer
+    </a>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu openen" aria-controls="navLinks" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<button type="button" class="to-top-cue" id="toTopCue" aria-label="Naar boven scrollen">
+  <span class="line"></span>
+  <span>Naar boven</span>
+</button>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <video autoplay muted loop playsinline preload="auto" id="heroVideo">
+      <source src="Afbeeldingen/Video/hero.mp4" type="video/mp4">
+    </video>
+    <button type="button" class="video-toggle" id="videoToggle" aria-label="Video pauzeren">
+      <svg class="icon-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <div class="hero-content">
+      <span class="eyebrow">Visualiseer de wereld van data</span>
+      <h1>Netherlands<em>3D</em></h1>
+      <p class="lead">Combineer data en 3D modellen en verkrijg inzicht<BR> in alles wat er speelt, overal in Nederland.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://netherlands3d.eu/twin/" target="_blank" rel="noopener">
+          Bekijk de viewer
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#netherlands3d">Wat is Netherlands3D</a>
+      </div>
+    </div>
+    <button type="button" class="scroll-cue" id="scrollCue" aria-label="Scroll naar beneden"><span>Scroll</span><span class="line"></span></button>
+  </section>
+
+  <!-- INTRO 
+  <section class="intro" id="wat-is-netherlands3d">
+    <div class="wrap reveal">
+      <h2>Zoek je een mogelijkheid om data of 3D modellen aantrekkelijk en in samenhang in beeld te brengen in een online 3D omgeving, boven èn onder het maaiveld?</h2>
+      <p>Dat kan in Netherlands3D! Netherlands3D maakt het mogelijk vele soorten (geo)data en 3D modellen vanaf verschillende bronnen te koppelen en in samenhang te visualiseren. Combineer een online aangeboden dataset met jouw eigen 3D model en ontdek hoe deze op elkaar aansluiten. Weergegeven in een 3D context geeft dit vaak nèt dat beetje extra informatie dat je nodig hebt.</p>
+      <div class="io-table-wrap">
+        <table class="io-table">
+          <caption></caption>
+          <thead>
+            <tr>
+              <th>Bestand / bron</th>
+              <th class="io-col">Import</th>
+              <th class="io-col">Export</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+            <tr>
+              <td class="io-name">3D Tiles</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">Catalogus (CSW)</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">Catalogus (OGC API Records)</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>            
+            <tr>
+              <td class="io-name">CityJSON*</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>            
+            <tr>
+              <td class="io-name">DAE</td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>            
+            <tr>
+              <td class="io-name">DXF</td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr>            
+              <td class="io-name">GeoJSON</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">GLB</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">NL3D projectbestand</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr>
+              <td class="io-name">WFS</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">WMS</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="io-table-note">* nog geen ondersteuning voor het uitlezen van attributen</p>
+      </div>
+    </div>
+  </section>-->
+
+  <!-- OVER NETHERLANDS3D -->
+  <section class="features">
+    <div class="wrap">
+
+  <section class="netherlands3d" id="netherlands3d"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Netherlands3D</div>
+          <h3>Zoek je een mogelijkheid om data en 3D modellen aantrekkelijk en in samenhang in beeld te brengen in een online 3D omgeving, boven èn onder het maaiveld?</h3>
+          <p class="body">Netherlands3D is ontwikkeld om precies dat te doen! Want één kaart vertelt zelden het hele verhaal. Netherlands3D biedt de mogelijkheid om kaarten, gebouwen, ondergrond en eigen 3D-modellen samen in beeld te brengen, zodat je in één oogopslag ziet hoe alles met elkaar samenhangt. Sleep je eigen bestand erbij en ontdek direct hoe het past in de bestaande omgeving - zonder abonnement en zonder ingewikkelde software of downloads.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/data-in-samenhang.png" alt="Visualiseren van data in Netherlands3D"></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="waarom-deze-ontwikkeling" id="waarom-deze-ontwikkeling"></section>
+      <div class="feature-row rev reveal">
+        <div class="text">
+          <div class="feature-num">Waarom deze ontwikkeling?</div>
+          <h3>Direct inzicht in een ruimtelijke situatie, onder èn boven de grond, overal in Nederland!</h3>
+          <p class="body">Wat betekent een hittegolf voor jouw straat? Hoe zien de nieuwe bouwplannen er uit? Waar gaat verkeer vastlopen als de verkeerslichten niet werken? Kunnen hier goed bomen groeien? Bij dit soort vragen is er behoefte aan één gedeeld beeld van de werkelijkheid, boven én onder het maaiveld. Netherlands3D maakt het mogelijk technische geo-informatie uit onder meer de BGT, AHN, BAG, sensordata of uitkomsten van rekentools toegankelijk te maken voor iedereen, zonder gespecialiseerde GIS-kennis. Zo wordt de digitale tweeling niet alleen een instrument waar data bij elkaar komt, maar vooral een gesprek: bestuurders, ontwerpers en bewoners zien letterlijk wat een plan betekent voor hun omgeving.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/waarom-deze-ontwikkeling.png" alt="Waarom deze ontwikkeling?"></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="doelgroep" id="doelgroep"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Doelgroep</div>
+          <h3>Voor wie is Netherlands3D?</h3>
+          <p class="body">Student, ambtenaar, ontwerper, bewoner of ondernemer: Netherlands3D is er voor iedereen die grip wil krijgen op ruimtelijke vraagstukken. Gemeenten en provincies gebruiken het platform om nieuwbouw te toetsen aan de omgeving en aan regelgeving; ontwerpers en planologen zetten het in om plannen al vroeg op haalbaarheid te beoordelen. En omdat het platform vrij toegankelijk is, kan iedereen meekijken en meedenken.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/Doelgroep.png" alt="Nieuwbouw in Amsterdam Zuidoost"></div>
+          </div>
+        </div>
+      </div>
+  
+  <section class="organisaties-achter-netherlands3d" id="organisaties-achter-Netherlands3d"></section>
+      <div class="feature-row rev reveal">
+        <div class="text">
+          <div class="feature-num">Organisaties achter Netherlands3D</div>
+          <h3>Unieke samenwerking tussen provincies en gemeenten!</h3>
+          <p class="body">Ruimtelijke opgaven stoppen niet bij de gemeentegrens. Daarom hebben Gemeente Amsterdam, Gemeente Utrecht, Provincie Flevoland en Provincie Utrecht de handen ineengeslagen: samen ontwikkelen, samen investeren, samen profiteren. Door capaciteit en kosten te delen, houden vier organisaties grip op hun eigen instrument - tegen een fractie van wat het alleen zou kosten.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/organisaties.png" alt="Organisaties achter Netherlands3D"></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="samenhang-nldt" id="samenhang-nldt"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Samenhang met de NLDT</div>
+          <h3>Netherlands3D is onderdeel van het ecosysteem van digitale tweelingen.</h3>
+          <p class="body">Netherlands3D is zelf geen digitale tweeling - het is het venster waardoor je er één bekijkt. Binnen de nationale referentiearchitectuur voor digitale tweelingen (NLDT) vormt Netherlands3D de laag <i>visualisatie</i> - de plek waar data en rekenmodellen tot leven komen voor gebruikers. Data, rekentools en het fundament zorgen voor de techniek op de achtergrond; Netherlands3D zorgt dat je het ook écht begrijpt.
+                          
+          Meer informatie over de NLDT architectuur is te vinden op de site van <a href="https://www.geonovum.nl/themas/digital-twins/architectuur-voor-digitale-tweelingen" target='_blank'><U>Stichting Geonovum</U>.</a></p>
+        </div>
+          <div class="graphic">  
+            <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/ecosysteem-nldt.png" alt="Heel Nederland uniform en consistent beschikbaar"></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="ontwikkelingen" id="ontwikkelingen"></section>
+      <div class="feature-row rev reveal">
+        <div class="text">
+          <div class="feature-num">Ontwikkelingen</div>
+          <h3>Wat staat er en wat gaat komen?</h3>
+          <p class="body">De behoefte aan een open platform zoals Netherlands3D blijkt groot. Dè reden dat de huidige 4 organisaties de ontwikkeling samen onder de <i>principes van common ground</i> uitvoeren zodat iedereen kan meeprofiteren van deze ontwikkeling. Tot op heden is vooral gewerkt aan het technische fundament en aan een aantal <a href="#functionaliteiten"><u>basis functionaliteiten</u></a>. 
+            
+            Voor de volgende fase zijn we op zoek naar een betrouwbare partner die het platform stabiel en toekomstbestendig wil gaan beheren. En tegelijk de mogelijkheid biedt om nieuwe functionaleiten toe te voegen. Zo hopen we enerzijds een generiek toegankelijk en schaalbaar platform aan te kunnen blijven bieden en anderzijds maatwerk te kunnen leveren aan organisaties die een meer persoonlijke omgeving wensen. Denk aan een eigen startlocatie, standaard eigen datasets ingeladen of vooraf ingestelde functionaliteiten. 
+            
+            Bouw je graag zelf mee aan het platform? Dan ben je van harte welkom! Als organisatie én als ontwikkelaar.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/toekomst.png" alt="Ontwikkeling"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GEBRUIKERS -->
+  <section class="features">
+    <div class="wrap">
+
+  <section class="hoe-gebruik-ik-netherlands3d" id="hoe-gebruik-ik-netherlands3d"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Hoe gebruik ik Netherlands3D?</div>
+          <h3>Direct aan de slag, zonder handleiding</h3>
+          <p class="body">Data toevoegen, lagen combineren, door de 3D-omgeving navigeren: je hoeft geen specialist te zijn om Netherlands3D goed te kunnen gebruiken. Open de viewer, sleep een bestand naar binnen of kies een databron met de plus-knop en verken Nederland zoals je het nog niet eerder zag. 
+          
+          Bij het starten van Netherlands3D zie je alleen een basisomgeving, bestaande uit 3D gebouwen, bomen en het maaiveld. Alle andere data en bestanden kun je zelf toevoegen, afhankelijk van jouw behoefte. Bekijk <button type="button" class="body-link" onclick="openFormatenModal()"><u>deze tabel</u></button> voor de formaten die we op dit ogenblik ondersteunen.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/direct-aan-de-slag.png" alt="Direct aan de slag"></div>
+          </div>
+        </div>
+      </div>
+
+        <section class="navigeren" id="navigeren"></section>
+      <div class="feature-row rev reveal">
+        <div class="text">
+          <div class="feature-num">Navigeren</div>
+          <h3>Soepel navigeren in 3D</h3>
+          <p class="body">Voor de beste gebruikerservaring raden we een van de volgende internetbrowsers aan: <i>Microsoft Edge</i>, <i>Google Chrome</i> of <i>Mozilla Firefox</i>. Tevens raden we aan een muis of controller te gebruiken bij het gebruik van Netherlands3D. Navigeren gaat als volgt:</p>
+          <ul class="nav-controls-list">
+            <li><b>Klikken &amp; slepen</b> - linkermuisknop klikken en slepen verschuift het 3D-model.</li>
+            <li><b>Muiswiel draaien</b> - draai het muiswiel om in en uit te zoomen op het model.</li>
+            <li><b>Shift &amp; muiswiel draaien</b> - houd Shift ingedrukt en draai het muiswiel voor sneller in- en uitzoomen.</li>
+            <li><b>Wiel klikken &amp; slepen</b> - klik het muiswiel in en sleep om het 3D-model te roteren rond een vastgezet punt. Geen muiswiel? Gebruik dan de linker Alt-toets en linkermuisknop.</li>
+            <li><b>Draaien bij close-up</b> - draai vanuit het standpunt met de linker Ctrl-toets en de linkermuisknop.</li>
+            <li><b>Rechtermuisknop klikken</b> - opent het contextmenu.</li>
+          </ul>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate zoomable" title="Klik voor vergroting" tabindex="0" role="button" aria-label="Klik voor vergroting" onclick="openImageLightbox('Afbeeldingen/Representatie/nl3d-navigeren.png','Navigeren in Netherlands3D')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImageLightbox('Afbeeldingen/Representatie/nl3d-navigeren.png','Navigeren');}">
+              <img src="Afbeeldingen/Representatie/nl3d-navigeren.png" alt="Navigeren">
+              <span class="zoom-hint" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <section class="functionaliteiten" id="functionaliteiten"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Lijst van functionaliteiten</div>
+          <h3>Alles wat de viewer voor je kan doen</h3>
+          <p class="body">Netherlands3D visualiseert data. Om deze data efficiënt en zo interactief mogelijk weer te geven op de manier zoals jij wil, zijn een groot aantal functionaliteiten beschikbaar. Van het downloaden van een gebied tot het simuleren van de zonnestand. En van functies om te navigeren en data toe te voegen tot het naar eigen inzicht instellen van de weergave ervan. Projecten kunnen ook opgeslagen en gedeeld worden.</p><BR><BR>
+
+         <p class="body"><i>Een compleet en actueel overzicht van alle functionaliteiten verschijnt binnenkort op deze pagina. Wil je weten wat er ongeveer beschikbaar is, kijk dan eens op de oude (!) <a href="https://netherlands3d.eu/docs/functionaliteiten/functionaliteiten-overzicht/" target="_blank" rel="noopener"><u>functionaliteiten-overzichtspagina</u>.</a></i></p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate zoomable" title="Klik voor vergroting" tabindex="0" role="button" aria-label="Klik voor vergroting" onclick="openImageLightbox('Afbeeldingen/Representatie/functionaliteiten.png','Functionaliteiten in de oude versie van Netherlands3D')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImageLightbox('Afbeeldingen/Representatie/nl3d-navigeren.png','Navigeren');}">
+              <img src="Afbeeldingen/Representatie/functionaliteiten.png" alt="Functionaliteiten in de oude versie van Netherlands3D">
+              <span class="zoom-hint" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            </span></div>   
+          </div>
+        </div>
+      </div>
+
+  <!--<section class="functionaliteiten" id="functionaliteiten"></section>
+      <div class="feature-row-full reveal">
+        <div class="feature-num">Lijst van functionaliteiten</div>
+        <h3>Alles wat de viewer voor je kan doen</h3>
+        <p class="dek">Netherlands3D visualiseert data. Om deze data zo goed en interactief mogelijk weer te geven op de manier zoals jij wil, zijn een groot aantal functionaliteiten beschikbaar.Van het downloaden van een gebied tot het simuleren van de zonnestand. En van functies om te navigeren en data toe te voegen tot het naar eigen inzicht instellen van de weergave ervan. Tot slot kunnen projecten ook opgeslagen en gedeeld worden.</p>  
+         <p class="body">Een compleet en actueel overzicht hiervan verschijnt binnenkort op deze pagina. Klik op een functie voor de volledige toelichting met afbeeldingen. Wil je toch al weten wat er beschikbaar is, kijk dan eens op onze oude <a href="https://netherlands3d.eu/docs/functionaliteiten/functionaliteiten-overzicht/" target="_blank" rel="noopener"><u>functionaliteiten-overzichtspagina</u></a>
+        </p>
+        <div class="functie-lijst">
+          <div class="functie-categorie">
+            <h4>Algemeen</h4>
+            <div class="functie-items">
+            <button type="button" class="functie-item" onclick="openFunctieModal('gebied-downloaden')">Gebied downloaden</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('locatie-bepalen')">Locatie bepalen</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('object-informatie')">Object informatie</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('ondergrond-doorzicht')">Ondergrond doorzicht</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('project-openen-opslaan')">Project openen/opslaan</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('schermafbeelding-maken')">Schermafbeelding maken</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('transformatietool')">Transformatietool</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('zonnestand-simuleren')">Zonnestand simuleren</button>
+            </div>
+          </div>
+          <div class="functie-categorie">
+            <h4>Instellingen</h4>
+            <div class="functie-items">
+            <button type="button" class="functie-item" onclick="openFunctieModal('bomen-en-bospercelen')">Bomen en bospercelen</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('buurtnamen')">Buurtnamen</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('gebouwen-3d-bag')">Gebouwen - 3D BAG</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('gebouwen-kleuren')">Gebouwen kleuren</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('indicatoren')">Indicatoren</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('kwaliteit')">Kwaliteit</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('limiteer-scroll-gevoeligheid')">Limiteer scroll gevoeligheid</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('straatnamen')">Straatnamen</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('terrein-kadaster')">Terrein - kadaster</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('wijknamen')">Wijknamen</button>
+            </div>
+          </div>
+          <div class="functie-categorie">
+            <h4>Navigeren</h4>
+            <div class="functie-items">
+            <button type="button" class="functie-item" onclick="openFunctieModal('first-person-viewer')">First Person Viewer</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('minimap')">Minimap</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('orthografisch-perspectief')">Orthografisch/perspectief</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('positie')">Positie</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('weergave-naar-noorden-draaien')">Weergave naar noorden draaien</button>
+            </div>
+          </div>
+          <div class="functie-categorie">
+            <h4>Toevoegen</h4>
+            <div class="functie-items">
+            <button type="button" class="functie-item" onclick="openFunctieModal('3d-tiles')">3D Tiles</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('google-fotorealistische-wereld')">Google foto-realistische wereld</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('importeren-bestand-via-url')">Importeren - bestand via URL</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('importeren-eigen-bestand')">Importeren - eigen bestand</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('objecten-bibliotheek')">Objecten bibliotheek</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('tekengebied-lijn')">Tekengebied - Lijn</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('tekengebied-polygoon')">Tekengebied - Polygoon</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('urbanreleaf-sensor-data')">UrbanReLeaf Sensor Data</button>
+            <button type="button" class="functie-item" onclick="openFunctieModal('verspreid-objecten-polygoon')">Verspreid objecten in tekengebied Polygoon</button>
+            </div>
+          </div>
+        </div>
+      </div>-->
+
+  <section class="voorbeelden-praktijk" id="voorbeelden-praktijk"></section>
+      <div class="feature-row-full reveal">
+        <div class="feature-num">Voorbeelden uit de praktijk</div>
+        <h3>Netherlands3D in actie</h3>
+        <p class="dek">Van massastudies in nieuwbouwprojecten tot communicatie- en participatietrajecten: gemeenten en provincies zetten Netherlands3D al in om concrete, vaak ruimtelijke, vraagstukken tastbaar te maken. Klik op een project voor meer uitleg, beeldmateriaal en kenmerken.</p>
+
+        <div class="projecten-carousel">
+          <button type="button" class="projecten-arrow" id="projectenPrev" aria-label="Vorig project" title="Vorig project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+
+          <div class="projecten-viewport">
+            <div class="projecten-track" id="projectenTrack">
+
+              <button type="button" class="project-card" onclick="openProjectModal('amsterdam-zuidoost')">
+                <div class="project-card-plate">
+                  <img src="Afbeeldingen/Representatie/Doelgroep.png" alt="Nieuwbouw in Amsterdam-Zuidoost">
+                  <span class="project-card-view" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  </span>
+                </div>
+                <span class="project-card-tag">Gemeente Amsterdam</span>
+                <h4>Nieuwbouwontwikkeling Amsterdam Zuidoost</h4>
+                <p>Nieuwe woontorens direct naast de bestaande stad, in 3D naast elkaar gezet.</p>
+              </button>
+
+              <button type="button" class="project-card" onclick="openProjectModal('utrecht-provincie-urbanreleaf')">
+                <div class="project-card-plate">
+                  <img src="Afbeeldingen/Representatie/waarom-deze-ontwikkeling.png" alt="Urban ReLeaf klimaatdata in Netherlands3D">
+                  <span class="project-card-view" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  </span>
+                </div>
+                <span class="project-card-tag">Provincie Utrecht</span>
+                <h4>Urban ReLeaf: klimaat in de stad meten</h4>
+                <p>Temperatuur, vochtigheid en hittestress per hexagoon in beeld.</p>
+              </button>
+
+              <button type="button" class="project-card" onclick="openProjectModal('utrecht-gemeente-ruimtelijke-plannen')">
+                <div class="project-card-plate">
+                  <img src="Afbeeldingen/Representatie/data-in-samenhang.png" alt="Nieuwbouw en ondergrond doorzicht in de binnenstad van Utrecht">
+                  <span class="project-card-view" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  </span>
+                </div>
+                <span class="project-card-tag">Gemeente Utrecht</span>
+                <h4>Ruimtelijke plannen bespreken met bewoners en raad</h4>
+                <p>Nieuwbouw en de ondergrond in één gedeeld 3D-beeld van de binnenstad.</p>
+              </button>
+
+              <button type="button" class="project-card" onclick="openProjectModal('flevoland-energie-landschap')">
+                <div class="project-card-plate">
+                  <img src="Afbeeldingen/Representatie/ecosysteem-nldt.png" alt="Windmolen en gebiedsdata in het landschap van Flevoland">
+                  <span class="project-card-view" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  </span>
+                </div>
+                <span class="project-card-tag">Provincie Flevoland</span>
+                <h4>Energie en landschap in balans</h4>
+                <p>Windmolens en gebiedsdata samengebracht in één 3D-omgeving.</p>
+              </button>
+
+            </div>
+          </div>
+
+          <button type="button" class="projecten-arrow" id="projectenNext" aria-label="Volgend project" title="Volgend project">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="projecten-dots" id="projectenDots" role="tablist" aria-label="Ga naar project"></div>
+      </div>
+
+  <div class="wrap">
+    <section class="hulpmiddelen" id="hulpmiddelen"></section>
+      <div class="feature-row-full reveal">
+        <div class="feature-num">Hulpmiddelen</div>
+        <h3>Een goede voorbereiding is het halve werk!</h3>
+        <p class="dek">Los van de Netherlands3D-viewer bieden we een aantal kleine tools die je helpen om eigen data geschikt te maken voor Netherlands3D. Deze tools zijn veelal ontwikkeld met inzet van AI en zijn daarom vrij te gebruiken. Bekijk hieronder wat ze doen, download ze als ZIP-bestand en gebruik ze om jouw werk te versnellen!</p>
+
+        <div class="projecten-carousel">
+          <button type="button" class="projecten-arrow" id="hulpmiddelenPrev" aria-label="Vorig hulpmiddel" title="Vorig hulpmiddel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+
+          <div class="projecten-viewport">
+            <div class="projecten-track" id="hulpmiddelenTrack">
+
+              <button type="button" class="project-card" onclick="openToolModal('qgis-export')">
+                <div class="project-card-plate">
+                  <img src="Afbeeldingen/Representatie/tool-qgis-export.png" alt="Exporteren van QGIS-lagen naar Netherlands3D (.nl3d)">
+                  <span class="project-card-view" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  </span>
+                </div>
+                <span class="project-card-tag">QGIS-plugin</span>
+                <h4>Lagen exporteren naar .nl3d</h4>
+                <p>Exporteer je QGIS-vectorlagen (punten, lijnen en vlakken) rechtstreeks naar het .nl3d-bestandsformaat van Netherlands3D.</p>
+              </button>
+
+              <button type="button" class="project-card" onclick="openToolModal('foto-geojson')">
+                <div class="project-card-plate">
+                  <img src="Afbeeldingen/Representatie/tool-foto-geojson.png" alt="De Foto GeoJSON-tool van Netherlands3D">
+                  <span class="project-card-view" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  </span>
+                </div>
+                <span class="project-card-tag">Webtool</span>
+                <h4>Foto GeoJSON-tool</h4>
+                <p>Voeg eenvoudig aan foto's een locatie, titel en bijschrift toe en laadt ze op de juiste locaties in Netherlands3D.</p>
+              </button>
+
+              <button type="button" class="project-card" onclick="openToolModal('project-editor')">
+                <div class="project-card-plate">
+                  <img src="Afbeeldingen/Representatie/tool-project-editor.png" alt="De Netherlands3D Project Editor">
+                  <span class="project-card-view" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                  </span>
+                </div>
+                <span class="project-card-tag">Webtool</span>
+                <h4>Project Editor</h4>
+                <p>Stel een Netherlands3D-project samen of pas het aan en download het direct als kant-en-klaar .nl3d-bestand.</p>
+              </button>
+
+            </div>
+          </div>
+
+          <button type="button" class="projecten-arrow" id="hulpmiddelenNext" aria-label="Volgend hulpmiddel" title="Volgend hulpmiddel">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <div class="projecten-dots" id="hulpmiddelenDots" role="tablist" aria-label="Ga naar hulpmiddel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ONTWIKKELAARS -->
+  <section class="features">
+    <div class="wrap">
+
+  <section class="platform-datavisualisatie" id="platform-datavisualisatie"></section>
+      <div class="feature-row rev reveal">
+        <div class="text">
+          <div class="feature-num">Visualisatie van data</div>
+          <h3>Een 3D Wereld op basis van gaming technologie.</h3>
+          <p class="body">Netherlands3D is een open source visualisatieplatform waarmee gemeenten, provincies en andere organisaties digitale 3D-weergaves van hun leefomgeving samenstellen op basis van verschillende databronnen. Voor het goed onderbouwd kunnen beantwoorden van verschillende beleidsvraagstukken, is het noodzakelijk om data gecombineerd en integraal bij elkaar te brengen. Visualisatie hiervan helpt om de samenhang te begrijpen. De keuze is gemaakt om het platform niet te bouwen op traditionele GIS-software, maar op een game-engine: Unity. Geodata zoals gebouwmodellen, terreinhoogtes en kadastergegevens worden ingeladen als 3D-tiles en gerenderd met dezelfde technieken die games gebruiken voor real-time graphics: dynamische belichting, level-of-detail-systemen, shaders en een asset-pipeline die is gebouwd voor grote, interactieve werelden. Datavisualisatie via gaming engines biedt veel voordelen.
+
+Vanuit de gaming engine wordt het resultaat gecompileerd naar WebGL, zodat de viewer direct in de browser draait. Er is geen installatie nodig: een link volstaat om een volledig interactief 3D-model van een stad of regio te openen. Dit verlaagt de drempel voor gebruik door beleidsmakers, ontwerpers en burgers flink. Vanuit de viewer zijn er allerlei mogelijkheden om extra databronnen te koppelen en in dezelfde 3D wereld weer te geven. Daarbij ondersteunen we verschillende <button type="button" class="body-link" onclick="openFormatenModal()"><u>bestandsformaten</u></button>, veelal de formatien die voldoen aan de <a href="https://www.ogc.org/nl/" target="_blank" rel="noopener"><u>OGC-Standaarden</u></a>. Het project is schaalbaar opgezet, met herbruikbare onderdelen, en komt daardoor terug in meerdere lokale implementaties zoals <a href="https://3d.amsterdam.nl/" target="_blank" rel="noopener"><u>3D Amsterdam</u></a> en <a href="https://3d.utrecht.nl" target="_blank" rel="noopener"><u>3D Utrecht</u></a>.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/NL3D-in-editor.png" alt="Unity editor"></div>
+            </div>
+        </div>
+      </div>
+
+<section class="voor-en-nadelen" id="voor-en-nadelen"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Platform keuze</div>
+          <h3>Bewust maken van keuzes</h3>
+          <p class="body">Bij de start van het project in 2019 (toen nog 3D Amsterdam), is besloten te gaan ontwikkelen op het Unity platform. Op dat moment was Unity WebGL de beste keuze voor Web-applicaties als directe export uit een gaming engine. En hoewel er tegenwoordig allerlei concurrerende producten en combinaties van producten op de markt voorhanden zijn, biedt de combinatie van gaming-technologie en WebGL voor ons project nog steeds duidelijke voordelen. Unity levert tooling voor real-time 3D die in reguliere GIS-stacks ontbreekt, zoals performance-profiling, physics en een grote bibliotheek aan importers en shaders. Doordat alles in de browser draait, is het platform cross-platform zonder aparte builds per besturingssysteem, en is delen met niet-technische stakeholders eenvoudig.
+
+ Beperkingen zijn er ook. Unity WebGL-builds zijn relatief groot, wat leidt tot lange laadtijden bij een eerste bezoek. Onze ontwikkelaars maken daarom altijd een afweging tussen optimalistie in performance en optimalisatie van (render) weergave voor eindgebruikers. Mobiele ondersteuning is op dit moment niet geoptimaliseerd door beperkt browsergeheugen op mobiele apparaten, de ontwikkeling richt zich vooralsnog op desktop gebruikers. Prestaties hangen sterk af van de GPU en WebGL-implementatie van de browser van de eindgebruiker, wat tot wisselende ervaringen leidt. We houden de markt en alle nieuwe ontwikkelingen daarin nauwlettend in de gaten om continu de prestaties van Netherlands3D te verbeteren en zo een optimale gebruikerservaring te garanderen.
+
+
+Voor project 'De Hollandse Waterlinie wordt de Netherlands3D omgeving omgezet naar een stand-alone versie </p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate zoomable" title="Klik voor vergroting" tabindex="0" role="button" aria-label="Klik voor vergroting" onclick="openImageLightbox('Afbeeldingen/Representatie/voor-en-nadelen.png','Voor- en nadelen van Unity WebGL voor de ontwikkeling van Netherlands3D')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openImageLightbox('Afbeeldingen/Representatie/voor-en-nadelen.png','Voor- en nadelen van Unity WebGL');}">
+             <img src="Afbeeldingen/Representatie/voor-en-nadelen.png" alt="Voor- en nadelen van Unity WebGL">
+             <span class="zoom-hint" aria-hidden="true">
+               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+            </span></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="common-ground" id="common-ground"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Visualisatie</div>
+          <h3>Slim hergebruiken in plaats van opnieuw bouwen</h3>
+          <p class="body">Herbruikbaar in plaats van opnieuw uitvinden: Netherlands3D volgt de Common Ground-principes, met losgekoppelde, herbruikbare bouwstenen. Dat maakt samenwerken tussen overheden eenvoudiger en voorkomt dat iedereen zijn eigen wiel blijft uitvinden.
+
+
+Netherlands3D is te vinden op github.com/Netherlands3D, met de generieke viewer en het skeletproject in de twin-repository, uitgebracht onder de EUPL-1.2-licentie.
+            
+            Netherlands3D is geen kant-en-klaar pakket, maar een modulair, open-source platform. Elke ontwikkelaar kan eigen datasets en functionaliteiten toevoegen en zo het platform naar eigen inzicht uitbreiden. Technische documentatie volgt binnenkort op deze pagina.
+
+          </p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/direct-aan-de-slag.png" alt="Direct aan de slag"></div>
+            </div>
+        </div>
+      </div>
+
+  <section class="referentiearchitectuur-nldt" id="referentiearchitectuur-nldt"></section>
+      <div class="feature-row rev reveal">
+        <div class="text">
+          <div class="feature-num">Voor ontwikkelaars</div>
+          <h3>Onderdeel van een groter geheel</h3>
+          <p class="body">Netherlands3D staat niet op zichzelf, maar sluit aan op de nationale referentiearchitectuur voor digitale tweelingen. Hoe die samenhang er precies uitziet, lees je binnenkort op deze pagina.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/direct-aan-de-slag.png" alt="Direct aan de slag"></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="doe-mee" id="doe-mee"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Voor ontwikkelaars</div>
+          <h3>Bouw mee aan Netherlands3D</h3>
+          <p class="body">Het platform is nooit af — en dat is precies de bedoeling. Wil je meebouwen aan Netherlands3D? Als ontwikkelaar ben je van harte welkom om mee te denken, code bij te dragen en het platform verder te brengen. Iedereen die wil bijdragen, nodigen we actief uit.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/direct-aan-de-slag.png" alt="Direct aan de slag"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="features">
+    <div class="wrap">
+
+  <section class="team" id="team"></section>
+      <div class="feature-row reveal">
+        <div class="text">
+          <div class="feature-num">Contact</div>
+          <h3>Team</h3>
+          <p class="body">Maak kennis met de mensen achter Netherlands3D. Een overzicht van het team volgt binnenkort op deze pagina.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+            <div class="plate"><img src="Afbeeldingen/Representatie/xxx.png" alt="Team NL3D"></div>
+          </div>
+        </div>
+      </div>
+
+  <section class="contactgegevens" id="contactgegevens"></section>
+      <div class="feature-row rev reveal">
+        <div class="text">
+          <div class="feature-num">Contact</div>
+          <h3>Contactgegevens</h3>
+          <p class="body">Heb je een vraag of wil je in contact komen met het Netherlands3D team? De contactgegevens worden hier binnenkort toegevoegd.</p>
+        </div>
+        <div class="graphic">
+          <div class="blockgraphic">
+          <div class="plate"><img src="Afbeeldingen/Representatie/direct-aan-de-slag.png" alt="Direct aan de slag"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners">
+    <div class="wrap">
+      <div class="section-head center reveal">
+       <h2>Netherlands3D wordt gerealiseerd door</h2>
+      </div>
+      <div class="partner-grid reveal">
+        <a class="partner-card" href="https://www.amsterdam.nl/" target="_blank" rel="noopener">
+          <img src="Afbeeldingen/Logos/amsterdam.png" alt="Gemeente Amsterdam">
+        </a>
+        <a class="partner-card" href="https://www.utrecht.nl/" target="_blank" rel="noopener">
+          <img src="Afbeeldingen/Logos/utrecht-gemeente.png" alt="Gemeente Utrecht">
+        </a>
+        <a class="partner-card" href="https://www.flevoland.nl/home" target="_blank" rel="noopener">
+          <img src="Afbeeldingen/Logos/flevoland.png" alt="Provincie Flevoland">
+        </a>
+        <a class="partner-card" href="https://www.provincie-utrecht.nl/" target="_blank" rel="noopener">
+          <img src="Afbeeldingen/Logos/utrecht-provincie.png" alt="Provincie Utrecht">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="bg-blocks">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;">
+        <rect x="60" y="60" width="180" height="120" rx="10" fill="var(--blue)" opacity=".18"/>
+        <rect x="220" y="140" width="140" height="100" rx="10" fill="var(--rose)" opacity=".16"/>
+        <rect x="900" y="80" width="200" height="140" rx="10" fill="var(--rose)" opacity=".14"/>
+        <rect x="980" y="220" width="150" height="110" rx="10" fill="var(--blue)" opacity=".16"/>
+        <rect x="40" y="300" width="150" height="110" rx="10" fill="none" stroke="#fff" stroke-width="1.5" opacity=".12"/>
+        <rect x="1020" y="350" width="130" height="100" rx="10" fill="none" stroke="#fff" stroke-width="1.5" opacity=".12"/>
+      </svg>
+    </div>
+    <div class="wrap reveal">
+      <span class="kicker">Direct aan de slag</span>
+      <h2>En wil je dat allemaal niet?</h2>
+      <p>Gebruik dan gewoon de basisviewer van Netherlands3D hier — geen installatie, geen instellingen, direct een 3D beeld van heel Nederland.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://netherlands3d.eu/twin/">
+          Gebruik de basisviewer
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/Netherlands3D">Bekijk op GitHub</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="Afbeeldingen/Logos/netherlands3d.png" alt="Netherlands3D">
+        <p>Het open-source Digital Twin-framework ontworpen voor Nederland. Gebouwd voor gebruikers, organisaties en ontwikkelaars.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="https://netherlands3d.eu/twin/">Bekijk de viewer</a></li>
+          <li><a href="https://netherlands3d.eu/docs/functionaliteiten/wat-is-netherlands3d/">Voor gebruikers</a></li>
+          <li><a href="https://netherlands3d.eu/docs/organisations/netherlands3d-platform/">Voor organisaties</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ontwikkelaars</h4>
+        <ul>
+          <li><a href="https://netherlands3d.eu/docs/developers/introduction/">Documentatie</a></li>
+          <li><a href="https://github.com/Netherlands3D">GitHub</a></li>
+          <li><a href="https://netherlands3d.eu/docs/developers/contributing/coding-standards/">Coding standards</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Organisatie</h4>
+        <ul>
+          <li><a href="#wat-is-het">Wat is Netherlands3D?</a></li>
+          <li><a href="#top">In samenwerking met</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Netherlands3D. Open-source project.</span>
+      <a href="https://github.com/Netherlands3D">github.com/Netherlands3D</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Functie-uitleg pop-up: toont per functionaliteit dezelfde tekst/afbeeldingen als de Netherlands3D-handleiding -->
+<div id="functie-modal-overlay">
+  <div class="functie-modal-box">
+    <div class="functie-modal-head">
+      <h3 id="functie-modal-title">Functie</h3>
+      <button type="button" class="functie-modal-close" onclick="closeFunctieModal()" aria-label="Sluiten">&#10005;</button>
+    </div>
+    <div class="functie-modal-body" id="functie-modal-body"></div>
+    <div class="functie-modal-foot">
+      <span class="functie-modal-source">Bron: <a id="functie-modal-source-link" href="#" target="_blank" rel="noopener">netherlands3d.eu</a></span>
+      <button type="button" class="btn-primary" onclick="closeFunctieModal()">Sluiten</button>
+    </div>
+  </div>
+</div>
+
+<!-- Afbeelding-lightbox: vergroot een "plate"-afbeelding op klik -->
+<div id="image-lightbox-overlay" role="dialog" aria-modal="true" aria-label="Uitvergrote afbeelding">
+  <div class="image-lightbox-box">
+    <button type="button" class="image-lightbox-close" onclick="closeImageLightbox()" aria-label="Sluiten">&#10005;</button>
+    <img id="image-lightbox-img" src="" alt="">
+    <div class="image-lightbox-caption" id="image-lightbox-caption"></div>
+  </div>
+</div>
+
+<!-- Projecten pop-up: toont per praktijkvoorbeeld beeldmateriaal, toelichting en kenmerken -->
+<div id="project-modal-overlay">
+  <div class="functie-modal-box">
+    <div class="functie-modal-head">
+      <h3 id="project-modal-title">Project</h3>
+      <button type="button" class="functie-modal-close" onclick="closeProjectModal()" aria-label="Sluiten">&#10005;</button>
+    </div>
+    <div class="functie-modal-body" id="project-modal-body"></div>
+    <div class="functie-modal-foot">
+      <span class="functie-modal-source" id="project-modal-org-label"></span>
+      <button type="button" class="btn-secondary" onclick="closeProjectModal()">Sluiten</button>
+    </div>
+  </div>
+</div>
+
+<!-- Hulpmiddelen pop-up: toont per tool wat extra uitleg en de downloadlink naar de ZIP -->
+<div id="tool-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="tool-modal-title">
+  <div class="functie-modal-box">
+    <div class="functie-modal-head">
+      <h3 id="tool-modal-title">Hulpmiddel</h3>
+      <button type="button" class="functie-modal-close" onclick="closeToolModal()" aria-label="Sluiten">&#10005;</button>
+    </div>
+    <div class="functie-modal-body" id="tool-modal-body"></div>
+    <div class="functie-modal-foot">
+      <span class="functie-modal-source" id="tool-modal-file"></span>
+      <div class="tool-modal-actions">
+        <a class="btn-primary" id="tool-modal-download" href="#" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+          Download ZIP
+        </a>
+        <button type="button" class="btn-secondary" onclick="closeToolModal()">Sluiten</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Formaten pop-up: toont de import/export-tabel bij "deze tabel" -->
+<div id="formaten-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="formaten-modal-title">
+  <div class="functie-modal-box">
+    <div class="functie-modal-head">
+      <h3 id="formaten-modal-title">Ondersteunde formaten</h3>
+      <button type="button" class="functie-modal-close" onclick="closeFormatenModal()" aria-label="Sluiten">&#10005;</button>
+    </div>
+    <div class="functie-modal-body formaten-modal-body">
+      <div class="io-table-wrap">
+        <table class="io-table">
+          <caption></caption>
+          <thead>
+            <tr>
+              <th>Bestand / bron</th>
+              <th class="io-col">Import</th>
+              <th class="io-col">Export</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="io-name">3D Tiles</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">Catalogus (CSW)</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">Catalogus (OGC API Records)</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">CityJSON*</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">DAE</td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr>
+              <td class="io-name">DXF</td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr>
+              <td class="io-name">GeoJSON</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">GLB</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">NL3D projectbestand</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+            </tr>
+            <tr>
+              <td class="io-name">WFS</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+            <tr>
+              <td class="io-name">WMS</td>
+              <td class="io-col"><span class="io-check" aria-label="Ja"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12l5 5L20 6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span></td>
+              <td class="io-col"><span class="io-dash" aria-label="Nee">–</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="io-table-note">* nog geen ondersteuning voor het uitlezen van attributen</p>
+      </div>
+    </div>
+    <div class="functie-modal-foot">
+      <span class="functie-modal-source">Situatie: september 2026 <!--Bron: <a href="https://netherlands3d.eu/docs/functionaliteiten/functionaliteiten-overzicht/" target="_blank" rel="noopener">netherlands3d.eu</a>--></span>
+      <button type="button" class="btn-primary" onclick="closeFormatenModal()">Sluiten</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const FUNCTIE_DATA = {
+  "gebied-downloaden": {
+    "title": "Gebied downloaden",
+    "html": "<p>Functie, hoofdmenu.</p>\n<p>Met de functie Gebied Downloaden kunnen delen van een gebied als bestand worden gedownload (in de formaten .DAE en .DXF). Deze functie bevordert de aansluiting en uitwisseling met andere visualisatie- en CAD programma's.</p>\n<p>Dit hoofdstuk beschrijft de belangrijkste functies van Gebied Downloaden en geeft uitleg over de interface en essentiële functies.</p>\n<p><strong>Beschrijving</strong></p>\n<p>Met Gebied downloaden kunnen delen van een gebied worden opgeslagen en in andere software worden ingeladen.</p>\n<p><strong>Menu</strong></p>\n<p>Door met de muis op het Gebied downloaden-icoon in het hoofdmenu te klikken wordt de tool actief. Het menu klapt open en de instellingen worden zichtbaar.</p>\n<p><strong>Werking</strong></p>\n<ul>\n<li><strong>Gebied downloaden</strong><br>Na het activeren van de functionaliteit wordt het menu actief en kun je met de muis meerdere secties van 100x100 meter selecteren.</li>\n<li><strong>Selecteer gebied</strong><br>Door met de muis, in combinatie met de linkermuisknop en shift-toets te slepen kun je het selectiegebied vergroten.</li>\n<li><strong>Export format kiezen</strong></li>\n</ul>\n<p>Waarom kan ik het selectiegebied niet roteren?</p>\n<p>Het selectiegebied is altijd loodrecht op de horizontale-as/op het noorden georiënteerd.</p>\n<ul>\n<li><strong>Coördinaten huidige selectie</strong><br>Met deze functie kun je de coördinaten van het hoekpunt zuidwest en het hoekpunt noordoost naar het klembord kopiëren.</li>\n<li><strong>Voorwaarden</strong><br>NB! Voordat je het geselecteerde gebied kunt downloaden, dien je akkoord te gaan met de voorwaarden door Ik ga akkoord met de voorwaarden.<br>Je vindt de link onder;<br>Rechtenbeleid 3D basisvoorziening &amp; Gebruiksvoorwaarden 3DBag.</li>\n<li><strong>Downloaden</strong><br>Klik op download om een .DAE (Collada) of .DXF (CAD) bestand te downloaden. Het bestand kun je in een 3D modelleerprogramma zoals bijvoorbeeld Blender, Sketchup of CAD software importeren en bewerken.</li>\n</ul>",
+    "images": [
+      "images/functionaliteiten/gebied-downloaden-1.png",
+      "images/functionaliteiten/gebied-downloaden-2.png",
+      "images/functionaliteiten/gebied-downloaden-3.png",
+      "images/functionaliteiten/gebied-downloaden-4.png",
+      "images/functionaliteiten/gebied-downloaden-5.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/gebied-downloaden/"
+  },
+  "locatie-bepalen": {
+    "title": "Locatie bepalen",
+    "html": "<p>Met deze functie kun je de locatie invoeren. Dit kan op drie manieren;</p>\n<ul>\n<li>Door met de muis op een locatie in de map te klikken</li>\n<li>Door het invoeren van een plaats-, straatnaam en/of postcode</li>\n<li>Door bij X, Y een coördinaat* in te voeren</li>\n</ul>\n<p>Waarom kan ik geen gps-coördinaten invoeren?</p>\n<p>(*) Het coördinatenstelsel van Netherlands3d.eu is gebaseerd op het RD-coördinatenstelsel. Lees <a href=\"https://www.kadaster.nl/zakelijk/registraties/basisregistraties/rijksdriehoeksmeting/rijksdriehoeksstelsel\">hier</a> (externe link) meer over het RD-coördinatenstelsel.</p>",
+    "images": [
+      "images/functionaliteiten/locatie-bepalen-1.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-locatie-bepalen/"
+  },
+  "object-informatie": {
+    "title": "Object Informatie",
+    "html": "<p>Functie, hoofdmenu.</p>\n<p>Met de BAG Object Informatie tool kan de gebruiker schematische 3D modellen van alle objecten in Nederland bekijken en gedetailleerde object (gebouw) informatie opvragen. BAG Object Informatie is onderdeel van de basisfuncties in Netherlands3D.eu. Alle objecten op de laag 'Gebouwen' komen uit de 3DBAG. Dit is een up-to-date land dekkende dataset met 3D gebouwmodellen van Nederland.</p>\n<p>Dit hoofdstuk beschrijft de belangrijkste functies van BAG Object Informatie en geeft uitleg over de interface en essentiële functies.</p>\n<p><strong>Overzicht van functies</strong></p>\n<p>Door een object te selecteren kan gedetailleerde object informatie worden opgevraagd.</p>\n<p><strong>Gedetailleerde beschrijving van de functies</strong></p>\n<p><strong>Menu</strong></p>\n<p>Na het klikken op de het (bovenste) BAG Informatie-icoon van het hoofdmenu, klapt het Object informatie-menu open en verschijnt onderstaande tekst in beeld.</p>\n<p><strong>Object selectie</strong></p>\n<p>Klik op een gebouw in de 3D-Viewer om de Basisregistratie Adressen en Gebouwen (BAG) informatie te bekijken. Het geselecteerde object wordt blauw en de officiële object informatie verschijnt.</p>\n<p><strong>Object informatie</strong></p>\n<p>De Object informatie bevat de volgende data.</p>\n<p><strong>Praktische informatie</strong></p>\n<ul>\n<li>BAG ID 0000000000000000</li>\n<li>Status</li>\n<li>Bouwjaar [Jaartal]</li>\n</ul>\n<p><strong>(Adress(en))</strong></p>\n<ul>\n<li>Adres en Huisnummer</li>\n</ul>\n<p>Kan ik meer BAG informatie krijgen?</p>\n<p>Ja dat kan zeker, door op het BAG ID te klikken van het pand wat is geselecteerd, wordt je doorgestuurd naar de <a href=\"https://bagviewer.kadaster.nl/lvbag/bag-viewer\">BAG-viewer</a> van het kadaster en ingezoomd op het geselecteerde pand in de 3D-Viewer.</p>\n<p><strong>Aanvullende technische details</strong></p>\n<p>De 3DBAG is een up-to-date landsdekkende dataset met 3D gebouwmodellen van Nederland. De 3DBAG is open data. Het bevat 3D modellen op verscheidene detailniveaus welke zijn gegenereerd door de combinatie van twee open datasets: de pand-gegevens uit de BAG en de hoogtegegevens uit de AHN. De 3DBAG wordt regelmatig geüpdatet met de meest recente openlijk beschikbare pand- en hoogtegegevens.</p>\n<p>Via Netherlands3d.eu is het mogelijk vierkante tegels van 100x100 meter te downloaden.</p>\n<p>Ga hiervoor naar de optie <a href=\"https://netherlands3d.eu/docs/handleiding/gebied-downloaden/\">Gebied downloaden</a> in het hoofdmenu.</p>\n<p><strong>Referenties</strong></p>\n<p>Link naar de <a href=\"https://www.kadaster.nl/zakelijk/producten/adressen-en-gebouwen/bag-api-individuele-bevragingen\">API van het Kadaster</a></p>",
+    "images": [
+      "images/functionaliteiten/object-informatie-1.png",
+      "images/functionaliteiten/object-informatie-2.png",
+      "images/functionaliteiten/object-informatie-3.png",
+      "images/functionaliteiten/object-informatie-4.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/object-informatie/"
+  },
+  "ondergrond-doorzicht": {
+    "title": "Ondergrond doorzicht",
+    "html": "<p>Functie, hoofdmenu.</p>\n<p>Ondergrond doorzicht is onderdeel van de basisfuncties in Netherlands3D.eu.</p>\n<p>Ondergrond doorzicht is een functie die is ontworpen om gebruikers een uitgebreid beeld te geven van de ondergrondse omgeving. Door ondergrondse structuren te visualiseren, kunnen professionals op verschillende gebieden weloverwogen beslissingen nemen en hun operationele efficiëntie verbeteren.</p>\n<p>Dit hoofdstuk beschrijft de werking van ondergrond doorzicht en geeft uitleg over de interface en essentiële onderdelen. Daarnaast is er een overzicht van de mogelijkheden en toepassingen van de functie en laat zien hoe ondergrond doorzicht dient als een essentiële bron voor het verkennen van wat er onder de oppervlakte ligt.</p>\n<p><strong>Overzicht</strong></p>\n<p>Met het doorzicht koepelvenster worden delen van datalagen en/of objecten welke zich onder het maaiveld en binnen de straal van het venster bevinden zichtbaar gemaakt. Met de muis kan het venster verplaatst worden waardoor andere ondergrondse delen zichtbaar worden.</p>\n<p><strong>Gedetailleerde beschrijving van de functie</strong></p>\n<p><strong>Menu</strong></p>\n<p>Door met de muis op het Ondergrond doorzicht-icoon in het hoofdmenu te klikken wordt de tool actief. Het doorzicht koepelvenster is nu aan de locatie/beweging van de muis gekoppeld.</p>\n<p><strong>Werking</strong></p>\n<p><strong>Gebruik/verplaatsen</strong></p>\n<p>De koepel beweegt mee met de muis over het gebied waarvan de ondergrond zichtbaar moet worden gemaakt.</p>\n<p><strong>Aanpassen grootte diameter</strong></p>\n<p>Door met de muis over het witte vierkant te bewegen verschijnt een hand waarmee na het [klikken en vasthouden van de linkermuisknop] en het slepen van de muis de grootte van het doorzicht koepelvenster kan worden aangepast. Hiermee wordt een groter c.q. kleiner gebied onder het maaiveld zichtbaar.</p>",
+    "images": [
+      "images/functionaliteiten/ondergrond-doorzicht-1.png",
+      "images/functionaliteiten/ondergrond-doorzicht-2.png",
+      "images/functionaliteiten/ondergrond-doorzicht-3.gif"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/ondergrond-doorzicht/"
+  },
+  "project-openen-opslaan": {
+    "title": "Project openen/opslaan",
+    "html": "<p>Het Project opslaan/openen-menu bevindt zich in de linker onder hoek en bevat de volgende functies;</p>\n<ul>\n<li>Project openen</li>\n<li>Project opslaan</li>\n</ul>\n<p><strong>Project openen</strong></p>\n<p>Met de knop Project openen wordt een venster geopend met aanvullende uitleg en de knop Bestand openen. Hiermee wordt de Verkenner (Windows) of Finder (MacOS) geopend en kan een eerder gemaakt .nl3d-bestand worden geopend. Hierna zijn de in-het-.nl3d-bestand-opgeslagen instellingen, datalagen, locatie etc. weer actief.</p>\n<p><strong>Project opslaan</strong></p>\n<p>Met Project opslaan worden alle nieuwe instellingen, locatie, lagen etc. van de viewer opgeslagen. Met de knop Project opslaan wordt een venster geopend met aanvullende uitleg en de knop Bestand opslaan.</p>\n<p>Met de knop Bestand opslaan worden de instellingen automatisch in een .nl3d bestand gedownload in de map C:\\Users\\Gebruikersnaam\\Downloads.</p>\n<p><strong>Klik en sleep</strong></p>\n<p>Projecten openen kan ook door ze vanuit de Verkenner/Finder te klikken en slepen naar de 3D Viewer. Best handig!</p>",
+    "images": [
+      "images/functionaliteiten/project-openen-opslaan-1.png",
+      "images/functionaliteiten/project-openen-opslaan-2.png",
+      "images/functionaliteiten/project-openen-opslaan-3.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/project-openen-opslaan/"
+  },
+  "schermafbeelding-maken": {
+    "title": "Schermafbeelding maken",
+    "html": "<p>Klik op Schermafbeelding om automatisch een afdruk van de 3D viewer als .png-bestand te downloaden. Bekijk de afbeelding door naar de map C:\\Users\\Gebruikersnaam\\Downloads te gaan.</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer/#schermafbeelding-maken"
+  },
+  "transformatietool": {
+    "title": "Transformatie tool",
+    "html": "<p>De locatie, oriëntatie en schaal van toegevoegde objecten wordt met de transformatie tool aangepast.</p>",
+    "images": [
+      "images/functionaliteiten/transformatietool-1.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/lagen/#transformatie-tool"
+  },
+  "zonnestand-simuleren": {
+    "title": "Zonnestand",
+    "html": "<p>Zonnestand is een zon- en schaduw-simulatie tool die is ontwikkeld om gebruikers te helpen de impact van zonlicht en schaduwen in datalagen en ontwerpen op een specifieke locatie eenvoudig te visualiseren.</p><p>Door gebruikers in staat te stellen basisparameters in te voeren, zoals tijd en datum, genereert Zonnestand real-time schaduwprojecties, waardoor het toegankelijk is voor data-specialisten, ontwerpers, docenten en hobbyisten.</p><p>Dit hoofdstuk beschrijft de belangrijkste functies van Zonnestand geeft uitleg over de interface en essentiële functies.</p><p>Daarnaast is het mogelijk om een schaduwstudie te maken met de functie Schaduwstudie. Hiermee is het mogelijk om van de standaard 12 momenten in het jaar een schermafbeelding te maken en deze te downloaden via een .zip bestand. Deze afbeelding zijn bijvoorbeeld te gebruiken in stedenbouwkundige rapporten.</p>",
+    "images": [
+      "images/functionaliteiten/zonnestand-simuleren-1.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/zonnestand/"
+  },
+  "minimap": {
+    "title": "Mini-map",
+    "html": "<p>De minimap is de kleine versie van de map bij instellingen zie 2. Instellingen Beweeg met de muis over de minimap om deze te vergroten. Door op een locatie in de minimap te klikken wordt in de 3D viewer bijbehorende locatie weergegeven.</p><p>Met de knoppen +/- of met je scroll-wiel kan worden in-/uitgezoomd.</p>",
+    "images": [
+      "images/functionaliteiten/minimap-1.gif"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer/#mini-map"
+  },
+  "orthografisch-perspectief": {
+    "title": "Orthografisch/perspectief",
+    "html": "<p>Klik op Wissel tussen Orthografisch/perspectief om de kijkrichting automatisch in loodrecht naar beneden en zonder perspectief te wijziggen. Klik nogmaals om het beeld terug te brengen naar de oorspronkelijke toestand.</p>",
+    "images": [
+      "images/functionaliteiten/orthografisch-perspectief-1.png",
+      "images/functionaliteiten/orthografisch-perspectief-2.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer/#orthografischperspectief"
+  },
+  "positie": {
+    "title": "Positie",
+    "html": "<p>In de onderbalk van de viewer staan (rechts) de coördinaten van de positie van de viewer.</p><p>Waarom zie ik x,y,z-coördinaten en geen gps-coördinaten?</p><p>Het coördinatenstelsel van Netherlands3D is gebaseerd op het rijksdriehoeksstelsel. <a href=\"https://www.kadaster.nl/zakelijk/registraties/basisregistraties/rijksdriehoeksmeting/rijksdriehoeksstelsel\">Lees hier meer over het rijksdriehoeksstelsel</a>.</p>",
+    "images": [
+      "images/functionaliteiten/positie-1.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer/#positie"
+  },
+  "weergave-naar-noorden-draaien": {
+    "title": "Weergave naar noorden draaien",
+    "html": "<p>Klik op Weergave naar noorden draaien om de kijkrichting automatisch naar het noorden te richten.</p>",
+    "images": [
+      "images/functionaliteiten/weergave-naar-noorden-draaien-1.png",
+      "images/functionaliteiten/weergave-naar-noorden-draaien-2.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer/#weergave-naar-noorden-draaien"
+  },
+  "first-person-viewer": {
+    "title": "First Person Viewer",
+    "html": "<p>De First Person Viewer maakt het mogelijk voor gebruikers om zich op realistische ooghoogte door de 3D-wereld te bewegen. Zo kan je ervaren hoe een aangepaste omgeving te beleven is vanaf ooghoogte.</p><p><strong>Beginnen</strong></p><p>Om de First Person Viewer te starten, volg je de onderstaande stappen:</p><ul><li>Zet de functionaliteit aan via Instellingen → Functionaliteiten → First Person Viewer.</li><li>Er verschijnt een First Person Viewer-knop rechtsonder in beeld, naast de noordpijl.</li><li>Sleep het poppetje uit de knop naar de gewenste locatie in de wereld waar je wilt rondlopen. Vanaf hier opent de First Person Viewer.</li></ul><p><strong>Verlaten</strong></p><p>Je kunt de first person viewer verlaten door rechtsboven op de knop 'verlaat first-person-viewer' te klikken. Ook kun je de Backspace toets twee seconden vasthouden om de first person viewer te verlaten. Als muisvergrendeling aanstaat, kun je de muis loslaten door éénmaal op Backspace te drukken.</p><ul><li>Houd de Backspace-toets 2 seconden ingedrukt. Linksboven in het scherm verschijnt een voortgangsbalk zien die aangeeft hoe lang je backspace nog moet indrukken voordat je de first person viewer verlaat.</li><li>Druk één keer op Backspace om de muis vrij te geven, en klik vervolgens rechtsboven op de 'verlaten' knop om de First Person Viewer te verlaten.</li></ul><p><strong>Muisvergrendeling</strong></p><p>Om je muis automatisch te vergrendelen kun je muisvergrendeling aanzetten in de instellingen.</p><p>Deze instelling zorgt ervoor dat je de muis niet ingedrukt hoeft te houden tijdens het bewegen, wat aan te raden is bij het opnemen van video's of tijdens een showcase. Om de muis los te ontgrendelen druk je eenmaal op Backspace.</p><p><strong>Besturing</strong></p><p>Er zijn verschillende manieren van bewegen in de first person viewer. Je kunt lopen, vliegen, fietsen en autorijden, in aparte bewegingsmodi.</p><p>Besturing kan op drie manieren, kies de methode die voor jou het prettigst werkt.</p><p><strong>Pijltjestoetsen</strong></p><p>Met de pijltjestoetsen kun je rondbewegen in de First Person Viewer. Door te klikken en je muis te bewegen, verander je je kijkrichting. De pijltjestoetsen bewegen je vervolgens in die richting.</p><p><strong>Bewegingsmodi:</strong></p><ul><li>Versnellen: houdt Shift ingedrukt.</li></ul><p>Loopmodus:</p><ul><li>Springen: druk op Spatiebalk.</li></ul><p>Vliegmodus:</p><ul><li>Omhoog vliegen: Spatiebalk of PageUp.</li><li>Omlaag vliegen: PageDown.</li></ul><p>Automodus en fietsmodus:</p><ul><li>Sturen: Gebruik pijltjes naar links en rechts om het voertuig te sturen. In deze modi kun je vrij rondkijken zonder de voertuigen te draaien met de camera.</li><li>Handrem: Spatie</li></ul><p><strong>Wasd</strong></p><p>Je kunt ook kiezen om rond te bewegen door de knoppen 'W, A, S en D' te gebruiken.</p><ul><li>Vooruit: W.</li><li>Achteruit: S.</li><li>Links: A.</li><li>Rechts: D.</li></ul><p>Deze knoppen zijn bepaald met respect tot hun positie op het toetsenbord, net als de pijltjestoetsen. Door te klikken en je muis te bewegen, verander je je kijkrichting. De knoppen 'W, A, S, en D' zullen jou bewegen in de gekozen kijkrichting.</p><p><strong>Bewegingsmodi</strong></p><ul><li>Versnellen: houdt Shift ingedrukt.</li></ul><p>Loopmodus:</p><ul><li>Springen: druk op Spatiebalk.</li></ul><p>Vliegmodus:</p><ul><li>Omhoog vliegen: Spatiebalk of Q.</li><li>Omlaag vliegen: E.</li></ul><p>Automodus en fietsmodus:</p><ul><li>Sturen: Gebruik \"A\" en \"D\" om het voertuig te sturen. In deze modi kun je vrij rondkijken zonder de voertuigen te draaien met de camera.</li><li>Handrem: Spatie</li></ul><p><strong>Controller</strong></p><p>Met een game-controller kun je de FPV makkelijk besturen met exacte controle.</p><ul><li>Bewegen: Linker stick</li><li>Camera draaien: Rechter stick</li><li>Springen: Knop-Zuid</li><li>Omhoog vliegen: Knop-Zuid, R2 (ligt aan soort controller.)</li><li>Omlaag vliegen: L2</li><li>Switch movement Modus: Left &amp; Right</li></ul><p><strong>Algemene besturing:</strong></p><p>Wisselen tussen bewegingsmodi: Tab of Enter.</p><p>De camera te draaien zonder de muis:</p><ul><li>Omhoog draaien: I.</li><li>Omlaag draaien: K.</li><li>Naar links draaien: J.</li><li>Naar rechts draaien: L.</li></ul><p>Handige sneltoetsen:</p><ul><li>Schermafbeelding: C en Option/Start</li><li>\"Snap\" naar het hoogste niveau: R en Controller-Up.</li><li>Presentatiemodus: H en Controller-Down.</li></ul><p><strong>Movement Modus</strong></p><p>De first person viewer heeft vier bewegings-modi, lopen en vliegen. Je kunt van modus wisselen door:</p><ul><li>In het instellingenpaneel een andere modus aan te klikken.</li><li>De toetsen Tab en Enter te gebruiken.</li></ul><p>In het instellingenpaneel kun je de instellingen van de huidige modus aanpassen. Typ zelf de gewenste waardes in en klik vervolgens uit het veld om de waardes vast te leggen.</p><p><strong>Functionaliteiten</strong></p><p>De first person viewer heeft enkele functionaliteiten die in de beta versie beschikbaar zijn voor gebruik:</p><p><strong>Gebouwen-informatie</strong></p><p>Klik met de muis op het betreffende gebouw. Als u muisvergrendeling gebruikt, verschijnt er een cursor in het midden van uw scherm. Richt deze cursor op het gewenste gebouw en klik. In de interface verschijnt gebouwinformatie, uit de Basisadministratie Adressen en Gebouwen (BAG). Let op, houd voor deze functionaliteit uw muis stil wanneer u klikt, bewegende selectie wordt meestal niet gedetecteerd.</p><p><strong>Ondergronds-kijken</strong></p><p>Bij het activeren van deze functie verschijnt een cirkel op het grondvlak, waarmee je ondergronds kunt kijken. In de interface die opent, kun je de grootte van de circel, en de lagen die gebruikt worden aanpassen.</p><p><strong>Zonnestand-simuleren</strong></p><p>Hiermee kan je de Zonnestand simuleren door tijd en datum aan te passen, of de zon in de slider op te pakken en te bewegen.</p><p><strong>Lagenpaneel-simpel</strong></p><p>In dit paneel kun je lagen aan en uit zetten. Dit paneel is ontworpen om situaties te vergelijken, aanpassingen kunnen alleen buiten de first person viewer gemaakt worden.</p><p>Je kunt ook een first-person-positie opslaan door de knop onderaan de interface te klikken. Door dubbel te klikken op de laag, kun je de positie weer innemen, met alle gegevens van beweging opgeslagen.</p><p>De first-person positie kan je ook intreden buiten de first person viewer. Deze posities kan je in het standaard lagenpaneel bewerken. Een first-person positie kan ook worden aangemaakt vanuit de bibliotheek.</p><p><strong>Meet-tool</strong></p><p>Meet afstanden snel op.</p><p>Open het paneel. Klik in de wereld om een meetpunt aan te maken. Klik nogmaals elders om een tweede punt aan te maken. Hiertussen zal automatisch een lijn komen met daarbij de afstand tussen de twee punten. Je kunt meerdere punten maken, waar elk opvolgende punt een nieuwe lijn maakt. Klik op het kruisje in een meting in de interface om een lijn te verwijderen. Let op: deze afmetingen zijn benaderingen, de afstanden zijn niet exact.</p><ul><li>Noordpijl. Klik om camera naar het noorden te draaien.</li><li>Reset to start: Deze button hersteld de beginpositie van de first person viewer.</li><li>Snap up: Verplaatst je naar de hoogste positie boven je. (Handig voor als je onder het maaiveld of een gebouw bent gekomen).</li></ul>",
+    "images": [
+      "images/functionaliteiten/first-person-viewer-1.gif",
+      "images/functionaliteiten/first-person-viewer-2.gif",
+      "images/functionaliteiten/first-person-viewer-3.png",
+      "images/functionaliteiten/first-person-viewer-4.png",
+      "images/functionaliteiten/first-person-viewer-5.png",
+      "images/functionaliteiten/first-person-viewer-6.gif",
+      "images/functionaliteiten/first-person-viewer-7.gif",
+      "images/functionaliteiten/first-person-viewer-8.png",
+      "images/functionaliteiten/first-person-viewer-9.gif",
+      "images/functionaliteiten/first-person-viewer-10.png",
+      "images/functionaliteiten/first-person-viewer-11.png",
+      "images/functionaliteiten/first-person-viewer-12.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/first-person-viewer"
+  },
+  "3d-tiles": {
+    "title": "3D Tiles",
+    "html": "<p>Functies, Lagen, submenu.</p><p><strong>Gedetailleerde beschrijving van de functies</strong></p><p><strong>Menu</strong></p><p>Met de functie 3D Tiles kan je basis 3D Tiles lagen uit twee voorgedefinieerde lagen koppelen.</p><p><strong>Gebouwen (3D tiles)</strong></p><p>Met <code>Gebouwen (3D tiles)</code> worden gebouwen uit de 3D Basisvoorziening van het Kadaster gekoppeld.</p><p><strong>Maaiveld (3D tiles)</strong></p><p>Met <code>Maaiveld (3D tiles)</code> wordt het maaiveld uit de 3D Basisvoorziening van het Kadaster gekoppeld.</p><p><strong>Referentiehoogte aanpassen</strong></p><p>3D-Tile lagen kunnen op een verkeerde hoogte liggen. We hebben daarvoor een instelling gemaakt die je bij het eigenschappenpaneel kan activeren. Als standaard staat deze ingesteld op Ellipsoïde. Heb je een laag die op een verkeerde hoogte ligt, klik dan op één van de 2 mogelijkheden.</p><p><strong>Uitleg Referentiehoogte</strong></p><p>De hoogte van een 3D-tiles laag kan op twee manieren gemeten worden, ten opzichte van de ellipsoïde of de geoïde. De referentiehoogte van de geoïde ligt (voor Nederland) tussen de 41 en 44 meter boven de ellipsoïde. Voor meer informatie, zie deze site Uitleg Geoïde/ellipsoïde</p>",
+    "images": [
+      "images/functionaliteiten/3d-tiles-1.png",
+      "images/functionaliteiten/3d-tiles-2.png",
+      "images/functionaliteiten/3d-tiles-3.png",
+      "images/functionaliteiten/3d-tiles-4.png",
+      "images/functionaliteiten/3d-tiles-5.png",
+      "images/functionaliteiten/3d-tiles-6.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/toevoegen-3d-tiles/"
+  },
+  "google-fotorealistische-wereld": {
+    "title": "Fotorealistische Wereld",
+    "html": "<p>Functies, Lagen, Bibliotheek.</p><p>Met de functie Fotorealistische Wereld kunnen de <strong>3D tiles van Google Earth</strong> worden <strong>gekoppeld en gevisualiseerd</strong> in Netherlands3D.eu.</p><p><strong>Gedetailleerde beschrijving van de functies</strong></p><p><strong>Toevoegen</strong></p><p>Klik op <code>Fotorealistische Wereld</code> en de laag <strong>RealityMesh (3D Tiles)</strong> wordt toegevoegd. De laag is in het lagenpaneel te zien door het bibliotheekvenster weg te klikken (kruisje bovenaan). Klik dan op het <strong>Eigenschappenmenu</strong> en deze opent rechtsboven in het scherm.</p><p>Waarom is de deze functie beschermd?</p><p>NB! Aangezien de 3D Google Earth Tiles een betaalde (bij overschrijden van een maximaal gebruik per maand) service van Google is, kan deze functie niet zonder inlogcode of sleutel worden vrijgegeven.</p><p>Klik op <code>Update</code> om verder te gaan.</p><p><strong>Met Gebruikersnaam en Wachtwoord</strong></p><p>Bij andere datasets met Gebruikersnaam en wachtwoord kan je die hier invullen, maar bij de Fotorealistische wereld is alleen een API-key voldoende.</p><p><strong>Met API-key</strong></p><p>Klik op het vinkje in het <code>pull-down-menu</code> met het slotje naast <strong>Toegang bescherm...</strong> en het volgende menu verschijnt;</p><p>Plak de sleutel in het veld <code>Typen</code> en klik op <code>Bevestigen</code>. De 3D Tiles worden direct geladen.</p><p>Ik heb geen toegangscode of sleutel. Wat kan ik doen?</p><p>Indien er geen gebruikersnaam/wachtwoord beschikbaar is; Ga naar Google en maak via een eigen Google-account een 'sleutel' aan. Hoe je dat doet lees je hier (externe link); <a href=\"https://developers.google.com/maps/documentation/embed/get-api-key\">Aanmaken Google-sleutel</a>. Check ook vooral de voorwaarden, in de meeste gevallen is het gebruik gratis (hangt af van hoeveelheid gebruik)</p><p>Ik zie na het inloggen geen 3D Tiles in de viewer?</p><p>NB! De Google Earth Tiles zijn (nog) niet voor heel Nederland zichtbaar/beschikbaar. Voor grote delen van Nederland geldt dat er alleen een \"platte\" satellietfoto beschikbaar is.</p>",
+    "images": [
+      "images/functionaliteiten/google-fotorealistische-wereld-1.png",
+      "images/functionaliteiten/google-fotorealistische-wereld-2.png",
+      "images/functionaliteiten/google-fotorealistische-wereld-3.png",
+      "images/functionaliteiten/google-fotorealistische-wereld-4.png",
+      "images/functionaliteiten/google-fotorealistische-wereld-5.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/toevoegen-fotorealistische-wereld/"
+  },
+  "importeren-bestand-via-url": {
+    "title": "Toevoegen vanaf link",
+    "html": "<p>Met <strong>Toevoegen vanaf link</strong> kan je databronnen (WFS, WMS, GeoJSON, 3D-Tiles) via een weblink koppelen.</p><p>Klik op <code>Toevoegen vanaf link</code>. Het menu; Laag toevoegen via URL wordt geopend.</p><p><strong>Werkwijze</strong></p><p>Kopieër en plak de link van het bestand in het vakje [URL link]. In de nabije toekomst is hier een link naar veelgebruikte WFS/WMS-lagen te vinden.</p><p>Na <code>Toevoegen</code> is de <strong>link gekoppeld</strong> en de <strong>data zichtbaar</strong> in de 3D-Viewer.</p>",
+    "images": [
+      "images/functionaliteiten/importeren-bestand-via-url-1.png",
+      "images/functionaliteiten/importeren-bestand-via-url-2.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/lagen-toevoegen/#toevoegen-vanaf-link"
+  },
+  "importeren-eigen-bestand": {
+    "title": "Uploaden vanaf deze computer",
+    "html": "<p>Met <code>Uploaden vanaf deze computer</code> kunnen .OBJ, .CSV, .JSON, .GEOJSON en .GLB bestanden worden gekoppeld.</p><p>Na klikken op <code>Uploaden vanaf deze computer</code> opent de Verkenner (Windows)/Finder (MacOs) en kan het bestand worden geladen.</p><p><strong>Drag and Drop</strong></p><p>Met klik en slepen van een bestand vanuit verkenner of Finder in het viewervenster, worden bovenstaande formaten ook ingeladen. LET OP: Dit kan niet met meerdere bestanden tegelijk.</p>",
+    "images": [
+      "images/functionaliteiten/importeren-eigen-bestand-1.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/lagen-toevoegen/#uploaden-vanaf-deze-computer"
+  },
+  "objecten-bibliotheek": {
+    "title": "Objecten bibliotheek",
+    "html": "<p>Met de functie Objecten bibliotheek kunnen verschillende standaard objecten worden toegevoegd.</p><p>Je kunt kiezen uit:</p><ul><li>Annotatie</li><li>Bomen / folder</li><li>Camera Positie</li><li>Kubus</li><li>NAP Vlak</li><li>Ontwikkeling Zuidoost</li><li>Reuzenrad</li><li>Windmolen</li></ul><p>Annotatie</p><p>Klik op Annotatie om een opmerking in de viewer te plaatsen. De annotatie start blanco. Door er op te dubbelklikken kan je deze met tekst vullen. Je kan er ook meerdere maken, zodat je notities of opmerkingen bij kan houden.</p><p>Bomen</p><p>Klik op Bomen om in het submenu van bomen te komen.</p><p>Door te klikken op de verschillende bomen wordt een boom geplaatst in de viewer.</p><p>Camera Positie</p><p>Klik op Camera Positie om een camera in de viewer te plaatsen. Je plaatst de camera met de op dat moment ingestelde hoogte en kijkhoek. Op deze manier kan je verschillende camera standpunten maken en bewaren in een project, om zo makkelijk een \"view-path\" naar keuze te kunnen maken.</p><p>Kubus</p><p>Klik op Kubus om een kubus in de viewer zichtbaar te maken. De kubus heeft een standaardafmeting van 10x10x10 meter.</p><p>NAP Vlak</p><p>Klik op NAP Vlak om een (horizontaal)vlak in de viewer zichtbaar te maken. Met dit vlak kun je de NAP hoogte van een terrein of gebouw bepalen of eenvoudig laten zien welke gebieden in Nederland kunnen overstromen als de dijken doorbreken.</p><p>Ontwikkeling Zuidoost</p><p>De functie Ontwikkeling Zuidoost is een bijzonder onderdeel van de Objecten Bibliotheek. Met deze functie worden de Nieuwbouwontwikkelingen in het gebied Amsterdam Zuidoost in de viewer gekoppeld. Klik op Ontwikkeling Zuidoost om deze te activeren.</p><p>Reuzenrad</p><p>Klik op Reuzenrad om een draaiend Reuzenrad in de viewer zichtbaar te maken.</p><p>Windmolen</p><p>Klik op Windmolen om een Windmolen met draaiende rotor in de viewer zichtbaar te maken. De Windmolen heeft een standaardhoogte van 70 meter met een Rotordiameter van 54.50 meter. De afmetingen zijn aanpasbaar in het Instellingen menu van de Windmolen.</p>",
+    "images": [
+      "images/functionaliteiten/objecten-bibliotheek-1.png",
+      "images/functionaliteiten/objecten-bibliotheek-2.png",
+      "images/functionaliteiten/objecten-bibliotheek-3.png",
+      "images/functionaliteiten/objecten-bibliotheek-4.png",
+      "images/functionaliteiten/objecten-bibliotheek-5.png",
+      "images/functionaliteiten/objecten-bibliotheek-6.png",
+      "images/functionaliteiten/objecten-bibliotheek-7.png",
+      "images/functionaliteiten/objecten-bibliotheek-8.png",
+      "images/functionaliteiten/objecten-bibliotheek-9.png",
+      "images/functionaliteiten/objecten-bibliotheek-10.png",
+      "images/functionaliteiten/objecten-bibliotheek-11.png",
+      "images/functionaliteiten/objecten-bibliotheek-12.png",
+      "images/functionaliteiten/objecten-bibliotheek-13.png",
+      "images/functionaliteiten/objecten-bibliotheek-14.png",
+      "images/functionaliteiten/objecten-bibliotheek-15.png",
+      "images/functionaliteiten/objecten-bibliotheek-16.png",
+      "images/functionaliteiten/objecten-bibliotheek-17.gif",
+      "images/functionaliteiten/objecten-bibliotheek-18.png",
+      "images/functionaliteiten/objecten-bibliotheek-19.gif"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/toevoegen-objecten-biep/"
+  },
+  "tekengebied-lijn": {
+    "title": "Lijn",
+    "html": "<p>Klik op Lijn en een kleine witte bol verschijnt bij de muisaanwijzer in het 3D scherm. Klik in het scherm en teken hiermee de lijn door het eindpunt op de gewenste plek te plaatsen. Door op één van de eindpunten te klikken kan je de lijn aanpassen.</p><p>De lijndikte kan worden aangepast door op het instellingen-icoon te klikken. Het Eigenschappenmenu verschijnt waarmee de lijndikte van 1.00 tot 200.00 meter kan worden aangepast. Standaard is de dikte 10.00 meter.</p><p>Je kan meerdere lijnen intekenen.</p>",
+    "images": [
+      "images/functionaliteiten/tekengebied-lijn-1.gif",
+      "images/functionaliteiten/tekengebied-lijn-2.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/toevoegen-selectiegebied/#lijn"
+  },
+  "tekengebied-polygoon": {
+    "title": "Polygoon",
+    "html": "<p>Klik op Polygoon en een kleine witte bol verschijnt bij de muisaanwijzer in het 3D scherm. Klik en teken hiermee het volledige veelvlak of polygoon. Sluit het vlak door na het aanbrengen van meerdere punten op de laatste punt te klikken. Hierdoor wordt het vlak ingekleurd. Door op een van de punten te klikken kan je het vlak aanpassen.</p><p>Je kan meerdere Tekengebieden intekenen.</p>",
+    "images": [
+      "images/functionaliteiten/tekengebied-polygoon-1.gif"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/toevoegen-selectiegebied/#polygoon"
+  },
+  "urbanreleaf-sensor-data": {
+    "title": "Urban ReLeaf",
+    "html": "<p>Met de functie Urban ReLeaf kan je de resultaten van het Klimaatonderzoek dat van 1 juli tot en met 31 augustus 2024 is uitgevoerd in de Provincie Utrecht koppelen en visualiseren.</p><p>Het klimaat is op drie factoren gemeten in de zones die als hexagoon worden weergegeven;</p><ul><li>Temperatuur</li><li>Vochtigheid</li><li>Thermisch ongemak</li></ul><p>De kleur van de hexagoon vertegenwoordigd een gemiddelde van de gemeten waarden het gebied.</p><p>Als je op een hexagoon klikt, zie je de gemeten waarde in de ingestelde periode en het aantal metingen. Hoe meer metingen, hoe hoger de hexagoon omhoog komt.</p><p>Toevoegen</p><p>Klik op Temperatuur, Vochtigheid en/of Thermisch ongemak en de bijbehorende laag wordt toegevoegd en de hexagonen geladen.</p><p>Instellingen</p><p>Klik bij de Lagen op het instellingen-icoon en je kan de eigenschappen van de (temperatuur) weergave aanpassen.</p><p>Datum</p><p>Met het aanpassen van de Start datum en/of de Eind datum kunnen de uitkomsten van een in-te-stellen periode worden weergegeven. Standaard zijn de uitkomsten van de start tot het eind van het onderzoek weergegeven.</p><p>Waarden</p><p>Met het aanpassen van Minimum waarde en/of Maximum waarde - door de schuif naar links of naar rechts te verplaatsen - worden de gebieden die binnen de in-te-stellen bandbreedte vallen weergegeven. Met de kleuren-tool kan het kleurenverloop van minimum- naar maximumwaarde worden aangepast.</p><p>Kijk op https://urbanreleaf.eu/ voor meer informatie.</p>",
+    "images": [
+      "images/functionaliteiten/urbanreleaf-sensor-data-1.png",
+      "images/functionaliteiten/urbanreleaf-sensor-data-2.png",
+      "images/functionaliteiten/urbanreleaf-sensor-data-3.png",
+      "images/functionaliteiten/urbanreleaf-sensor-data-4.png"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/toevoegen-urban-releaf/"
+  },
+  "verspreid-objecten-polygoon": {
+    "title": "Verspreid objecten in gebied",
+    "html": "<p>Door een object zoals bijvoorbeeld een boom uit de Objectenbibliotheek toe te voegen aan de laag polygoon, activeert de functie Verspreid objecten in gebied</p><p>Doorloop de volgende stappen;</p><ul><li>Voeg een object (boom) toe uit de Objectenbibliotheek,</li><li>Sleep het object in Lagen op het polygoon,</li><li>klik op eigenschappen van het object,</li><li>vink Verspreid objecten in gebied aan,</li><li>pas eventueel de Eigenschappen van Verspreiden object aan.</li></ul>",
+    "images": [
+      "images/functionaliteiten/verspreid-objecten-polygoon-1.gif"
+    ],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/toevoegen-selectiegebied/#verspreid-objecten-in-gebied"
+  },
+  "bomen-en-bospercelen": {
+    "title": "Bomen en bospercelen",
+    "html": "<p>Deze kaartlaag toont alle individuele bomen en bospercelen van Nederland voor zover ze in de Basiskaart Grootschalige Topografie (BGT) zijn opgenomen. Binnen bospercelen wordt onderscheid gemaakt in loofbossen, naaldbossen en gemengde bossen, welke met een willekeurige hoogte en locatie zijn geplaatst. Bomen worden als 2D objecten op 3 vlakken geprojecteerd, waardoor het lijkt alsof ze 3D objecten zijn. Bron: Basiskaart Grootschalige Topografie (BGT), datum: december 2023</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-functionaliteiten/#bomen-en-bospercelen"
+  },
+  "buurtnamen": {
+    "title": "Buurtnamen",
+    "html": "<p>Deze kaartlaag toont alle buurtnamen van Nederland. Afhankelijk van het zoomniveau worden buurtnamen weergegeven. Bron: PDOK</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-functionaliteiten/#buurtnamen"
+  },
+  "gebouwen-3d-bag": {
+    "title": "Gebouwen",
+    "html": "<p>Alle objecten op de laag 'Gebouwen' komen uit de 3D BAG, een jaarlijks geactualiseerde dataset van alle gebouwen in Nederland. De set is ontwikkeld door de de 3D geoinformatie onderzoeksgroep van de Technische Universiteit Delft. Aan het gebruik van de 3D BAG zitten. Bron: 3DBAG, datum: 2024, actualisatie: Jaarlijks</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-functionaliteiten/#gebouwen"
+  },
+  "gebouwen-kleuren": {
+    "title": "Gebouwen kleuren",
+    "html": "<p><em>Voor dit onderdeel is op dit moment geen aparte toelichting gepubliceerd op de Netherlands3D-documentatiesite (de koppeling op de overzichtspagina verwijst nog niet naar bestaande content). Zodra dit is aangevuld, verschijnt de tekst hier automatisch.</em></p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/functionaliteiten/functionaliteiten-overzicht/"
+  },
+  "indicatoren": {
+    "title": "Indicatoren",
+    "html": "<p><em>Voor dit onderdeel is op dit moment geen aparte toelichting gepubliceerd op de Netherlands3D-documentatiesite (de koppeling op de overzichtspagina verwijst nog niet naar bestaande content). Zodra dit is aangevuld, verschijnt de tekst hier automatisch.</em></p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/functionaliteiten/functionaliteiten-overzicht/"
+  },
+  "kwaliteit": {
+    "title": "(Beeld)kwaliteit",
+    "html": "<p>Als standaard wordt de ingesteld op basis van de gebruikte computer. Daarnaast kan je in dit menu de performance van de 3D viewer handmatig afstemmen op je persoonlijke situatie (snelheid internet, etc.). Door te kiezen voor Hoog, Middel of Laag, kan de (beeld)kwaliteit worden aangepast van resp. hoge, middelmatige of lage kwaliteit. De optie laag biedt de snelste performance, maar geeft de minste grafische kwaliteit.</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-instellingen-sub/#beeldkwaliteit"
+  },
+  "limiteer-scroll-gevoeligheid": {
+    "title": "Limiteer scroll gevoeligheid",
+    "html": "<p>In sommige gevallen reageert de 3D-viewer niet optimaal op de muisbewegingen van de gebruiker. Door de optie Limiteer scroll gevoeligheid aan te vinken kan dit worden verbeterd.</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-instellingen-sub/#limiteer-scroll-gevoeligheid"
+  },
+  "straatnamen": {
+    "title": "Straatnamen",
+    "html": "<p>Deze kaartlaag toont alle straatnamen van Nederland. Afhankelijk van het zoomniveau worden straatnamen weergegeven. Bron: Nationaal Wegen Bestand (NWB)</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-functionaliteiten/#straatnamen"
+  },
+  "terrein-kadaster": {
+    "title": "Terrein",
+    "html": "<p>Met maaiveld, ofwel het 'oppervlak waarop we lopen' is weergegeven als 3D terrein. Voor het tonen van dit terrein is gebruik gemaakt van de 3D Basisvoorziening van het Kadaster. Visueel onderscheiden zijn gebouwen, terreinonderdelen (zoals wegen, groenvlakken en water) en bruggen, waarbij de gebouwen niet als 3D objecten worden getoond in deze laag. Op enkele onderdelen is een geometrische versimpeling toegepast om het maaiveld sneller in de viewer te tonen. Bron: 3D Basisvoorziening, datum: 2019</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-functionaliteiten/#terrein"
+  },
+  "wijknamen": {
+    "title": "Wijknamen",
+    "html": "<p>Deze kaartlaag toont alle wijknamen van Nederland. Afhankelijk van het zoomniveau worden wijknamen weergegeven. Bron: PDOK</p>",
+    "images": [],
+    "source_url": "https://netherlands3d.eu/docs/handleiding/3D-viewer-functionaliteiten/#wijknamen"
+  }
+};
+
+  function openFunctieModal(slug){
+    const d = FUNCTIE_DATA[slug];
+    if(!d) return;
+    document.getElementById('functie-modal-title').textContent = d.title;
+    const imgsHtml = (d.images || []).map(src =>
+      '<img src="' + src + '" alt="' + d.title.replace(/"/g,'&quot;') + '" loading="lazy">'
+    ).join('');
+    document.getElementById('functie-modal-body').innerHTML = imgsHtml + d.html;
+    const sourceLink = document.getElementById('functie-modal-source-link');
+    sourceLink.href = d.source_url || 'https://netherlands3d.eu/docs/functionaliteiten/functionaliteiten-overzicht/';
+    document.getElementById('functie-modal-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFunctieModal(){
+    document.getElementById('functie-modal-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('functie-modal-overlay').addEventListener('click', (e) => {
+    if(e.target.id === 'functie-modal-overlay') closeFunctieModal();
+  });
+
+  /* ---- Projecten-carrousel: pop-up per praktijkvoorbeeld ----
+     Let op: de teksten en kenmerken hieronder zijn redactionele voorbeeldcontent
+     (gebaseerd op reeds op deze pagina beschreven functionaliteiten/partners) en
+     dienen vervangen te worden door definitieve projectbeschrijvingen en eigen
+     projectfoto's zodra die beschikbaar zijn. */
+  const PROJECT_DATA = {
+    "amsterdam-zuidoost": {
+      "title": "Nieuwbouwontwikkeling Amsterdam Zuidoost",
+      "org": "Gemeente Amsterdam",
+      "orgLogo": "Afbeeldingen/Logos/amsterdam_border.png",
+      "images": [
+        "Afbeeldingen/Representatie/Doelgroep.png"
+      ],
+      "html": "<p>Amsterdam Zuidoost transformeert in hoog tempo: nieuwe woontorens en voorzieningen verrijzen naast de bestaande stad. Om de voortgang van -en relaties tussen- verschillende projecten in beeld te brengen, is het mogelijk gemaakt de ontwerpen van architecten en ontwikkelaars direct in Netherlands3D te laden. Betrokken partijen hebben afspraken gemaakt over de vorm en wijze van aanlevering van 3D bestanden zodat ze soepel en visueel aantrekkelijk in Netherlands3D getoond kunnen worden.<BR><BR>Via de functie <strong>Ontwikkeling Zuidoost</strong> in de Objectenbibliotheek koppelt Netherlands3D de actuele nieuwbouwplannen direct aan de 3D-viewer, zodat de nieuwe bebouwing in de context van de bestaande omgeving te beoordelen is.</p>",
+      "features": [
+        "Nieuwbouw met één klik gekoppeld via de Objectenbibliotheek",
+        "Directe vergelijking met bestaande bebouwing uit de 3D BAG",
+        "Bruikbaar voor gesprekken met bewoners en raad"
+      ]
+    },
+    "utrecht-provincie-urbanreleaf": {
+      "title": "Urban ReLeaf: klimaat in de stad meten",
+      "org": "Provincie Utrecht",
+      "orgLogo": "Afbeeldingen/Logos/utrecht-provincie_border.png",
+      "images": [
+        "Afbeeldingen/Representatie/waarom-deze-ontwikkeling.png"
+      ],
+      "html": "<p>Van 1 juli tot en met 31 augustus 2024 voerde Urban ReLeaf een klimaatonderzoek uit in de provincie Utrecht. De resultaten - temperatuur, vochtigheid en thermisch ongemak - zijn als hexagonen in Netherlands3D gekoppeld, zodat hittestress letterlijk in de stad zichtbaar wordt.</p>",
+      "features": [
+        "Metingen per hexagoon: temperatuur, vochtigheid en thermisch ongemak",
+        "Zelf meetperiode en waardebereik instellen",
+        "Rechtstreeks gekoppeld aan de sensordata van urbanreleaf.eu"
+      ]
+    },
+    "utrecht-gemeente-ruimtelijke-plannen": {
+      "title": "Ruimtelijke plannen bespreken met bewoners en raad",
+      "org": "Gemeente Utrecht",
+      "orgLogo": "Afbeeldingen/Logos/utrecht-gemeente_border.png",
+      "images": [
+        "Afbeeldingen/Representatie/data-in-samenhang.png"
+      ],
+      "html": "<p>Gemeente Utrecht laat zien hoe Netherlands3D ruimtelijke plannen tastbaar maakt: van de impact van nieuwbouw op de bestaande binnenstad tot een blik onder het maaiveld, waar kabels, leidingen en funderingen samenkomen. Zo ontstaat één gedeeld beeld waarmee bestuurders, ontwerpers en bewoners hetzelfde plan bekijken.</p>",
+      "features": [
+        "Nieuwbouwmassa's direct naast de bestaande stad geplaatst",
+        "Ondergrond doorzicht toont wat er onder het maaiveld ligt",
+        "Eén gedeeld beeld als basis voor de omgevingsdialoog"
+      ]
+    },
+    "flevoland-energie-landschap": {
+      "title": "Energie en landschap in balans",
+      "org": "Provincie Flevoland",
+      "orgLogo": "Afbeeldingen/Logos/flevoland_border.png",
+      "images": [
+        "Afbeeldingen/Representatie/ecosysteem-nldt.png"
+      ],
+      "html": "<p>Flevoland maakt in hoog tempo ruimte voor de energietransitie. Met objecten uit de bibliotheek, zoals de Windmolen, zet Provincie Flevoland nieuwe ingrepen direct in het landschap, zodat data, rekenmodules en visualisatie samenkomen in één 3D-omgeving en de impact op de omgeving vooraf te doorgronden is.</p>",
+      "features": [
+        "Windmolens (met draaiende rotor) direct in het landschap geplaatst",
+        "Data, rekenmodules en visualisatie in één omgeving samengebracht",
+        "Ondersteunt vroege afweging van energie- en gebiedsontwikkeling"
+      ]
+    }
+  };
+
+  function openProjectModal(slug){
+    const d = PROJECT_DATA[slug];
+    if(!d) return;
+    document.getElementById('project-modal-title').textContent = d.title;
+    const imgsHtml = (d.images || []).map(src =>
+      '<img src="' + src + '" alt="' + d.title.replace(/"/g,'&quot;') + '" loading="lazy">'
+    ).join('');
+    const orgHtml = '<p class="project-modal-org"><img src="' + d.orgLogo + '" alt="' + d.org.replace(/"/g,'&quot;') + '"><span>' + d.org + '</span></p>';
+    const featuresHtml = '<ul>' + (d.features || []).map(f => '<li>' + f + '</li>').join('') + '</ul>';
+    document.getElementById('project-modal-body').innerHTML = imgsHtml + orgHtml + d.html + featuresHtml;
+    document.getElementById('project-modal-org-label').textContent = 'Partner: ' + d.org;
+    document.getElementById('project-modal-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeProjectModal(){
+    document.getElementById('project-modal-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('project-modal-overlay').addEventListener('click', (e) => {
+    if(e.target.id === 'project-modal-overlay') closeProjectModal();
+  });
+
+  /* ---- Hulpmiddelen pop-up: iets meer uitleg per tool + downloadlink naar de ZIP ---- */
+  const TOOL_DATA = {
+    'qgis-export': {
+      title: 'Lagen exporteren naar .nl3d',
+      tag: 'QGIS-plugin',
+      image: 'Afbeeldingen/Representatie/tool-qgis-export-solo.png',
+      html: '<p>Deze plugin voor QGIS exporteert je vectorlagen rechtstreeks naar het .nl3d-bestandsformaat van Netherlands3D. Punten, lijnen en vlakken worden omgezet naar GeoJSON, automatisch herprojecteerd naar EPSG:28992 (RD New) en gebundeld in één .nl3d-bestand dat je direct in Netherlands3D kunt openen.</p>',
+      features: [
+        'Kies per laag of, en als welk type (Punten, Lijnen of Vlakken), je die exporteert',
+        'Stel per laag een eigen kleur in',
+        'Automatische herprojectie naar EPSG:28992 (RD New)',
+        'Te installeren via de QGIS Plugin Manager of handmatig als ZIP',
+        'Vereist QGIS 3.16 of hoger'
+      ],
+      zipFile: 'NL3D_QGISlagennaarnl3d.zip',
+      zipPath: 'Bestanden/NL3D_QGISlagennaarnl3d.zip'
+    },
+    'foto-geojson': {
+      title: 'Foto GeoJSON-tool',
+      tag: 'Webtool',
+      image: 'Afbeeldingen/Representatie/tool-foto-geojson-solo.png',
+      html: '<p>Met de Foto GeoJSON-tool zet je gemakkelijk foto\'s met titel en bijschrift op de kaart in Netherlands3D! De tool voegt deze toe aan jouw foto\'s en maakt een GeoJSON-bestand dat je kunt inladen in Nederlands3D. Ze verschijnen dan als klikbare objecten op de juiste locaties. De tool werkt volledig lokaal in je browser: er wordt niets naar een server verstuurd. Momenteel worden alleen foto\'s via URL ondersteund, later volgt de mogelijkheid om foto\'s van jouw lokale computer toe te voegen.</p>',
+      features: [
+        'Voeg foto\'s toe met een locatie, titel en bijschrift',
+        'Exporteert direct naar een GeoJSON-bestand',
+        'Werkt lokaal in de browser, geen installatie nodig',
+        'Momenteel alleen voor foto\'s via URL, upload vanaf lokale schijf volgt' 
+      ],
+      zipFile: 'NL3D_Fotoimporter.zip',
+      zipPath: 'Bestanden/NL3D_Fotoimporter.zip'
+    },
+    'project-editor': {
+      title: 'Project Editor',
+      tag: 'Webtool',
+      image: 'Afbeeldingen/Representatie/tool-project-editor-solo.png',
+            html: '<p>Met de Project Editor stel je snel een Netherlands3D-project samen, of pas je een bestaand project aan via een overzichtelijk formulier.</p>',
+      features: [
+        'Vul metadata zoals naam, versie en UUID in via een formulier of pas deze aan',
+        'Voeg lagen en objecten toe en zet ze gelijk op de juiste coördinaten. Of zet een 3D object zelfs in een keer op meerdere locaties met behulp van coördinaten uit een CSV!',
+        'Download het resultaat als .nl3d-bestand en sleep dit in een NL3D browsersessie voor direct resultaat'
+      ],
+      zipFile: 'NL3D_projecteditor.zip',
+      zipPath: 'Bestanden/NL3D_projecteditor.zip'
+    }
+  };
+
+  function openToolModal(slug){
+    const d = TOOL_DATA[slug];
+    if(!d) return;
+    document.getElementById('tool-modal-title').textContent = d.title;
+    const imageHtml = d.image
+      ? '<img class="tool-modal-image" src="' + d.image + '" alt="' + d.title.replace(/"/g,'&quot;') + '">'
+      : '<div class="tool-modal-image-placeholder" aria-hidden="true">'
+        + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>'
+        + '<span>Afbeelding volgt</span></div>';
+    const tagHtml = '<span class="tool-modal-tag">' + d.tag + '</span>';
+    const featuresHtml = '<ul>' + (d.features || []).map(f => '<li>' + f + '</li>').join('') + '</ul>';
+    document.getElementById('tool-modal-body').innerHTML = imageHtml + tagHtml + d.html + featuresHtml;
+    document.getElementById('tool-modal-file').textContent = 'Bestand: ' + d.zipFile;
+    const downloadLink = document.getElementById('tool-modal-download');
+    downloadLink.href = d.zipPath;
+    downloadLink.setAttribute('download', d.zipFile);
+    document.getElementById('tool-modal-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeToolModal(){
+    document.getElementById('tool-modal-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('tool-modal-overlay').addEventListener('click', (e) => {
+    if(e.target.id === 'tool-modal-overlay') closeToolModal();
+  });
+
+  /* ---- Formaten pop-up: toont de import/export-tabel bij "deze tabel" ---- */
+  function openFormatenModal(){
+    document.getElementById('formaten-modal-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeFormatenModal(){
+    document.getElementById('formaten-modal-overlay').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('formaten-modal-overlay').addEventListener('click', (e) => {
+    if(e.target.id === 'formaten-modal-overlay') closeFormatenModal();
+  });
+
+  /* ---- Projecten-carrousel: oneindig doorlopende navigatie ----
+     Techniek: de originele kaarten worden eenmaal vóór en eenmaal ná zichzelf
+     gekloond (onzichtbaar voor screenreaders/toetsenbord). Zo staat er altijd
+     een kaart klaar om in beeld te schuiven. Zodra de gebruiker helemaal door
+     een gekloonde set heen is gescrold, springt het script ongemerkt (zonder
+     animatie) terug naar de overeenkomstige positie in de echte set, waardoor
+     het net lijkt of de carrousel na project 4 gewoon weer bij project 1 begint. */
+  function initCarrousel(trackId, prevId, nextId, dotsId, dotLabel){
+    const track = document.getElementById(trackId);
+    if(!track) return;
+    const prevBtn = document.getElementById(prevId);
+    const nextBtn = document.getElementById(nextId);
+    const realCards = Array.from(track.children);
+    const n = realCards.length;
+    if(n === 0) return;
+
+    function cloneSet(){
+      return realCards.map(card => {
+        const clone = card.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.tabIndex = -1;
+        return clone;
+      });
+    }
+    cloneSet().forEach(clone => track.appendChild(clone));
+    const firstReal = realCards[0];
+    cloneSet().forEach(clone => track.insertBefore(clone, firstReal));
+
+    function cardStep(){
+      const style = getComputedStyle(track);
+      const gap = parseFloat(style.columnGap || style.gap || 0) || 0;
+      return realCards[0].getBoundingClientRect().width + gap;
+    }
+
+    let currentIndex = n; // start bij de eerste échte kaart (na de vóór-klonen)
+
+    function setScroll(behavior){
+      track.scrollTo({left: currentIndex * cardStep(), behavior});
+    }
+    setScroll('auto');
+
+    // Navigatiestippen onder de carrousel: één stip per kaart, die aangeeft
+    // welke kaart nu in beeld staat en waarmee je er direct naartoe kunt springen.
+    const dotsWrap = document.getElementById(dotsId);
+    const dots = [];
+    if(dotsWrap){
+      realCards.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'projecten-dot';
+        dot.setAttribute('aria-label', (dotLabel || 'Ga naar item') + ' ' + (i + 1));
+        dot.addEventListener('click', () => {
+          currentIndex = n + i;
+          setScroll('smooth');
+          updateDots();
+        });
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      });
+    }
+    function updateDots(){
+      if(!dots.length) return;
+      const active = ((currentIndex % n) + n) % n;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === active));
+    }
+    updateDots();
+
+    // Kaarten staan bovenaan uitgelijnd (zodat alle afbeeldingen even groot
+    // blijven, ongeacht de tekstlengte eronder); de pijlen worden daarom
+    // verticaal gecentreerd t.o.v. de afbeelding zelf, niet t.o.v. de hele kaart.
+    function centerArrowsOnImage(){
+      const plate = realCards[0].querySelector('.project-card-plate');
+      if(!plate || !prevBtn || !nextBtn) return;
+      const plateHeight = plate.getBoundingClientRect().height;
+      const offset = Math.max(0, (plateHeight - prevBtn.offsetHeight) / 2);
+      prevBtn.style.marginTop = offset + 'px';
+      nextBtn.style.marginTop = offset + 'px';
+    }
+    centerArrowsOnImage();
+
+    if(prevBtn) prevBtn.addEventListener('click', () => { currentIndex -= 1; setScroll('smooth'); updateDots(); });
+    if(nextBtn) nextBtn.addEventListener('click', () => { currentIndex += 1; setScroll('smooth'); updateDots(); });
+
+    let settleTimer;
+    track.addEventListener('scroll', () => {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(() => {
+        if(currentIndex < n){
+          currentIndex += n;
+          setScroll('auto');
+        } else if(currentIndex >= n * 2){
+          currentIndex -= n;
+          setScroll('auto');
+        }
+        updateDots();
+      }, 120);
+    }, {passive: true});
+
+    window.addEventListener('resize', () => { setScroll('auto'); centerArrowsOnImage(); });
+  }
+
+  /* ---- Projecten-carrousel: oneindig doorlopende navigatie ---- */
+  initCarrousel('projectenTrack', 'projectenPrev', 'projectenNext', 'projectenDots', 'Ga naar project');
+
+  /* ---- Hulpmiddelen-carrousel: zelfde oneindige navigatie, voor de downloadbare tools ---- */
+  initCarrousel('hulpmiddelenTrack', 'hulpmiddelenPrev', 'hulpmiddelenNext', 'hulpmiddelenDots', 'Ga naar hulpmiddel');
+
+  /* ---- Afbeelding-lightbox: vergroot een "plate"-afbeelding op klik ---- */
+  function openImageLightbox(src, caption){
+    document.getElementById('image-lightbox-img').src = src;
+    document.getElementById('image-lightbox-img').alt = caption || '';
+    document.getElementById('image-lightbox-caption').textContent = caption || '';
+    document.getElementById('image-lightbox-overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeImageLightbox(){
+    document.getElementById('image-lightbox-overlay').classList.remove('show');
+    document.getElementById('image-lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+  document.getElementById('image-lightbox-overlay').addEventListener('click', (e) => {
+    if(e.target.id === 'image-lightbox-overlay') closeImageLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+      closeFunctieModal();
+      closeProjectModal();
+      closeToolModal();
+      closeFormatenModal();
+      closeImageLightbox();
+    }
+  });
+</script>
+
+<script>
+  const heroVideo = document.getElementById('heroVideo');
+  const videoToggle = document.getElementById('videoToggle');
+  if(heroVideo && videoToggle){
+    videoToggle.addEventListener('click', () => {
+      if(heroVideo.paused){
+        heroVideo.play();
+        videoToggle.classList.remove('paused');
+        videoToggle.setAttribute('aria-label','Video pauzeren');
+      } else {
+        heroVideo.pause();
+        videoToggle.classList.add('paused');
+        videoToggle.setAttribute('aria-label','Video afspelen');
+      }
+    });
+  }
+
+  const nav = document.getElementById('siteNav');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  function closeMobileMenu(){
+    nav.classList.remove('menu-open');
+    navToggle.setAttribute('aria-expanded','false');
+    document.querySelectorAll('.nav-item.open').forEach(i=>i.classList.remove('open'));
+  }
+
+  if(navToggle){
+    navToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('menu-open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      if(!isOpen){
+        document.querySelectorAll('.nav-item.open').forEach(i=>i.classList.remove('open'));
+      }
+    });
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const isMobile = window.matchMedia('(max-width:920px)').matches;
+      if(isMobile){
+        e.preventDefault();
+        const item = link.closest('.nav-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.nav-item.open').forEach(i => { if(i !== item) i.classList.remove('open'); });
+        item.classList.toggle('open', !wasOpen);
+      }
+    });
+  });
+
+  document.querySelectorAll('.dropdown a').forEach(a => {
+    a.addEventListener('click', () => { closeMobileMenu(); });
+  });
+
+  document.addEventListener('click', (e) => {
+    if(nav.classList.contains('menu-open') && !nav.contains(e.target)){
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('resize', () => {
+    if(window.innerWidth > 920){ closeMobileMenu(); }
+  });
+
+  const heroEl = document.querySelector('.hero');
+  const toTopCue = document.getElementById('toTopCue');
+
+  function updateOnScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    if(heroEl && toTopCue){
+      toTopCue.classList.toggle('visible', window.scrollY > heroEl.offsetHeight - 80);
+    }
+  }
+  window.addEventListener('scroll', updateOnScroll, {passive:true});
+  window.addEventListener('resize', updateOnScroll);
+  updateOnScroll();
+
+  const scrollCue = document.getElementById('scrollCue');
+  if(scrollCue){
+    scrollCue.addEventListener('click', () => {
+      const target = heroEl ? heroEl.nextElementSibling : null;
+      if(target){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      } else {
+        window.scrollTo({top: window.innerHeight, behavior:'smooth'});
+      }
+    });
+  }
+
+  if(toTopCue){
+    toTopCue.addEventListener('click', () => {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:0.15});
+    revealEls.forEach(el=>io.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
